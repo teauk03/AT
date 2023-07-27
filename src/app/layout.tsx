@@ -3,6 +3,7 @@ import React from "react";
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import AuthProvider from "@/components/AuthProvider/AuthProvider";
+import NavbarComponent from "@/components/Nav/Navbar";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,6 +21,7 @@ export default function RootLayout({children,}: {
       <body className={inter.className}>
           <AuthProvider>
             <div className='wrap'>
+            <NavbarComponent/>
               {children}
             </div>
           </AuthProvider>

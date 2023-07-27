@@ -7,28 +7,39 @@
 
   .item-button {
     border: none;
+  }
 
-    // Dropdown Menu
+  // Dropdown Menu
+  .list-wrapper {
+    width: 11.875rem;
+    height: 8.125rem;
+    top: 4.063rem;
+    right: 0;
+    left: auto;
+    border: 1px solid $border-color-forum;
+    border-radius: .5rem;
+    position: absolute;
+    padding: .5rem 0;
+
     .list {
-      width: 150px;
-      height: 90px;
       display: flex;
       flex-direction: column;
-      position: relative;
-      top: 60px;
-      right: 0;
-      left: auto;
+      align-content: center;
+      margin-bottom: 0;
 
       .list-item {
-        position: absolute;
+        padding: .5rem 1.5rem;
 
+        .item {
+          font-size: .875rem;
+          font-weight: 400;
+        }
       }
     }
   }
 
   .user-item {
     padding: 0 .5rem;
-    font-size: 16px;
   }
 
   .img-box {

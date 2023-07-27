@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from './UserLoginMenu.module.scss';
 import {Session} from "next-auth";
-import DropdownMenu from "@/components/Dropdown/DropdownMenu";
+import DropdownMenu from "@/components/Nav/Dropdown/DropdownMenu";
 import {useSession} from "next-auth/react";
 
 const UserLoginMenu = () => {
@@ -13,10 +13,12 @@ const UserLoginMenu = () => {
 
     return (
         <div className={styles['user-menu']}>
-            {
-                !session &&
+            {!session &&
                 <>
-                    <button className={styles['item-button']}>
+                    <button
+                        className={styles['item-button']}
+                        onClick={() => setMenuVisible(!isMenuVisible)}
+                    >
                         <Image
                             src={'/user.svg'}
                             alt="user profile pic"
@@ -25,15 +27,23 @@ const UserLoginMenu = () => {
                         />
                     </button>
                     {/* Dropdown Menu */}
-                    <div className={styles.list}>
-                        <Link className={styles['list-item']} href={'/login/'}>로그인</Link>
-                        <Link className={styles['list-item']} href={'/join/'}>회원가입</Link>
-                        <Link className={styles['list-item']} href={'/'}>고객센터</Link>
-                    </div>
-                </>
-            }
-            {
-                session?.user &&
+                    {isMenuVisible && <div className={styles['list-wrapper']}>
+                        <ul className={styles.list}>
+                            <li className={styles['list-item']}>
+                                <Link className={styles.item} href={'/login/'}>로그인</Link>
+                            </li>
+                            <li className={styles['list-item']}>
+                                <Link className={styles.item} href={'/join/'}>회원가입</Link>
+                            </li>
+                            <li className={styles['list-item']}>
+                                <Link className={styles.item} href={'/'}>고객센터</Link>
+                            </li>
+                        </ul>
+                    </div>}
+                </>}
+
+            {/* 로그인시 노출 */}
+            {session?.user &&
                 <>
                     <div
                         className={styles['img-box']}
@@ -50,8 +60,7 @@ const UserLoginMenu = () => {
                         <span>{session.user.name}</span>
                         {isMenuVisible && <DropdownMenu session={session}/>}
                     </li>
-                </>
-            }
+                </>}
         </div>
     );
 };

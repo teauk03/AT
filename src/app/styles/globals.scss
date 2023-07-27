@@ -66,16 +66,13 @@ span {
 }
 
 a {
+  color: variables.$base-font-color-dark;
   text-decoration: none;
   cursor: pointer;
 
   &:active,
   &:hover {
     outline: none;
-  }
-
-  &:hover {
-    text-decoration: underline;
   }
 }
 
