@@ -1,0 +1,33 @@
+@import 'src/app/styles/variables';
+
+.dropdown {
+  width: 15rem;
+  position: absolute;
+  border: 1px solid $base-font-color-dark;
+  background: $background-color-white;
+  border-radius: 5px;
+  top: 65px;
+  right: 0;
+}
+
+.section {
+  padding: .5rem;
+
+  .user {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    .menu {
+      display: flex;
+      align-items: center;
+
+      .user-img-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
+      }
+    }
+  }
+}
