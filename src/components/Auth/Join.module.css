@@ -1,9 +1,9 @@
 /*
-Error: File to import not found or unreadable: @/styles/variables.
+Error: File to import not found or unreadable: @/app/styles/variables.
         on line 1 of Join.module.scss
 
-1: @import "@/styles/variables";
-2: @import "@/styles/Breakpoints";
+1: @import "@/app/styles/variables";
+2: @import "@/app/styles/Breakpoints";
 3: 
 4: // Page
 5: .container {
@@ -48,4 +48,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: @/styles/variables.\A         on line 1 of Join.module.scss\A \A 1: @import \"@/styles/variables\";\A 2: @import \"@/styles/Breakpoints\";\A 3: \A 4: // Page\A 5: .container {\A 6:   width: 100vw;"; }
+  content: "Error: File to import not found or unreadable: @/app/styles/variables.\A         on line 1 of Join.module.scss\A \A 1: @import \"@/app/styles/variables\";\A 2: @import \"@/app/styles/Breakpoints\";\A 3: \A 4: // Page\A 5: .container {\A 6:   width: 100vw;"; }

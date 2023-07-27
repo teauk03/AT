@@ -35,20 +35,4 @@
       }
     }
   }
-
-  .user-menu {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
-    .user-item {
-      padding: 0 .5rem;
-      font-size: 16px;
-    }
-
-    .img-box {
-      display: flex;
-      cursor: pointer;
-    }
-  }
 }

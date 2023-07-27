@@ -3,6 +3,11 @@ Error: File to import not found or unreadable: src/app/styles/variables.
         on line 1 of UserLoginMenu.module.scss
 
 1: @import 'src/app/styles/variables';
+2: 
+3: .user-menu {
+4:   display: flex;
+5:   align-items: center;
+6:   justify-content: space-around;
 
 Backtrace:
 UserLoginMenu.module.scss:1
@@ -43,4 +48,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: src/app/styles/variables.\A         on line 1 of UserLoginMenu.module.scss\A \A 1: @import 'src/app/styles/variables';"; }
+  content: "Error: File to import not found or unreadable: src/app/styles/variables.\A         on line 1 of UserLoginMenu.module.scss\A \A 1: @import 'src/app/styles/variables';\A 2: \A 3: .user-menu {\A 4:   display: flex;\A 5:   align-items: center;\A 6:   justify-content: space-around;"; }

@@ -1,10 +1,8 @@
 import React from "react";
 
-import {getPosts} from "@/lib/post";
+import {getPosts} from "@/app/lib/post";
 import NoticeItem from "@/components/Notice/NoticeItem";
 import NoticeClientNavbar from "@/components/Notice/LNB/NoticeNavbar";
-import NoticeHeader from "@/components/Notice/Header/NoticeHeader";
-
 import styles from './notice.module.scss';
 
 export const dynamic: string = 'force-dynamic';

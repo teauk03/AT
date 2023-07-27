@@ -1,5 +1,5 @@
-@import "@/styles/variables";
-@import "@/styles/Breakpoints";
+@import "@/app/styles/variables";
+@import "@/app/styles/Breakpoints";
 
 .container {
   min-height: calc(100vh - 40px * 2);
@@ -17,7 +17,7 @@
   }
 
   .right {
-    background: $primary-color;
+    background: $base-color-white;
     display: flex;
     justify-content: center;
 
@@ -66,7 +66,7 @@
   }
 
   .input-box {
-    border: 1px solid $base-font-color;
+    border: 1px solid $base-font-color-dark;
     outline: none;
     height: 55px;
     padding: 0 2rem;
@@ -76,7 +76,7 @@
     font-size: 18px;
 
     &:focus {
-      border-color: $primary-color;
+      border-color: $base-color-white;
     }
   }
 

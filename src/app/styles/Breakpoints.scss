@@ -8,6 +8,21 @@
 }
 
 // Responsive Viewport (mobile, tablet)
+@mixin respond-to($device) {
+  @if $device == 'mobile' {
+    @media (max-width: 768px) { @content; }
+  }
+  @else if $device == 'tablet' {
+    @media (min-width: 769px) and (max-width: 1024px) { @content; }
+  }
+  @else if $device == 'laptop' {
+    @media (min-width: 1025px) and (max-width: 1440px) { @content; }
+  }
+  @else if $device == 'desktop' {
+    @media (min-width: 1441px) { @content; }
+  }
+}
+
 @mixin mobile {
   @media only screen and (min-width: variables.$responsive-mobile) {
     @content;

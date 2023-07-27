@@ -1,4 +1,4 @@
-import {connectDB} from "@/lib/database";
+import connectDB from "@/app/lib/mongoDb";
 import {ObjectId} from "mongodb";
 import styles from "@/app/(board)/write/write.module.scss";
 

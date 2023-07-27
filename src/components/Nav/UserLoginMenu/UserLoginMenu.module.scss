@@ -1,1 +1,38 @@
 @import 'src/app/styles/variables';
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  .item-button {
+    border: none;
+
+    // Dropdown Menu
+    .list {
+      width: 150px;
+      height: 90px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      top: 60px;
+      right: 0;
+      left: auto;
+
+      .list-item {
+        position: absolute;
+
+      }
+    }
+  }
+
+  .user-item {
+    padding: 0 .5rem;
+    font-size: 16px;
+  }
+
+  .img-box {
+    display: flex;
+    cursor: pointer;
+  }
+}

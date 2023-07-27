@@ -1,8 +1,8 @@
 'use client'
 import React, {useState} from 'react';
-import styles from './UserLoginMenu.module.scss';
 import Image from "next/image";
 import Link from "next/link";
+import styles from './UserLoginMenu.module.scss';
 import {Session} from "next-auth";
 import DropdownMenu from "@/components/Dropdown/DropdownMenu";
 import {useSession} from "next-auth/react";
@@ -16,7 +16,7 @@ const UserLoginMenu = () => {
             {
                 !session &&
                 <>
-                    <button className={styles.item}>
+                    <button className={styles['item-button']}>
                         <Image
                             src={'/user.svg'}
                             alt="user profile pic"
@@ -25,17 +25,20 @@ const UserLoginMenu = () => {
                         />
                     </button>
                     {/* Dropdown Menu */}
-                    <div className={styles.item}>
-                        <Link href={'/login/'}>로그인</Link>
-                        <Link href={'/join/'}>회원가입</Link>
-                        <Link href={'/'}>고객센터</Link>
+                    <div className={styles.list}>
+                        <Link className={styles['list-item']} href={'/login/'}>로그인</Link>
+                        <Link className={styles['list-item']} href={'/join/'}>회원가입</Link>
+                        <Link className={styles['list-item']} href={'/'}>고객센터</Link>
                     </div>
                 </>
             }
             {
                 session?.user &&
                 <>
-                    <div className={styles['img-box']} onClick={() => setMenuVisible(!isMenuVisible)}>
+                    <div
+                        className={styles['img-box']}
+                        onClick={() => setMenuVisible(!isMenuVisible)}
+                    >
                         <Image
                             src={'/user.svg'}
                             alt="user profile pic"

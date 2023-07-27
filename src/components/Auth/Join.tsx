@@ -1,10 +1,10 @@
 'use client'
 import React, {FC, useEffect} from 'react';
 import Link from "next/link";
-import { years, months, days } from "@/util/date";
+import { years, months, days } from "@/app/utils/date";
 
-import { useForm } from '@/hooks/Form/useForm';
-import { useSignUp } from '@/hooks/useSignUp';
+import { useForm } from '@/app/hooks/Form/useForm';
+import { useSignUp } from '@/app/hooks/useSignUp';
 
 import {EmailField} from '@/components/FormElements/EmailField';
 import {PasswordField} from '@/components/FormElements/PasswordField';
