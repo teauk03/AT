@@ -8,7 +8,7 @@ import img from '/public/image.svg';
 
 import github from "/public/github.svg"
 import google from "/public/google.svg"
-import {useLogin} from "@/app/hooks/useSignIn";
+import {useLogin} from "@/hooks/useSignIn";
 import SocialLoginButton from "../Button/SocialLoginButtons";
 import PrimaryButton from "@/components/Button/PrimaryButton";
 import PrimaryCheckBox from "@/components/CheckBox/PrimaryCheckBox";

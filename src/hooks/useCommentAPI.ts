@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { CommentData } from '../../types/Components/Comment';
+import { CommentData } from '../types/Components/Comment';
 
 const useCommentAPI = (id: string): [CommentData[], (comment: string) => void] => {
     const [data, setData] = useState<CommentData[]>([]);

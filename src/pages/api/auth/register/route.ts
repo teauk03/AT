@@ -2,8 +2,8 @@ import bcrypt from 'bcrypt';
 import {NextApiRequest, NextApiResponse} from "next";
 
 import {Db} from "mongodb";
-import connectDB from "@/app/lib/mongoDb";
-import {validatePassword, validateEmail} from '@/app/utils/validation';
+import connectDB from "@/lib/mongoDb";
+import {validatePassword, validateEmail} from '@/utils/validation';
 
 const handler = async (request: NextApiRequest, response: NextApiResponse): Promise<void> => {
     if (request.method == 'POST') {

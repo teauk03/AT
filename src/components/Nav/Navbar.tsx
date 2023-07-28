@@ -1,7 +1,7 @@
 'use client'
 import React from "react";
 import styles from './Navbar.module.scss';
-import menuItems from '@/app/data/menuItem';
+import menuItems from '@/data/menuItem';
 import Link from "next/link";
 import {usePathname} from 'next/navigation';
 import UserLoginMenu from "@/components/Nav/UserLoginMenu/UserLoginMenu";

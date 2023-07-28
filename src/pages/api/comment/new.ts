@@ -1,9 +1,9 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import {connectDB} from "@/lib/database";
-import {authOptions} from "../auth/[...nextauth]";
+import {authOptions} from "@/pages/api/auth/[...nextauth]";
 import {Db, ObjectId} from "mongodb";
 import {getServerSession} from "next-auth";
-import {Session} from "../../../../types/Auth";
+import {Session} from "../../../types/Auth";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse): Promise<NextApiResponse | undefined> => {
     let session: Session | null = await getServerSession(req, res, authOptions)

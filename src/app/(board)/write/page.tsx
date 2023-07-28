@@ -1,6 +1,6 @@
 'use client'
 import styles from './write.module.scss'
-import useCreatePost from "@/app/hooks/Form/useCreatePost";
+import useCreatePost from "@/hooks/Form/useCreatePost";
 
 const Write = () => {
     const { handleSubmit, isLoading } = useCreatePost({

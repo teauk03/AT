@@ -1,4 +1,4 @@
-import connectDB from "@/app/lib/mongoDb";
+import connectDB from "@/lib/mongoDb";
 import {Post} from "@/types/db";
 import {Db} from "mongodb";
 

@@ -1,8 +1,9 @@
-@import 'src/app/styles/variables';
+@import '../../../styles/variables';
 
 .user-menu {
   display: flex;
   align-items: center;
+  align-content: center;
   justify-content: space-around;
 
   .item-button {
@@ -16,6 +17,7 @@
     top: 4.063rem;
     right: 0;
     left: auto;
+    background: $background-color-white;
     border: 1px solid $border-color-forum;
     border-radius: .5rem;
     position: absolute;
@@ -38,12 +40,13 @@
     }
   }
 
-  .user-item {
-    padding: 0 .5rem;
-  }
-
   .img-box {
     display: flex;
+    align-items: center;
     cursor: pointer;
+
+    .info {
+      padding: .3rem;
+    }
   }
 }

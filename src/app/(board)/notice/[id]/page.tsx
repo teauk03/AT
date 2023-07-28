@@ -1,4 +1,4 @@
-import connectDB from "@/app/lib/mongoDb";
+import connectDB from "@/lib/mongoDb";
 import {Db, ObjectId} from "mongodb";
 import {Comment} from "@/components/Comment/Comment";
 import DetailsIndex from "@/components/Notice/DetailsPage/DetailsIndex";
