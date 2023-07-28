@@ -15,4 +15,8 @@ const validateName = (name: string): boolean => {
 }
 
 
-export {validatePassword, validateEmail, validateName}
+export {
+    validatePassword,
+    validateEmail,
+    validateName
+}

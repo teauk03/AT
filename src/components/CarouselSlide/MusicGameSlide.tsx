@@ -2,10 +2,13 @@
 import React, {useState} from 'react';
 import styles from './MusicGameSlide.module.scss';
 import games from '@/data/carouselItem';
+import useCarouselSlide from '@/hooks/UI/useCarouselSlide';
+import CarouselDotButton from "@/components/CarouselSlide/CarouselButton/CarouselDotButton";
 
 const MusicGameSlide = () => {
+    const { current, setCurrent } = useCarouselSlide();
+
     const [activeItem, setActiveItem] = useState<number | null>(null);
-    const [current, setCurrent] = useState(0);
 
     const handleItemClick = (index: number) => {
         setActiveItem(index === activeItem ? null : index);
@@ -54,19 +57,10 @@ const MusicGameSlide = () => {
                     </div>
                 </div>
                 {/* Carousel Button */}
-                <div className={styles['slide-dots']}>
-                    {games.map((_, index) => (
-                        <button
-                            key={index}
-                            onClick={() => setCurrent(index)}
-                            className={styles['slide-btn']}
-                        >
-                            {current === index
-                                ? <span className={styles['dot-active']}></span>
-                                : <span className={styles['dot-passive']}></span>}
-                        </button>
-                    ))}
-                </div>
+                <CarouselDotButton
+                    current={current}
+                    setCurrent={setCurrent}
+                />
             </section>
         </>
     );
