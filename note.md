@@ -1,0 +1,3 @@
+- 단축키 (Web Storm)
+    - 찾은단어 모두 선택 : Ctrl + F로 단어 선택 후, Ctrl + Alt + Shift + J
+    - 우측 코드 바 액티브(논 애티브) : Ctrl + Shift + G

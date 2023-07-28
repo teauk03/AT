@@ -38,7 +38,7 @@ const DropdownMenu = ({session}: { session: Session | null }) => {
                                 height={30}
                             />
                         </div>
-                        <Link href="/">Settings</Link>
+                        <Link href="/">대시보드</Link>
                     </li>
                     <li className={styles.menu}>
                         <div className={styles['user-img-wrapper']}>
@@ -48,7 +48,7 @@ const DropdownMenu = ({session}: { session: Session | null }) => {
                                 height={30}
                             />
                         </div>
-                        <Link href="/" onClick={handleSignOut}>Sign Out</Link>
+                        <Link href="/" onClick={handleSignOut}>로그아웃</Link>
                     </li>
                 </ul>
             </div>

@@ -55,11 +55,9 @@ const UserLoginMenu = () => {
                             width={30}
                             height={30}
                         />
+                        <span className={styles.info}>{session.user.name}</span>
                     </div>
-                    <li className={styles['user-item']}>
-                        <span>{session.user.name}</span>
-                        {isMenuVisible && <DropdownMenu session={session}/>}
-                    </li>
+                    {isMenuVisible && <DropdownMenu session={session}/>}
                 </>}
         </div>
     );

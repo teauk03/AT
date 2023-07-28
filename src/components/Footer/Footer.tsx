@@ -5,7 +5,7 @@ import styles from './Footer.module.scss';
 import {faFacebook, faInstagram, faTwitter} from '@fortawesome/free-brands-svg-icons';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-const FooterClientComponent = () => {
+const FooterComponent = () => {
     return (
         <footer className={styles.page}>
             <section className={styles.service}>
@@ -97,4 +97,4 @@ const FooterClientComponent = () => {
     );
 }
 
-export {FooterClientComponent}
+export default FooterComponent;

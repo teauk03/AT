@@ -25,15 +25,21 @@
    ```
 
 2. Directory
-   - app
-     - api
-     - data
-     - hooks
-     - lib
-     - styles
-     - utils
-   - components
-   - context
+   - src
+      - app
+      - components
+      - context
+      - data
+      - hooks
+      - lib
+      - pages
+        - api
+      - styles
+      - types
+      - utils
+      - middleware.ts
 
 3. Feature
-   - Login
+   - Navigation
+     - Home (Link)
+     - Login
