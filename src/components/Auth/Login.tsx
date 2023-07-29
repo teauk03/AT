@@ -3,20 +3,21 @@ import React from "react";
 import styles from "./Login.module.scss";
 
 import Link from "next/link";
-import Image from "next/image";
-import img from '/public/image.svg';
-
 import github from "/public/github.svg"
 import google from "/public/google.svg"
+
 import {useLogin} from "@/hooks/useSignIn";
-import SocialLoginButton from "../Button/SocialLoginButtons";
+import SocialLoginButton from "@/components/Button/SocialLoginButtons";
 import PrimaryButton from "@/components/Button/PrimaryButton";
 import PrimaryCheckBox from "@/components/CheckBox/PrimaryCheckBox";
+import InputBox from "@/components/Auth/Input/InputBox";
+
+
 
 const LoginComponent = (): JSX.Element => {
     const {login, error, isLoading} = useLogin();
 
-    const handleSubmit = async (event: React.FormEvent) => {
+    const handleSubmit = async (event: React.FormEvent): Promise<void> => {
         event.preventDefault();
         const target = event.target as typeof event.target & {
             email: { value: string };
@@ -28,24 +29,50 @@ const LoginComponent = (): JSX.Element => {
         try {
             await login(email, password);
         } catch (error) {
-            console.error(error);
-            alert(error + '로 인해 로그인에 실패했습니다.');
+            console.error(`error : ${error}`);
+            alert(`로그인에 실패했습니다.`);
         }
     }
 
     return (
-        <>
+        // Container
+        <main className={styles.main}>
             <div className={styles.container}>
-                <div className={styles.left}>
-                    <header className={styles.header}>
-                        {/* Login Header */}
-                        <div className={styles.wrapper}>
-                            <h1>Welcome to Our Application</h1>
-                            <span>
-                                {"Don't have an account?"}{' '}
-                                <Link href={'/join'}>Sign Up</Link>
-                            </span>
-                        </div>
+                <div className={styles.login}>
+                    {/* Logo */}
+                    <h1 className={styles['login-logo']}>
+                        Welcome to Our Application
+                    </h1>
+                    <form className={styles.form} onSubmit={handleSubmit} noValidate>
+                        {/* E-mail Input & Error */}
+                        <InputBox
+                            name={'email'}
+                            type={'email'}
+                            label={'이메일을 입력하세요.'}
+                            autoComplete={'current-email'}
+                        />
+
+                        {/* Password Input & Error */}
+                        <InputBox
+                            name={'password'}
+                            type={'password'}
+                            label={'비밀번호를 입력하세요.'}
+                            autoComplete={'current-password'}
+                        />
+
+                        {/* Error */}
+                        {error &&
+                            <div className={styles['input-error']}>
+                                <span className={styles['error-text']}>{error}</span>
+                            </div>
+                        }
+
+                        {/* Remember Password & Check bok */}
+                        <PrimaryCheckBox/>
+
+                        {/* Login Button */}
+                        <PrimaryButton disabled={isLoading}/>
+
                         {/* Social Login */}
                         <div className={styles['login-social']}>
                             <SocialLoginButton
@@ -59,46 +86,27 @@ const LoginComponent = (): JSX.Element => {
                                 alt='Login for Google'
                             />
                         </div>
-                    </header>
-
-                    <form className={styles.form} onSubmit={handleSubmit}>
-                        <div className={styles['form-content']}>
-                            {/* E-mail Input */}
-                            <div className={styles['form-item']}>
-                                <label htmlFor="emailForm">Enter Email</label>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    id="emailForm"
-                                    className={styles['input-box']}
-                                />
-                            </div>
-
-                            {/* Password Input */}
-                            <div className={styles['form-item']}>
-                                <label htmlFor="passwordForm">Enter Password</label>
-                                <input
-                                    type='password'
-                                    name='password'
-                                    id='passwordForm'
-                                    className={styles['input-box']}
-                                />
-                            </div>
-
-                            {/* Remember Password - Check bok */}
-                            <PrimaryCheckBox />
-
-                            {/* Login Button */}
-                            <PrimaryButton/>
-                        </div>
                     </form>
-                </div>
 
-                <div className={styles.right}>
-                    <Image src={img} alt={'Login page screenshot'}/>
+                    {/* New Account */}
+                    <div className={styles['create-account']}>
+                        {"계정이 없으신가요?"}{' '}
+                        <span className={styles.link}><Link href={'/join'}>회원가입</Link></span>
+                    </div>
+
+                    {/* Find Account */}
+                    <div className={styles['find-account']}>
+                        {"계정을 분실하셨나요 ?"}{' '}
+                        <span className={styles.link}>
+                            <Link href={'/id'}>아이디 찾기</Link>
+                        </span>{' 또는 '}
+                        <span className={styles.link}>
+                            <Link href={'/pwd'}>비밀번호 변경</Link>
+                        </span>
+                    </div>
                 </div>
             </div>
-        </>
+        </main>
     )
 }
 

@@ -1,120 +1,59 @@
-@import "@/app/styles/variables";
-@import "@/app/styles/Breakpoints";
+@import "@/styles/variables";
+@import "@/styles/Breakpoints";
 
-.container {
-  min-height: calc(100vh - 40px * 2);
-  display: grid;
-  grid-template-columns: 50% 50%;
-  border-radius: 10px;
-  overflow: hidden;
+.main {
+  width: 100%;
+  min-height: 37.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  background-color: $bg-color-white;
 
-  .left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 150px;
-    background-color: white;
-  }
+  .container {
+    width: 31.25rem;
+    margin: 0 auto;
+    padding: 2.5rem 0 1.875rem 0;
 
-  .right {
-    background: $base-color-white;
-    display: flex;
-    justify-content: center;
+    .login {
+      max-width: 23.125rem;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
 
-    img {
-      width: 80%;
-    }
-  }
-
-  // herder
-  .header {
-    margin-bottom: 3.125rem;
-
-    .wrapper {
-      margin-bottom: 1rem;
-
-      h1 {
+      .login-logo {
         font-size: 2.5rem;
         margin-bottom: 0.625rem;
       }
 
-      p {
-        opacity: .7;
+      // login form
+      .form {
+        display: flex;
+        flex-direction: column;
+        gap: .188rem;
+
+        .input-error {
+          margin: 0 1.563rem 0 auto;
+
+          .error-text {
+            font-size: .75rem;
+            color: red;
+          }
+        }
+      }
+
+      // Create & Find Account
+      .create-account,
+      .find-account {
+        width: 19.999rem;
+        font-size: 12px;
+        //margin-right: auto;
+
+        .link {
+          font-weight: 600;
+        }
       }
     }
-  }
-
-  // login form
-  .form {
-    width: 28.125rem;
-
-    &-content {
-      display: flex;
-      flex-direction: column;
-      gap: 35px;
-    }
-  }
-
-  .form-item label:not(.checkboxLabel) {
-    display: inline-block;
-    background-color: white;
-    margin-bottom: 10px;
-    position: absolute;
-    padding: 0 10px;
-    transform: translate(30px, -10px);
-    font-size: 14px;
-  }
-
-  .input-box {
-    border: 1px solid $base-font-color-dark;
-    outline: none;
-    height: 55px;
-    padding: 0 2rem;
-    border-radius: 100px;
-    width: 100%;
-    transition: background .5s;
-    font-size: 18px;
-
-    &:focus {
-      border-color: $base-color-white;
-    }
-  }
-
-  .checkbox {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-  }
-}
-
-// Responsive
-@include respond-to('laptop') {
-  .left {
-    padding: 50px !important;
-  }
-
-  .form {
-    width: 100%;
-
-
-    &-footer {
-      flex-direction: column;
-      gap: 15px;
-    }
-
-  }
-}
-
-@include respond-to('mobile') {
-  .page {
-    padding: 20px;
-  }
-
-  .container {
-    grid-template-columns: auto;
-  }
-
-  .right {
-    display: none;
   }
 }

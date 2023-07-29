@@ -1,13 +1,22 @@
+'use client'
+
 import React from 'react';
+import { useSearchParams } from 'next/navigation'
 import styles from './PrimaryButton.module.scss'
 
-const PrimaryButton = () => {
+interface PrimaryButtonProps {
+    disabled: boolean;
+}
+
+const PrimaryButton = ({disabled}: PrimaryButtonProps) => {
     return (
-        <>
-            <button className={styles['submit-btn']} type="submit">
-                Sign In
-            </button>
-        </>
+        <button
+            className={styles['submit-btn']}
+            disabled={disabled}
+            type="submit"
+        >
+            로그인
+        </button>
     );
 };
 
