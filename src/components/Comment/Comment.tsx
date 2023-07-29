@@ -1,8 +1,9 @@
 'use client'
-import {ChangeEvent, useState} from "react";
+import {useState} from "react";
 import styles from './Comment.module.scss';
-import {CommentProps} from '../../../types/Components/Comment';
+import {CommentProps} from '@/types/Components/Comment';
 import {useCommentAPI} from '@/hooks/useCommentAPI';
+import GetCommentButton from "@/components/Comment/CommentButton";
 
 const Comment = (props: CommentProps): JSX.Element => {
     let [comment, setComment] = useState<string>('');
@@ -23,13 +24,12 @@ const Comment = (props: CommentProps): JSX.Element => {
             {/* Submit Button */}
             <div className={styles['btn-wrapper']}>
                 <p className={styles.count}>0 / 300</p>
-                <button
-                    className={styles['submit-btn']}
-                    onClick={(): void => {
-                        postComment(comment);
-                    }}>등록
-                </button>
+                <GetCommentButton
+                    comment={comment}
+                    postComment={postComment}
+                />
             </div>
+
             {/* Comment - (T : Comment , F: 등록된 댓글이 없습니다.) */}
             <div className={styles['comment-wrapper']}>
                 <h3 className={styles['comment-title']}>댓글</h3>

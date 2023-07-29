@@ -1,0 +1,47 @@
+.input-wrapper {
+  position: relative;
+  width: 18.75rem;
+  padding-top: 3rem; }
+  .input-wrapper .input-item {
+    font-size: 15px;
+    color: #222222;
+    width: 18.75rem;
+    border: none;
+    border-bottom: solid #aaa 1px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    position: relative;
+    background: none;
+    z-index: 5; }
+    .input-wrapper .input-item::placeholder {
+      color: #aaa; }
+    .input-wrapper .input-item:focus {
+      outline: none; }
+  .input-wrapper .input-label {
+    position: absolute;
+    color: #aaa;
+    left: 10px;
+    font-size: .938rem;
+    bottom: 8px;
+    transition: all .2s; }
+  .input-wrapper .input-bottom {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #666;
+    width: 0;
+    height: 2px;
+    border-radius: 2px;
+    transition: 0.5s; }
+  .input-wrapper .input-item:focus ~ .input-label,
+  .input-wrapper .input-item:valid ~ .input-label {
+    font-size: .875rem;
+    bottom: 2.5rem;
+    color: #666;
+    font-weight: bold; }
+  .input-wrapper .input-item:focus ~ .input-bottom,
+  .input-wrapper .input-item:valid ~ .input-bottom {
+    width: 100%; }
+
+/*# sourceMappingURL=InputBox.module.css.map */

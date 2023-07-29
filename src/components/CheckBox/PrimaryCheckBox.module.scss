@@ -1,0 +1,27 @@
+@import "/src/styles/variables";
+@import "/src/styles/Breakpoints";
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.check-label {
+  font-size: 14px;
+}
+
+.input-box {
+  border: 1px solid $base-font-color-dark;
+  outline: none;
+  height: 55px;
+  padding: 0 2rem;
+  border-radius: 100px;
+  width: 100%;
+  transition: background .5s;
+  font-size: 18px;
+
+  &:focus {
+    border-color: $base-color-white;
+  }
+}

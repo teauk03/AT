@@ -1,11 +1,21 @@
+'use client'
 import React from 'react';
+import styles from './CommentButton.module.scss'
 
-const CommentButton = () => {
+interface CommentProps {
+    comment: string;
+    postComment: (comment: string) => void
+}
+
+const GetCommentButton = ({comment, postComment}: CommentProps) => {
     return (
-        <div>
-            
-        </div>
+        <button
+            className={styles['submit-btn']}
+            onClick={(): void => {
+                postComment(comment);
+            }}>등록
+        </button>
     );
 };
 
-export default CommentButton;
+export default GetCommentButton;
