@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SignupData } from '../types/Auth';
+import { SignupData } from '@/types/Auth';
 
 /**
  * useSignup은 회원 가입을 처리하는 ReactHook입니다.

@@ -1,29 +1,39 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
-import { CommentData } from '../types/Components/Comment';
+import { CommentData } from '@/types/Components/Comment';
+
 
 const useCommentAPI = (id: string): [CommentData[], (comment: string) => void] => {
     const [data, setData] = useState<CommentData[]>([]);
     const [refresh, setRefresh] = useState<boolean>(false);
 
-    useEffect((): void => {
-        fetch('/api/comment/list?id=' + id)
-            .then(response => response.json())
-            .then(result => {
-                setData(result as CommentData[]);
-            })
+    useEffect(() => {
+        const fetchData = async (): Promise<void> => {
+            try {
+                const response = await axios.get(`/api/comment/list?id=${id}`);
+                setData(response.data as CommentData[]);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        fetchData().catch(error => console.error(error));
     }, [id, refresh]);
 
-    const postComment = (comment: string): void => {
-        fetch('/api/comment/new', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
+
+    const postComment = async (comment: string): Promise<void> => {
+        try {
+            await axios.post('/api/comment/new', {
                 comment,
                 _id: id,
-            }),
-        }).then(() => setRefresh(!refresh));
+            }, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            setRefresh(!refresh);
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     return [data, postComment];

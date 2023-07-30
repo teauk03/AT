@@ -1,101 +1,152 @@
-@import "@/app/styles/variables";
-@import "@/app/styles/Breakpoints";
+@import "@/styles/variables";
+@import "@/styles/Breakpoints";
 
 // Page
 .container {
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  flex: 1 0 auto;
+  background: $bg-color-white;
 
   .contents {
-    margin: 50px 30px 50px 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 60%;
+    width: 31.25rem;
+    margin: 0 auto;
+    padding: 2.5rem 0 1.875rem 0;
 
-    // Header-Section
-    .header {
-      margin-bottom: 2em;
-
-      h1 {
-        margin-bottom: 0.9375rem;
-      }
-    }
-
-    // Sign-Up Form
-    .form {
-      width: 320px;
+    .join {
+      max-width: 23.125rem;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      gap: 10px;
 
-      &-fieldset {
-        border: none;
-        margin: 0 0 1.5625rem;
-        padding: 0;
+      /* Section (Header) */
+      .title-wrapper {
+        width: 100%;
+        margin-bottom: 1em;
 
-        .input-label {
-          margin-bottom: 0.5em;
-          position: relative;
-          font-weight: bold;
-          line-height: 13px;
-          letter-spacing: 0.02rem;
+        .title {
+          margin-bottom: 0.9375rem;
+          text-align: center;
+          font-size: 2.25rem;
+        }
 
-          .input-item {
+        .link-wrapper {
+          margin-left: auto;
+          font-size: .75rem;
+
+          .sub-text {
+            margin-left: 1.875rem;
+          }
+
+          a {
+            font-size: .938rem;
+            font-weight: 600;
+          }
+        }
+      }
+
+      /* Section (Social Login) */
+      .social-wrapper {
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Division Line */
+      .division-line {
+        width: 100%;
+        padding: .625rem 0;
+        margin-bottom: .5rem;
+        display: flex;
+        align-items: center;
+
+        &::before,
+        &::after {
+          content: "";
+          flex: 1 1 10%;
+          width: calc(40% - 20px);
+          border-bottom: 1px solid rgb(193,199,198);
+          margin: 0 .625rem;
+          transform: translateY(-50%);
+        }
+
+        .line-text {
+          font-size: .813rem;
+          line-height: 16px;
+          font-weight: normal;
+          text-align: center;
+          color: $base-font-color-dark;
+        }
+      }
+
+
+      /* Form (Sign-Up) */
+      .form {
+        width: 20rem;
+        display: flex;
+        flex-direction: column;
+
+        &-fieldset {
+          border: none;
+          margin: 0 0 1.5625rem;
+          padding: 0;
+
+          .input-label {
+            margin-bottom: 0.5em;
+            position: relative;
+            font-weight: bold;
+            line-height: .813rem;
+            letter-spacing: 0.02rem;
+
+            .input-item {
+              display: flex;
+              flex-direction: column;
+              margin-top: 0.5rem;
+              width: 20rem;
+
+              .input-box {
+                height: 2.5rem;
+                padding-left: 0.7rem;
+                outline: none;
+                border-radius: 5px;
+                transition: border-color 150ms ease-in-out 0s, box-shadow;
+              }
+            }
+          }
+
+          /* Day of Birth (DropDown) */
+          .date-input {
             display: flex;
-            flex-direction: column;
-            margin-top: 0.5rem;
-            width: 320px;
+            flex-direction: row;
+            justify-content: space-between;
 
-            .input-box {
-              height: 40px;
-              padding-left: 0.7rem;
-              outline: none;
-              border-radius: 5px;
-              transition: border-color 150ms ease-in-out 0s, box-shadow;
+            .select-box {
+              width: 6.25rem;
+              padding: 0.5rem;
+              border: 1px solid #ccc;
             }
           }
         }
 
-        // Day of Birth
-        .date-input {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
+        /* Button Design */
+        .submit-btn {
+          width: 100%;
+          padding: 1em;
+          background: #0070f3;
+          color: #fff;
+          border: none;
+          border-radius: 5px;
 
-          .select-box {
-            width: 100px;
-            padding: 0.5em;
-            border: 1px solid #ccc;
+          &:hover {
+            background: #3190ff;
           }
         }
       }
 
-      &Social {
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 1rem;
-      }
-
-
-      // Button
-      .submit-btn {
-        width: 100%;
-        padding: 1em;
-        background-color: #0070f3;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
+      /* End Form */
     }
-  }
-
-  .left {
-    width: 40%;
-    background-image: url('https://account.mongodb.com/static/images/auth/login_desktop.png'); // 이미지 경로를 여기에 입력하세요.
-    background-size: cover;
-    background-position: center;
   }
 }
