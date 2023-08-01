@@ -14,11 +14,11 @@ interface UserData {
 }
 
 interface UserDataProps {
-    userData: UserData;
+    user: UserData;
 }
 
-const UserAccountComponent = ({userData}: UserDataProps): JSX.Element => {
-    console.log(userData)
+const UserAccountComponent = ({user}: UserDataProps): JSX.Element => {
+
     return (
         <div className={styles['profile-container']}>
             {/* Side Navbar */}
@@ -32,7 +32,7 @@ const UserAccountComponent = ({userData}: UserDataProps): JSX.Element => {
                             width={40}
                             height={40}
                         />
-                        <span>서강준</span>
+                        <span>{user ? user.name : "Loading..."}</span>
                     </div>
 
                     <div className={styles['section-info']}>

@@ -4,9 +4,18 @@ import styles from './Navbar.module.scss';
 import Link from "next/link";
 import UserLoginMenu from "@/components/Navbar/UserLoginMenu/UserLoginMenu";
 import NavItems from "@/components/Navbar/NavItems/NavItems";
-import {signIn} from "next-auth/react";
+import {useSession} from "next-auth/react";
+import { GLB_MENU_ITEMS } from "@/data/menuItem";
+
+interface MenuItem {
+    title: string;
+    route: string;
+}
 
 const NavbarComponent = () => {
+    const { data: session } = useSession();
+    const [gblMenuItems, setGlbMenuItems] = useState<MenuItem[]>(GLB_MENU_ITEMS);
+
     // [State] 모달 클릭 여부
     const [isMenClicked, setMenuClicked] = useState(false);
     const modalRef = useRef<HTMLElement | null>(null);
@@ -28,16 +37,39 @@ const NavbarComponent = () => {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
+    // 사용자가 로그인하거나 로그아웃할 때마다 setGlbMenuItems 업데이트
+    useEffect(() => {
+        // [Test] 로그인시 네비게이션 메뉴 Dashboard 탭 라우팅 : /user/${session.user._id}
+        if (session?.user?._id) {
+            setGlbMenuItems((prevMenuItems) => {
+                return prevMenuItems.map((item) =>
+                    item.title === 'Dashboard' ? { ...item, route: `/user/${session.user._id}` } : item
+                );
+            });
+        }
+
+        // [Test] 로그인 하지 않을경우 네비게이션 메뉴 Dashboard 탭 라우팅 : /
+        else {
+            setGlbMenuItems((prevMenuItems) =>
+                prevMenuItems.map((item) =>
+                    item.title === 'Dashboard' ? { ...item, route: '/' } : item
+                )
+            );
+        }
+    }, [session]);
+
     return (
         <header className={styles.header} ref={modalRef}>
             {/* Navigation Menu */}
             <nav className={styles.navigation} role={"GLB - Navigation"}>
+
                 {/* Home Icon 133.971 x 31.994 */}
                 <div className={styles.logo}>
                     <Link href="/">Arduino</Link>
                 </div>
-                {/* Navigation Item */}
-                <NavItems/>
+
+                {/* Navigation Item props : gblMenuItems[array] */}
+                <NavItems gblMenuItems={gblMenuItems}/>
             </nav>
 
             {/* User Login Menu */}

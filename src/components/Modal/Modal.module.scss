@@ -1,0 +1,40 @@
+@import "/src/styles/variables";
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  .modal-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background: $base-color-white;
+    border-radius: 8px;
+
+    .modal-text {
+      font-size: 14px;
+    }
+
+    .abort-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+
+      .abort-btn {
+        width: 30%;
+      }
+
+      .success-btn {
+        width: 30%;
+      }
+    }
+  }
+}

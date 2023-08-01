@@ -1,10 +1,16 @@
 // Navbar Menu Array
-const menuItems = [
+const GLB_MENU_ITEMS = [
     {title: 'Forum', route: '/notice'},
-    {title: 'ID', route: '/id'},
-    {title: 'PWD', route: '/pwd'},
     {title: 'Admin', route: '/admin'},
-    {title: 'Dashboard', route: '/dashboard'},
+    {title: 'Dashboard', route: '/user'},
 ];
 
-export default menuItems;
+const sideMenuItem = [
+    {title: 'Basic Info', route: '/user'},
+    {title: 'Account', route: '/'},
+    {title: 'Notification', route: '/'},
+    {title: 'Display', route: '/'},
+    {title: 'Language', route: '/'},
+]
+
+export {GLB_MENU_ITEMS, sideMenuItem};

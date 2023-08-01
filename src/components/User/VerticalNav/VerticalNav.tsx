@@ -23,7 +23,7 @@ const VerticalNav = (): JSX.Element => {
                         {item.title}
                     </Link>
                 ))}
-           </div>
+            </div>
         </nav>
     )
 }

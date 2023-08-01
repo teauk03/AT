@@ -2,7 +2,7 @@
 import NextAuth, {NextAuthOptions} from "next-auth";
 import bcrypt from 'bcrypt';
 
-import {connectDB} from "@/lib/database";
+import connectDB from "@/lib/mongoDb";
 import {MongoDBAdapter} from "@next-auth/mongodb-adapter";
 
 import GithubProvider from "next-auth/providers/github";
@@ -80,9 +80,10 @@ export const authOptions: NextAuthOptions = {
                 }
 
                 return {
+                    _id: user._id,
                     name: user.name,
                     email: user.email,
-                    birth: user.birth,
+                    birth: user.birthdate,
                 };
             }
         })
@@ -103,6 +104,7 @@ export const authOptions: NextAuthOptions = {
         jwt: async ({token, user, account}: { token: any; user: any; account: any }) => {
             if (user) {
                 token.user = {};
+                token.user._id = user._id;
                 token.user.name = user.name;
                 token.user.email = user.email;
                 token.user.phoneNumber = user.phoneNumber;

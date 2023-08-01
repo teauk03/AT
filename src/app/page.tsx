@@ -1,6 +1,6 @@
 import styles from './page.module.scss';
-import {GetStartButton} from "@/components/Button/DynamicHome/GetStartButton"
-import {FooterClientComponent} from "@/components/Footer/Footer";
+import DynamicButton from "@/components/Button/DynamicButton/DynamicButton"
+import FooterClientComponent from "@/components/Footer/Footer";
 import React from "react";
 
 export default async function Home(): Promise<JSX.Element> {
@@ -14,7 +14,6 @@ export default async function Home(): Promise<JSX.Element> {
                             <h1>Online Arduino Simulation</h1>
                             <p>Turn your Arduino ideas into reality using an Arduino simulator web app!</p>
                         </div>
-                            <GetStartButton/>
                     </section>
 
                     {/* Content2 */}

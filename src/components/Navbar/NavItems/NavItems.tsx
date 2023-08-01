@@ -3,17 +3,24 @@ import React from 'react';
 import styles from "./NavItems.module.scss";
 
 import Link from "next/link";
-import {menuItems} from '@/data/menuItem';
-
 import {usePathname} from 'next/navigation';
 
-const NavItems = () => {
+interface MenuItem {
+    title: string;
+    route: string;
+};
+
+interface MenuItemProps {
+    gblMenuItems: MenuItem[];
+};
+
+const NavItems = ({gblMenuItems}: MenuItemProps) => {
     {/* Get the current route */}
     const currentRoute = usePathname();
 
     return (
         <ul className={styles.menu}>
-            {menuItems.map((item) => (
+            {gblMenuItems.map((item) => (
                 <li className={styles['user-item']} key={item.route}>
                     <Link href={item.route}
                           className={currentRoute === item.route

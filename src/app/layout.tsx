@@ -1,11 +1,9 @@
 import '@/styles/globals.scss'
 import {Inter} from 'next/font/google'
 import {Metadata} from "next";
-import {Session} from "inspector";
-import {authOptions} from "@/pages/api/auth/[...nextauth]";
-import {getServerSession} from "next-auth";
-import Providers from "@/context/Providers";
+import AuthProvider from "@/components/AuthProvider/AuthProvider";
 import {NavbarComponent} from "@/components/Navbar/Navbar";
+import React from "react";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -17,17 +15,16 @@ export const metadata: Metadata = {
 export default async function RootLayout({children}: {
     children: React.ReactNode
 }): Promise<JSX.Element> {
-    let session: Session | null = await getServerSession(authOptions)
 
     return (
         <html lang="ko">
         <body className={inter.className}>
-        <Providers>
+        <AuthProvider>
                 <div className="wrap">
             <NavbarComponent/>
                     {children}
                 </div>
-        </Providers>
+        </AuthProvider>
         </body>
         </html>
     )
