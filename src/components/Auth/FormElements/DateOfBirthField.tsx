@@ -1,5 +1,5 @@
 import {ChangeEvent, FC} from 'react';
-import { years, months, days } from "@/util/date";
+import { years, months, days } from "@/utils/date";
 
 import styles from '@/components/Auth/Join.module.scss';
 

@@ -1,23 +1,18 @@
-import { useState, ChangeEvent } from 'react';
+import {useState, ChangeEvent, useEffect} from 'react';
 
-const useDateOfBirthField = (initialYear: string, initialMonth: string, initialDay: string) => {
-    const [year, setYear] = useState(initialYear);
-    const [month, setMonth] = useState(initialMonth);
-    const [day, setDay] = useState(initialDay);
+const useDateOfBirthField = (initialValue: string, initialBirth: (birth: string) => boolean) => {
+    const [birth, setBirth] = useState(initialValue);
+    const [isBirthValid, setBirthValid] = useState(false);
 
-    const handleYearChange = (e: ChangeEvent<HTMLSelectElement>) => {
-        setYear(e.target.value);
+    useEffect(() => {
+        setBirthValid(initialBirth(birth));
+    }, [birth, initialBirth]);
+
+    const handleBirthChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setBirth(e.target.value);
     }
 
-    const handleMonthChange = (e: ChangeEvent<HTMLSelectElement>) => {
-        setMonth(e.target.value);
-    }
-
-    const handleDayChange = (e: ChangeEvent<HTMLSelectElement>) => {
-        setDay(e.target.value);
-    }
-
-    return { year, month, day, handleYearChange, handleMonthChange, handleDayChange };
+    return { birth, isBirthValid, handleBirthChange };
 }
 
 export default useDateOfBirthField;

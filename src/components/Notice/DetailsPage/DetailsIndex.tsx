@@ -2,7 +2,7 @@
 import React, {useState} from 'react';
 import Link from "next/link";
 import styles from './DetailsPage.module.scss';
-import {useDeletePost} from "@/hooks/useDeletePost";
+import {useDeletePost} from "@/hooks/Board/useDeletePost";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faUser, faEllipsis, faBookmark} from "@fortawesome/free-solid-svg-icons";
 
@@ -22,10 +22,12 @@ const DetailsIndex = ({result}: any) => {
                     <button className={styles.save}>
                         <FontAwesomeIcon icon={faBookmark} />
                     </button>
+
                     {/* Meatballs Menu Btn */}
                     <div className={`${styles.meatballs} ${isMenuVisible ? styles.active : ""}`}
                          onClick={() => setMenuVisible(!isMenuVisible)}>
                         <FontAwesomeIcon icon={faEllipsis}/>
+
                         {/* Menu */}
                         <div className={`${styles.menu}`}>
                             <Link className={styles.edit} href={`/edit/${result._id}`}>수정</Link>
@@ -34,6 +36,7 @@ const DetailsIndex = ({result}: any) => {
                     </div>
                 </div>
             </div>
+
             {/* Contents Main */}
             <div className={styles.contents}>
                 <h1 className={styles.title}>{result.title}</h1>

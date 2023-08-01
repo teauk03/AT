@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "./DropdownMenu.module.scss";
+import styles from "@/components/Navbar/Dropdown/DropdownMenu.module.scss";
 import Link from "next/link";
 import {signOut} from "next-auth/react";
 import {Session} from "next-auth";
@@ -38,7 +38,7 @@ const DropdownMenu = ({session}: { session: Session | null }) => {
                                 height={30}
                             />
                         </div>
-                        <Link href="/">대시보드</Link>
+                        <Link href="/">설정</Link>
                     </li>
                     <li className={styles.menu}>
                         <div className={styles['user-img-wrapper']}>

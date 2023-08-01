@@ -28,20 +28,17 @@ const useCreatePost = ({ onSuccess, onError }: CreatePostOptions = {}) => {
 
     const postNewPost = async ({title, content, userName}: PostData) => {
         try {
-            const response = await axios.post('/api/post/new', {
-                title,
-                content,
-                userName
-            });
+            const response = await axios.post('/api/post/new', { title, content, userName });
 
             return response.data;
+
         } catch (error) {
             const axiosError = error as AxiosError;
             throw new Error(axiosError.message || 'Server Error');
         }
     };
 
-    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    const handleNewPostSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true)
 
@@ -53,20 +50,21 @@ const useCreatePost = ({ onSuccess, onError }: CreatePostOptions = {}) => {
 
         try {
             const postData: PostData = {
-                title,
-                content,
-                userName: session?.user?.name ?? 'Unknown User'
+                title, content, userName: session?.user?.name ?? 'Unknown User'
             };
+
             const data = await postNewPost(postData);
             if (onSuccess) onSuccess();
+
         } catch (error) {
             if (onError) onError(error as Error);
+
         } finally {
             setLoading(false);
         }
     }
 
-    return { handleSubmit, isLoading };
+    return { handleNewPostSubmit, isLoading };
 };
 
 export default useCreatePost;

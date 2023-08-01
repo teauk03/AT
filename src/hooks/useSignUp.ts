@@ -1,53 +1,111 @@
-import { useState } from 'react';
-import { SignupData } from '@/types/Auth';
+'use client'
 
-/**
- * useSignup은 회원 가입을 처리하는 ReactHook입니다.
- *
- * @returns {object} 반환 객체는 다음의 상태 및 함수들을 포함합니다.
- *   - signup: 회원 가입을 처리하는 함수입니다. 인자로 회원 가입 데이터를 받습니다.
- *   - loading: 현재 회원 가입 요청이 진행 중인지 나타내는 상태입니다.
- *   - error: 회원 가입 요청에서 발생한 오류를 나타내는 상태입니다.
- *   - signedUp: 회원 가입이 성공적으로 완료되었는지 나타내는 상태입니다.
- */
+import axios, {AxiosError} from 'axios';
+import {useState} from 'react';
+import {useRouter} from "next/navigation";
+import {isValidEmail, hasValidPasswordLength, hasBirthValid, hasValidEmail, hasPassword} from '@/utils/validation';
+import {SignupData} from '@/types/Auth';
+
+interface SignUpState {
+    error: string | null;
+    isLoading: boolean;
+    signedUp: boolean;
+}
+
+// 입력 유효성을 검사 (Client)
+const validateInputs = (data: SignupData): string | null => {
+    const { email, password, name, birth } = data;
+    if (!email || !password || !name || !birth) {
+        return '필수 정보입니다.';
+    }
+    if (!isValidEmail(email)) {
+        return '사용할 수 없는 이메일입니다.';
+    }
+    if (!hasValidPasswordLength(password)) {
+        return '사용할 수 없는 비밀번호입니다.';
+    }
+    if (!hasBirthValid(birth)) {
+        return '생년월일은 8자리 숫자로 입력해 주세요.';
+    }
+
+    return null;
+}
+
+// 회원가입 오류 응답 처리 (Server)
+const handleSignUpError = (err: AxiosError) => {
+    if (!err.response) return '응답이 존재하지 않습니다. 다시 시도해주세요.';
+    if (err.response.status >= 500) return '서버에서 오류가 발생했습니다. 다시 시도해주세요.';
+
+    switch (err.response?.data) {
+        case '사용할 수 없는 이메일입니다.':
+            return '이메일이 유효하지 않습니다.';
+        case '사용할 수 없는 비밀번호입니다.':
+            return '비밀번호가 유효하지 않습니다.';
+        case '이미 존재하는 닉네임입니다.':
+            return '닉네임이 이미 존재합니다.';
+        case '생년월일 : 필수 입력사항입니다.':
+            return '생년월일을 입력해주세요.';
+        case '인터넷 또는 서버 오류 발생':
+            return '회원가입 중에 오류가 발생했습니다. 다시 시도해주세요.';
+    }
+
+    return null;
+}
+
+const handleException = (err: any) => {
+    if (err instanceof Error) return err.message;
+    else throw err;
+}
+
+// 회원가입 작업 - Custom Hook
 const useSignUp = () => {
-    const [signedUp, setSignedUp] = useState(false);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState<string | null>(null);
+    const router = useRouter();
+    const [state, setState] = useState<SignUpState>({
+        error: null, isLoading: false, signedUp: false
+    });
 
     const signup = async (data: SignupData) => {
-        setLoading(true);
-        setError(null);
+        setState(prev => ({
+            ...prev, isLoading: true, error: null
+        }));
+
+        const error = validateInputs(data);
+
+        if (error) {
+            setState(prev => ({
+                ...prev, error, isLoading: false
+            }));
+
+            return;
+        }
 
         try {
-            const response = await fetch('/api/auth/signup', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            });
+            const response = await axios
+                .post('/api/auth/register', data);
+            console.log(data)
 
-            if (response.ok) {
-                setSignedUp(true);
+            if (response.status === 200) {
+                setState(prev => ({
+                    ...prev, signedUp: true, isLoading: false
+                }));
+                router.push('/');
+            } else {
+                throw new Error('Signup failed.');
             }
 
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.message || 'Signup failed.');
-            }
-
-            const responseData = await response.json();
-            return responseData;
         } catch (err) {
-            setError((err as Error).message);
-        } finally {
-            setLoading(false);
+            let errorMessage: string | null = null;
+
+            if (axios.isAxiosError(err)) errorMessage = handleSignUpError(err);
+            else errorMessage = handleException(err);
+
+            setState(prev => ({
+                ...prev, error: errorMessage, isLoading: false
+            }));
         }
     };
 
-    return { signup, loading, error, signedUp };
+    return {signup, ...state};
 };
 
-
-export { useSignUp };
+export {useSignUp};

@@ -4,10 +4,10 @@ Error: File to import not found or unreadable: src/styles/variables.
 
 1: @import "src/styles/variables";
 2: 
-3: .container {
-4:   padding: 2rem;
-5:   display: grid;
-6:   grid-template-columns: repeat(12, minmax(0, 1fr));
+3: // Form
+4: .form {
+5:   padding: 2rem;
+6:   display: grid;
 
 Backtrace:
 write.module.scss:1
@@ -48,4 +48,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: src/styles/variables.\A         on line 1 of write.module.scss\A \A 1: @import \"src/styles/variables\";\A 2: \A 3: .container {\A 4:   padding: 2rem;\A 5:   display: grid;\A 6:   grid-template-columns: repeat(12, minmax(0, 1fr));"; }
+  content: "Error: File to import not found or unreadable: src/styles/variables.\A         on line 1 of write.module.scss\A \A 1: @import \"src/styles/variables\";\A 2: \A 3: // Form\A 4: .form {\A 5:   padding: 2rem;\A 6:   display: grid;"; }

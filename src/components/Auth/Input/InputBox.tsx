@@ -5,22 +5,24 @@ interface LoginInputProps {
     name: string;
     type: string;
     label: string;
-    autoComplete: string;
+    autoComplete: string | undefined;
 }
 
-const InputBox = ({ name, type, label, autoComplete }: LoginInputProps) => {
-    return (
-        <span className={styles['input-wrapper']}>
-            <input
-                className={styles['input-item']}
-                type={type}
-                name={name}
-                autoComplete={autoComplete}
-            />
-            <label className={styles['input-label']} htmlFor={`${name}Form`}>{label}</label>
-            <span className={styles['input-bottom']}></span>
-        </span>
-    );
-};
+const InputBox = ({name, type, label, autoComplete}: LoginInputProps) => (
+    <div className={styles['input-wrapper']}>
+        <input
+            id={`${name}Form`}
+            className={styles['input-item']}
+            type={type}
+            name={name}
+            autoComplete={autoComplete}
+            required
+        />
+        <label className={styles['input-label']} htmlFor={`${name}Form`}>
+            {label}
+        </label>
+        <span className={styles['input-bottom']}></span>
+    </div>
+);
 
 export default InputBox;

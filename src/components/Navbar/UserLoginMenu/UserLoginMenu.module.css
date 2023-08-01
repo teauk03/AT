@@ -4,6 +4,7 @@
   align-content: center;
   justify-content: space-around; }
   .user-menu .item-button {
+    background: none;
     border: none; }
   .user-menu .list-wrapper {
     width: 11.875rem;
@@ -29,8 +30,10 @@
   .user-menu .img-box {
     display: flex;
     align-items: center;
+    align-content: center;
     cursor: pointer; }
     .user-menu .img-box .info {
-      padding: .3rem; }
+      padding: .4rem .3rem .3rem;
+      font-weight: 500; }
 
 /*# sourceMappingURL=UserLoginMenu.module.css.map */

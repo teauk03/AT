@@ -12,13 +12,9 @@ interface LoginState {
 // 입력 유효성을 검사 (Client)
 const validateInputs = (email: string, password: string): string | null => {
     if (!email && !password) return '사용자 정보를 입력해 주세요.';
-
     if (!email) return '이메일을 입력해주세요.';
-
     //if (!isValidEmail(email)) return '유요하지 않은 이메일 주소입니다.';
-
     if (!password) return '비밀번호를 입력해주세요.';
-
     return null;
 }
 
@@ -61,26 +57,40 @@ const useLogin = () => {
     const login = async (email: string, password: string) => {
         const error = validateInputs(email, password);
         if (error) {
-            setState({ error, isLoading: false });
+            setState({
+                error, isLoading: false
+            });
+
             return;
         }
 
-        setState({ error: null, isLoading: true });
+        setState({
+            error: null, isLoading: true
+        });
 
         try {
             const response: SignInResponse | undefined = await signIn(
-                "credential", {
+                "credentials", {
                     email, password, redirect: false, callbackUrl: "/"
                 }
             );
 
             const signInError = handleSignInError(response);
-            if (signInError) setState({ error: signInError, isLoading: false });
-            else router.push('/');
+            if (signInError) {
+                setState({
+                    error: signInError, isLoading: false
+                });
+            } else {
+                router.push('/');
+            }
 
         } catch (err) {
             const errorMessage = handleException(err);
-            if (errorMessage) setState({ error: errorMessage, isLoading: false });
+            if (errorMessage) {
+                setState({
+                    error: errorMessage, isLoading: false
+                });
+            }
         }
     };
 

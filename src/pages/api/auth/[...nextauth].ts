@@ -2,7 +2,7 @@
 import NextAuth, {NextAuthOptions} from "next-auth";
 import bcrypt from 'bcrypt';
 
-import connectDB from "@/lib/mongoDb";
+import {connectDB} from "@/lib/database";
 import {MongoDBAdapter} from "@next-auth/mongodb-adapter";
 
 import GithubProvider from "next-auth/providers/github";
@@ -10,7 +10,7 @@ import GoogleProvider from "next-auth/providers/google";
 import KakaoProvider from "next-auth/providers/kakao";
 import CredentialsProvider from "next-auth/providers/credentials";
 import {Db} from "mongodb";
-import {isValidEmail, hasPassword, hasValidEmail} from "@/utils/validation";
+import {isValidEmail, hasPassword, hasValidEmail, hasBirthValid} from "@/utils/validation";
 
 /** NextAuth 인증 옵션 설정 */
 export const authOptions: NextAuthOptions = {
@@ -37,7 +37,7 @@ export const authOptions: NextAuthOptions = {
 
         /** 자격증명 제공자 설정 */
         CredentialsProvider({
-            id: "credential",
+            id: "credentials",
             name: "credentials",
 
             /**
@@ -47,14 +47,13 @@ export const authOptions: NextAuthOptions = {
             credentials: {
                 email: {label: "Email", type: "email"},
                 password: {label: "password", type: "password"},
-                name: {label: "Name", type: "text"},
-                year: {label: "Year", type: "text"},
-                month: {label: "Month", type: "text"},
-                day: {label: "Day", type: "text"},
             },
 
             /** 자격증명을 이용한 사용자 인증 ( MongoDb ) */
             async authorize(credentials: any): Promise<any> {
+                // DB 에서 사용자 조회
+                let db: Db = (await connectDB).db('forum');
+
                 // 자격증명이 없는 경우 (credentials: null || undefined 또는 객체에 email, password 속성이 없는 경우)
                 if (!credentials) throw new Error("No credentials provided");
 
@@ -67,23 +66,23 @@ export const authOptions: NextAuthOptions = {
                 // 비밀번호가 없는 경우 에러 반환
                 if (!credentials.password || !hasPassword(credentials.password)) throw new Error("Invalid password format");
 
-                // DB 에서 사용자 조회
-                let db: Db = (await connectDB).db('forum');
-
                 // 사용자 검증
                 const user = await db.collection('user_card').findOne({ email: credentials.email });
                 if (!user) throw new Error("User not found");
 
                 // 비밀번호 검증
-                const isPasswordValid: boolean = await bcrypt.compare(credentials.password, user.password);
-                if (!isPasswordValid) throw new Error("Invalid password");
+                try {
+                    const isPasswordValid: boolean = await bcrypt.compare(credentials.password, user.password);
+                    if (!isPasswordValid) throw new Error("Invalid password");
+                } catch (error) {
+                    console.error(`Error occurred during password verification: ${error}`);
+                    throw new Error("An unexpected error occurred during password verification");
+                }
 
                 return {
                     name: user.name,
                     email: user.email,
-                    year: user.year,
-                    month: user.month,
-                    date: user.date,
+                    birth: user.birth,
                 };
             }
         })

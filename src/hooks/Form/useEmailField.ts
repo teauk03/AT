@@ -2,7 +2,7 @@ import { useState, useEffect, ChangeEvent } from 'react';
 
 const useEmailField = (initialValue: string, validateEmail: (email: string) => boolean) => {
     const [email, setEmail] = useState(initialValue);
-    const [emailValid, setEmailValid] = useState(false);
+    const [isEmailValid, setEmailValid] = useState(false);
 
     useEffect(() => {
         setEmailValid(validateEmail(email));
@@ -12,7 +12,7 @@ const useEmailField = (initialValue: string, validateEmail: (email: string) => b
         setEmail(e.target.value);
     }
 
-    return { email, emailValid, handleEmailChange };
+    return { email, isEmailValid, handleEmailChange };
 }
 
 export default useEmailField;

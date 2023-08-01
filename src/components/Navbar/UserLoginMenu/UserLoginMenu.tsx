@@ -1,24 +1,27 @@
 'use client'
-import React, {useState} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import Image from "next/image";
 import Link from "next/link";
 import styles from './UserLoginMenu.module.scss';
 import {Session} from "next-auth";
-import DropdownMenu from "@/components/Nav/Dropdown/DropdownMenu";
+import DropdownMenu from "@/components/Navbar/Dropdown/DropdownMenu";
 import {useSession} from "next-auth/react";
 
-const UserLoginMenu = () => {
+interface onClickProps {
+    onClick: React.MouseEventHandler;
+    isMenClicked: boolean;
+}
+
+const UserLoginMenu = ({onClick, isMenClicked}: onClickProps) => {
+    // 세션 상태 사용
     const {data: session}: { data: Session | null } = useSession();
-    const [isMenuVisible, setMenuVisible] = useState(false);
 
     return (
         <div className={styles['user-menu']}>
             {!session &&
                 <>
-                    <button
-                        className={styles['item-button']}
-                        onClick={() => setMenuVisible(!isMenuVisible)}
-                    >
+                    <button className={styles['item-button']} onClick={onClick}>
+                        {/*{session.user.image || ""}*/}
                         <Image
                             src={'/user.svg'}
                             alt="user profile pic"
@@ -26,8 +29,9 @@ const UserLoginMenu = () => {
                             height={30}
                         />
                     </button>
+
                     {/* Dropdown Menu */}
-                    {isMenuVisible && <div className={styles['list-wrapper']}>
+                    {isMenClicked && <div className={styles['list-wrapper']}>
                         <ul className={styles.list}>
                             <li className={styles['list-item']}>
                                 <Link className={styles.item} href={'/login/'}>로그인</Link>
@@ -45,10 +49,7 @@ const UserLoginMenu = () => {
             {/* 로그인시 노출 */}
             {session?.user &&
                 <>
-                    <div
-                        className={styles['img-box']}
-                        onClick={() => setMenuVisible(!isMenuVisible)}
-                    >
+                    <div className={styles['img-box']} onClick={onClick}>
                         <Image
                             src={'/user.svg'}
                             alt="user profile pic"
@@ -57,7 +58,7 @@ const UserLoginMenu = () => {
                         />
                         <span className={styles.info}>{session.user.name}</span>
                     </div>
-                    {isMenuVisible && <DropdownMenu session={session}/>}
+                    {isMenClicked && <DropdownMenu session={session}/>}
                 </>}
         </div>
     );

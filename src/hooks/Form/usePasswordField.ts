@@ -2,7 +2,7 @@ import { useState, useEffect, ChangeEvent } from 'react';
 
 const usePasswordField = (initialValue: string, validatePassword: (password: string) => boolean) => {
     const [password, setPassword] = useState(initialValue);
-    const [passwordValid, setPasswordValid] = useState(false);
+    const [isPasswordValid, setPasswordValid] = useState(false);
 
     useEffect(() => {
         setPasswordValid(validatePassword(password));
@@ -12,7 +12,7 @@ const usePasswordField = (initialValue: string, validatePassword: (password: str
         setPassword(e.target.value);
     }
 
-    return { password, passwordValid, handlePasswordChange };
+    return { password, isPasswordValid, handlePasswordChange };
 }
 
 export default usePasswordField;

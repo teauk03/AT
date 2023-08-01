@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import Link from "next/link";
-import {useDeletePost} from "@/hooks/useDeletePost";
+import {useDeletePost} from "@/hooks/Board/useDeletePost";
 
 import styles from "./NoticeHeader.module.scss";
 

@@ -3,8 +3,8 @@ import React from "react";
 import {getPosts} from "@/lib/getPostsFromForum";
 import NoticeItem from "@/components/Notice/NoticeItem";
 import NoticeClientNavbar from "@/components/Notice/LNB/NoticeNavbar";
-import styles from './notice.module.scss';
 
+import styles from './notice.module.scss';
 export const dynamic: string = 'force-dynamic';
 
 const Notice = async (): Promise<JSX.Element> => {
@@ -20,7 +20,7 @@ const Notice = async (): Promise<JSX.Element> => {
             </main>
         );
     } catch (error) {
-        console.error(error);
+        console.error(`Notice Page Error : ${error}`);
         return <p>Something went wrong!</p>
     }
 };

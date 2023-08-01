@@ -1,9 +1,9 @@
-import styles from './page.module.scss'
-import FooterComponent from "@/components/Footer/Footer";
-import {GetStartButton} from "@/components/Home/GetStartButton";
-import MusicGameSlide from "@/components/CarouselSlide/MusicGameSlide";
+import styles from './page.module.scss';
+import {GetStartButton} from "@/components/Button/DynamicHome/GetStartButton"
+import {FooterClientComponent} from "@/components/Footer/Footer";
+import React from "react";
 
-export default function Home() {
+export default async function Home(): Promise<JSX.Element> {
     return (
         <>
             <main className={styles.main}>
@@ -14,11 +14,19 @@ export default function Home() {
                             <h1>Online Arduino Simulation</h1>
                             <p>Turn your Arduino ideas into reality using an Arduino simulator web app!</p>
                         </div>
-                        <GetStartButton/>
+                            <GetStartButton/>
                     </section>
 
-                    {/* Game Carousel Slide */}
-                    <MusicGameSlide/>
+                    {/* Content2 */}
+                    <section className={styles.arduino}>
+                        <div className={styles.wrapper}>
+                            <h3>Arduino</h3>
+                            <p>
+                                Here at Arduino Simulator, we provide a user-friendly environment<br/>
+                                for you to experiment with your Arduino projects online.
+                            </p>
+                        </div>
+                    </section>
 
 
                     {/* Content3 */}
@@ -50,7 +58,7 @@ export default function Home() {
                     </section>
                 </div>
             </main>
-            <FooterComponent/>
+            <FooterClientComponent/>
         </>
     )
 }

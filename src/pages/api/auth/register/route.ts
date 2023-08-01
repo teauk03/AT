@@ -3,20 +3,20 @@ import {NextApiRequest, NextApiResponse} from "next";
 
 import {Db} from "mongodb";
 import connectDB from "@/lib/mongoDb";
-import {validatePassword, validateEmail} from '@/utils/validation';
+import {hasValidPasswordLength, isValidEmail} from '@/utils/validation';
 
 const handler = async (request: NextApiRequest, response: NextApiResponse): Promise<void> => {
     if (request.method == 'POST') {
         const {email, password} = request.body;
 
         // 이메일 유효성 검사
-        if (!validateEmail(email)) {
+        if (!isValidEmail(email)) {
             response.status(400).json({message: '유효하지 않은 이메일입니다.'});
             return;
         }
 
         // 비밀번호 유효성 검사
-        if (!validatePassword(password)) {
+        if (!hasValidPasswordLength(password)) {
             response.status(400).json({message: '유효하지 않은 비밀번호입니다. 비밀번호는 최소 8자 이상이어야 합니다.'});
             return;
         }

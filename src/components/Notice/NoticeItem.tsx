@@ -1,6 +1,8 @@
 'use client'
 import Link from "next/link";
 import styles from './NoticeItem.module.scss';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faUser} from "@fortawesome/free-solid-svg-icons";
 
 const NoticeItem = ({result}: any) => {
 
@@ -10,6 +12,7 @@ const NoticeItem = ({result}: any) => {
 
                 return (
                     <div className={styles.list} key={noticeIndex}>
+                        <FontAwesomeIcon icon={faUser} />
                         <span>{result[noticeIndex].userName}</span>
                         {/* 제목 */}
                         <Link href={`/notice/${result[noticeIndex]._id}`}>

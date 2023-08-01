@@ -7,12 +7,11 @@ import github from "/public/github.svg"
 import google from "/public/google.svg"
 
 import {useLogin} from "@/hooks/useSignIn";
-import SocialLoginButton from "@/components/Button/SocialLogin/SocialLoginButtons";
+import SocialLoginButton from "../Button/SocialLogin/SocialLoginButtons";
 import PrimaryButton from "@/components/Button/PrimaryButton";
 import PrimaryCheckBox from "@/components/CheckBox/PrimaryCheckBox";
 import InputBox from "@/components/Auth/Input/InputBox";
-
-
+import DivisionLine from "@/components/Auth/DivisionLine/DivisionLine";
 
 const LoginComponent = (): JSX.Element => {
     const {login, error, isLoading} = useLogin();
@@ -26,12 +25,8 @@ const LoginComponent = (): JSX.Element => {
         const email = target.email.value;
         const password = target.password.value;
 
-        try {
-            await login(email, password);
-        } catch (error) {
-            console.error(`error : ${error}`);
-            alert(`로그인에 실패했습니다.`);
-        }
+        // try-catch 블록 제거
+        await login(email, password);
     }
 
     return (
@@ -71,7 +66,13 @@ const LoginComponent = (): JSX.Element => {
                         <PrimaryCheckBox/>
 
                         {/* Login Button */}
-                        <PrimaryButton disabled={isLoading}/>
+                        <PrimaryButton
+                            disabled={isLoading}
+                            label={'로그인'}
+                        />
+
+                        {/* Division Line */}
+                        <DivisionLine text={'소셜 로그인'}/>
 
                         {/* Social Login */}
                         <div className={styles['login-social']}>

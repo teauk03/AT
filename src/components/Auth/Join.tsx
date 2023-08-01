@@ -1,24 +1,23 @@
 'use client'
 
 import React, {FC, useEffect} from 'react';
+import styles from './Join.module.scss';
 import Link from "next/link";
-import {years, months, days} from "@/utils/date";
-
-import {useSignUp} from '@/hooks/useSignUp';
-import {EmailField} from '@/components/Auth/FormElements/EmailField';
-import {PasswordField} from '@/components/Auth/FormElements/PasswordField';
-import {NameField} from '@/components/Auth/FormElements/NameField';
-import {DateOfBirthField} from '@/components/Auth/FormElements/DateOfBirthField';
-
 import github from "/public/github.svg"
 import google from "/public/google.svg"
+
+import {useRouter} from "next/navigation";
+import {useSignUp} from '@/hooks/useSignUp';
+import {isValidEmail, hasValidName, hasValidPasswordLength, hasBirthValid} from "@/utils/validation";
+
 import SocialLoginButton from "../Button/SocialLogin/SocialLoginButtons";
-import styles from './Join.module.scss';
-import {isValidEmail, hasValidName, hasValidPasswordLength} from "@/utils/validation";
 import useEmailField from "@/hooks/Form/useEmailField";
 import usePasswordField from "@/hooks/Form/usePasswordField";
 import useNameField from "@/hooks/Form/useNameField";
 import useDateOfBirthField from "@/hooks/Form/useDateOfBirthField";
+import AuthInputField from "@/components/Auth/FormElements/AuthInputField";
+import PrimaryButton from "@/components/Button/PrimaryButton";
+import DivisionLine from "@/components/Auth/DivisionLine/DivisionLine";
 
 /**
  * JoinComponent 는 사용자의 회원 가입을 제공하는 컴포넌트입니다.
@@ -30,23 +29,19 @@ import useDateOfBirthField from "@/hooks/Form/useDateOfBirthField";
  * 사용자를 홈페이지('/')로 리다이렉트합니다.
  */
 const JoinComponent: FC = (): JSX.Element => {
-
-    const {signup, loading, error, signedUp} = useSignUp();
-    const {email, emailValid, handleEmailChange} = useEmailField("", isValidEmail);
-    const {password, passwordValid, handlePasswordChange} = usePasswordField("", hasValidPasswordLength);
-    const {name, handleNameChange} = useNameField("", hasValidName);
-    const {year, month, day, handleYearChange, handleMonthChange, handleDayChange} = useDateOfBirthField("", "", "");
-
-
-    useEffect(() => {
-        if (signedUp) window.location.href = "/";
-    }, [signedUp])
+    const {signup, isLoading, error, signedUp} = useSignUp();
+    const {email, isEmailValid, handleEmailChange} = useEmailField("", isValidEmail);
+    const {password, isPasswordValid, handlePasswordChange} = usePasswordField("", hasValidPasswordLength);
+    const {name, isNameValid, handleNameChange} = useNameField("", hasValidName);
+    const {birth, isBirthValid, handleBirthChange} = useDateOfBirthField("", hasBirthValid);
 
     const handleSubmit = async (e: any): Promise<void> => {
         e.preventDefault();
-        const data = {year, month, day, name, email, password};
+        const data = {birth, name, email, password};
         await signup(data)
-        if (error) alert(error + '로 인해 회원가입에 실패했습니다.');
+        console.log(data)
+        console.log(error)
+        //if (error) alert(error);
     };
 
     return (
@@ -78,42 +73,73 @@ const JoinComponent: FC = (): JSX.Element => {
                         />
                     </section>
 
-
                     {/* Division Line */}
-                    <div className={styles['division-line']}>
-                        <span className={styles['line-text']}>이메일로 가입하기</span>
-                    </div>
-
+                    <DivisionLine text={'이메일로 가입하기'}/>
 
                     {/* Sign Up */}
                     <form
                         className={styles.form}
-                        method="POST"
-                        action="/api/auth/register/register.ts"
                         onSubmit={handleSubmit}
+                        noValidate
                     >
-                        <EmailField
-                            email={email}
-                            emailValid={emailValid}
-                            handleEmailChange={handleEmailChange}
+                        <AuthInputField
+                            label={'Email'}
+                            htmlFor={'emailForm'}
+                            name={'email'}
+                            value={email}
+                            type={'email'}
+                            placeholder={'이메일 (Email)'}
+                            autoComplete={'on'}
+                            onChange={handleEmailChange}
+                            isInputValidation={isEmailValid}
+                            validInputResult='사용 가능한 이메일 입니다.'
+                            invalidInputResult={error}
                         />
-                        <PasswordField
-                            password={password}
-                            passwordValid={passwordValid}
-                            handlePasswordChange={handlePasswordChange}
+                        <AuthInputField
+                            label={'Password'}
+                            htmlFor={'passwordForm'}
+                            name={'password'}
+                            value={password}
+                            type={'password'}
+                            placeholder={'비밀번호'}
+                            autoComplete={'on'}
+                            onChange={handlePasswordChange}
+                            isInputValidation={isPasswordValid}
+                            validInputResult='사용 가능한 비밀번호입니다.'
+                            invalidInputResult={error}
                         />
-                        <NameField
-                            name={name}
-                            handleNameChange={handleNameChange}
+                        <AuthInputField
+                            label={'Name (닉네임)'}
+                            htmlFor={'nameForm'}
+                            name={'name'}
+                            value={name}
+                            type={'text'}
+                            placeholder={'Name (닉네임)'}
+                            autoComplete={'off'}
+                            onChange={handleNameChange}
+                            isInputValidation={isNameValid}
+                            validInputResult='사용 가능한 닉네임 입니다.'
+                            invalidInputResult={error}
                         />
-                        <DateOfBirthField
-                            year={year} month={month} day={day}
-                            years={years} months={months} days={days}
-                            handleYearChange={handleYearChange}
-                            handleMonthChange={handleMonthChange}
-                            handleDayChange={handleDayChange}
+
+                        <AuthInputField
+                            label={'생년월일'}
+                            htmlFor={'birthForm'}
+                            name={'birth'}
+                            value={birth}
+                            type={'text'}
+                            placeholder={'생년월일 8자리 (예: 20230730)'}
+                            autoComplete={'off'}
+                            onChange={handleBirthChange}
+                            isInputValidation={isBirthValid}
+                            validInputResult='ok'
+                            invalidInputResult={error}
                         />
-                        <button className={styles['submit-btn']} type="submit">회원가입</button>
+
+                        <PrimaryButton
+                            disabled={isLoading}
+                            label={'회원가입'}
+                        />
                     </form>
                 </div>
             </div>

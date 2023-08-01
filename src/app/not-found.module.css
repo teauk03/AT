@@ -1,0 +1,22 @@
+.container {
+  width: 80vw;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .container .searchBox {
+    width: 80%;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px; }
+  .container .links {
+    margin-top: 30px; }
+    .container .links .link {
+      margin: 10px;
+      color: blue;
+      text-decoration: underline; }
+    .container .links .link:hover {
+      color: red; }
+
+/*# sourceMappingURL=not-found.module.css.map */

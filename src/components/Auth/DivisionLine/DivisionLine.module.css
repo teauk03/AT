@@ -1,16 +1,16 @@
 /*
 Error: File to import not found or unreadable: @/styles/variables.
-        on line 1 of GetStartButton.module.scss
+        on line 1 of DivisionLine.module.scss
 
 1: @import "@/styles/variables";
 2: 
-3: // Button Styles
-4: .wrapper {
-5:   background: $bg-color-grass;
-6:   width: 120px;
+3: /* Division Line *\/
+4: .division-line {
+5:   width: 100%;
+6:   padding: .625rem 0;
 
 Backtrace:
-GetStartButton.module.scss:1
+DivisionLine.module.scss:1
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/tree/import_node.rb:67:in `rescue in import'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/tree/import_node.rb:44:in `import'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/tree/import_node.rb:28:in `imported_file'
@@ -48,4 +48,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: @/styles/variables.\A         on line 1 of GetStartButton.module.scss\A \A 1: @import \"@/styles/variables\";\A 2: \A 3: // Button Styles\A 4: .wrapper {\A 5:   background: $bg-color-grass;\A 6:   width: 120px;"; }
+  content: "Error: File to import not found or unreadable: @/styles/variables.\A         on line 1 of DivisionLine.module.scss\A \A 1: @import \"@/styles/variables\";\A 2: \A 3: /* Division Line */\A 4: .division-line {\A 5:   width: 100%;\A 6:   padding: .625rem 0;"; }
