@@ -68,7 +68,7 @@ const NavbarComponent = () => {
 
                 {/* Home Icon 133.971 x 31.994 */}
                 <div className={styles.logo}>
-                    <Link href="/">Arduino</Link>
+                    <Link href="/">Attack</Link>
                 </div>
 
                 {/* Navigation Item props : gblMenuItems[array] */}

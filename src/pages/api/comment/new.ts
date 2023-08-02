@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import {connectDB} from "@/lib/database";
+import {connectDB} from "@/utils/mongoDb";
 import {authOptions} from "../auth/[...nextauth]";
 import {Db, ObjectId} from "mongodb";
 import {getServerSession} from "next-auth";

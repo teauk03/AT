@@ -1,6 +1,6 @@
 import {NextApiRequest, NextApiResponse} from "next";
 import {Db} from "mongodb";
-import {connectDB} from "@/lib/database";
+import {connectDB} from "@/utils/mongoDb";
 
 const checkEmailHandler = async (request: NextApiRequest, response: NextApiResponse) => {
     const { email } = request.body;

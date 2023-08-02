@@ -1,18 +1,22 @@
 import {Session as NextAuthSession} from "next-auth/core/types";
 
-interface User {
+export interface User {
     email: string;
 }
 
-interface Session extends NextAuthSession {
+export interface Session extends NextAuthSession {
     user: User;
 }
 
-interface SignupData {
+export interface SignupData {
     birth: string;
     name: string;
     email: string;
     password: string;
 }
 
-export {User, Session, SignupData}
+/* [useSignIn] 에러 및 로딩 상태 인터페이스 */
+export interface LoginState {
+    error: string | null;
+    isLoading: boolean;
+}

@@ -2,7 +2,7 @@
 import NextAuth, {NextAuthOptions} from "next-auth";
 import bcrypt from 'bcrypt';
 
-import {connectDB} from "@/lib/database";
+import {connectDB} from "@/utils/mongoDb";
 import {MongoDBAdapter} from "@next-auth/mongodb-adapter";
 
 import GithubProvider from "next-auth/providers/github";

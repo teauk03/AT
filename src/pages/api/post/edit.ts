@@ -1,4 +1,4 @@
-import {connectDB} from "@/lib/database";
+import {connectDB} from "@/utils/mongoDb";
 import { NextApiRequest, NextApiResponse } from "next";
 import {ObjectId} from "mongodb";
 

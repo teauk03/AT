@@ -1,6 +1,6 @@
 import React from "react";
 
-import {getPosts} from "@/lib/getPostsFromForum";
+import {getPosts} from "@/utils/getPostsFromForum";
 import NoticeItem from "@/components/Notice/NoticeItem";
 import NoticeClientNavbar from "@/components/Notice/LNB/NoticeNavbar";
 

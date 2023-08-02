@@ -1,6 +1,6 @@
 import { ObjectId } from 'mongodb';
 import { NextApiRequest, NextApiResponse } from "next";
-import {connectDB} from "@/lib/database";
+import {connectDB} from "@/utils/mongoDb";
 
 const handlerUserEditInfo = async (
     request: NextApiRequest,

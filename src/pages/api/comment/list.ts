@@ -1,6 +1,6 @@
 import {Db} from "mongodb";
 import {ObjectId} from "mongodb";
-import {connectDB} from "@/lib/database";
+import {connectDB} from "@/utils/mongoDb";
 import {NextApiRequest, NextApiResponse} from "next";
 
 const handler = async (request: NextApiRequest, response: NextApiResponse): Promise<void> => {

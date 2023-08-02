@@ -1,7 +1,8 @@
 // Navbar Menu Array
 const GLB_MENU_ITEMS = [
-    {title: 'Forum', route: '/notice'},
     {title: 'Admin', route: '/admin'},
+    {title: 'Forum', route: '/notice'},
+    {title: 'Store', route: '/store'},
     {title: 'Dashboard', route: '/user'},
 ];
 

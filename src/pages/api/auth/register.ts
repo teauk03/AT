@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import {NextApiRequest, NextApiResponse} from "next";
 
-import {connectDB} from "@/lib/database";
+import {connectDB} from "@/utils/mongoDb";
 import {hasValidPasswordLength, isValidEmail, hasValidName, hasBirthValid} from '@/utils/validation';
 
 const handlerRegister = async (

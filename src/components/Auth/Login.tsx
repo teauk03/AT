@@ -6,25 +6,22 @@ import Link from "next/link";
 import github from "/public/github.svg"
 import google from "/public/google.svg"
 
-import {useLogin} from "@/hooks/useSignIn";
 import SocialLoginButton from "../Button/SocialLogin/SocialLoginButtons";
 import PrimaryButton from "@/components/Button/PrimaryButton";
 import PrimaryCheckBox from "@/components/CheckBox/PrimaryCheckBox";
 import InputBox from "@/components/Auth/Input/InputBox";
 import DivisionLine from "@/components/Auth/DivisionLine/DivisionLine";
+import useLogin from "@/hooks/useSignIn";
+import handleLoginSubmit from "@/utils/auth/handleLoginSubmit";
 
 const LoginComponent = (): JSX.Element => {
-    const {login, error, isLoading} = useLogin();
+    const {
+        error,
+        isLoading,
+    } = useLogin();
 
     const handleSubmit = async (event: React.FormEvent): Promise<void> => {
-        event.preventDefault();
-        const target = event.target as typeof event.target & {
-            email: { value: string };
-            password: { value: string };
-        };
-        const email = target.email.value;
-        const password = target.password.value;
-        await login(email, password);
+        await handleLoginSubmit(event, handleAsyncTask);
     }
 
     return (
@@ -56,7 +53,9 @@ const LoginComponent = (): JSX.Element => {
                         {/* Error */}
                         {error &&
                             <div className={styles['input-error']}>
-                                <span className={styles['error-text']}>{error}</span>
+                                <span className={styles['error-text']}>
+                                    {error.message}
+                                </span>
                             </div>
                         }
 
@@ -90,17 +89,23 @@ const LoginComponent = (): JSX.Element => {
                     {/* New Account */}
                     <div className={styles['create-account']}>
                         {"계정이 없으신가요?"}{' '}
-                        <span className={styles.link}><Link href={'/join'}>회원가입</Link></span>
+                        <span className={styles.link}>
+                            <Link href={'/join'}>회원가입</Link>
+                        </span>
                     </div>
 
                     {/* Find Account */}
                     <div className={styles['find-account']}>
                         {"계정을 분실하셨나요 ?"}{' '}
                         <span className={styles.link}>
-                            <Link href={'/id'}>아이디 찾기</Link>
+                            <Link href={'/id'}>
+                                아이디 찾기
+                            </Link>
                         </span>{' 또는 '}
                         <span className={styles.link}>
-                            <Link href={'/pwd'}>비밀번호 변경</Link>
+                            <Link href={'/pwd'}>
+                                비밀번호 변경
+                            </Link>
                         </span>
                     </div>
                 </div>
