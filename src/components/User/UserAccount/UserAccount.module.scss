@@ -37,13 +37,13 @@
           gap: 2rem;
 
           .info-name {
-            width: 100px;
+            width: 115px;
             margin-bottom: 0;
             font-size: 1rem;
           }
 
           .input {
-            width: 350px;
+            width: 300px;
             border: none;
             outline: none;
             background-color: rgba(0, 0, 0, 0);
@@ -54,6 +54,14 @@
           .save-wrapper {
             display: flex;
             gap: 10px;
+
+            .exit-btn {
+              color: red;
+            }
+
+            .check-btn {
+              color: green;
+            }
           }
 
           /* Post & Comment Count */
@@ -66,6 +74,8 @@
           .edit-wrapper {
             width: 30px;
             text-align: center;
+
+            button { font-size: 13px; }
           }
 
           /* Check  X mark & Edit Button */

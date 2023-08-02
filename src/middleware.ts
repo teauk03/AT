@@ -1,18 +1,16 @@
-// Without a defined matcher, this one line applies next-auth 
-// to the entire project
-export { default } from "next-auth/middleware"
+import {NextFetchEvent, NextRequest, NextResponse} from "next/server";
 
-// Applies next-auth only to matching routes - can be regex
-// Ref: https://nextjs.org/docs/app/building-your-application/routing/middleware#matcher
+export { default } from "next-auth/middleware"
 export const config = { matcher: ["/extra", "/dashboard"] }
 
-import { NextFetchEvent, NextRequest, NextResponse } from 'next/server';
-
 // export async function middleware(request: NextRequest, event: NextFetchEvent) {
-//     if (request.nextUrl.pathname.startsWith('/auth')) {
-//         // 쿠키를 통해 로그인 여부를 확인 -> 비로그인 상태일 경우 rootpage로 이동
-//         if (request.cookies.get('logged') !== 'true') {
-//             return NextResponse.redirect(new URL('/', request.url));
+//     // 이 부분은 '/write' 경로로 접근할 때를 처리합니다.
+//     if (request.nextUrl.pathname === '/write') {
+//         // 쿠키를 통해 로그인 여부를 확인
+//         const loggedCookie = request.cookies.get('logged') as string | undefined;
+//         if (loggedCookie !== 'true') {
+//             // 로그인되지 않은 사용자의 경우 팝업을 띄우지 않고 바로 로그인 페이지로 리디렉션
+//             return NextResponse.redirect(new URL('/login', request.url));
 //         }
 //     }
 // }

@@ -1,23 +1,17 @@
-import connectDB from "@/lib/mongoDb";
+import {connectDB} from "@/lib/database";
 import {Post} from "@/types/db";
 import {Db} from "mongodb";
 
 const getPosts = async (): Promise<Post[]> => {
-    try {
-        const db: Db = (await connectDB).db("forum");
-        const postCollection = db.collection('post');
-        let posts: Post[] = await postCollection.find().toArray() as Post[];
+    const db: Db = (await connectDB).db("forum");
+    let result: Post[] = await db.collection('post').find().toArray() as Post[];
 
-        posts = posts.map((post: Post) => {
-            post._id = post._id.toString();
-            return post;
-        });
+    result = result.map((noticeItem: Post) => {
+        noticeItem._id = noticeItem._id.toString();
+        return noticeItem;
+    });
 
-        return posts;
-    } catch(error) {
-        console.error("Failed to get posts:", error);
-        throw error;
-    }
+    return result;
 };
 
 export {getPosts};

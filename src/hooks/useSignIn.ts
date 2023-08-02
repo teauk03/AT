@@ -3,6 +3,7 @@
 import {useRouter} from "next/navigation";
 import {useState} from 'react';
 import {signIn, SignInResponse} from "next-auth/react";
+import {isValidEmail} from "@/utils/validation";
 
 interface LoginState {
     error: string | null;
@@ -11,9 +12,9 @@ interface LoginState {
 
 // 입력 유효성을 검사 (Client)
 const validateInputs = (email: string, password: string): string | null => {
-    if (!email && !password) return '사용자 정보를 입력해 주세요.';
+    if (!email && !password) return '이메일과 비밀번호를 모두 입력해 주세요.';
     if (!email) return '이메일을 입력해주세요.';
-    //if (!isValidEmail(email)) return '유요하지 않은 이메일 주소입니다.';
+    if (!isValidEmail(email)) return '올바른 이메일 주소를 입력해주세요.';
     if (!password) return '비밀번호를 입력해주세요.';
     return null;
 }
@@ -30,9 +31,7 @@ const handleSignInError = (response: SignInResponse | undefined) => {
 
     switch (errorMessage) {
         case 'User not found':
-            return '사용자 정보가 존재하지 않습니다.';
         case 'Invalid email format':
-            return '사용자 정보가 존재하지 않습니다.';
         case 'Invalid password format':
             return '사용자 정보가 존재하지 않습니다.';
         case 'Invalid password':

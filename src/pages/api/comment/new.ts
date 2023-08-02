@@ -9,9 +9,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse): Promise<NextA
     let session: Session | null = await getServerSession(req, res, authOptions)
 
     if (!session) {
-        res.status(401).json({
-            message: "You must be logged in."
-        });
+        res.status(401).json({ message: "You must be logged in." });
         return;
     }
 
@@ -28,7 +26,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse): Promise<NextA
         }
 
         try {
-            const db: Db = (await connectDB).db("forum")
+            const db: Db = (await connectDB).db("forum");
+
             let result = await db.collection('comment').insertOne(saveCommentData)
             return res.status(200).redirect(302, '/notice')
         } catch (err) {

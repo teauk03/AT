@@ -34,11 +34,11 @@
           /* Edit Button */
           /* Check  X mark & Edit Button */ }
           .profile-container .profile-wrapper .main .section-info .account .info-name {
-            width: 100px;
+            width: 115px;
             margin-bottom: 0;
             font-size: 1rem; }
           .profile-container .profile-wrapper .main .section-info .account .input {
-            width: 350px;
+            width: 300px;
             border: none;
             outline: none;
             background-color: rgba(0, 0, 0, 0);
@@ -46,12 +46,18 @@
           .profile-container .profile-wrapper .main .section-info .account .save-wrapper {
             display: flex;
             gap: 10px; }
+            .profile-container .profile-wrapper .main .section-info .account .save-wrapper .exit-btn {
+              color: red; }
+            .profile-container .profile-wrapper .main .section-info .account .save-wrapper .check-btn {
+              color: green; }
           .profile-container .profile-wrapper .main .section-info .account .count {
             width: 350px;
             margin: 0 0 0 3rem; }
           .profile-container .profile-wrapper .main .section-info .account .edit-wrapper {
             width: 30px;
             text-align: center; }
+            .profile-container .profile-wrapper .main .section-info .account .edit-wrapper button {
+              font-size: 13px; }
           .profile-container .profile-wrapper .main .section-info .account .edit-btn {
             border: none;
             background: none; }

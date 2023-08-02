@@ -1,13 +1,13 @@
 /*
-Error: File to import not found or unreadable: @/app/styles/variables.
+Error: File to import not found or unreadable: @/styles/variables.
         on line 1 of SocialLogin.module.scss
 
-1: @import "@/app/styles/variables";
-2: @import "@/app/styles/Breakpoints";
+1: @import "@/styles/variables";
+2: @import "@/styles/Breakpoints";
 3: 
 4: .social {
-5:   background: $bg-color-social;
-6:   margin-bottom: .5rem;
+5:   margin-bottom: .5rem;
+6:   gap: 0.3rem;
 
 Backtrace:
 SocialLogin.module.scss:1
@@ -48,4 +48,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: @/app/styles/variables.\A         on line 1 of SocialLogin.module.scss\A \A 1: @import \"@/app/styles/variables\";\A 2: @import \"@/app/styles/Breakpoints\";\A 3: \A 4: .social {\A 5:   background: $bg-color-social;\A 6:   margin-bottom: .5rem;"; }
+  content: "Error: File to import not found or unreadable: @/styles/variables.\A         on line 1 of SocialLogin.module.scss\A \A 1: @import \"@/styles/variables\";\A 2: @import \"@/styles/Breakpoints\";\A 3: \A 4: .social {\A 5:   margin-bottom: .5rem;\A 6:   gap: 0.3rem;"; }

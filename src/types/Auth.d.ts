@@ -9,9 +9,7 @@ interface Session extends NextAuthSession {
 }
 
 interface SignupData {
-    year: string | number;
-    month: string | number;
-    day: string | number;
+    birth: string;
     name: string;
     email: string;
     password: string;

@@ -5,7 +5,7 @@ const GLB_MENU_ITEMS = [
     {title: 'Dashboard', route: '/user'},
 ];
 
-const sideMenuItem = [
+const SLB_MENU_ITEMS = [
     {title: 'Basic Info', route: '/user'},
     {title: 'Account', route: '/'},
     {title: 'Notification', route: '/'},
@@ -13,4 +13,4 @@ const sideMenuItem = [
     {title: 'Language', route: '/'},
 ]
 
-export {GLB_MENU_ITEMS, sideMenuItem};
+export {GLB_MENU_ITEMS, SLB_MENU_ITEMS};

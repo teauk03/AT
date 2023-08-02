@@ -2,14 +2,14 @@
 import NextAuth, {NextAuthOptions} from "next-auth";
 import bcrypt from 'bcrypt';
 
-import connectDB from "@/lib/mongoDb";
+import {connectDB} from "@/lib/database";
 import {MongoDBAdapter} from "@next-auth/mongodb-adapter";
 
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import KakaoProvider from "next-auth/providers/kakao";
 import CredentialsProvider from "next-auth/providers/credentials";
-import {Db} from "mongodb";
+import {Db, ObjectId} from "mongodb";
 import {isValidEmail, hasPassword, hasValidEmail, hasBirthValid} from "@/utils/validation";
 
 /** NextAuth 인증 옵션 설정 */
@@ -58,7 +58,7 @@ export const authOptions: NextAuthOptions = {
                 if (!credentials) throw new Error("No credentials provided");
 
                 // 이메일 형식 검증
-                //if (!isValidEmail(credentials.email)) throw new Error("Invalid email format");
+                if (!isValidEmail(credentials.email)) throw new Error("Invalid email format");
 
                 // 이메일이 없는 경우 에러 반환
                 if (!credentials.email || !hasValidEmail(credentials.email)) throw new Error("Invalid email format");
@@ -67,24 +67,18 @@ export const authOptions: NextAuthOptions = {
                 if (!credentials.password || !hasPassword(credentials.password)) throw new Error("Invalid password format");
 
                 // 사용자 검증
-                const user = await db.collection('user_card').findOne({ email: credentials.email });
+                const user = await db.collection('user_card').findOne({email: credentials.email});
                 if (!user) throw new Error("User not found");
 
                 // 비밀번호 검증
-                try {
-                    const isPasswordValid: boolean = await bcrypt.compare(credentials.password, user.password);
-                    if (!isPasswordValid) throw new Error("Invalid password");
-                } catch (error) {
-                    console.error(`Error occurred during password verification: ${error}`);
-                    throw new Error("An unexpected error occurred during password verification");
-                }
+                const isPasswordValid: boolean = await bcrypt.compare(credentials.password, user.password);
+                if (!isPasswordValid) throw new Error("Invalid password");
 
-                return {
-                    _id: user._id,
-                    name: user.name,
-                    email: user.email,
-                    birth: user.birthdate,
-                };
+                // 로그인 날짜 업데이트 [MS2]
+                const lastLoginDate = new Date().toISOString().slice(0, 10).replace(/-/g,".");
+                await db.collection('user_card').updateOne({ _id: new ObjectId(user._id)}, { $set: {lastLoginDate}})
+
+                return user;
             }
         })
     ],
@@ -93,7 +87,7 @@ export const authOptions: NextAuthOptions = {
     /** 세션 설정: JWT 사용 */
     session: {
         strategy: 'jwt',
-        maxAge: 30 * 24 * 60 * 60 //30일
+        maxAge: 24 * 60 * 60 // 1일 (24시간)
         //updateAge: 24 * 60 * 60, // 24시간
     },
 
@@ -107,8 +101,9 @@ export const authOptions: NextAuthOptions = {
                 token.user._id = user._id;
                 token.user.name = user.name;
                 token.user.email = user.email;
-                token.user.phoneNumber = user.phoneNumber;
-                token.user.birthdate = user.birthdate;
+                token.user.birth = user.birth;
+                token.user.lastLoginDate  = user.lastLoginDate;
+                //token.user.phoneNumber = user.phoneNumber;
                 //token.user.image = account?.picture
             }
 

@@ -24,8 +24,6 @@ const LoginComponent = (): JSX.Element => {
         };
         const email = target.email.value;
         const password = target.password.value;
-
-        // try-catch 블록 제거
         await login(email, password);
     }
 

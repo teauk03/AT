@@ -1,9 +1,8 @@
 import '@/styles/globals.scss'
 import {Inter} from 'next/font/google'
 import {Metadata} from "next";
-import AuthProvider from "@/components/AuthProvider/AuthProvider";
+import Providers from "@/context/Providers";
 import {NavbarComponent} from "@/components/Navbar/Navbar";
-import React from "react";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -19,12 +18,12 @@ export default async function RootLayout({children}: {
     return (
         <html lang="ko">
         <body className={inter.className}>
-        <AuthProvider>
+        <Providers>
                 <div className="wrap">
             <NavbarComponent/>
                     {children}
                 </div>
-        </AuthProvider>
+        </Providers>
         </body>
         </html>
     )

@@ -1,13 +1,13 @@
-@import "@/app/styles/variables";
-@import "@/app/styles/Breakpoints";
+@import "@/styles/variables";
+@import "@/styles/Breakpoints";
 
 .social {
-  background: $bg-color-social;
   margin-bottom: .5rem;
   gap: 0.3rem;
   cursor: pointer;
   width: 320px;
   padding: 0.7rem;
+  background: $bg-color-social;
   border: 1px solid $base-font-color-dark;
   border-radius: 10px;
   display: flex;

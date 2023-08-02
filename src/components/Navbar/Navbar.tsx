@@ -23,6 +23,7 @@ const NavbarComponent = () => {
     // 함수 실행시 State false -> true
     const setIsUserModalClicked = () => setMenuClicked(!isMenClicked);
 
+
     useEffect(() => {
         const handleClickOutside = (e: MouseEvent) => {
             if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
@@ -37,7 +38,8 @@ const NavbarComponent = () => {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    // 사용자가 로그인하거나 로그아웃할 때마다 setGlbMenuItems 업데이트
+
+    /* 사용자가 로그인하거나 로그아웃할 때마다 setGlbMenuItems 업데이트 */
     useEffect(() => {
         // [Test] 로그인시 네비게이션 메뉴 Dashboard 탭 라우팅 : /user/${session.user._id}
         if (session?.user?._id) {
@@ -57,6 +59,7 @@ const NavbarComponent = () => {
             );
         }
     }, [session]);
+
 
     return (
         <header className={styles.header} ref={modalRef}>

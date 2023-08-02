@@ -1,5 +1,4 @@
 'use client'
-import React from "react";
 import {signIn} from "next-auth/react";
 import styles from './SocialLogin.module.scss';
 import Image, {StaticImageData} from "next/image";

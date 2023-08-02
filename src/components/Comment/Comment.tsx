@@ -2,7 +2,7 @@
 import {useState} from "react";
 import styles from './Comment.module.scss';
 import {CommentProps} from '@/types/Components/Comment';
-import {useCommentAPI} from '@/hooks/useCommentAPI';
+import {useCommentAPI} from '@/hooks/Board/useCommentAPI';
 import GetCommentButton from "@/components/Comment/CommentButton";
 
 const Comment = (props: CommentProps): JSX.Element => {

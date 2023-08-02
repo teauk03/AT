@@ -1,11 +1,15 @@
 import bcrypt from 'bcrypt';
 import {NextApiRequest, NextApiResponse} from "next";
 
-import {Db} from "mongodb";
 import {connectDB} from "@/lib/database";
 import {hasValidPasswordLength, isValidEmail, hasValidName, hasBirthValid} from '@/utils/validation';
 
-const handler = async (request: NextApiRequest, response: NextApiResponse): Promise<void> => {
+const handlerRegister = async (
+    request: NextApiRequest,
+    response: NextApiResponse
+): Promise<void> => {
+
+    // POST 요청 처리
     if (request.method === 'POST') {
         const {email, password, name, birth} = request.body;
 
@@ -34,31 +38,35 @@ const handler = async (request: NextApiRequest, response: NextApiResponse): Prom
         }
 
         try {
-            let db: Db = (await connectDB).db('forum');
+            // MongoDb 연결
+            let db = (await connectDB).db('forum');
 
-            // 이미 존재하는 닉네임 검사
+            // 데이터 베이스 내 이미 존재하는 닉네임 검사
             const existingUser = await db.collection('user_card').findOne({$or: [{name}]});
-
             if (existingUser) {
-                if (existingUser.name === name) {
-                    response.status(409).json({ message: '이미 존재하는 닉네임입니다.' });
-                }
+                response.status(409).json({message: '이미 존재하는 닉네임입니다.'});
+                return;
+            }
+
+            // 데이터 베이스 내 이미 존재하는 이메일 검사
+            const existingEmail = await db.collection('user_card').findOne({$or: [{email}]});
+            if (existingEmail) {
+                response.status(409).json({message: '이미 존재하는 이메일입니다.'});
                 return;
             }
 
             // 비밀번호 해시값으로 변경 & DB 추가
             let passwordHash: string = await bcrypt.hash(request.body.password, 10)
-
-            await db.collection('user_card').insertOne({ ...request.body, password: passwordHash });
+            await db.collection('user_card').insertOne({...request.body, password: passwordHash});
 
             // Response
-            response.status(200).json({ message: '회원가입이 정상적으로 처리되었습니다.' });
+            response.status(200).json({message: '회원가입이 정상적으로 처리되었습니다.'});
 
         } catch (error) {
             console.log(error)
-            response.status(500).json({ message: '인터넷 또는 서버 오류 발생' });
+            response.status(500).json({message: '인터넷 또는 서버 오류 발생'});
         }
     }
 }
 
-export default handler;
+export default handlerRegister;
