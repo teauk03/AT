@@ -1,0 +1,16 @@
+@import "/src/styles/variables";
+
+.checkbox-wrapper {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  .check-label {
+    font-size: 14px;
+  }
+
+  &:focus {
+    border-color: $base-color-white;
+  }
+}

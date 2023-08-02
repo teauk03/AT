@@ -15,6 +15,7 @@
       align-items: center;
       gap: .5rem;
 
+      /* User Title */
       .user {
         margin-top: 3rem;
         font-weight: bold;
@@ -23,6 +24,7 @@
         gap: 1rem;
       }
 
+      /* User Info */
       .section-info {
         width: 90%;
         margin-top: .5rem;
@@ -41,14 +43,35 @@
           }
 
           .input {
+            width: 350px;
             border: none;
             outline: none;
             background-color: rgba(0, 0, 0, 0);
-            margin-left: 2rem;
+            margin-left: 3rem;
           }
 
+          /* Check & X mark */
+          .save-wrapper {
+            display: flex;
+            gap: 10px;
+          }
+
+          /* Post & Comment Count */
           .count {
-            margin: 0 0 0 2rem;
+            width: 350px;
+            margin: 0 0 0 3rem;
+          }
+
+          /* Edit Button */
+          .edit-wrapper {
+            width: 30px;
+            text-align: center;
+          }
+
+          /* Check  X mark & Edit Button */
+          .edit-btn {
+            border: none;
+            background: none;
           }
         }
       }

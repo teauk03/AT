@@ -1,0 +1,39 @@
+.user-menu {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around; }
+  .user-menu .item-button {
+    background: none;
+    border: none; }
+  .user-menu .list-wrapper {
+    width: 11.875rem;
+    height: 8.125rem;
+    top: 4.063rem;
+    right: 0;
+    left: auto;
+    background: #fff;
+    border: 1px solid #c9ced6;
+    border-radius: .5rem;
+    position: absolute;
+    padding: .5rem 0; }
+    .user-menu .list-wrapper .list {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      margin-bottom: 0; }
+      .user-menu .list-wrapper .list .list-item {
+        padding: .5rem 1.5rem; }
+        .user-menu .list-wrapper .list .list-item .item {
+          font-size: .875rem;
+          font-weight: 400; }
+  .user-menu .img-box {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    cursor: pointer; }
+    .user-menu .img-box .info {
+      padding: .4rem .3rem .3rem;
+      font-weight: 500; }
+
+/*# sourceMappingURL=UserLoginMenu.module.css.map */

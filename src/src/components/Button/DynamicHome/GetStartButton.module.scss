@@ -1,0 +1,41 @@
+@import "@/styles/variables";
+
+// Button Styles
+.wrapper {
+  background: $bg-color-grass;
+  width: 120px;
+  margin: 0 auto;
+  padding: 12px 12px;
+  user-select: none;
+  transition: all 150ms linear;
+  text-align: center;
+  white-space: nowrap;
+  border: 0 none;
+  border-radius: 36px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.3;
+  box-shadow: 2px 5px 10px $color-smoke;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  &:hover {
+    transition: all 150ms linear;
+    opacity: .85;
+  }
+
+  &:active {
+    transition: all 150ms linear;
+    opacity: .75;
+  }
+
+  &:focus {
+    outline: 1px dotted #959595;
+    outline-offset: -4px;
+  }
+
+  .button {
+    color: $color-snow;
+  }
+}

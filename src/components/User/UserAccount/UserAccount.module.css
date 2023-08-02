@@ -11,7 +11,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: .5rem; }
+      gap: .5rem;
+      /* User Title */
+      /* User Info */ }
       .profile-container .profile-wrapper .main .user {
         margin-top: 3rem;
         font-weight: bold;
@@ -26,17 +28,32 @@
           border-bottom: 1.3px solid #DBDBDB;
           display: flex;
           align-items: center;
-          gap: 2rem; }
+          gap: 2rem;
+          /* Check & X mark */
+          /* Post & Comment Count */
+          /* Edit Button */
+          /* Check  X mark & Edit Button */ }
           .profile-container .profile-wrapper .main .section-info .account .info-name {
             width: 100px;
             margin-bottom: 0;
             font-size: 1rem; }
           .profile-container .profile-wrapper .main .section-info .account .input {
+            width: 350px;
             border: none;
             outline: none;
             background-color: rgba(0, 0, 0, 0);
-            margin-left: 2rem; }
+            margin-left: 3rem; }
+          .profile-container .profile-wrapper .main .section-info .account .save-wrapper {
+            display: flex;
+            gap: 10px; }
           .profile-container .profile-wrapper .main .section-info .account .count {
-            margin: 0 0 0 2rem; }
+            width: 350px;
+            margin: 0 0 0 3rem; }
+          .profile-container .profile-wrapper .main .section-info .account .edit-wrapper {
+            width: 30px;
+            text-align: center; }
+          .profile-container .profile-wrapper .main .section-info .account .edit-btn {
+            border: none;
+            background: none; }
 
 /*# sourceMappingURL=UserAccount.module.css.map */

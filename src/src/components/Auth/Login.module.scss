@@ -1,0 +1,59 @@
+@import "@/styles/variables";
+@import "@/styles/Breakpoints";
+
+.main {
+  width: 100%;
+  min-height: 37.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  background-color: $bg-color-white;
+
+  .container {
+    width: 31.25rem;
+    margin: 0 auto;
+    padding: 2.5rem 0 1.875rem 0;
+
+    .login {
+      max-width: 23.125rem;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+
+      .login-logo {
+        font-size: 2.5rem;
+        margin-bottom: 0.625rem;
+      }
+
+      // login form
+      .form {
+        display: flex;
+        flex-direction: column;
+        gap: .188rem;
+
+        .input-error {
+          margin-right: auto;
+
+          .error-text {
+            font-size: .75rem;
+            color: red;
+          }
+        }
+      }
+
+      // Create & Find Account
+      .create-account,
+      .find-account {
+        width: 19.999rem;
+        font-size: 12px;
+        //margin-right: auto;
+
+        .link {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
