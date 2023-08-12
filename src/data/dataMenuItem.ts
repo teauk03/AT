@@ -1,7 +1,6 @@
 /* [GLB] Navbar Menu Array */
 export const GLB_MENU_ITEMS = [
     {title: '커뮤니티', route: '/forum'},
-    {title: '프로젝트', route: '/study'},
 ];
 
 
@@ -22,8 +21,8 @@ export const SLB_FORUM_ITEMS = [
 
 /* [SLB] Navbar Menu Array */
 export const SLB_MENU_ITEMS = [
-    {title: 'Basic Info', route: '/user'},
-    {title: 'Account', route: '/user/account'},
+    {title: '기본정보', route: '/user'},
+    {title: '계정정보', route: '/user/account'},
 ];
 
 

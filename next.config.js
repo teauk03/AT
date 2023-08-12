@@ -1,4 +1,16 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const path = require('path');
+
+const nextConfig = {
+    experimental : {
+        serverActions : true,
+    },
+    sassOptions: {
+        includePaths: [path.join(__dirname, 'styles')],
+        fiber: false,
+        sourceMap: false,
+        outputStyle: 'compressed',
+    },
+}
 
 module.exports = nextConfig
