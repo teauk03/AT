@@ -1,8 +1,15 @@
 import {useState, ChangeEvent, useEffect} from 'react';
 
 const useDateOfBirthField = (initialValue: string, initialBirth: (birth: string) => boolean) => {
-    const [birth, setBirth] = useState(initialValue);
-    const [isBirthValid, setBirthValid] = useState(false);
+    const [
+        birth,
+        setBirth
+    ] = useState(initialValue);
+
+    const [
+        isBirthValid,
+        setBirthValid
+    ] = useState(false);
 
     useEffect(() => {
         setBirthValid(initialBirth(birth));

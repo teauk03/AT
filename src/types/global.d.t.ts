@@ -1,5 +1,7 @@
-export {};
+import {MongoClient} from "mongodb";
 
-declare global {
+/*export {};*/
+
+export declare global {
     var _mongo: Promise<MongoClient> | undefined;
 }

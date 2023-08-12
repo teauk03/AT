@@ -1,16 +1,25 @@
 import {NextFetchEvent, NextRequest, NextResponse} from "next/server";
+import { getToken } from "next-auth/jwt";
 
+/* next-auth/middleware 모듈에서 기본 미들웨어를 가져옴 */
 export { default } from "next-auth/middleware"
-export const config = { matcher: ["/extra", "/dashboard"] }
 
-// export async function middleware(request: NextRequest, event: NextFetchEvent) {
-//     // 이 부분은 '/write' 경로로 접근할 때를 처리합니다.
-//     if (request.nextUrl.pathname === '/write') {
-//         // 쿠키를 통해 로그인 여부를 확인
-//         const loggedCookie = request.cookies.get('logged') as string | undefined;
-//         if (loggedCookie !== 'true') {
-//             // 로그인되지 않은 사용자의 경우 팝업을 띄우지 않고 바로 로그인 페이지로 리디렉션
-//             return NextResponse.redirect(new URL('/login', request.url));
-//         }
-//     }
-// }
+const secret = process.env.SECRET;
+
+export async function middleware(req: NextRequest, event: NextFetchEvent) {
+    /* 로그인 했을 경우에만 존재함 ( "next-auth.session-token" 쿠키가 존재할 때 ) */
+    const session = await getToken({ req, secret, raw: true });
+    const { pathname } = req.nextUrl;
+
+    /* 로그인/회원가입 접근 제한 */
+    if (pathname.startsWith("/login") || pathname.startsWith("/signup")) {
+        if (session) {
+            return NextResponse.redirect(new URL("/", req.url));
+        }
+    }
+}
+
+/* /user/[id] & /login 경로에 대해 설정 */
+export const config = {
+    matcher: ["/user/[id]"]
+}

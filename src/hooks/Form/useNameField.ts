@@ -1,8 +1,15 @@
 import {useState, ChangeEvent, useEffect} from 'react';
 
 const useNameField = (initialValue: string, validateName: (name: string) => boolean) => {
-    const [name, setName] = useState(initialValue);
-    const [isNameValid, setNameValid] = useState(false);
+    const [
+        name,
+        setName
+    ] = useState(initialValue);
+
+    const [
+        isNameValid,
+        setNameValid
+    ] = useState(false);
 
     useEffect(() => {
         setNameValid(validateName(name));

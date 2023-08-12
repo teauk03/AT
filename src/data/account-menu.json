@@ -1,0 +1,18 @@
+{
+  "accountDetails": [
+    {
+      "id": 1,
+      "label": "Email",
+      "value": "",
+      "disabled": true,
+      "type": "text"
+    },
+    {
+      "id": 2,
+      "label": "Password",
+      "value": "",
+      "disabled": true,
+      "type": "text"
+    }
+  ]
+}

@@ -50,27 +50,5 @@
         margin: 0 auto;
         font-size: 1.1rem;
         color: #4B5563; }
-  .main .news {
-    background: #f3f4f6;
-    padding: 5rem 0; }
-    .main .news h3 {
-      font-size: 2.5rem;
-      text-align: center; }
-    .main .news div {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap; }
-  .main .community {
-    padding: 5rem 0; }
-    .main .community h3 {
-      font-size: 2.5rem;
-      text-align: center; }
-    .main .community .wrapper {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      flex-wrap: wrap; }
-      .main .community .wrapper p {
-        color: #4B5563; }
 
 /*# sourceMappingURL=page.module.css.map */

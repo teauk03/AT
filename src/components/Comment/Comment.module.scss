@@ -1,4 +1,4 @@
-@import "src/styles/variables";
+@use "src/styles/variables";
 
 .container {
   margin: 3rem 1rem;
@@ -7,34 +7,29 @@
     margin-bottom: .5rem;
   }
 
+  /* Comment TextArea */
   .text-wrapper {
-    border-radius: 10px;
-    box-shadow: 0 3px 6px $color-box-shadow;
     padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px variables.$color-box-shadow;
 
     .text-box {
       resize: none;
-      width: 100%;
-      min-height: 120px;
+      width: 90%;
+      height: 40px;
       padding: 0.5rem;
-      border: 1px solid $color-text-area;
+      border: 1px solid variables.$color-text-area;
       border-radius: 5px;
       overflow: hidden;
     }
-  }
-
-  .btn-wrapper {
-    margin-top: 1.5rem;
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-
-    .count {
-
-    }
 
     .submit-btn {
-
+      width: 6%;
+      border: none;
+      border-radius: 5px;
     }
   }
 

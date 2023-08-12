@@ -1,23 +1,21 @@
+import axios from "axios";
 import { useCallback } from 'react';
+import { useRouter } from "next/navigation";
 
 const useDeletePost = () => {
+    const router = useRouter();
+
     const handleDelete = useCallback(async (_id: string) => {
         try {
-            const response = await fetch('/api/post/delete', {
-                method: 'POST',
-                body: JSON.stringify({_id})
-            });
+            const response = await axios.post('/api/post/delete', { _id });
+            //console.log('response : ', response)
+            if (response.status === 200) router.push('/forum');
+            else throw new Error(response.data.error);
 
-            if (response.ok) {
-                window.location.href = '/notice';
-            } else {
-                const data = await response.json();
-                throw new Error(data.error);
-            }
         } catch (error) {
             alert(`오류가 발생했습니다: ${(error as Error).message}`);
         }
-    }, []);
+    }, [router]);
 
     return {handleDelete};
 };

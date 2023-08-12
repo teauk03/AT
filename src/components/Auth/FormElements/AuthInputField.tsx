@@ -1,19 +1,6 @@
 import React from 'react';
 import styles from "@/components/Auth/Join.module.scss";
-
-interface DynamicAuthFieldProps {
-    label: string;
-    htmlFor: string;
-    name: string;
-    placeholder: string;
-    autoComplete: string;
-    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    value: string;
-    type?: 'email' | 'password' | 'text' | 'number' | undefined;
-    isInputValidation: boolean;
-    validInputResult: string;
-    invalidInputResult: string | null;
-}
+import {DynamicAuthFieldProps} from '@/types/Form';
 
 const AuthInputField = ({
                             label,
@@ -43,7 +30,7 @@ const AuthInputField = ({
                 />
             </div>
         </label>
-        {name  && (
+        {name && (
             <div style={{
                 marginTop: '.2rem',
                 color: isInputValidation ? '#00FF00' : '#FF0000',

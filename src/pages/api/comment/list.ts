@@ -1,11 +1,11 @@
-import {Db} from "mongodb";
 import {ObjectId} from "mongodb";
 import {connectDB} from "@/utils/mongoDb";
 import {NextApiRequest, NextApiResponse} from "next";
 
+
 const handler = async (request: NextApiRequest, response: NextApiResponse): Promise<void> => {
     if (typeof request.query.id === 'string') {
-        const db: Db = (await connectDB).db('forum');
+        const db = (await connectDB).db('forum');
         let result = await db.collection('comment').find({
             parent : new ObjectId(request.query.id)
         }).toArray()

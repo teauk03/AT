@@ -16,6 +16,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             {$set: editNotice}
         );
 
-        return res.status(200).redirect(302, '/notice');
+        return res.status(200).redirect(302, '/forum');
     }
 }

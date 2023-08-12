@@ -1,11 +1,6 @@
 'use client'
 import { useState, useCallback, ChangeEvent } from 'react';
-
-interface TextCountHooks {
-    textLength: number;
-    setText: React.Dispatch<React.SetStateAction<string>>;
-    onTextChanged: (event: ChangeEvent<HTMLInputElement>) => void;
-}
+import {TextCountHooks} from '@/types/Borad';
 
 /**
  * 입력된 텍스트의 길이를 계산하는 훅

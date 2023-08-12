@@ -1,22 +1,21 @@
 'use client'
 
-import React, {FC, useEffect} from 'react';
+import React, {FC} from 'react';
 import styles from './Join.module.scss';
 import Link from "next/link";
 import github from "/public/github.svg"
 import google from "/public/google.svg"
 
-import {useRouter} from "next/navigation";
 import {useSignUp} from '@/hooks/useSignUp';
-import {isValidEmail, hasValidName, hasValidPasswordLength, hasBirthValid} from "@/utils/validation";
+import {isValidEmailFormat, hasValidName, hasValidPasswordLength, hasBirthValid} from "@/utils/validation/validation";
 
-import SocialLoginButton from "../Button/SocialLogin/SocialLoginButtons";
+import SocialLoginButton from "@/components/UI/Button/SocialLogin/SocialLoginButtons";
 import useEmailField from "@/hooks/Form/useEmailField";
 import usePasswordField from "@/hooks/Form/usePasswordField";
 import useNameField from "@/hooks/Form/useNameField";
 import useDateOfBirthField from "@/hooks/Form/useDateOfBirthField";
 import AuthInputField from "@/components/Auth/FormElements/AuthInputField";
-import PrimaryButton from "@/components/Button/PrimaryButton";
+import PrimaryButton from "@/components/UI/Button/PrimaryButton";
 import DivisionLine from "@/components/Auth/DivisionLine/DivisionLine";
 
 /**
@@ -30,7 +29,7 @@ import DivisionLine from "@/components/Auth/DivisionLine/DivisionLine";
  */
 const JoinComponent: FC = (): JSX.Element => {
     const {signup, isLoading, error, signedUp} = useSignUp();
-    const {email, isEmailValid, handleEmailChange} = useEmailField("", isValidEmail);
+    const {email, isEmailValid, handleEmailChange} = useEmailField("", isValidEmailFormat);
     const {password, isPasswordValid, handlePasswordChange} = usePasswordField("", hasValidPasswordLength);
     const {name, isNameValid, handleNameChange} = useNameField("", hasValidName);
     const {birth, isBirthValid, handleBirthChange} = useDateOfBirthField("", hasBirthValid);
@@ -39,8 +38,6 @@ const JoinComponent: FC = (): JSX.Element => {
         e.preventDefault();
         const data = {birth, name, email, password};
         await signup(data)
-        console.log(data)
-        console.log(error)
         //if (error) alert(error);
     };
 

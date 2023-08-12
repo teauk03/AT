@@ -1,0 +1,377 @@
+.page-header {
+  width: 220px;
+  margin-top: 3.6rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: #dde9f8;
+  background: #242e42;
+
+  /* Admin Page SLB */
+  .admin-nav {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .logo {
+      display: block;
+      margin: 0 15px;
+
+      svg {
+        max-width: 120px;
+        fill: #dde9f8;
+      }
+    }
+
+    .toggle-mob-menu {
+      display: none;
+      margin-left: 5px;
+      padding: 4px;
+      background: #dde9f8;
+      border-radius: 4px;
+
+      svg {
+        fill: #333;
+        transition: transform 0.2s;
+      }
+    }
+
+    /* AdminPage Menu */
+    .admin-menu {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+
+      li:nth-last-child(2) {
+        margin-bottom: 35px;
+      }
+
+      li:last-child {
+        margin-top: auto;
+        margin-bottom: 20px;
+      }
+
+      li > * {
+        width: 100%;
+        padding: 12px 15px;
+      }
+
+      .menu-heading {
+        .title {
+          text-transform: uppercase;
+          letter-spacing: 0.15em;
+          font-size: 12px;
+          margin-top: 12px;
+          color: #7889a4;
+        }
+      }
+
+      svg {
+        width: 20px;
+        height: 20px;
+        fill: #dde9f8;
+        margin-right: 10px;
+      }
+
+      a,
+      button {
+        display: flex;
+        align-items: center;
+        font-size: 0.9rem;
+        color: #dde9f8;
+        background: #242e42;
+      }
+
+      a:hover,
+      a:focus,
+      button:hover,
+      button:focus {
+        background: #1d2636;
+        color: #00b9eb;
+        outline: none;
+      }
+
+      a:hover svg,
+      a:focus svg,
+      button:hover svg,
+      button:focus svg {
+        fill: #00b9eb;
+      }
+    }
+  }
+}
+
+
+/* Page Content Styles */
+.page-content {
+  position: relative;
+  left: 220px;
+  width: calc(100% - 220px);
+  min-height: 100vh;
+  padding: 30px;
+  color: #171616;
+  background: #f0f1f6;
+
+
+  /* Admin Search Bar */
+  .search-and-user {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-column-gap: 50px;
+    align-items: center;
+    background: #f0f1f6;
+    margin-bottom: 30px;
+
+    .search-form {
+      position: relative;
+
+      input {
+        border: none;
+      }
+
+      button {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        border: none;
+        background: none;
+        transform: translateY(-50%);
+
+        svg {
+          width: 26px;
+          height: 26px;
+          fill: #171616;
+        }
+      }
+    }
+
+    [type="search"] {
+      width: 100%;
+      height: 50px;
+      font-size: 1.5rem;
+      padding-left: 15px;
+      background: #fff;
+      color: #fff;
+      border-radius: 4px;
+      box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.075);
+    }
+
+    &::placeholder {
+      color: #171616;
+    }
+
+
+    /* Admin Profile */
+    .admin-profile {
+      display: flex;
+      align-items: center;
+
+      svg {
+        width: 30px;
+        height: 30px;
+      }
+
+      .notifications {
+        position: relative;
+      }
+
+      .badge {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: -10px;
+        right: -3px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        font-size: 10px;
+        color: #fff;
+        background: #ec1848;
+      }
+    }
+
+    .greeting {
+      margin: 0 10px 0 20px;
+    }
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+
+    > article {
+      display: flex;
+      height: 300px;
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.075);
+
+      &:first-child,
+      &:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+  }
+}
+
+
+/* Body Classes */
+.mob-menu-opened {
+  .toggle-mob-menu {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  .page-header {
+    .admin-menu {
+      transform: scale(1);
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+
+/* MQ RULES */
+@media screen and (max-width: 767px) {
+  .page-header,
+  .page-content {
+    position: static;
+    width: 100%;
+  }
+
+  .page-header {
+    padding: 10px;
+
+    .admin-nav {
+      flex-direction: row;
+    }
+
+    .logo {
+      margin: 0;
+
+      svg {
+        width: 83px;
+        height: 35px;
+      }
+    }
+
+    .toggle-mob-menu {
+      display: block;
+    }
+
+    .admin-menu {
+      position: absolute;
+      left: 98px;
+      top: 57px;
+      margin-top: 0;
+      z-index: 2;
+      border-radius: 4px;
+      background: #242e42;
+      visibility: hidden;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 0.2s;
+
+      li:nth-last-child(2) {
+        margin-bottom: 12px;
+      }
+
+      li:last-child button {
+        display: none;
+      }
+    }
+  }
+
+  .page-content {
+    min-height: 0;
+    padding: 10px;
+
+    .grid-container {
+      grid-gap: 10px;
+    }
+
+    .search-and-user {
+      position: absolute;
+      left: 131px;
+      top: 10px;
+      padding: 0;
+      grid-column-gap: 5px;
+      width: calc(100% - 141px);
+      border-radius: 4px;
+      background: transparent;
+
+      [type="search"] {
+        font-size: 1rem;
+        height: 35px;
+      }
+
+      form {
+        svg {
+          width: 18px;
+          height: 18px;
+        }
+      }
+
+      .admin-profile {
+        svg {
+          fill: #fff;
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 400px) {
+  .page-content .grid > article {
+    grid-column: 1 / -1;
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  .collapsed {
+    .page-header {
+      width: 40px;
+
+      .admin-menu {
+        li > * {
+          padding: 10px;
+        }
+
+        svg {
+          margin-right: 0;
+        }
+      }
+
+      .logo,
+      .admin-menu span,
+      .admin-menu .menu-heading {
+        display: none;
+      }
+
+      .collapse-btn svg {
+        transform: rotate(180deg);
+      }
+    }
+
+    .page-content {
+      left: 40px;
+      width: calc(100% - 40px);
+    }
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  .light-mode .search-and-user .admin-profile svg {
+    fill: #333;
+  }
+}

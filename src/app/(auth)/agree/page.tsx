@@ -1,4 +1,4 @@
-import styles from "./_Agree.module.scss"
+import styles from "./agree.module.scss"
 
 const AgreementPage = (): JSX.Element => {
     return (
@@ -42,4 +42,4 @@ const AgreementPage = (): JSX.Element => {
     )
 };
 
-export {AgreementPage};
+export default AgreementPage;

@@ -1,11 +1,18 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { CommentData } from '@/types/Components/Comment';
+import { CommentData } from '@/types/Comment';
 
 
 const useCommentAPI = (id: string): [CommentData[], (comment: string) => void] => {
-    const [data, setData] = useState<CommentData[]>([]);
-    const [refresh, setRefresh] = useState<boolean>(false);
+    const [
+        saveCommentData,
+        setData
+    ] = useState<CommentData[]>([]);
+
+    const [
+        refresh,
+        setRefresh
+    ] = useState<boolean>(false);
 
     useEffect(() => {
         const fetchData = async (): Promise<void> => {
@@ -16,11 +23,11 @@ const useCommentAPI = (id: string): [CommentData[], (comment: string) => void] =
                 console.error(error);
             }
         };
-        fetchData().catch(error => console.error(error));
+        fetchData()
     }, [id, refresh]);
 
 
-    const postComment = async (comment: string): Promise<void> => {
+    const postComment = async (comment: string) => {
         try {
             await axios.post('/api/comment/new', {
                 comment,
@@ -36,7 +43,7 @@ const useCommentAPI = (id: string): [CommentData[], (comment: string) => void] =
         }
     };
 
-    return [data, postComment];
+    return [saveCommentData, postComment];
 };
 
 export {useCommentAPI}

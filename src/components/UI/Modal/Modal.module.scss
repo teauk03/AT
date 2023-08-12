@@ -1,0 +1,99 @@
+@use "@/styles/variables";
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  .modal-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background: variables.$base-color-white;
+    border-radius: 8px;
+
+    .modal-text {
+      font-size: 14px;
+    }
+
+    .abort-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+
+      /* Modal Button */
+      .abort-btn,
+      .success-btn {
+        width: 30%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: all 0.3s ease;
+
+        &:focus { outline: none; }
+      }
+
+      .abort-btn {
+        background-color: #f44336;
+        color: white;
+
+        &:hover {
+          background-color: #e53929;
+          transform: scale(1.05);
+        }
+      }
+
+      .success-btn {
+        background-color: #4CAF50;
+        color: white;
+
+        &:hover {
+          background-color: #43a047;
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}
+
+/* Search Modal */
+.search-container {
+  width: 46.875rem;
+  height: 3.4375rem;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  background: variables.$background-color-white;
+  border: 1px solid variables.$color-light-gray;
+  border-radius: 5px;
+
+  &.focused {
+    border: 3px solid variables.$border-light-blue;
+  }
+
+  .search-modal {
+    display: flex;
+    gap: 10px;
+
+    .search-input {
+      width: 43.875rem;
+      border: none;
+      outline: none;
+    }
+
+    .search-btn {
+      border: none;
+      background: none;
+    }
+  }
+}

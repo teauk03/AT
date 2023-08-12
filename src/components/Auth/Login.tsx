@@ -6,26 +6,29 @@ import Link from "next/link";
 import github from "/public/github.svg"
 import google from "/public/google.svg"
 
-import SocialLoginButton from "../Button/SocialLogin/SocialLoginButtons";
-import PrimaryButton from "@/components/Button/PrimaryButton";
-import PrimaryCheckBox from "@/components/CheckBox/PrimaryCheckBox";
-import InputBox from "@/components/Auth/Input/InputBox";
+import {useLogin} from "@/hooks/useSignIn";
+import SocialLoginButton from "@/components/UI/Button/SocialLogin/SocialLoginButtons";
+import PrimaryButton from "@/components/UI/Button/PrimaryButton";
+import PrimaryCheckBox from "@/components/UI/CheckBox/PrimaryCheckBox";
+import InputBox from "@/components/UI/Input/InputBox";
 import DivisionLine from "@/components/Auth/DivisionLine/DivisionLine";
-import useLogin from "@/hooks/useSignIn";
-import handleLoginSubmit from "@/utils/auth/handleLoginSubmit";
 
 const LoginComponent = (): JSX.Element => {
-    const {
-        error,
-        isLoading,
-    } = useLogin();
+    const {login, error, isLoading} = useLogin();
 
     const handleSubmit = async (event: React.FormEvent): Promise<void> => {
-        await handleLoginSubmit(event, handleAsyncTask);
+        event.preventDefault();
+        const target = event.target as typeof event.target & {
+            email: { value: string };
+            password: { value: string };
+        };
+        const email = target.email.value;
+        const password = target.password.value;
+        await login(email, password);
     }
 
     return (
-        // Container
+        /* Container */
         <main className={styles.main}>
             <div className={styles.container}>
                 <div className={styles.login}>
@@ -53,9 +56,7 @@ const LoginComponent = (): JSX.Element => {
                         {/* Error */}
                         {error &&
                             <div className={styles['input-error']}>
-                                <span className={styles['error-text']}>
-                                    {error.message}
-                                </span>
+                                <span className={styles['error-text']}>{error}</span>
                             </div>
                         }
 
@@ -89,23 +90,17 @@ const LoginComponent = (): JSX.Element => {
                     {/* New Account */}
                     <div className={styles['create-account']}>
                         {"계정이 없으신가요?"}{' '}
-                        <span className={styles.link}>
-                            <Link href={'/join'}>회원가입</Link>
-                        </span>
+                        <span className={styles.link}><Link href={'/join'}>회원가입</Link></span>
                     </div>
 
                     {/* Find Account */}
                     <div className={styles['find-account']}>
                         {"계정을 분실하셨나요 ?"}{' '}
                         <span className={styles.link}>
-                            <Link href={'/id'}>
-                                아이디 찾기
-                            </Link>
+                            <Link href={'/id'}>아이디 찾기</Link>
                         </span>{' 또는 '}
                         <span className={styles.link}>
-                            <Link href={'/pwd'}>
-                                비밀번호 변경
-                            </Link>
+                            <Link href={'/pwd'}>비밀번호 변경</Link>
                         </span>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 import {ObjectId} from "mongodb";
 
-export let NextAuthOptions;
+/* [...nextAuth].ts - User Session */
 declare module "next-auth" {
     interface Session {
         user: {
@@ -10,6 +10,7 @@ declare module "next-auth" {
             name: string;
             email: string;
             birth: string;
+            role: string;
             accessToken: string;
         }
     }

@@ -1,9 +1,9 @@
-import styles from './page.module.scss';
-import {GetStartButton} from "@/components/Button/DynamicHome/GetStartButton"
-import {FooterClientComponent} from "@/components/Footer/Footer";
 import React from "react";
+import styles from './page.module.scss';
+import {GetStartButton} from "@/components/UI/Button/DynamicHome/GetStartButton"
+import {FooterClientComponent} from "@/components/UI/Footer/Footer";
 
-export default async function Home(): Promise<JSX.Element> {
+const Home = (): JSX.Element => {
     return (
         <>
             <main className={styles.main}>
@@ -14,7 +14,7 @@ export default async function Home(): Promise<JSX.Element> {
                             <h1>Online Arduino Simulation</h1>
                             <p>Turn your Arduino ideas into reality using an Arduino simulator web app!</p>
                         </div>
-                            <GetStartButton/>
+                        <GetStartButton/>
                     </section>
 
                     {/* Content2 */}
@@ -34,26 +34,8 @@ export default async function Home(): Promise<JSX.Element> {
                         <div className={styles.wrapper}>
                             <h3>Block Coding</h3>
                             <p>Enhance your logical thinking with block coding.<br/>
-                                It's an easy and fun way to start your journey in the world of programming!
+                                It&apos;s an easy and fun way to start your journey in the world of programming!
                             </p>
-                        </div>
-                    </section>
-
-
-                    {/* Content4 */}
-                    <section className={styles.news}>
-                        <h3>Latest news</h3>
-                        <div className={styles.wrapper}>
-                            <p>DB - Announcement</p>
-                        </div>
-                    </section>
-
-
-                    {/* Content5 */}
-                    <section className={styles.community}>
-                        <h3>Community</h3>
-                        <div className={styles.wrapper}>
-                            <p>DB - Community</p>
                         </div>
                     </section>
                 </div>
@@ -62,3 +44,5 @@ export default async function Home(): Promise<JSX.Element> {
         </>
     )
 }
+
+export default Home;

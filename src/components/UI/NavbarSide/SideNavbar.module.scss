@@ -1,0 +1,30 @@
+@use "@/styles/variables";
+
+.side-nav {
+  margin-top: 1.5rem;
+  width: 15.625rem;
+  height: 60%;
+
+  .menu {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    align-items: center;
+    width: 100%;
+    font-size: 1.2rem;
+
+    .item {
+      display: flex;
+      align-items: center;
+      height: 4.124rem;
+      padding-left: 1rem;
+      background: variables.$base-color-white;
+      transition: all 0.15s ease-in-out;
+
+      &:hover { background: #e6ebe1; }
+    }
+
+    .item-active { background: #DCE8CD; }
+    .item-passive { background: variables.$base-color-white; }
+  }
+}

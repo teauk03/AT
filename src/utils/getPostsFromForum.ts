@@ -1,9 +1,8 @@
 import {connectDB} from "@/utils/mongoDb";
-import {Post} from "@/types/db";
-import {Db} from "mongodb";
+import {Post} from "@/types/Borad";
 
-const getPosts = async (): Promise<Post[]> => {
-    const db: Db = (await connectDB).db("forum");
+const getAllPostsFromForum = async (): Promise<Post[]> => {
+    const db = (await connectDB).db("forum");
     let result: Post[] = await db.collection('post').find().toArray() as Post[];
 
     result = result.map((noticeItem: Post) => {
@@ -14,4 +13,4 @@ const getPosts = async (): Promise<Post[]> => {
     return result;
 };
 
-export {getPosts};
+export default getAllPostsFromForum;

@@ -1,0 +1,145 @@
+@use '@/styles/variables';
+
+/* [Wrap] Container */
+.container {
+  width: 100%;
+  height: 100%;
+  margin: 3rem 0;
+  display: flex;
+  flex-direction: column;
+
+  /* [Title] Content Title */
+  .content-title {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid variables.$border-color-forum;
+
+    h2 {
+      margin-bottom: .5rem;
+      font-weight: bold;
+    }
+
+    span {
+      margin: 0;
+    }
+  }
+
+
+  /* [Form] Support Form*/
+  .support-form {
+
+    .tap {
+      margin: 1rem 3rem;
+
+      ul {
+        display: flex;
+        justify-content: space-around;
+
+        li {
+
+        }
+      }
+    }
+
+    /* Form Description */
+    p {
+
+    }
+
+
+    /* [FieldSet] Support fieldset */
+    .support-fieldset {
+
+      /* Write Board Radio Check Wrapper */
+      .cate-radio {
+        margin: 1rem 0;
+        border: 2px solid  variables.$border-color-forum;
+
+        /* Radio Table */
+        .table-container {
+          width: 100%;
+
+          .table-body {
+            .table-wrapper {
+              .table-title {
+                width: 110px;
+                padding: 5px 20px;
+                margin-right: auto;
+                }
+
+              .table-item {
+                padding: 5px 20px;
+                display: flex;
+                gap: 1rem;
+
+                .item {
+                  display: flex;
+                  gap: .5rem;
+                }
+              }
+            }
+          }
+        }
+      }
+
+
+      /* Write Board TextBox Wrapper */
+      .write-editor {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0;
+
+        /* [Title] Input */
+        .title-text {
+          padding: .5rem;
+          border: 2px solid variables.$border-color-forum;
+
+          .article-title {
+            padding: .5rem;
+            width: 100%;
+            border: none;
+          }
+        }
+
+        /* [Body] TextArea */
+        .body-text {
+          padding: .5rem;
+          border: 2px solid variables.$border-color-forum;
+
+          .article-editor {
+            width: 100%;
+            height: 10rem;
+            padding: .5rem;
+            border: none;
+            resize: none;
+          }
+        }
+      }
+    }
+
+    /* Write Board Button Wrapper */
+    .board-button {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+
+      button {
+        padding: .5rem 1rem;
+        color: #fefefe;
+        font-weight: bold;
+        border: none;
+        border-radius: 2px;
+      }
+
+      .del-button {
+        background: red;
+      }
+
+      .submit-button {
+        background: #2b9939;
+      }
+    }
+  }
+}

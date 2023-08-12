@@ -1,16 +1,14 @@
-import styles from './idInquiry.module.scss'
+import React from "react";
+import InquiryContainer from "@/components/Help/InquiryContainer";
+
 
 const UserIdInquiryPage = () => {
+
     return (
-        <div className="container">
-            <div className={styles.inner}>
-                <h1 className={styles.h1}>아이디 찾기</h1>
-                <div className={styles.HelpidContent}>정보를 입력해주세요!</div>
-                <input className={styles.box} name="name" type="text" placeholder="정보입력" />
-                <button className={styles.button} >아이디 찾기!</button>
-                </div>
-            </div>
-        
+        <InquiryContainer
+            inquiryDescription={'계정을 찾습니다.'}
+            btnDescription={'계정 찾기'}
+        />
     )
 }
 

@@ -1,0 +1,101 @@
+@use '@/styles/Breakpoints';
+
+.profile-container {
+  @include Breakpoints.profile-container;
+
+  .profile-wrapper {
+    width: 100%;
+    margin: 1.5rem 3.5rem 3.5rem;
+    border: 1.3px solid #DBDBDB;
+
+    .main {
+      width: 100%;
+      padding-bottom: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .5rem;
+
+      /* User Title */
+      .user {
+        margin-top: 3rem;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      /* User Info */
+      .section-info {
+        width: 90%;
+        margin-top: .5rem;
+
+        .account {
+          padding: 1.5rem 3rem .5rem 3rem;
+          border-bottom: 1.3px solid #DBDBDB;
+          display: flex;
+          align-items: center;
+          gap: 2rem;
+
+          .info-name {
+            width: 115px;
+            margin-bottom: 0;
+            font-size: 1rem;
+          }
+
+          .input {
+            width: 300px;
+            border: none;
+            outline: none;
+            background-color: rgba(0, 0, 0, 0);
+            margin-left: 3rem;
+          }
+
+          /* Check & X mark */
+          .save-wrapper {
+            display: flex;
+            gap: 10px;
+
+            .exit-btn { color: red; }
+            .check-btn { color: green; }
+          }
+
+          /* Post & Comment Count */
+          .count {
+            width: 350px;
+            margin: 0 0 0 3rem;
+          }
+
+          /* Edit Button */
+          .edit-wrapper {
+            width: 30px;
+            text-align: center;
+
+            button { font-size: 13px; }
+          }
+
+          /* Check  X mark & Edit Button */
+          .edit-btn {
+            border: none;
+            background: none;
+          }
+        }
+      }
+
+      /* [Component] UserAccount */
+      .delete-wrapper {
+        width: 90%;
+        padding: 1.5rem 0 0 3rem;
+
+        .delete-btn {
+          width: 65px;
+          height: 20px;
+          margin-right: auto;
+          font-size: 15px;
+          line-height: 24px;
+          color: #767678;
+        }
+      }
+    }
+  }
+}

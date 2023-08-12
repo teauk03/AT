@@ -1,32 +1,44 @@
 'use client'
+import {signIn, SignInResponse} from "next-auth/react";
 import {useRouter} from "next/navigation";
 import {useState} from 'react';
-import {signIn, SignInResponse} from "next-auth/react";
-import {LoginState} from '@/types/Auth'
 
-import validateInputs from "@/utils/validation/validateInputs";
-import handleSignInError from "@/utils/errorHandling/handleError";
-import handleException from "@/utils/errorHandling/handleException";
+import {
+    validateSignInInputs,
+    handleSignInError,
+    handleException
+} from "@/utils/validation/validation";
 
-/* 로그인 작업 - Custom Hook */
+import {LoginState} from '@/types/Auth';
+
+
+/* [Custom Hook] 로그인 */
 const useLogin = () => {
     const router = useRouter();
-
-    /* 에러 및 로딩 상태 관리 */
     const [
         state,
         setState
-    ] = useState<LoginState>({error: null, isLoading: false});
+    ] = useState<LoginState>({
+        error: null, isLoading: false
+    });
 
-    /* 클라이언트 요청시 호출 (Custom Hook 을 활용한 로그인 기능) */
-    const login = async (email: string, password: string): Promise<void> => {
-        const error = validateInputs(email, password);
+
+    /* [Fn] 클라이언트 요청시 호출 (Custom Hook 을 활용한 로그인 기능) */
+    const login = async (email: string, password: string) => {
+        const error = validateSignInInputs(email, password);
         if (error) {
-            setState({error, isLoading: false});
+            setState({
+                error, isLoading: false
+            });
+
             return;
         }
 
-        setState({error: null, isLoading: true});
+
+        setState({
+            error: null, isLoading: true
+        });
+
 
         try {
             const response: SignInResponse | undefined = await signIn(
@@ -57,4 +69,4 @@ const useLogin = () => {
     return { login, ...state };
 };
 
-export default useLogin;
+export { useLogin };

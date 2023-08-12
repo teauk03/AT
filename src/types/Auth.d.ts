@@ -1,13 +1,19 @@
 import {Session as NextAuthSession} from "next-auth/core/types";
 
 export interface User {
+    name: string;
     email: string;
 }
 
+/* [API] NEW Comment */
 export interface Session extends NextAuthSession {
     user: User;
 }
 
+/*
+ * [Custom Hook] useSignUp
+ * [utils] validation
+ */
 export interface SignupData {
     birth: string;
     name: string;
@@ -15,8 +21,15 @@ export interface SignupData {
     password: string;
 }
 
-/* [useSignIn] 에러 및 로딩 상태 인터페이스 */
-export interface LoginState {
+/* [Custom Hook] useSignUp */
+export interface SignUpState {
+    error: string | null;
+    isLoading: boolean;
+    signedUp: boolean;
+}
+
+/* [Custom Hook] useSignIn */
+interface LoginState {
     error: string | null;
     isLoading: boolean;
 }

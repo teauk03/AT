@@ -278,13 +278,8 @@ ol > li > ul {
   margin: 0 0 0 15px
 }
 
-dt {
-  font-weight: bold;
-}
-
-dd {
-  margin-right: 0;
-}
+dt { font-weight: bold; }
+dd { margin-right: 0; }
 
 hr {
   overflow: visible;
@@ -295,13 +290,8 @@ hr {
 }
 
 /* 인접한 요소 인 경우 여백 추가 */
-* + hr {
-  margin-top: 20px;
-}
-
-address {
-  font-style: normal;
-}
+* + hr { margin-top: 20px; }
+address { font-style: normal; }
 
 blockquote {
   margin: 0 0 20px 0;
@@ -312,13 +302,9 @@ blockquote {
 }
 
 /* 인접한 요소 인 경우 여백 추가 */
-* + blockquote {
-  margin-top: 20px;
-}
+* + blockquote { margin-top: 20px; }
 
-blockquote p:last-of-type {
-  margin-bottom: 0;
-}
+blockquote p:last-of-type { margin-bottom: 0; }
 
 blockquote footer {
   margin-top: 10px;
@@ -327,9 +313,7 @@ blockquote footer {
   color: #666;
 }
 
-blockquote footer::before {
-  content: "— ";
-}
+blockquote footer::before { content: "— "; }
 
 pre {
   font: 0.875rem / 1.5 Consolas, monaco, monospace;
@@ -343,9 +327,7 @@ pre {
   border-radius: 3px;
   background: #fff;
 
-  code {
-    font-family: Consolas, monaco, monospace;
-  }
+  code { font-family: Consolas, monaco, monospace; }
 }
 
 
@@ -408,9 +390,7 @@ legend {
   white-space: normal;
 }
 
-progress {
-  vertical-align: baseline;
-}
+progress { vertical-align: baseline; }
 
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
@@ -449,7 +429,7 @@ template {
   display: none;
 }
 
-// 브라우저는 렌더링 속도, 정밀도에 대한 가독성을 강조
+/* 브라우저는 렌더링 속도, 정밀도에 대한 가독성을 강조 */
 @media screen and (min-width: 960px) {
   html,
   body {
