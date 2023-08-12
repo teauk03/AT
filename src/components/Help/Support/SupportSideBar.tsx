@@ -8,7 +8,7 @@ const SupportSideBar = ({session}: SupportSideBarProps) => {
     return (
         <aside className={styles['aside']}>
             <ul className={styles['aside-menu']}>
-                <h1>Support</h1>
+                <h1>고객 지원</h1>
                 {SUPPORT_SLB_ITEMS.map((item, index) => (
                     (index !== 6 || session) && (
                         <li key={index} className={styles['aside-menu-item']}>

@@ -3,7 +3,7 @@ import { useState } from 'react';
 const useUnderDevelopmentPopup = () => {
     const [showPopup, setShowPopup] = useState(false);
 
-    const handleClick = (e: MouseEvent) => {
+    const handleClick: React.MouseEventHandler<HTMLButtonElement> = (e) => {
         e.preventDefault();
         alert("준비중입니다");
         setShowPopup(true);

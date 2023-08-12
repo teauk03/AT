@@ -1,0 +1,93 @@
+@use '@/styles/variables';
+
+/* IDE Nav Design */
+.ide-navbar {
+  width: 100%;
+  height: 4rem;
+  padding: .5rem .5rem;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: variables.$color-dark-gray;
+
+  .ide-button {
+    width: 4rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border: none;
+  }
+
+  .ide-button:first-child {
+    background: #FE0017;
+  }
+
+  .ide-button:nth-child(2) {
+    width: 7rem;
+    background: #00A300;
+  }
+
+  .ide-button:nth-child(3) {
+    background: #FFE100;
+  }
+
+  .editor-button {
+    margin-left: auto;
+  }
+}
+
+
+/* IDE Main Design */
+.ide {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+
+  .ide-sidebar {
+    width: 50%;
+    background: variables.$color-dark-gray;
+    color: variables.$base-color-white;
+    padding: 10px;
+  }
+
+
+  /* Editor & Terminal */
+  .ide-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .ide-editor {
+      height: 70%;
+      flex: 1;
+      background: #1e1e1e;
+      color: #9cdcfe;
+
+      .editor {
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+        font-size: 1.25rem;
+        background: #1e1e1e;
+        color: variables.$base-color-white;
+        border: none;
+        resize: none;
+      }
+
+      .editor:focus {
+        outline: none;
+      }
+    }
+
+    .ide-terminal {
+      width: 100%;
+      height: 30%;
+      background: #000;
+      color: variables.$base-color-white;
+      padding: 10px;
+    }
+  }
+}

@@ -28,11 +28,11 @@ const Support = async (): Promise<JSX.Element> => {
                 {/* Contents */}
                 <main className={styles.main}>
                     <section className={styles['top-section']}>
-                        <div className={styles['search-wrapper']}>
+                        {/*<div className={styles['search-wrapper']}>
                             <SupportInputSearch/>
-                        </div>
+                        </div>*/}
                         <div className={styles['current-path']}>
-                            <h3>current-path 삭제 예정</h3>
+                            <h1 className={styles['current-title']}>문의유형 선택</h1>
                         </div>
 
                         {/* 내부 span 임시태그 */}

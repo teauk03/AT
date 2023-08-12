@@ -1,10 +1,15 @@
+@charset "UTF-8";
 .container {
   padding: 0;
   display: grid;
   grid-template-areas: "aside main";
   grid-template-columns: 20rem 1fr;
+  /* Support - page, Support - SLB 내부 h1*/
   /* SLB - Support Sidebar */
   /* Main Contents */ }
+  .container h1 {
+    font-size: 1.5rem;
+    font-weight: bold; }
   .container .aside {
     grid-area: aside;
     display: flex;
@@ -30,7 +35,8 @@
     /* Main - MidSection */
     /* Main - BottomSection */ }
     .container .main .top-section {
-      margin-top: 2rem; }
+      margin-top: 3rem;
+      /* Search Bar */ }
       .container .main .top-section .search-wrapper {
         display: flex;
         align-items: flex-start; }
@@ -41,7 +47,7 @@
           border-radius: 50px;
           outline: none; }
       .container .main .top-section .current-path {
-        margin-top: 1rem; }
+        margin-top: 2rem; }
       .container .main .top-section .device-type {
         display: flex;
         justify-content: space-between;

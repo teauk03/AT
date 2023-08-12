@@ -5,6 +5,11 @@
     "aside main";
   grid-template-columns: 20rem 1fr;
 
+  /* Support - page, Support - SLB 내부 h1*/
+  h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
 
   /* SLB - Support Sidebar */
   .aside {
@@ -44,8 +49,9 @@
 
     /* Main - TopSection */
     .top-section {
-      margin-top: 2rem;
+      margin-top: 3rem;
 
+      /* Search Bar */
       .search-wrapper {
         display: flex;
         align-items: flex-start;
@@ -60,7 +66,7 @@
       }
 
       .current-path {
-        margin-top: 1rem;
+        margin-top: 2rem;
       }
 
       .device-type {

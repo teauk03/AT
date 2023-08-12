@@ -3,6 +3,12 @@ import styles from '../../../components/Projects/StudyHome.module.scss';
 import StudyPlanListItem from "@/components/Projects/StudyPlanListItem";
 import StudyPlanSlbItem from "@/components/Projects/StudyPlanSlbItem";
 import StudyPlanHeaderBackBtn from "@/components/Projects/StudyPlanHeaderBackBtn";
+import {
+    STUDY_PROBLEM_ASYNC,
+    STUDY_PROBLEM_BASIC,
+    STUDY_PROBLEM_CONDITION,
+    STUDY_PROBLEM_FUNCTIONS, STUDY_PROBLEM_OPERATOR
+} from "@/data/dataProjectsItem";
 
 const StudyPlanHome = () => {
     return (
@@ -35,50 +41,23 @@ const StudyPlanHome = () => {
                         <div className={styles['list-container']}>
                             <StudyPlanListItem
                                 title={'Basic'}
-                                items={[
-                                    { href: '/study', label: 'Hello World' },
-                                    { href: '/study', label: 'Variable Declaration and Initialization' },
-                                    { href: '/study', label: 'Data Type' },
-                                    { href: '/study', label: 'String Concatenation' },
-                                ]}
+                                items={STUDY_PROBLEM_BASIC}
                             />
                             <StudyPlanListItem
                                 title={'Operator'}
-                                items={[
-                                    { href: '/study', label: 'Arithmetic Operator' },
-                                    { href: '/study', label: 'Comparison Operator' },
-                                    { href: '/study', label: 'Logical Operator' },
-                                    { href: '/study', label: 'Assignment Operator' },
-                                    { href: '/study', label: 'Bit Operator' },
-                                ]}
+                                items={STUDY_PROBLEM_OPERATOR}
                             />
                             <StudyPlanListItem
                                 title={'Condition'}
-                                items={[
-                                    { href: '/study', label: 'Condition (if, switch)' },
-                                    { href: '/study', label: 'Ternary Operator' },
-                                    { href: '/study', label: 'Logical Operator' },
-                                    { href: '/study', label: 'Loop (for, while)' },
-                                    { href: '/study', label: 'Type Conversion Within Conditionals' },
-                                ]}
+                                items={STUDY_PROBLEM_CONDITION}
                             />
                             <StudyPlanListItem
                                 title={'Functions'}
-                                items={[
-                                    { href: '/study', label: 'Function' },
-                                    { href: '/study', label: 'Parameters' },
-                                    { href: '/study', label: 'Methods' },
-                                    { href: '/study', label: 'Closures' },
-                                ]}
+                                items={STUDY_PROBLEM_FUNCTIONS}
                             />
                             <StudyPlanListItem
                                 title={'Async'}
-                                items={[
-                                    { href: '/study', label: 'Callbacks' },
-                                    { href: '/study', label: 'Asynchronous' },
-                                    { href: '/study', label: 'Promise' },
-                                    { href: '/study', label: 'Async/Await' },
-                                ]}
+                                items={STUDY_PROBLEM_ASYNC}
                             />
                         </div>
                     </div>
