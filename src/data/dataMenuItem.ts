@@ -8,10 +8,15 @@ export const GLB_MENU_ITEMS = [
 /* [SLB] Navbar Menu Array */
 export const SLB_FORUM_ITEMS = [
     {title: '전체', route: '/forum'},
-    {title: '개발(Coding)', route: '/forum'},
-    {title: '디자인(Design)', route: '/forum'},
-    {title: '기획/QA', route: '/forum'},
-    {title: '개발 Q&A', route: '/forum'},
+    {title: 'EZ2AC', route: '/forum'},
+    {title: 'SOUND VOLTEX', route: '/forum'},
+    {title: 'BeatMania IIDX', route: '/forum'},
+    {title: 'GITADORA', route: '/forum'},
+    {title: 'DANCERUSH', route: '/forum'},
+    {title: 'MAIMAI', route: '/forum'},
+    {title: 'Jubeat', route: '/forum'},
+    {title: 'popn music', route: '/forum'},
+    {title: 'DDR', route: '/forum'},
 ];
 
 
