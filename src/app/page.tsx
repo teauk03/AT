@@ -2,6 +2,7 @@ import React from "react";
 import styles from './page.module.scss';
 import {GetStartButton} from "@/components/UI/Button/DynamicHome/GetStartButton"
 import {FooterClientComponent} from "@/components/UI/Footer/Footer";
+import MusicGameSlide from "@/components/UI/CarouselSlide/MusicGameSlide";
 
 const Home = (): JSX.Element => {
     return (
@@ -16,6 +17,9 @@ const Home = (): JSX.Element => {
                         </div>
                         <GetStartButton/>
                     </section>
+
+                    {/* Game Carousel Slide */}
+                    <MusicGameSlide/>
 
                     {/* Content2 */}
                     <section className={styles.arduino}>
