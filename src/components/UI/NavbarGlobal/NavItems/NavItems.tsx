@@ -11,19 +11,18 @@ const NavItems = ({gblMenuItems}: MenuItemProps) => {
     const currentRoute = usePathname();
 
     return (
-        <ul className={styles.menu}>
+        <>
             {gblMenuItems.map((item) => (
-                <li className={styles['user-item']} key={item.route}>
+                <li className={styles['nav-link']} key={item.route}>
                     <Link href={item.route}
-                          className={currentRoute === item.route
-                              ? styles['active-class']
-                              : styles['non-active']
-                          }>
+                          className={`${styles['nav-item']} ${currentRoute === item.route ? styles['active-link'] :
+                           styles['non-active-link']}`}
+                    >
                         {item.title}
                     </Link>
                 </li>
             ))}
-        </ul>
+        </>
     );
 };
 

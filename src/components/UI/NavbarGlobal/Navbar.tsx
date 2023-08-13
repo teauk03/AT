@@ -3,8 +3,7 @@ import React, {useEffect, useRef, useState} from "react";
 import styles from './Navbar.module.scss';
 
 import Link from "next/link";
-import { GLB_MENU_ITEMS } from "@/data/dataMenuItem";
-
+import {GLB_MENU_ITEMS} from "@/data/dataMenuItem";
 import UserLoginMenu from "@/components/UI/NavbarGlobal/UserLoginMenu/UserLoginMenu";
 import NavItems from "@/components/UI/NavbarGlobal/NavItems/NavItems";
 import {useSession} from "next-auth/react";
@@ -13,7 +12,7 @@ import {MenuItem} from '@/types/Navigation';
 
 
 const NavbarComponent = () => {
-    const { data: session } = useSession();
+    const {data: session} = useSession();
 
 
     const [
@@ -39,7 +38,7 @@ const NavbarComponent = () => {
         if (session?.user?._id) {
             setGlbMenuItems((prevMenuItems) => {
                 return prevMenuItems.map((item) =>
-                    item.title === 'Dashboard' ? { ...item, route: `/user/${session.user._id}` } : item
+                    item.title === 'Dashboard' ? {...item, route: `/user/${session.user._id}`} : item
                 );
             });
         }
@@ -48,7 +47,7 @@ const NavbarComponent = () => {
         else {
             setGlbMenuItems((prevMenuItems) =>
                 prevMenuItems.map((item) =>
-                    item.title === 'Dashboard' ? { ...item, route: '/' } : item
+                    item.title === 'Dashboard' ? {...item, route: '/'} : item
                 )
             );
         }
@@ -84,25 +83,31 @@ const NavbarComponent = () => {
 
 
     return (
-        <header className={styles.header} ref={modalRef}>
-            {/* Navigation Menu */}
-            <nav className={styles.navigation} role={"GLB - Navigation"}>
+        <nav className={styles.navbar}>
+            {/* Navigation Home */}
+            <Link className={styles['nav-logo']} href={'/'}>ATTACK</Link>
+            <button className={styles['hamburger-btn']}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+                     strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                     className="feather feather-menu">
+                    <path d="M3 12h18M3 6h18M3 18h18"/>
+                </svg>
+            </button>
 
-                {/* Home Icon 133.971 x 31.994 */}
-                <div className={styles.logo}>
-                    <Link href="/">Attack</Link>
-                </div>
-
-                {/* Navigation Item props : gblMenuItems[array] */}
+            {/* [Navigation Link Wrap] Scss : Navbar.module.scss */}
+            <ul className={styles['nav-link-wrap']}>
                 <NavItems gblMenuItems={gblMenuItems}/>
-            </nav>
+            </ul>
 
-            {/* User Login Menu */}
-            <UserLoginMenu
-                onClick={setIsUserModalClicked}
-                isMenClicked={isMenClicked}
-            />
-        </header>
+
+            {/* [Navigation Btn Wrap] Scss : UserLoginMenu.module.scss */}
+            <div className={styles['login-menu-wrap']}>
+                <UserLoginMenu
+                    onClick={setIsUserModalClicked}
+                    isMenClicked={isMenClicked}
+                />
+            </div>
+        </nav>
     );
 }
 

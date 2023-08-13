@@ -1,46 +1,87 @@
 @use "@/styles/variables";
+@use '@/styles/Breakpoints';
 
-.header {
-  min-width: auto;
-  padding: 0 3rem;
+/* Navigation Container */
+.navbar {
+  width: 100%;
+  padding: .3rem 2rem;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  background: variables.$base-color-white;
-  border-bottom: 1px solid variables.$color-light-gray;
-  position: sticky;
-  top: 0;
+  justify-content: space-between;
+  background: #252954;
 
-  /* Navigation */
-  .navigation {
-    margin-right: auto;
+  /* Navigation Home */
+  .nav-logo {
+    height: 100%;
+    background: linear-gradient(93.51deg, #9B51E0 2.84%, #3081ED 99.18%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+  }
+
+  /* Navigation Link Wrap */
+  .nav-link-wrap {
+    margin: 0 auto 0 3rem;
+    padding: .5rem 0 0 0;
     display: flex;
-    align-items: center;
+    gap: 2rem;
 
-    .logo {
-      margin-right: 50px;
-      font-size: 24px;
-    }
+    .nav-link {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 1rem;
 
-    /* NavItems */
-    .menu {
-      margin: 1rem 0;
+      .nav-item {
+        color: #BCBCBC;
+      }
 
-      .user-item {
-        padding: 0 20px;
-        display: inline-block;
-        font-size: 16px;
-        font-weight: 600;
+      .active-link {
+        background: linear-gradient(93.51deg, #9B51E0 2.84%, #3081ED 99.18%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        border-bottom: 1.5px solid #9B51E0;
+      }
 
-        .non-active {
-          border-bottom: 2px solid transparent;
-          transition: .35s;
-        }
-
-        .active-class {
-          border-bottom: 2px solid variables.$base-font-color-dark;
-        }
+      .non-active-link:not(:last-child) {
+        margin-right: 32px;
       }
     }
   }
+
+
+  /* SingIn SingUp Wrap */
+  .login-menu-wrap {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    gap: .5rem;
+  }
+
+
+  /* [Responsive] Hamburger Menu */
+  .hamburgerlogowrap {
+    display: flex;
+    align-items: center;
+  }
+
+  .hamburger-btn {
+    display: none;
+    color: #D7D7D7;
+    background: #1F1D2B;
+    border: none;
+    margin-right: 10px;
+  }
+}
+
+
+/* [Responsive Mobile] 768px */
+@include Breakpoints.mobile {
+
+}
+
+/* [Responsive Tablet] 1200px */
+@include Breakpoints.tablet {
+
 }

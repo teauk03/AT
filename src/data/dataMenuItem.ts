@@ -1,6 +1,8 @@
 /* [GLB] Navbar Menu Array */
 export const GLB_MENU_ITEMS = [
     {title: '커뮤니티', route: '/forum'},
+    {title: '기기대여', route: '/exam'},
+    {title: '고객센터', route: '/support'},
 ];
 
 

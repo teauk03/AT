@@ -1,0 +1,46 @@
+//@use "@/styles/variables";
+//
+//.header {
+//  min-width: auto;
+//  padding: 0 3rem;
+//  display: flex;
+//  align-items: center;
+//  justify-content: flex-end;
+//  background: variables.$base-color-white;
+//  border-bottom: 1px solid variables.$color-light-gray;
+//  position: sticky;
+//  top: 0;
+//
+//  /* Navigation */
+//  .navigation {
+//    margin-right: auto;
+//    display: flex;
+//    align-items: center;
+//
+//    .logo {
+//      margin-right: 50px;
+//      font-size: 24px;
+//    }
+//
+//    /* NavItems */
+//    .menu {
+//      margin: 1rem 0;
+//
+//      .user-item {
+//        padding: 0 20px;
+//        display: inline-block;
+//        font-size: 16px;
+//        font-weight: 600;
+//
+//        .non-active {
+//          border-bottom: 2px solid transparent;
+//          transition: .35s;
+//        }
+//
+//        .active-class {
+//          border-bottom: 2px solid variables.$base-font-color-dark;
+//        }
+//      }
+//    }
+//  }
+//}

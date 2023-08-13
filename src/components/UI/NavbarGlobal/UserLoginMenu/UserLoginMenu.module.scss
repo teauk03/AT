@@ -1,58 +1,36 @@
 @use '@/styles/variables';
 
-.user-menu {
+.item-button {
+  background: none;
+  border: none;
+}
+
+
+/* SignIn SignUp Button */
+.create-btn {
+  margin: .5rem 0;
+  padding: 0.713rem 1.875rem;
+  background: transparent;
+  border: none;
+  color: #BCBCBC;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+
+  &.selected-btn {
+    border: 1px solid #D7D7D7;
+    border-radius: 10px;
+  }
+}
+
+.img-box {
   display: flex;
   align-items: center;
   align-content: center;
-  justify-content: space-around;
+  cursor: pointer;
 
-  .item-button {
-    background: none;
-    border: none;
-  }
-
-  /* [Not-Login] Dropdown Menu */
-  .list-wrapper {
-    width: 10.875rem;
-    height: 8.125rem;
-    top: 4.063rem;
-    right: 0;
-    left: auto;
-    background: variables.$background-color-white;
-    border: 1px solid variables.$border-color-forum;
-    border-radius: .5rem;
-    position: absolute;
-    padding: .5rem 0;
-
-    .list {
-      margin-bottom: 0;
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-
-      .list-item {
-        padding: .5rem 1.5rem;
-        display: flex;
-        gap: 10px;
-
-        .item {
-          font-size: .875rem;
-          font-weight: 400;
-        }
-      }
-    }
-  }
-
-
-  .img-box {
-    display: flex;
-    align-items: center;
-    align-content: center;
-    cursor: pointer;
-
-    .info {
-      padding: .4rem .3rem .3rem;
-      font-weight: 500;
-    }
+  .info {
+    padding: .4rem .3rem .3rem;
+    font-weight: 500;
   }
 }
