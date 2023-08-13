@@ -1,12 +1,28 @@
-import React from 'react';
-import styles from "./ForumItem.module.scss";
+import React from "react";
 
-const ForumFooter = () => {
+interface ForumFooterProps {
+    currentPage: number;
+    setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+    totalPages: number;
+}
+
+const ForumFooter = ({currentPage, setCurrentPage, totalPages}: ForumFooterProps) => {
+    console.log('totalPages:', totalPages);
+    const handlePreviousPage = () => {
+        if (currentPage > 1) setCurrentPage(currentPage - 1);
+    };
+
+    const handleNextPage = () => {
+        if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+    };
+
     return (
         <>
-            <button>←</button>
-            <span>1</span>
-            <button>→</button>
+            <button onClick={handlePreviousPage} disabled={currentPage === 1}>←</button>
+            {totalPages > 0 && [...Array(totalPages)].map((_, index) => (
+                <button key={index} onClick={() => setCurrentPage(index + 1)}>{index + 1}</button>
+            ))}
+            <button onClick={handleNextPage} disabled={currentPage === totalPages}>→</button>
         </>
     );
 };

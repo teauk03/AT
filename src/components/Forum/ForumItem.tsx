@@ -1,11 +1,14 @@
 import styles from './ForumItem.module.scss';
 import Link from "next/link";
-import {NoticeItemProps} from "@/types/Borad";
+import {NoticeItemProps, Post} from "@/types/Borad";
 import SvgIconComponent from "@/components/SvgIconComponent";
 
 
 /* 작성글 출력 컴포넌트 */
-const ForumItem = ({result}: NoticeItemProps) => {
+const ForumItem = ({ result }: { result: Post[] | null }) => {
+    if (!result) {
+        return <div>Loading or an error occurred...</div>;
+    }
     return (
         <ul className={styles['forum-item-container']}>
             {result.map((noticeItem, noticeIndex) => {
