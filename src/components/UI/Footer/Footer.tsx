@@ -1,99 +1,55 @@
 "use client";
 import React from 'react';
-import Link from 'next/link';
 import styles from './Footer.module.scss';
-import {faFacebook, faInstagram, faTwitter} from '@fortawesome/free-brands-svg-icons';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
+
+/* TODO : Index 페이지 디자인시 footer-container 삭제 후
+*   container 클래스에 적용 */
 const FooterClientComponent = () => {
     return (
-        <footer className={styles.page}>
-            <section className={styles.service}>
-                {/* Service1 */}
-                <div className={styles.wrapper}>
-                    <h3 className={styles.title}>Menu1</h3>
-                    <ul className={styles.menu}>
-                        <li className={styles.item}>
-                            <Link href="/">Go</Link>
-                        </li>
-                        <li className={styles.item}>
-                            <Link href="/">Go</Link>
-                        </li>
-                        <li className={styles.item}>
-                            <Link href="/">Go</Link>
-                        </li>
-                    </ul>
-                </div>
-
-                {/* Service2 */}
-                <div className={styles.wrapper}>
-                    <h3 className={styles.title}>Menu2</h3>
-                    <ul className={styles.menu}>
-                        <li className={styles.item}>
-                            <Link href="/">Go</Link>
-                        </li>
-                        <li className={styles.item}>
-                            <Link href="/">Go</Link>
-                        </li>
-                        <li className={styles.item}>
-                            <Link href="/">Go</Link>
-                        </li>
-                    </ul>
-                </div>
-
-                {/* Service3 */}
-                <div className={styles.wrapper}>
-                    <h3 className={styles.title}>Menu3</h3>
-                    <ul className={styles.menu}>
-                        <li className={styles.item}>
-                            <Link href="/">Go</Link>
-                        </li>
-                        <li className={styles.item}>
-                            <Link href="/">Go</Link>
-                        </li>
-                        <li className={styles.item}>
-                            <Link href="/">Go</Link>
-                        </li>
-                    </ul>
-                </div>
-
-                {/* SNS Link */}
-                <div className={styles.wrapper}>
-                    <div className={styles.columns}>
-                        <h3 className={styles.title}>SNS</h3>
-                        <ul className={styles.menu}>
-                            <li className={styles.item}>
-                                <Link className={styles['sns-link']} href="/">
-                                    <FontAwesomeIcon className={styles.icon} icon={faFacebook}/>
-                                </Link>
-                            </li>
-                            <li className={styles.item}>
-                                <Link className={styles['sns-link']} href="/">
-                                    <FontAwesomeIcon className={styles.icon} icon={faInstagram}/>
-                                </Link>
-                            </li>
-                            <li className={styles.item}>
-                                <Link className={styles['sns-link']} href="/">
-                                    <FontAwesomeIcon className={styles.icon} icon={faTwitter}/>
-                                </Link>
-                            </li>
-                        </ul>
+        <div className={styles['footer-container']}>
+            <footer className={styles.footer}>
+                <section className={styles['footer-main']}>
+                    Attack
+                </section>
+                <nav className={styles['footer-navigate']}>
+                    <div className={styles['nav-item']}>
+                        <h5>Marketplace</h5>
+                        <p>Home</p>
+                        <p>Activity</p>
+                        <p>Discover</p>
+                        <p>Learn more</p>
                     </div>
-                </div>
-            </section>
+                    <div className={styles['nav-item']}>
+                        <h5>Company</h5>
+                        <p>About Us</p>
+                        <p>Services</p>
+                        <p>Portfolio</p>
+                    </div>
+                    <div className={styles['nav-item']}>
+                        <h5>Contact</h5>
+                        <p>Facebook</p>
+                        <p>Instagram</p>
+                        <p>Twitter</p>
+                        <p>Email</p>
+                    </div>
+                </nav>
+            </footer>
 
             {/* Site Legal */}
-            <address className={styles.relation}>
-                <p className={styles.text}>
-                    대표: 박장환&nbsp;
-                    사업자등록번호: 123-45-67890&nbsp;
-                    주소: 안산대학교<br/>
-                    TEL: 010-8338-9751&nbsp;
-                    E-mail: da12@da.com
-                </p>
-                <small>Copyright © DA. All Rights Reserved.</small>
-            </address>
-        </footer>
+            <div className={styles.Legal}>
+                <address className={styles.relation}>
+                    <p className={styles.text}>
+                        대표: 김00&nbsp;
+                        사업자등록번호: 123-45-67890&nbsp;
+                        주소: 어택<br/>
+                        TEL: 010-0000-0000&nbsp;
+                        E-mail: da12@attack.com
+                    </p>
+                    <small>Copyright © Attack. All Rights Reserved.</small>
+                </address>
+            </div>
+        </div>
     );
 }
 

@@ -21,7 +21,7 @@ const RootLayout = async ({children}: {
         <body className={inter.className}>
         <Providers>
             <NavbarComponent/>
-            <GlobalLayout>{children}</GlobalLayout>
+            {children}
         </Providers>
         </body>
         </html>

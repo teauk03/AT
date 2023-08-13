@@ -1,36 +1,41 @@
-.page {
-  padding: 0 5rem 0;
-  background: #fefefe; }
-  .page .service {
-    display: flex;
-    justify-content: space-between; }
-    .page .service .wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center; }
-      .page .service .wrapper .columns .title {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 10px; }
-      .page .service .wrapper .columns .menu {
-        display: flex; }
-        .page .service .wrapper .columns .menu .item {
-          margin-bottom: 5px; }
-          .page .service .wrapper .columns .menu .item .sns-link {
-            color: #333;
-            margin-right: 10px;
-            font-size: 20px; }
-          .page .service .wrapper .columns .menu .item .icon {
-            width: 20px;
-            height: 20px; }
-  .page .relation {
-    padding: 1.5rem 0;
-    font-size: 12px;
-    font-style: normal;
-    line-height: 18px;
-    letter-spacing: -.3px;
-    max-width: 360px; }
-  .page .text {
-    margin: 0; }
+/*
+Error: Invalid CSS after "...ude Breakpoints": expected "}", was ".global-wrap-st..."
+        on line 5 of Footer.module.scss
 
-/*# sourceMappingURL=Footer.module.css.map */
+1: @use '@/styles/Breakpoints';
+2: 
+3: /* Container *\/
+4: .footer-container {
+5:   @include Breakpoints.global-wrap-style;
+6:   color: #FFFFFF;
+7:   background: #252954;
+8: 
+9:   /* Footer *\/
+10:   .footer {
+
+Backtrace:
+Footer.module.scss:5
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:690:in `block'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:681:in `ruleset'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:707:in `block_child'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:137:in `stylesheet'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:41:in `parse'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/engine.rb:414:in `_to_tree'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:387:in `run'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:63:in `process_result'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/base.rb:50:in `parse'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/base.rb:18:in `parse!'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/bin/sass:13:in `<top (required)>'
+C:/Ruby31-x64/bin/sass:32:in `load'
+C:/Ruby31-x64/bin/sass:32:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"...ude Breakpoints\": expected \"}\", was \".global-wrap-st...\"\A         on line 5 of Footer.module.scss\A \A 1: @use '@/styles/Breakpoints';\A 2: \A 3: /* Container */\A 4: .footer-container {\A 5:   @include Breakpoints.global-wrap-style;\A 6:   color: #FFFFFF;\A 7:   background: #252954;\A 8: \A 9:   /* Footer */\A 10:   .footer {"; }
