@@ -8,15 +8,16 @@
   .contents {
     display: flex;
 
-    /* Post Container */
-    .item-container {
+    /* [ForumItem] Post Container */
+    .forum-item-container {
+      margin: 0;
       padding: 2rem 0;
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
+      gap: .25rem;
       overflow: hidden;
 
-      .list {
+      .forum-list {
         max-width: 100%;
         padding: 1rem;
         display: flex;
@@ -44,8 +45,8 @@
 
           .title-text {
             margin: 0;
-            padding: .5rem 0 0 0;
-            font-size: 1.2em;
+            padding: .3rem 0 0 0;
+            font-size: 1.125em;
             font-weight: 500;
           }
         }
@@ -127,5 +128,13 @@
   .forum-footer {
     display: flex;
     justify-content: center;
+  }
+
+  .forum-footer {
+    margin: 2rem;
+  }
+
+  .forum-search {
+    margin-bottom: 4rem;
   }
 }

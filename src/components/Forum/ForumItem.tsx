@@ -4,13 +4,13 @@ import {NoticeItemProps} from "@/types/Borad";
 import SvgIconComponent from "@/components/SvgIconComponent";
 
 
+/* 작성글 출력 컴포넌트 */
 const ForumItem = ({result}: NoticeItemProps) => {
-
     return (
-        <ul className={styles['item-container']}>
+        <ul className={styles['forum-item-container']}>
             {result.map((noticeItem, noticeIndex) => {
                 return (
-                    <li className={styles.list} key={noticeIndex}>
+                    <li className={styles['forum-list']} key={noticeIndex}>
                         {/* User Name */}
                         <div className={styles['author-wrap']}>
                             <SvgIconComponent
