@@ -132,6 +132,12 @@
 
   .forum-footer {
     margin: 2rem;
+    gap: 1rem;
+
+    .move-btn {
+      background: none;
+      border: none;
+    }
   }
 
   .forum-search {

@@ -11,7 +11,7 @@ const ForumItem = ({ result }: { result: { posts: Post[]; totalPosts: number } }
         return <div>Loading or an error occurred...</div>;
     }
 
-    const { posts } = result;
+    const { posts} = result;
 
     return (
         <ul className={styles['forum-item-container']}>

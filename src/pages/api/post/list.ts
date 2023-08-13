@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import {connectDB} from "@/utils/mongoDb";
 import getAllPostsFromForum from '@/utils/getPostsFromForum';
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const listPosts = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
         /* page : 페이지 번호 (기본값: 1)
          * limit : 페이지당 아이템 수 (기본값: 10) */
@@ -21,3 +21,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         res.status(500).json({ error: '오류가 발생했습니다.' });
     }
 };
+
+export default listPosts;

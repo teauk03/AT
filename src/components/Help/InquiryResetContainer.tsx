@@ -10,6 +10,8 @@ const InquiryResetContainer = () => {
 
     const searchParams = useSearchParams();
     const token = searchParams!.get('token');
+    const tokenValue = token || '';
+
 
     useEffect(() => {
         if (!token) {
@@ -52,8 +54,8 @@ const InquiryResetContainer = () => {
                 <input
                     type="text"
                     id="token"
-                    value={token}
-                    onChange={(e) => setToken(e.target.value)}
+                    value={tokenValue}
+                    readOnly
                 />
             </div>
             <div>

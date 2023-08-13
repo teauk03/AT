@@ -9,25 +9,23 @@ import ForumSelect from "@/components/Forum/ForumSelect";
 import {NoticeItemProps, Post} from "@/types/Borad";
 
 
-/* TODO
-    1. 포럼내 검색 기능 (API & Front)
-*/
-const ForumContainer = ({ result: NoticeItemProps, totalPosts, page }: { result: Post[], totalPosts: number, page: number }) => {
+const ForumContainer = ({ result: initialPosts, totalPosts, page }: NoticeItemProps) => {
     console.log('totalPosts:', totalPosts);
     const [currentPage, setCurrentPage] = useState(page);
-    const [result, setResult] = useState<Post[] | null>(NoticeItemProps);
+    const [result, setResult] = useState<{ posts: Post[]; totalPosts: number }>({ posts: initialPosts, totalPosts });
     const totalPages = Math.ceil(totalPosts / 10);
-
     useEffect(() => {
+        const initialResult = { posts: initialPosts, totalPosts };
         fetch(`/api/post/list?page=${currentPage}&limit=10`)
             .then((response) => response.json())
             .then((result) => {
                 setResult(result);
             })
             .catch((error) => {
-                setResult(null);
+                setResult(initialResult);
             });
-    }, [currentPage]);
+    }, [currentPage, initialPosts, totalPosts]);
+
 
     return (
         <div className={styles.container}>

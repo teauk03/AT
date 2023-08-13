@@ -57,6 +57,7 @@ const MusicGameSlide = () => {
                 <div className={styles['slide-dots']}>
                     {games.map((_, index) => (
                         <button
+                            key={index}
                             onClick={() => setCurrent(index)}
                             className={styles['slide-btn']}
                         >

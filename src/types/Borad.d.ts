@@ -1,5 +1,5 @@
 import {ObjectId} from "mongodb";
-import {ChangeEvent} from "react";
+import React, {ChangeEvent} from "react";
 
 /* [util] getPostsFromForum Result Type */
 interface Post {
@@ -14,6 +14,8 @@ interface Post {
 /* [Component] ForumItem Props */
 export interface NoticeItemProps {
     result: Post[];
+    totalPosts: number;
+    page: number;
 }
 
 
