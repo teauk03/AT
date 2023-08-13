@@ -8,6 +8,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
   background: #252954;
 
   /* Navigation Home */
@@ -76,6 +78,7 @@
 }
 
 
+/* TODO : Responsive Design */
 /* [Responsive Mobile] 768px */
 @include Breakpoints.mobile {
 

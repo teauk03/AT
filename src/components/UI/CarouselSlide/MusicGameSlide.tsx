@@ -28,7 +28,7 @@ const MusicGameSlide = () => {
     return (
         <>
             <section className={styles.section}>
-                <h2 className={styles['line-title']}>trending games</h2>
+                <h2 className={styles['line-title']}>popular games</h2>
                 <div className={styles['carousel-container']}>
                     <div
                         className={styles['carousel-wrapper']}
