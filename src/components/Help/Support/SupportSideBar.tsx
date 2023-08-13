@@ -16,6 +16,13 @@ const SupportSideBar = ({session}: SupportSideBarProps) => {
                         </li>
                     )
                 ))}
+                <li className={styles['aside-menu-item']}>
+                    <AppLink
+                        className={styles['contactus-button']}
+                        href={'/support/contactus'}
+                        label={'문의하기'}
+                    />
+                </li>
             </ul>
         </aside>
     );

@@ -1,11 +1,11 @@
 import React from 'react';
+import ForumAllLayout from "@/app/(board)/forum/ForumAllLayout";
 
+/* 이벤트 */
 const Event = () => {
     return (
-        <div>
-            event
-        </div>
-    );
+        <ForumAllLayout/>
+    )
 };
 
 export default Event;

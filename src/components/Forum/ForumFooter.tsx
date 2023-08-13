@@ -3,11 +3,13 @@ import React, {useEffect} from "react";
 import styles from "@/components/Forum/ForumItem.module.scss";
 import SvgIconComponent from "@/components/SvgIconComponent";
 
+
 interface ForumFooterProps {
     currentPage: number;
     setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
     totalPages: number;
 }
+
 
 const ForumFooter = ({currentPage, setCurrentPage, totalPages}: ForumFooterProps) => {
     /* currentPage 상태 변경 후 스크롤 적용 */

@@ -4,13 +4,14 @@
   display: grid;
   grid-template-areas: "aside main";
   grid-template-columns: 20rem 1fr;
-  /* Support - page, Support - SLB 내부 h1*/
+  /* Support - page, Support - SLB 내부 h1 */
   /* SLB - Support Sidebar */
   /* Main Contents */ }
   .container h1 {
     font-size: 1.5rem;
     font-weight: bold; }
   .container .aside {
+    width: 70%;
     grid-area: aside;
     display: flex;
     flex-direction: column;
@@ -28,9 +29,10 @@
         cursor: pointer;
         color: #8c8c8c; }
   .container .main {
-    grid-area: main;
-    padding: 0 8rem 0 3rem;
     height: 100%;
+    margin: 0 0 5rem 0;
+    grid-area: main;
+    padding: 0 7rem 0 0;
     /* Main - TopSection */
     /* Main - MidSection */
     /* Main - BottomSection */ }
@@ -48,6 +50,11 @@
           outline: none; }
       .container .main .top-section .current-path {
         margin-top: 2rem; }
+        .container .main .top-section .current-path p {
+          margin: .5rem 0;
+          font-size: .95rem; }
+          .container .main .top-section .current-path p span {
+            font-weight: bold; }
       .container .main .top-section .device-type {
         display: flex;
         justify-content: space-between;

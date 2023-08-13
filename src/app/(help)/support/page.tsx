@@ -3,7 +3,6 @@ import styles from "@/components/Help/Support/support.module.scss";
 
 import DocumentList from "@/components/Help/Support/SupportItem";
 import SupportSideBar from "@/components/Help/Support/SupportSideBar";
-import SupportInputSearch from "@/components/Help/Support/SupportInputSearch";
 import {getServerSession} from "next-auth";
 import AppLink from "@/components/UI/Link/AppLink";
 
@@ -35,6 +34,8 @@ const Support = async (): Promise<JSX.Element> => {
                         </div>*/}
                             <div className={styles['current-path']}>
                                 <h1 className={styles['current-title']}>문의유형 선택</h1>
+                                <p>문의유형을 선택하면 문의유형에 따라 <span>[자주 찾는 도움말]</span>을 확인할 수 있습니다.<br/>
+                                    찾는 도움말이 보이지 않으면 <span>[검색]</span>을 이용해 원하는 도움말을 찾아 주세요.</p>
                             </div>
 
                             {/* 내부 span 임시태그 */}
@@ -50,17 +51,6 @@ const Support = async (): Promise<JSX.Element> => {
                         {/* DocumentList */}
                         <section className={styles['mid-section']}>
                             <DocumentList _id={result.toString()}/>
-                        </section>
-
-                        <section className={styles['bottom-section']}>
-                            <p className={styles['contactus-text']}>
-                                Can&apos;t find documentation for troubleshooting?
-                            </p>
-                            <AppLink
-                                className={styles['contactus-button']}
-                                href={'/support/contactus'}
-                                label={'Contact Us'}
-                            />
                         </section>
                     </main>
                 </div>

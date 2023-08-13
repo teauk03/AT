@@ -1,6 +1,6 @@
 @use '@/styles/variables';
 
-// Form
+/* Form */
 .form {
   padding: 2rem;
   display: grid;
@@ -15,9 +15,40 @@
     padding: 1rem;
     border-radius: 10px;
     box-shadow: 0 3px 6px variables.$color-box-shadow;
+
+    .title {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+
+    /* Select Menu */
+    .board-select-wrap {
+      width: 100%;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+
+      .select-games {
+        width: 48%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background: #f9f9f9;
+        font-size: 16px;
+        color: #333;
+
+        // 옵션을 클릭할 때 나타나는 화살표 스타일
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23212121"><path d="M4 9.5l4 4 4-4L13 8l-5 5-5-5z"/></svg>');
+        background-repeat: no-repeat;
+        background-position: 95% center;
+      }
+    }
   }
 
-  // Header
+  /* Header */
   .board-title-wrap {
     display: flex;
     flex-direction: column;
@@ -37,7 +68,7 @@
     }
   }
 
-  // Main
+  /* Main */
   .board-content {
     min-height: 200px;
     padding: 0.5rem;
@@ -47,7 +78,7 @@
     resize: none;
   }
 
-  // Submit Button
+  /* Submit Button */
   .btn-wrapper {
     margin-left: auto;
     grid-column: 1 / -1;

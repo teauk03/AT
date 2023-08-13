@@ -41,7 +41,7 @@ const ForumWriteSelect = () => {
     return (
         <>
             {/* 게임사 선택 드롭다운 */}
-            <select name="manufacturer" value={manufacturer} onChange={handleManufacturerChange}>
+            <select className={styles['select-games']} name="manufacturer" value={manufacturer} onChange={handleManufacturerChange}>
                 <option value="Attact">Attact</option>
                 {manufacturerOptions.map((option, index) => (
                     <option key={index} value={option}>{option}</option>
@@ -49,7 +49,7 @@ const ForumWriteSelect = () => {
             </select>
 
             {/* 게임 선택 드롭다운 */}
-            <select name="game" value={game} onChange={handleGameChange}>
+            <select className={styles['select-games']} name="game" value={game} onChange={handleGameChange}>
                 <option value="Games">Games</option>
                 {gameOptions.map((option, index) => (
                     <option key={index} value={option.title}>{option.title}</option>

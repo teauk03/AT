@@ -3,6 +3,7 @@ export const SUPPORT_DEVICE_ITEMS = [
     {label: '아이디/보안'},
     {label: '접속 오류'},
     {label: '홈페이지 이용(오류)'},
+    {label: '대여/결제'},
 ];
 
 

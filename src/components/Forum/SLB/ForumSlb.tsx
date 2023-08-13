@@ -46,7 +46,7 @@ const ForumSideNavbar = () => {
         <nav className={styles['slb-nav']} role="sub-navigation">
             {/* Sub Menu Header */}
             <div className={styles['slb-title']}>
-                <h2 className={styles.title}>Board</h2>
+                <h2 className={styles.title}>커뮤니티</h2>
 
                 {/* Search : Modal Popup Opens. */}
                 <Link className={styles['link-write']} href={'/forum'} onClick={handleOpenSearchModal}>

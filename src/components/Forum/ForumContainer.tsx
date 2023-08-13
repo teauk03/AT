@@ -4,9 +4,8 @@ import styles from "@/components/Forum/ForumItem.module.scss";
 import ForumSideNavbar from "@/components/Forum/SLB/ForumSlb";
 import ForumItem from "@/components/Forum/ForumItem";
 import ForumFooter from "@/components/Forum/ForumFooter";
-import ForumSearch from "@/components/Forum/ForumSearch";
-import ForumSelect from "@/components/Forum/ForumSelect";
 import {NoticeItemProps, Post} from "@/types/Borad";
+import ForumFooterSearchItems from "@/components/Forum/ForumFooterSearchItems";
 
 
 const ForumContainer = ({ result: initialPosts, totalPosts, page }: NoticeItemProps) => {
@@ -54,8 +53,7 @@ const ForumContainer = ({ result: initialPosts, totalPosts, page }: NoticeItemPr
 
             {/* 커뮤니티 검색 */}
             <div className={styles['forum-search']}>
-                <ForumSelect/>
-                <ForumSearch/>
+                <ForumFooterSearchItems/>
             </div>
         </div>
     );

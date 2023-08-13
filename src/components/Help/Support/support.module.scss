@@ -5,7 +5,7 @@
     "aside main";
   grid-template-columns: 20rem 1fr;
 
-  /* Support - page, Support - SLB 내부 h1*/
+  /* Support - page, Support - SLB 내부 h1 */
   h1 {
     font-size: 1.5rem;
     font-weight: bold;
@@ -13,6 +13,7 @@
 
   /* SLB - Support Sidebar */
   .aside {
+    width: 70%;
     grid-area: aside;
     display: flex;
     flex-direction: column;
@@ -43,9 +44,10 @@
 
   /* Main Contents */
   .main {
-    grid-area: main;
-    padding: 0 8rem 0 3rem;
     height: 100%;
+    margin: 0 0 5rem 0;
+    grid-area: main;
+    padding: 0 7rem 0 0;
 
     /* Main - TopSection */
     .top-section {
@@ -67,6 +69,15 @@
 
       .current-path {
         margin-top: 2rem;
+
+        p {
+          margin: .5rem 0;
+          font-size: .95rem;
+
+          span {
+            font-weight: bold;
+          }
+        }
       }
 
       .device-type {
