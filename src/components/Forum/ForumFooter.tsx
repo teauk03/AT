@@ -1,4 +1,5 @@
-import React from "react";
+'use client'
+import React, {useEffect} from "react";
 import styles from "@/components/Forum/ForumItem.module.scss";
 import SvgIconComponent from "@/components/SvgIconComponent";
 
@@ -9,13 +10,23 @@ interface ForumFooterProps {
 }
 
 const ForumFooter = ({currentPage, setCurrentPage, totalPages}: ForumFooterProps) => {
-    console.log('totalPages:', totalPages);
+    /* currentPage 상태 변경 후 스크롤 적용 */
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [currentPage]);
+
     const handlePreviousPage = () => {
-        if (currentPage > 1) setCurrentPage(currentPage - 1);
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     };
 
     const handleNextPage = () => {
-        if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+        if (currentPage < totalPages) {
+            setCurrentPage(currentPage + 1);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     };
 
     return (

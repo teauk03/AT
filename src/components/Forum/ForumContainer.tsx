@@ -10,10 +10,18 @@ import {NoticeItemProps, Post} from "@/types/Borad";
 
 
 const ForumContainer = ({ result: initialPosts, totalPosts, page }: NoticeItemProps) => {
-    console.log('totalPosts:', totalPosts);
-    const [currentPage, setCurrentPage] = useState(page);
-    const [result, setResult] = useState<{ posts: Post[]; totalPosts: number }>({ posts: initialPosts, totalPosts });
+    const [
+        currentPage,
+        setCurrentPage
+    ] = useState(page);
+
+    const [
+        result,
+        setResult
+    ] = useState<{ posts: Post[]; totalPosts: number }>({ posts: initialPosts, totalPosts });
+
     const totalPages = Math.ceil(totalPosts / 10);
+
     useEffect(() => {
         const initialResult = { posts: initialPosts, totalPosts };
         fetch(`/api/post/list?page=${currentPage}&limit=10`)

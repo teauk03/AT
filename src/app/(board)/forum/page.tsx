@@ -2,8 +2,8 @@ import React from "react";
 import ForumContainer from "@/components/Forum/ForumContainer";
 export const dynamic: 'force-dynamic' = 'force-dynamic';
 
-// TODO : 빌드를 위한 임시 타입  page: any
 
+// TODO : 빌드를 위한 임시 타입  page: any
 /**
  * 지정된 페이지의 포럼 포스트를 불러와 ForumContainer 컴포넌트로 렌더링.
  * @param page - 가져올 포스트가 있는 페이지 번호
@@ -19,7 +19,11 @@ const Forum = async (page: any): Promise<JSX.Element> => {
 
         /* 가져온 결과를 ForumContainer 컴포넌트로 렌더링 */
         return (
-            <ForumContainer result={result.posts} totalPosts={totalPosts} page={page}/>
+            <ForumContainer
+                result={result.posts}
+                totalPosts={totalPosts}
+                page={page}
+            />
         )
 
     } catch (error) {

@@ -8,6 +8,7 @@ import DynamicButton from "@/components/UI/Button/DynamicButton/DynamicButton";
 import Modal from "@/components/UI/Modal/Modal";
 import FormContent from "@/components/Forum/Write/FormContent";
 
+
 const ForumWriteContainer = () => {
     /* 변수 or 상수 선언 */
     const SUCCESS_MSG = '글이 성공적으로 작성되었습니다.';
@@ -23,8 +24,10 @@ const ForumWriteContainer = () => {
         modalContent
     } = useModal();
 
+
     /* [Custom Hooks] useCountText : 타이핑시 카운트 증가 */
     const titleCounter = useCountText(80);
+
 
     /* [Custom Hook] useCreatePost - 게시글 등록 기능
      * - handleNewPostSubmit : 게시글을 등록하는 함수

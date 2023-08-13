@@ -18,12 +18,12 @@
   }
 
   // Header
-  .title-wrapper {
+  .board-title-wrap {
     display: flex;
     flex-direction: column;
     margin-bottom: .5rem;
 
-    .input-title {
+    .board-input-title {
       flex: 1;
       padding: 0.5rem;
       border: 1px solid variables.$color-text-area;
@@ -31,14 +31,14 @@
       font-size: 1rem;
     }
 
-    .title-size {
+    .board-title-count {
       margin-left: auto;
       color: #999;
     }
   }
 
   // Main
-  .content {
+  .board-content {
     min-height: 200px;
     padding: 0.5rem;
     border: 1px solid variables.$color-gray80;

@@ -9,17 +9,16 @@ export const GLB_MENU_ITEMS = [
 
 
 /* [SLB] Navbar Menu Array */
-export const SLB_FORUM_ITEMS = [
-    {title: '전체', route: '/forum'},
-    {title: 'EZ2AC', route: '/forum'},
-    {title: 'SOUND VOLTEX', route: '/forum'},
-    {title: 'BeatMania IIDX', route: '/forum'},
-    {title: 'GITADORA', route: '/forum'},
-    {title: 'DANCERUSH', route: '/forum'},
-    {title: 'MAIMAI', route: '/forum'},
-    {title: 'Jubeat', route: '/forum'},
-    {title: 'popn music', route: '/forum'},
-    {title: 'DDR', route: '/forum'},
+export const  SLB_FORUM_ITEMS = [
+    {title: 'EZ2AC', manufacturer: 'ETC', route: '/forum'},
+    {title: 'SOUND VOLTEX', manufacturer: 'Konami', route: '/forum'},
+    {title: 'BeatMania IIDX', manufacturer: 'Konami', route: '/forum'},
+    {title: 'GITADORA', manufacturer: 'Konami', route: '/forum'},
+    {title: 'DANCERUSH', manufacturer: 'Konami', route: '/forum'},
+    {title: 'MAIMAI', manufacturer: 'Namco', route: '/forum'},
+    {title: 'Jubeat', manufacturer: 'Konami', route: '/forum'},
+    {title: 'popn music', manufacturer: 'Konami', route: '/forum'},
+    {title: 'DDR', manufacturer: 'Konami', route: '/forum'},
 ];
 
 
