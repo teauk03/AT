@@ -45,7 +45,7 @@ const ForumContainer = ({ result: NoticeItemProps, totalPosts, page }: { result:
                     totalPages={totalPages}
                 />
             </div>
-            
+
             {/* 커뮤니티 검색 */}
             <div className={styles['forum-search']}>
                 <ForumSelect/>
