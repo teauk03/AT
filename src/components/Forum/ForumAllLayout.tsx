@@ -16,6 +16,7 @@ const ForumAllLayout = async (page: any) => {
         const result = await response.json();
         const totalPosts = result.totalPosts;
 
+
         /* 가져온 결과를 ForumContainer 컴포넌트로 렌더링 */
         return (
             <ForumContainer

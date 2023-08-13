@@ -3,14 +3,13 @@ export const GLB_MENU_ITEMS = [
     {title: '커뮤니티', route: '/forum'},
     {title: '이벤트', route: '/forum/event'},
     {title: '공지사항', route: '/forum/announcement'},
-    {title: '기기대여', route: '/reserve'},
+    {title: '기기대여', route: '/reserve/home'},
     {title: '고객센터', route: '/support'},
 ];
 
 
 /* [SLB] Navbar Menu Array */
 export const  SLB_FORUM_ITEMS = [
-    {title: 'EZ2AC', manufacturer: 'ETC', route: '/forum'},
     {title: 'SOUND VOLTEX', manufacturer: 'Konami', route: '/forum'},
     {title: 'BeatMania IIDX', manufacturer: 'Konami', route: '/forum'},
     {title: 'GITADORA', manufacturer: 'Konami', route: '/forum'},
@@ -19,6 +18,7 @@ export const  SLB_FORUM_ITEMS = [
     {title: 'Jubeat', manufacturer: 'Konami', route: '/forum'},
     {title: 'popn music', manufacturer: 'Konami', route: '/forum'},
     {title: 'DDR', manufacturer: 'Konami', route: '/forum'},
+    {title: 'EZ2AC', manufacturer: 'ETC', route: '/forum'},
 ];
 
 

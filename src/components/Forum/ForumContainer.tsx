@@ -20,6 +20,8 @@ const ForumContainer = ({ result: initialPosts, totalPosts, page }: NoticeItemPr
     ] = useState<{ posts: Post[]; totalPosts: number }>({ posts: initialPosts, totalPosts });
 
     const totalPages = Math.ceil(totalPosts / 10);
+    console.log("Total Pages:", totalPages);
+
 
     useEffect(() => {
         const initialResult = { posts: initialPosts, totalPosts };

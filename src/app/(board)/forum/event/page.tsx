@@ -1,5 +1,5 @@
 import React from 'react';
-import ForumAllLayout from "@/app/(board)/forum/ForumAllLayout";
+import ForumAllLayout from "@/components/Forum/ForumAllLayout";
 
 /* 이벤트 */
 const Event = () => {
