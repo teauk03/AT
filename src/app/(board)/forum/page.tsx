@@ -1,6 +1,7 @@
 import React from "react";
 import fetchPostsData from "@/utils/fetchPostsData";
 import ForumContainer from "@/components/Forum/ForumContainer";
+import ErrorForum from "@/components/UI/Error/ErrorForum";
 export const dynamic: 'force-dynamic' = 'force-dynamic';
 
 /**
@@ -27,7 +28,7 @@ const Forum = async (page: any) => {
         /*console.error(error);*/
         /* 에러 발생 시 에러 메시지 렌더링 */
         return (
-            <p>Something went wrong!</p>
+            <ErrorForum/>
         )
     }
 };
