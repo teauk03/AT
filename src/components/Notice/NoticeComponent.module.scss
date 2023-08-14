@@ -1,3 +1,5 @@
+@use '@/styles/variables';
+
 /* [div] 콘텐츠 컨테이너 */
 .content-container {
   display: flex;
@@ -32,5 +34,18 @@
 
   ul {
     margin: 0;
+  }
+}
+
+/* [ForumContainer] 이벤트, 공지사항 타이틀 */
+.notice-container {
+  margin-left: 7rem;
+
+  .notice-title {
+    margin: 1rem 0 0 0;
+    padding: 1rem 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border-bottom: variables.$border-default-style;
   }
 }

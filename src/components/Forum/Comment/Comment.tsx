@@ -3,8 +3,8 @@ import {useState} from "react";
 import styles from './Comment.module.scss';
 import {CommentInputObjectId} from '@/types/Comment';
 import {useCommentAPI} from '@/hooks/Board/useCommentAPI';
-import GetCommentButton from "@/components/Comment/CommentButton";
-import CommentSection from "@/components/Comment/CommentSection";
+import GetCommentButton from "@/components/Forum/Comment/CommentButton";
+import CommentSection from "@/components/Forum/Comment/CommentSection";
 import {useSession} from "next-auth/react";
 
 const Comment = (props: CommentInputObjectId): JSX.Element => {

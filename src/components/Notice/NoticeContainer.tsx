@@ -1,15 +1,61 @@
+'use client'
 import React from 'react';
 import styles from "@/components/Notice/NoticeComponent.module.scss";
-import NoticeNavigation from "@/components/Notice/NoticeNavigation";
-import ForumAllLayout from "@/components/Forum/ForumAllLayout";
+import NoticeHeader from "@/components/Notice/NoticeHeader";
+import {NoticeItemProps} from "@/types/Borad";
+import {useFetchPosts} from "@/hooks/Board/useFetchPosts";
+import ForumFooter from "@/components/Forum/ForumFooter";
+import ForumFooterSearchItems from "@/components/Forum/ForumFooterSearchItems";
+import ForumItem from "@/components/Forum/ForumItem";
 
-const NoticeContainer = () => {
+
+/**
+ * 매장소식 컨테이너 컴포넌트.
+ * @param {Object} props 컴포넌트 속성
+ * @param {Object} props.result 초기 게시글 데이터
+ * @param {number} props.totalPosts 총 게시글 수
+ * @param {number} props.page 현재 페이지 번호
+ * @param {string} props.path 경로를 통해 동적으로 데이터를 가져올 API 주소
+ * @returns {JSX.Element} 공지사항 컨테이너를 렌더링
+ */
+const NoticeContainer = (
+    {
+        result: initialPosts,
+        totalPosts,
+        page,
+        path
+    }: NoticeItemProps & { path: string }) => {
+
+    /* [Custom Hook] useFetchPosts 훅을 사용하여 데이터를 가져옴 */
+    const { currentPage, result, totalPages, setCurrentPage
+    } = useFetchPosts(
+        `/api/notice${path}`, page, initialPosts, totalPosts
+    );
+
+
     return (
         <div className={styles['content-container']}>
-            <NoticeNavigation/>
-            <ForumAllLayout/>
+            {/* 공지사항 헤더 */}
+            <NoticeHeader/>
+
+            {/* 게시글 렌더링 */}
+            <ForumItem result={result} path='announcement'/>
+
+            {/* 페이지 네이션 */}
+            <div className={styles['forum-footer']}>
+                <ForumFooter
+                    currentPage={currentPage}
+                    setCurrentPage={setCurrentPage}
+                    totalPages={totalPages}
+                />
+            </div>
+
+            {/* 커뮤니티 검색 */}
+            <div className={styles['forum-search']}>
+                <ForumFooterSearchItems/>
+            </div>
         </div>
-    );
+    )
 };
 
 export default NoticeContainer;

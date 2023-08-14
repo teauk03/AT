@@ -1,29 +1,49 @@
-@charset "UTF-8";
-/* [div] 콘텐츠 컨테이너 */
-.content-container {
-  display: flex;
-  flex-direction: column; }
+/*
+Error: Invalid CSS after "...ttom: variables": expected ";", was ".$border-defaul..."
+        on line 49 of NoticeComponent.module.scss
 
-/* [NoticeNavigation] 네비게이션 */
-.navigation {
-  width: 100%;
-  padding: .2rem 0;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: #D1D1D6; }
-  .navigation-menu {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 1rem; }
-    .navigation-menu-item {
-      font-size: 1.15rem;
-      font-weight: bold; }
-    .navigation-menu-item:first-child {
-      margin-left: 7rem;
-      padding: 1rem .5rem; }
-  .navigation ul {
-    margin: 0; }
+44:   .notice-title {
+45:     margin: 1rem 0 0 0;
+46:     padding: 1rem 0;
+47:     font-size: 1.25rem;
+48:     font-weight: bold;
+49:     border-bottom: variables.$border-default-style;
+50:   }
+51: }
 
-/*# sourceMappingURL=NoticeComponent.module.css.map */
+Backtrace:
+NoticeComponent.module.scss:49
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:815:in `block in try_declaration'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1284:in `rethrow'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:820:in `try_declaration'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:743:in `declaration_or_ruleset'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:758:in `declaration_or_ruleset'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:681:in `ruleset'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:707:in `block_child'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:137:in `stylesheet'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:41:in `parse'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/engine.rb:414:in `_to_tree'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:387:in `run'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:63:in `process_result'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/base.rb:50:in `parse'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/base.rb:18:in `parse!'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/bin/sass:13:in `<top (required)>'
+C:/Ruby31-x64/bin/sass:32:in `load'
+C:/Ruby31-x64/bin/sass:32:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"...ttom: variables\": expected \";\", was \".$border-defaul...\"\A         on line 49 of NoticeComponent.module.scss\A \A 44:   .notice-title {\A 45:     margin: 1rem 0 0 0;\A 46:     padding: 1rem 0;\A 47:     font-size: 1.25rem;\A 48:     font-weight: bold;\A 49:     border-bottom: variables.$border-default-style;\A 50:   }\A 51: }"; }

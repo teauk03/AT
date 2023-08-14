@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "@/components/Comment/Comment.module.scss";
+import styles from "@/components/Forum/Comment/Comment.module.scss";
 import {CommentSectionProps} from "@/types/Comment";
 
 

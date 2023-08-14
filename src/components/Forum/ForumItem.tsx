@@ -1,12 +1,11 @@
-'use client'
 import styles from './ForumItem.module.scss';
 import Link from "next/link";
-import {NoticeItemProps, Post} from "@/types/Borad";
+import {Post} from "@/types/Borad";
 import SvgIconComponent from "@/components/SvgIconComponent";
 
 
 /* 작성글 출력 컴포넌트 */
-const ForumItem = ({ result }: { result: { posts: Post[]; totalPosts: number } }) => {
+const ForumItem = ({ result, path }: { result: { posts: Post[]; totalPosts: number }, path: string }) => {
     if (!result || !result.posts) {
         return <div>Loading or an error occurred...</div>;
     }
@@ -30,7 +29,7 @@ const ForumItem = ({ result }: { result: { posts: Post[]; totalPosts: number } }
                         </div>
 
                         {/* 제목 */}
-                        <Link className={styles['title-link']} href={`/forum/${posts[noticeIndex]._id}`}>
+                        <Link className={styles['title-link']} href={`/${path}/${posts[noticeIndex]._id}`}>
                             <h3 className={styles['title-text']}>
                                 {posts[noticeIndex].title}
                             </h3>
