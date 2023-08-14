@@ -14,24 +14,26 @@ const FooterClientComponent = () => {
                 </section>
                 <nav className={styles['footer-navigate']}>
                     <div className={styles['nav-item']}>
-                        <h5>Marketplace</h5>
-                        <p>Home</p>
-                        <p>Activity</p>
-                        <p>Discover</p>
-                        <p>Learn more</p>
+                        <h5>고객서비스</h5>
+                        <p>기기대여</p>
+                        <p>매장위치</p>
+                        <p>커뮤니티</p>
                     </div>
                     <div className={styles['nav-item']}>
-                        <h5>Company</h5>
-                        <p>About Us</p>
-                        <p>Services</p>
-                        <p>Portfolio</p>
+                        <h5>고객지원</h5>
+                        <p>고객지원</p>
+                        <p>대여안내</p>
+                        <p>상담 봇</p>
                     </div>
                     <div className={styles['nav-item']}>
-                        <h5>Contact</h5>
-                        <p>Facebook</p>
-                        <p>Instagram</p>
+                        <h5>회사소개</h5>
+                        <p>기업정보</p>
+                        <p>공지사항</p>
+                        <p>이벤트</p>
+                    </div>
+                    <div className={styles['nav-item']}>
+                        <h5>SNS</h5>
                         <p>Twitter</p>
-                        <p>Email</p>
                     </div>
                 </nav>
             </footer>

@@ -1,21 +1,21 @@
 /*
-Error: Invalid CSS after "...rder: variables": expected ";", was ".$border-defaul..."
-        on line 26 of ForumItem.module.scss
+Error: Invalid CSS after "...ttom: variables": expected ";", was ".$border-defaul..."
+        on line 14 of ForumItem.module.scss
 
-21:       .forum-list {
-22:         max-width: 100%;
-23:         padding: 1rem;
-24:         display: flex;
-25:         flex-direction: column;
-26:         border: variables.$border-default-style;
-27:         border-radius: 5px;
-28:         overflow: hidden;
-29: 
-30:         /* [Author]User Name *\/
-31:         .author-wrap {
+9: 
+10:   /* Forum Header *\/
+11:   .forum-header {
+12:     margin-top: 3rem;
+13:     display: flex;
+14:     border-bottom: variables.$border-default-2px;;
+15: 
+16:     &-title {
+17:       margin: 0;
+18:       padding: 1rem 1rem 1rem 2rem;
+19:       font-size: 1.5rem;
 
 Backtrace:
-ForumItem.module.scss:26
+ForumItem.module.scss:14
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
@@ -23,14 +23,6 @@ C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:815:in
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1284:in `rethrow'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:820:in `try_declaration'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:743:in `declaration_or_ruleset'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:758:in `declaration_or_ruleset'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:758:in `declaration_or_ruleset'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
@@ -57,4 +49,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"...rder: variables\": expected \";\", was \".$border-defaul...\"\A         on line 26 of ForumItem.module.scss\A \A 21:       .forum-list {\A 22:         max-width: 100%;\A 23:         padding: 1rem;\A 24:         display: flex;\A 25:         flex-direction: column;\A 26:         border: variables.$border-default-style;\A 27:         border-radius: 5px;\A 28:         overflow: hidden;\A 29: \A 30:         /* [Author]User Name */\A 31:         .author-wrap {"; }
+  content: "Error: Invalid CSS after \"...ttom: variables\": expected \";\", was \".$border-defaul...\"\A         on line 14 of ForumItem.module.scss\A \A 9: \A 10:   /* Forum Header */\A 11:   .forum-header {\A 12:     margin-top: 3rem;\A 13:     display: flex;\A 14:     border-bottom: variables.$border-default-2px;;\A 15: \A 16:     &-title {\A 17:       margin: 0;\A 18:       padding: 1rem 1rem 1rem 2rem;\A 19:       font-size: 1.5rem;"; }

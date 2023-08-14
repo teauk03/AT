@@ -54,7 +54,6 @@ const Support = async (): Promise<JSX.Element> => {
                         </section>
                     </main>
                 </div>
-                <FooterClientComponent/>
             </>
         )
 
