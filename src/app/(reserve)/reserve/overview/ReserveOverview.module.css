@@ -217,7 +217,8 @@
         .wrapper .game-overview .game-explain-content .overview-text-item {
           font-size: 13px;
           position: relative;
-          display: flex; }
+          display: flex;
+          align-items: center; }
           .wrapper .game-overview .game-explain-content .overview-text-item + .wrapper .game-overview .game-explain-content .overview-text-item {
             margin-top: 20px; }
           .wrapper .game-overview .game-explain-content .overview-text-item:before {
