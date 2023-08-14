@@ -10,15 +10,11 @@ export interface MenuItemProps {
 export interface MenuItem {
     title: string;
     route: string;
+    subMenu?: MenuItem[];
 }
 
 /* [Component] UserLoginMenu */
 export interface onClickProps {
     onClick: React.MouseEventHandler;
     isMenClicked: boolean;
-}
-
-/* [Component - SLB] StudyPlanSlbContainer */
-export interface StudyPlanSlbItem {
-
 }

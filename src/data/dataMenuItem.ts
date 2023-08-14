@@ -1,10 +1,28 @@
 /* [GLB] Navbar Menu Array */
 export const GLB_MENU_ITEMS = [
-    {title: '커뮤니티', route: '/forum'},
-    {title: '매장소식', route: '/announcement'},
-    {title: '이벤트', route: '/event'},
-    {title: '기기대여', route: '/reserve/home'},
-    {title: '고객센터', route: '/support'},
+    { title: '커뮤니티', route: '/forum' },
+    {
+        title: '매장소식',
+        route: '/announcement',
+        subMenu: [
+            { title: '공지사항', route: '/support/notice' },
+            { title: '이벤트', route: '/event' },
+        ],
+    },
+    {
+        title: '기기대여',
+        route: '/reserve/home',
+        subMenu: [
+            { title: '대여안내', route: '/support/notice' },
+        ],
+    },
+    {
+        title: '고객지원',
+        route: '/support',
+        subMenu: [
+            { title: '마이페이지', route: '/support/mypage' },
+        ],
+    },
 ];
 
 

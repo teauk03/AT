@@ -24,7 +24,7 @@
     font-size: 32px;
   }
 
-  /* Navigation Link Wrap */
+  /* [Navigation] Link Wrap */
   .nav-link-wrap {
     margin: 0 auto 0 3rem;
     padding: .5rem 0 0 0;
@@ -32,14 +32,17 @@
     gap: 2rem;
 
     .nav-link {
+      position: relative;
       font-style: normal;
       font-weight: 600;
       font-size: 1rem;
 
+      /* [Link] 네비게이션 아이템 */
       .nav-item {
         color: #BCBCBC;
       }
 
+      /* [active] 네비게이션 액티브 이벤트 */
       .active-link {
         background: linear-gradient(93.51deg, #9B51E0 2.84%, #3081ED 99.18%);
         -webkit-background-clip: text;
@@ -47,12 +50,38 @@
         border-bottom: 1.5px solid #9B51E0;
       }
 
+      /* [passive] 네비게이션 패시브 이벤트 */
       .non-active-link:not(:last-child) {
         margin-right: 32px;
       }
+
+      /* [Link] 네비게이션 서브 아이템 */
+      &:hover .sub-menu {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+
+      .sub-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        transition: all 0.3s ease;
+
+        li {
+          padding: 10px;
+
+        }
+
+        li:hover {
+          background-color: #f0f0f0;
+        }
+      }
     }
   }
-
 
   /* SingIn SingUp Wrap */
   .login-menu-wrap {
@@ -61,7 +90,6 @@
     align-content: center;
     gap: .5rem;
   }
-
 
   /* [Responsive] Hamburger Menu */
   .hamburgerlogowrap {
