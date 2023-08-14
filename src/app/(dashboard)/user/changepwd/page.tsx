@@ -27,7 +27,12 @@ const ChangePassword = async () => {
             <SideNavigationMenu/>
 
             <div className={styles['profile-wrapper']}>
-                <main className={styles.main}>
+                <main className={styles['profile-main']}>
+                    {/* MyPage Title */}
+                    <div className={styles['profile-title-wrapper']}>
+                        <h2 className={styles['profile-title']}>비밀번호 변경</h2>
+                    </div>
+
                     {/* Account Contents */}
                     {/* TODO: 타입 지정 및 별도의 컴포넌트로 분리 고려중 */}
                     <AccountContainer

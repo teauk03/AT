@@ -9,9 +9,9 @@ Error: Invalid CSS after "...left: variables": expected ";", was ".$border-defau
 12:     margin: 0;
 13:     border-left: variables.$border-default-2px;
 14: 
-15:     .main {
+15:     .profile-main {
 16:       width: 680px;
-17:       padding-bottom: 3.5rem;
+17:       padding: 1.4rem 0 0 0;
 18:       display: flex;
 
 Backtrace:
@@ -49,4 +49,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"...left: variables\": expected \";\", was \".$border-defaul...\"\A         on line 13 of Account.module.scss\A \A 8:   height: 100vh;\A 9:   display: flex;\A 10: \A 11:   .profile-wrapper {\A 12:     margin: 0;\A 13:     border-left: variables.$border-default-2px;\A 14: \A 15:     .main {\A 16:       width: 680px;\A 17:       padding-bottom: 3.5rem;\A 18:       display: flex;"; }
+  content: "Error: Invalid CSS after \"...left: variables\": expected \";\", was \".$border-defaul...\"\A         on line 13 of Account.module.scss\A \A 8:   height: 100vh;\A 9:   display: flex;\A 10: \A 11:   .profile-wrapper {\A 12:     margin: 0;\A 13:     border-left: variables.$border-default-2px;\A 14: \A 15:     .profile-main {\A 16:       width: 680px;\A 17:       padding: 1.4rem 0 0 0;\A 18:       display: flex;"; }

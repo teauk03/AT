@@ -3,10 +3,10 @@ import React from 'react';
 import styles from "./Account.module.scss";
 import {UserDataProps} from "@/types/Account";
 
+/* [Image] User Title */
 const UserImage = ({user}: UserDataProps) => {
     return (
-        // User Title
-        <div className={styles.user}>
+        <div className={styles['user-image-wrapper']}>
             <Image
                 src={'/user.svg'}
                 alt="user profile pic"

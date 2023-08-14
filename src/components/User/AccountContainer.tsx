@@ -101,12 +101,6 @@ const AccountContainer = ({user, accountDetails}: UserDataProps): JSX.Element =>
     /* 렌더링 */
     return (
         <>
-            {/* User Title */}
-            <UserImage
-                user={user}
-                accountDetails={accountDetails}
-            />
-
             {/* User Info */}
             <AccountDetails
                 updatedAccountDetails={updatedAccountDetails}
