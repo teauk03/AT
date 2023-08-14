@@ -24,7 +24,6 @@
   background-color: var(--theme-bg-color);
   /* 이미지 (max-width: 100%) */
   /* [div] 예약페이지 컨테이너 */
-  /* nav - 검색 네비게이션 */
   /* article - 예약 리스트 */ }
   .reserve-main img {
     max-width: 100%; }
@@ -145,47 +144,6 @@
           font-size: 9px;
           color: var(--placeholder-color);
           margin-left: 6px; }
-  .reserve-main .search.item {
-    position: absolute;
-    top: 10px;
-    left: 25px;
-    font-size: 13px;
-    color: var(--active-color);
-    border: 1px solid var(--search-border-color);
-    padding: 8px 10px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center; }
-    .reserve-main .search.item svg {
-      width: 12px;
-      margin-left: 5px; }
-    .reserve-main .search.item:last-child {
-      left: 235px; }
-    .reserve-main .search.item .search-location,
-    .reserve-main .search.item .search-job,
-    .reserve-main .search.item .search-salary {
-      display: flex;
-      align-items: center;
-      width: 50%;
-      font-size: 14px;
-      font-weight: 500;
-      padding: 0 25px;
-      height: 100%; }
-      .reserve-main .search.item .search-location input,
-      .reserve-main .search.item .search-job input,
-      .reserve-main .search.item .search-salary input {
-        width: 100%;
-        height: 100%;
-        display: block;
-        background-color: transparent;
-        border: none; }
-      .reserve-main .search.item .search-location svg,
-      .reserve-main .search.item .search-job svg,
-      .reserve-main .search.item .search-salary svg {
-        margin-right: 8px;
-        width: 18px;
-        color: var(--active-color);
-        flex-shrink: 0; }
   .reserve-main .game-cards {
     padding-top: 20px;
     display: grid;
@@ -256,6 +214,24 @@
           .reserve-main .game-cards .game-card .game-card-buttons .card-buttons-msg {
             background-color: var(--inactive-color);
             color: var(--subtitle-color); }
+
+/* nav - 검색 네비게이션 */
+.search.item {
+  position: absolute;
+  top: 10px;
+  left: 25px;
+  font-size: 13px;
+  color: var(--active-color);
+  border: 1px solid var(--search-border-color);
+  padding: 8px 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center; }
+  .search.item svg {
+    width: 12px;
+    margin-left: 5px; }
+  .search.item:last-child {
+    left: 235px; }
 
 /* 예약카드 정보 버튼 박스 디자인
  * 상세페이지 이동 링크 박스 디자인 */

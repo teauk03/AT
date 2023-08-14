@@ -12,8 +12,6 @@ interface ForumFooterProps {
 
 
 const ForumFooter = ({currentPage, setCurrentPage, totalPages}: ForumFooterProps) => {
-    console.log("Total Pages:", totalPages);
-
     /* currentPage 상태 변경 후 스크롤 적용 */
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });

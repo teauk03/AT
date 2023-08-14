@@ -19,21 +19,24 @@ const ForumContainer = ({ result: initialPosts, totalPosts, page }: NoticeItemPr
         setResult
     ] = useState<{ posts: Post[]; totalPosts: number }>({ posts: initialPosts, totalPosts });
 
-    const totalPages = Math.ceil(totalPosts / 10);
-    console.log("Total Pages:", totalPages);
-
 
     useEffect(() => {
         const initialResult = { posts: initialPosts, totalPosts };
         fetch(`/api/post/list?page=${currentPage}&limit=10`)
             .then((response) => response.json())
             .then((result) => {
+                console.log("API Response:", result);
                 setResult(result);
             })
             .catch((error) => {
                 setResult(initialResult);
             });
     }, [currentPage, initialPosts, totalPosts]);
+
+
+    /* result 객체 내부의 totalPosts 값을 가져와서 10으로 나눈 후 올림하여 전체 페이지 수를 계산
+     * 예: totalPosts가 14일 경우, totalPages = 2 */
+    const totalPages = Math.ceil(result.totalPosts / 10);
 
 
     return (

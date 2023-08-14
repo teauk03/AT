@@ -3,7 +3,6 @@ import {Inter} from 'next/font/google'
 import {Metadata} from "next";
 import Providers from "@/context/Providers";
 import {NavbarComponent} from "@/components/UI/NavbarGlobal/Navbar";
-import GlobalLayout from "@/components/GlobalLayout";
 import {FooterClientComponent} from "@/components/UI/Footer/Footer";
 import React from "react";
 

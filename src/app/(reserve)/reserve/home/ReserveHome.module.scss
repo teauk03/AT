@@ -134,6 +134,7 @@
               .game-style {
                 display: none;
               }
+
               .game-style + label:before {
                 content: "";
                 margin-right: 10px;
@@ -143,6 +144,7 @@
                 border-radius: 4px;
                 cursor: pointer;
               }
+
               .game-style:checked + label:before {
                 background-color: var(--active-color);
                 border-color: var(--active-color);
@@ -151,6 +153,7 @@
                 background-size: 14px;
                 background-repeat: no-repeat;
               }
+
               .game-style:checked + label + span {
                 background-color: var(--active-light-color);
                 color: var(--active-color);
@@ -190,56 +193,6 @@
             margin-left: 6px;
           }
         }
-      }
-    }
-  }
-
-  /* nav - 검색 네비게이션 */
-  .search.item {
-    position: absolute;
-    top: 10px;
-    left: 25px;
-    font-size: 13px;
-    color: var(--active-color);
-    border: 1px solid var(--search-border-color);
-    padding: 8px 10px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-
-    svg {
-      width: 12px;
-      margin-left: 5px;
-    }
-
-    &:last-child {
-      left: 235px;
-    }
-
-    .search-location,
-    .search-job,
-    .search-salary {
-      display: flex;
-      align-items: center;
-      width: 50%;
-      font-size: 14px;
-      font-weight: 500;
-      padding: 0 25px;
-      height: 100%;
-
-      input {
-        width: 100%;
-        height: 100%;
-        display: block;
-        background-color: transparent;
-        border: none;
-      }
-
-      svg {
-        margin-right: 8px;
-        width: 18px;
-        color: var(--active-color);
-        flex-shrink: 0;
       }
     }
   }
@@ -344,6 +297,30 @@
   }
 }
 
+/* nav - 검색 네비게이션 */
+.search.item {
+  position: absolute;
+  top: 10px;
+  left: 25px;
+  font-size: 13px;
+  color: var(--active-color);
+  border: 1px solid var(--search-border-color);
+  padding: 8px 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 12px;
+    margin-left: 5px;
+  }
+
+  &:last-child {
+    left: 235px;
+  }
+}
+
+
 /* 예약카드 정보 버튼 박스 디자인
  * 상세페이지 이동 링크 박스 디자인 */
 .search-buttons {
@@ -356,6 +333,7 @@
   font-size: 13px;
   font-weight: 600;
 }
+
 .search-button {
   height: 55px;
   margin-left: auto;
@@ -367,6 +345,7 @@
   color: var(--button-color);
   cursor: pointer;
 }
+
 .detail-button {
   background-color: var(--active-light-color);
   color: var(--active-color);
