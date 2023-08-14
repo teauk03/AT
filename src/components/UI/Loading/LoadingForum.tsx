@@ -8,6 +8,9 @@ const LoadingForum = () => {
                 <circle className={styles.path} fill="none" strokeWidth="6" strokeLinecap="round" cx="33" cy="33"
                         r="30"></circle>
             </svg>
+            <p className={styles['loading-text']}>
+                로딩중 입니다.<br/>잠시만 기다려주세요.
+            </p>
         </div>
     );
 };

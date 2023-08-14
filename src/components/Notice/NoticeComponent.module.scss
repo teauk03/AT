@@ -39,13 +39,28 @@
 
 /* [ForumContainer] 이벤트, 공지사항 타이틀 */
 .notice-container {
-  margin-left: 7rem;
+  margin: 0 7rem;
+  display: flex;
+  border-bottom: variables.$border-default-style;
 
+  .notice-new-post,
   .notice-title {
     margin: 1rem 0 0 0;
     padding: 1rem 0;
+  }
+
+  .notice-title {
     font-size: 1.25rem;
     font-weight: bold;
-    border-bottom: variables.$border-default-style;
+
+  }
+
+  .notice-new-post {
+    margin-left: auto;
+    padding: 1rem;
+  }
+
+  .notice-new-post:hover {
+    font-weight: bold;
   }
 }
