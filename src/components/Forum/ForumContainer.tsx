@@ -3,11 +3,11 @@ import React from 'react';
 import styles from "@/components/Forum/ForumItem.module.scss";
 import ForumSideNavbar from "@/components/Forum/SLB/ForumSlb";
 import ForumItem from "@/components/Forum/ForumItem";
-import ForumFooter from "@/components/Forum/ForumFooter";
-import ForumFooterSearchItems from "@/components/Forum/ForumFooterSearchItems";
+import PaginationForum from "@/components/UI/Pagination/PaginationForum";
 import {usePathname} from "next/navigation";
 import {NoticeItemProps, Post} from "@/types/Borad";
 import {useFetchPosts} from "@/hooks/Board/useFetchPosts";
+import SearchBoxForum from "@/components/UI/SearchBox/SearchBoxForum";
 
 
 const ForumContainer = ({ result: initialPosts, totalPosts, page }: NoticeItemProps) => {
@@ -35,18 +35,14 @@ const ForumContainer = ({ result: initialPosts, totalPosts, page }: NoticeItemPr
             </div>
 
             {/* 커뮤니티 이전, 다음버튼 */}
-            <div className={styles['forum-footer']}>
-                <ForumFooter
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                    totalPages={totalPages}
-                />
-            </div>
+            <PaginationForum
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+                totalPages={totalPages}
+            />
 
             {/* 커뮤니티 검색 */}
-            <div className={styles['forum-search']}>
-                <ForumFooterSearchItems/>
-            </div>
+            <SearchBoxForum/>
         </main>
     );
 };

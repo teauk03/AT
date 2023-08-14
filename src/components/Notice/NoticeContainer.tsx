@@ -4,9 +4,9 @@ import styles from "@/components/Notice/NoticeComponent.module.scss";
 import NoticeHeader from "@/components/Notice/NoticeHeader";
 import {NoticeItemProps} from "@/types/Borad";
 import {useFetchPosts} from "@/hooks/Board/useFetchPosts";
-import ForumFooter from "@/components/Forum/ForumFooter";
-import ForumFooterSearchItems from "@/components/Forum/ForumFooterSearchItems";
+import PaginationForum from "@/components/UI/Pagination/PaginationForum";
 import ForumItem from "@/components/Forum/ForumItem";
+import SearchBoxForum from "@/components/UI/SearchBox/SearchBoxForum";
 
 
 /**
@@ -42,18 +42,14 @@ const NoticeContainer = (
             <ForumItem result={result} path='announcement'/>
 
             {/* 페이지 네이션 */}
-            <div className={styles['forum-footer']}>
-                <ForumFooter
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                    totalPages={totalPages}
-                />
-            </div>
+            <PaginationForum
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+                totalPages={totalPages}
+            />
 
             {/* 커뮤니티 검색 */}
-            <div className={styles['forum-search']}>
-                <ForumFooterSearchItems/>
-            </div>
+            <SearchBoxForum/>
         </div>
     )
 };
