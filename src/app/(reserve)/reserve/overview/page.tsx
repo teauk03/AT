@@ -30,9 +30,9 @@ const Overview = () => {
 
                                 {/* 다른게임 */}
                                 <div className={styles['overview-detail']}>
-                                    <div className={styles['game-card-title']}>UI / UX Designer</div>
+                                    <div className={styles['game-card-title']}>beatmania IIDX</div>
                                     <div className={styles['game-card-subtitle']}>
-                                        2972 Westheimer Rd. Santa Ana.
+                                        Konami BEMANI Series
                                     </div>
                                 </div>
                                 {/* 좋아요 버튼 */}
@@ -77,7 +77,7 @@ const Overview = () => {
                     <section className={styles['game-explain-content']}>
                         {/* 상세 설명 페이지 헤더 */}
                         <div className={styles['game-title-wrapper']}>
-                            <div className={styles['game-card-title']}>UI /UX Designer</div>
+                            <div className={styles['game-card-title']}>Sound Vortex Exceed Gear</div>
                             <div className={styles['game-action']}>
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                      viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -100,7 +100,7 @@ const Overview = () => {
 
                         {/* 부제목 */}
                         <div className={styles['game-subtitle-wrapper']}>
-                            <div className={styles['company-name']}>Patreon <span className="comp-location">Londontowne, MD.</span>
+                            <div className={styles['company-name']}>Konami <span className="comp-location">BEMANI Series</span>
                             </div>
                             <div className={styles.posted}>Posted 8 days ago<span className="app-number">98 Application</span>
                             </div>
@@ -109,20 +109,20 @@ const Overview = () => {
                         {/* 상세 설명 네비게이션 */}
                         <nav className={styles['explain-bar']}>
                             <ul className={styles['explain-contents']}>
-                                <li className={styles['explain-title']}>Konami</li>
-                                <li className={styles['explain-subtitle']}>Sound Vortex Exceed Gear</li>
+                                <li className={styles['explain-title']}>Genre</li>
+                                <li className={styles['explain-subtitle']}>Music</li>
+                            </ul>
+                            <ul className={styles['explain-contents']}>
+                                <li className={styles['explain-title']}>Game</li>
+                                <li className={styles['explain-subtitle']}>Sound Vortex</li>
                             </ul>
                             <ul className={styles['explain-contents']}>
                                 <li className={styles['explain-title']}>가격</li>
-                                <li className={styles['explain-subtitle']}>12,000 / hours</li>
+                                <li className={styles['explain-subtitle']}>12,000</li>
                             </ul>
                             <ul className={styles['explain-contents']}>
-                                <li className={styles['explain-title']}>-</li>
-                                <li className={styles['explain-subtitle']}>-</li>
-                            </ul>
-                            <ul className={styles['explain-contents']}>
-                                <li className={styles['explain-title']}>-</li>
-                                <li className={styles['explain-subtitle']}>-</li>
+                                <li className={styles['explain-title']}>시간</li>
+                                <li className={styles['explain-subtitle']}>1 hours</li>
                             </ul>
                         </nav>
 
@@ -141,8 +141,9 @@ const Overview = () => {
                             </div>
                         </article>
 
+                        {/* 예약 안내 */}
                         <article className={styles['overview-text']}>
-                            <div className={styles['overview-text-header']}>Job Description</div>
+                            <div className={styles['overview-text-header']}>예약 안내</div>
                             <div className={styles['overview-text-item']}>3+ years working as a product
                                 designer.
                             </div>
