@@ -1,13 +1,11 @@
 import React from 'react';
-import ForumAllLayout from "@/components/Forum/ForumAllLayout";
-import NoticeNavigation from "@/components/Notice/NoticeNavigation";
+import NoticeContainer from "@/components/Notice/NoticeContainer";
 
 /* 이벤트 */
 const Event = () => {
     return (
         <>
-            <NoticeNavigation/>
-            <ForumAllLayout/>
+            <NoticeContainer/>
         </>
     )
 };

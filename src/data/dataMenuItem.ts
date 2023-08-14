@@ -5,7 +5,7 @@ export const GLB_MENU_ITEMS = [
         title: '매장소식',
         route: '/announcement',
         subMenu: [
-            { title: '공지사항', route: '/support/notice' },
+            { title: '공지사항', route: '/announcement' },
             { title: '이벤트', route: '/event' },
         ],
     },
@@ -13,7 +13,7 @@ export const GLB_MENU_ITEMS = [
         title: '기기대여',
         route: '/reserve/home',
         subMenu: [
-            { title: '대여안내', route: '/support/notice' },
+            { title: '대여안내', route: '/reserve/home' },
         ],
     },
     {

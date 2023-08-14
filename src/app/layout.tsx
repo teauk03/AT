@@ -19,7 +19,7 @@ const RootLayout = async ({children}: {
 
     return (
         <html lang="ko">
-        <body className={inter.className}>
+        <body>
         <Providers>
             <NavbarComponent/>
             {children}

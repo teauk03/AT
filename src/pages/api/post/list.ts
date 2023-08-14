@@ -14,7 +14,6 @@ const listPosts = async (req: NextApiRequest, res: NextApiResponse) => {
         /* 전체 게시물 수를 계산. */
         const db = (await connectDB).db("forum");
         const totalPosts = await db.collection('post').countDocuments();
-
         res.status(200).json({posts, totalPosts});
 
     } catch (error) {

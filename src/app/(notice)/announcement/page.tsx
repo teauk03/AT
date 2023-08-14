@@ -1,13 +1,11 @@
 import React from 'react';
-import ForumAllLayout from "@/components/Forum/ForumAllLayout";
-import NoticeNavigation from "@/components/Notice/NoticeNavigation";
+import NoticeContainer from "@/components/Notice/NoticeContainer";
 
 /* 공지사항 */
 const Announcement = () => {
     return (
         <>
-            <NoticeNavigation/>
-            <ForumAllLayout/>
+            <NoticeContainer/>
         </>
     );
 };

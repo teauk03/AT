@@ -43,7 +43,7 @@ const ForumSideNavbar = () => {
 
 
     return (
-        <nav className={styles['slb-nav']} role="sub-navigation">
+        <aside className={styles['slb-nav']} role="sub-navigation">
             {/* Sub Menu Header */}
             <div className={styles['slb-title']}>
                 <h2 className={styles.title}>커뮤니티</h2>
@@ -78,7 +78,7 @@ const ForumSideNavbar = () => {
 
             {/* Sub Menu */}
             <ForumSlbMenu/>
-        </nav>
+        </aside>
     );
 };
 

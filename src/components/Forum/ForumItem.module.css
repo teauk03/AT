@@ -1,21 +1,21 @@
 /*
-Error: Invalid CSS after "...solid variables": expected ";", was ".$color-gray80;"
-        on line 25 of ForumItem.module.scss
+Error: Invalid CSS after "...ttom: variables": expected ";", was ".$border-defaul..."
+        on line 14 of ForumItem.module.scss
 
-20:       .forum-list {
-21:         max-width: 100%;
-22:         padding: 1rem;
-23:         display: flex;
-24:         flex-direction: column;
-25:         border: 1px solid variables.$color-gray80;
-26:         border-radius: 5px;
-27:         overflow: hidden;
-28: 
-29:         /* [Author]User Name *\/
-30:         .author-wrap {
+9:   .notice-title {
+10:     margin: 1rem 0 0 0;
+11:     padding: 1rem 0;
+12:     font-size: 1.25rem;
+13:     font-weight: bold;
+14:     border-bottom: variables.$border-default-style;
+15:   }
+16: 
+17:   /* 커뮤니티 네비게이션, 작설글 리스트 *\/
+18:   .contents {
+19:     display: flex;
 
 Backtrace:
-ForumItem.module.scss:25
+ForumItem.module.scss:14
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
@@ -23,14 +23,6 @@ C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:815:in
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1284:in `rethrow'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:820:in `try_declaration'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:743:in `declaration_or_ruleset'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:758:in `declaration_or_ruleset'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:758:in `declaration_or_ruleset'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
@@ -57,4 +49,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"...solid variables\": expected \";\", was \".$color-gray80;\"\A         on line 25 of ForumItem.module.scss\A \A 20:       .forum-list {\A 21:         max-width: 100%;\A 22:         padding: 1rem;\A 23:         display: flex;\A 24:         flex-direction: column;\A 25:         border: 1px solid variables.$color-gray80;\A 26:         border-radius: 5px;\A 27:         overflow: hidden;\A 28: \A 29:         /* [Author]User Name */\A 30:         .author-wrap {"; }
+  content: "Error: Invalid CSS after \"...ttom: variables\": expected \";\", was \".$border-defaul...\"\A         on line 14 of ForumItem.module.scss\A \A 9:   .notice-title {\A 10:     margin: 1rem 0 0 0;\A 11:     padding: 1rem 0;\A 12:     font-size: 1.25rem;\A 13:     font-weight: bold;\A 14:     border-bottom: variables.$border-default-style;\A 15:   }\A 16: \A 17:   /* 커뮤니티 네비게이션, 작설글 리스트 */\A 18:   .contents {\A 19:     display: flex;"; }

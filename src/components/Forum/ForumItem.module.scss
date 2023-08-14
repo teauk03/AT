@@ -5,6 +5,16 @@
   min-height: 100%;
   padding: 0 7.5rem;
 
+  /* [ForumContainer] 이벤트, 공지사항 타이틀 */
+  .notice-title {
+    margin: 1rem 0 0 0;
+    padding: 1rem 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border-bottom: variables.$border-default-style;
+  }
+
+  /* 커뮤니티 네비게이션, 작설글 리스트 */
   .contents {
     display: flex;
 
@@ -22,7 +32,7 @@
         padding: 1rem;
         display: flex;
         flex-direction: column;
-        border: 1px solid variables.$color-gray80;
+        border: variables.$border-default-style;
         border-radius: 5px;
         overflow: hidden;
 
@@ -52,7 +62,6 @@
         }
       }
     }
-
 
     /* Side Navbar */
     .slb-nav {

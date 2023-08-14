@@ -1,16 +1,36 @@
+/* [div] 콘텐츠 컨테이너 */
+.content-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* [NoticeNavigation] 네비게이션 */
 .navigation {
   width: 100%;
-  height: 50px;
-  margin: .5rem 0;
-  padding: 1rem 3rem;
+  padding: .2rem 0;
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 1rem;
+  background: #D1D1D6;
 
-  &-item {
-    margin-right: auto;
-    font-size: 1.25rem;
-    font-weight: bold;
+  &-menu {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+
+    &-item {
+      font-size: 1.15rem;
+      font-weight: bold;
+    }
+
+    &-item:first-child {
+      margin-left: 7rem;
+      padding: 1rem .5rem;
+    }
+  }
+
+  ul {
+    margin: 0;
   }
 }

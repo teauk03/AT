@@ -1,12 +1,19 @@
 import React from 'react';
 import styles from './NoticeComponent.module.scss';
+import Link from "next/link";
 
 const NoticeNavigation = () => {
     return (
         <>
             <nav className={styles['navigation']}>
-                <div className={styles['navigation-item']}>공지사항</div>
-                <div className={styles['navigation-item']}>이벤트</div>
+                <ul className={styles['navigation-menu']}>
+                    <li className={styles['navigation-menu-item']}>
+                        <Link href={'/announcement'}>공지사항</Link>
+                    </li>
+                    <li className={styles['navigation-menu-item']}>
+                        <Link href={'/event'}>이벤트</Link>
+                    </li>
+                </ul>
             </nav>
         </>
     );
