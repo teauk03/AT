@@ -6,10 +6,10 @@ import {AccountDetailsProps} from '@/types/Account'
 
 const AccountDetails: React.FC<AccountDetailsProps> = ({ updatedAccountDetails, handleInputChange, handleInfoSaveClick, setEditActiveId, editActiveId }) => {
     return (
-        <div className={styles['section-info']}>
+        <div className={styles['section-user-info']}>
             {updatedAccountDetails.map((detail, index) => (
-                <div className={styles.account} key={index}>
-                    <h2 className={styles['info-name']}>{detail.label}</h2>
+                <div className={styles['account-item']} key={index}>
+                    <h2 className={styles['account-item-name']}>{detail.title}</h2>
                     {/* type property 가 text 면 <input .../> 요소가 렌더링 */}
                     <AccountDetailInput
                         detail={detail}

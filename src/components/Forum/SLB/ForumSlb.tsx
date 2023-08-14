@@ -43,11 +43,9 @@ const ForumSideNavbar = () => {
 
 
     return (
-        <aside className={styles['slb-nav']} role="sub-navigation">
+        <aside className={styles['aside-slb']} role="sub-navigation">
             {/* Sub Menu Header */}
-            <div className={styles['slb-title']}>
-                <h2 className={styles.title}>커뮤니티</h2>
-
+            <div className={styles['aside-slb-title']}>
                 {/* Search : Modal Popup Opens. */}
                 <Link className={styles['link-write']} href={'/forum'} onClick={handleOpenSearchModal}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5"

@@ -9,6 +9,7 @@ import React from "react";
  * type - 계정 세부 정보 타입 ( string : 임시 타입 ) */
 export interface AccountDetail {
     id: number;
+    title?: string;
     label: string;
     value: string;
     disabled: boolean;

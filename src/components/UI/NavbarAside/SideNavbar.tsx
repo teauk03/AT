@@ -23,14 +23,14 @@ const SideNavigationMenu = (): JSX.Element => {
         // 로그인시 네비게이션 메뉴 Basic Info 탭 라우팅 : /user/${session.user._id}
         if (session?.user?._id) {
             const newSlbMenuItems = SLB_MENU_ITEMS.map((item) =>
-                item.title === 'Basic Info' ? { ...item, route: `/user/${session.user._id}` } : item
+                item.title === '기본정보' ? { ...item, route: `/user/${session.user._id}` } : item
             );
             setSlbMenuItems(newSlbMenuItems);
         }
 
         else {
             const newSlbMenuItems = SLB_MENU_ITEMS.map((item) =>
-                item.title === 'Basic Info' ? { ...item, route: '/' } : item
+                item.title === '기본정보' ? { ...item, route: '/' } : item
             )
             setSlbMenuItems(newSlbMenuItems);
         }
@@ -39,8 +39,9 @@ const SideNavigationMenu = (): JSX.Element => {
 
 
     return (
-        <nav className={styles['side-nav']}>
-            <div className={styles.menu}>
+        <aside className={styles['aside-container']}>
+            <div className={styles['aside-wrapper']}>
+                <h2 className={styles['account-aside-title']}>내정보</h2>
                 {sblMenuItems.map((item, index) => (
                     <Link
                         key={index}
@@ -52,7 +53,7 @@ const SideNavigationMenu = (): JSX.Element => {
                     </Link>
                 ))}
             </div>
-        </nav>
+        </aside>
     )
 }
 

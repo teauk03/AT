@@ -1,23 +1,35 @@
 /*
-Error: Invalid CSS after "...ude Breakpoints": expected "}", was ".profile-contai..."
-        on line 4 of Account.module.scss
+Error: Invalid CSS after "...left: variables": expected ";", was ".$border-defaul..."
+        on line 13 of Account.module.scss
 
-1: @use '@/styles/Breakpoints';
-2: 
-3: .profile-container {
-4:   @include Breakpoints.profile-container;
-5: 
-6:   .profile-wrapper {
-7:     width: 100%;
-8:     margin: 1.5rem 3.5rem 3.5rem;
-9:     border: 1.3px solid #DBDBDB;
+8:   height: 100vh;
+9:   display: flex;
+10: 
+11:   .profile-wrapper {
+12:     margin: 0;
+13:     border-left: variables.$border-default-2px;
+14: 
+15:     .main {
+16:       width: 680px;
+17:       padding-bottom: 3.5rem;
+18:       display: flex;
 
 Backtrace:
-Account.module.scss:4
+Account.module.scss:13
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:690:in `block'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:815:in `block in try_declaration'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1284:in `rethrow'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:820:in `try_declaration'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:743:in `declaration_or_ruleset'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:758:in `declaration_or_ruleset'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:681:in `ruleset'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:707:in `block_child'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
@@ -37,4 +49,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"...ude Breakpoints\": expected \"}\", was \".profile-contai...\"\A         on line 4 of Account.module.scss\A \A 1: @use '@/styles/Breakpoints';\A 2: \A 3: .profile-container {\A 4:   @include Breakpoints.profile-container;\A 5: \A 6:   .profile-wrapper {\A 7:     width: 100%;\A 8:     margin: 1.5rem 3.5rem 3.5rem;\A 9:     border: 1.3px solid #DBDBDB;"; }
+  content: "Error: Invalid CSS after \"...left: variables\": expected \";\", was \".$border-defaul...\"\A         on line 13 of Account.module.scss\A \A 8:   height: 100vh;\A 9:   display: flex;\A 10: \A 11:   .profile-wrapper {\A 12:     margin: 0;\A 13:     border-left: variables.$border-default-2px;\A 14: \A 15:     .main {\A 16:       width: 680px;\A 17:       padding-bottom: 3.5rem;\A 18:       display: flex;"; }

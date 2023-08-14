@@ -39,11 +39,41 @@ export const  SLB_FORUM_ITEMS = [
     {title: 'EZ2AC', manufacturer: 'ETC', route: '/forum'},
 ];
 
+export const ASIDE_FORUM_ITEMS = [
+    {
+        title: 'Konami',
+        items: [
+            { title: 'SOUND VOLTEX', route: '/forum' },
+            { title: 'BeatMania IIDX', route: '/forum' },
+            { title: 'GITADORA', route: '/forum' },
+            { title: 'Jubeat', route: '/forum' },
+            { title: "Pop'n music", route: '/forum' },
+            { title: "DDR", route: '/forum' },
+        ],
+    },
+    {
+        title: 'Namco',
+        items: [
+            { title: 'MaiMai', route: '/forum' },
+            { title: 'Nostalgia', route: '/forum' },
+        ],
+    },
+    {
+        title: 'ETC',
+        items: [
+            { title: 'EZ2AC', route: '/forum' },
+            { title: 'Pump it up', route: '/forum' },
+        ],
+    },
+];
+
 
 /* [SLB] Navbar Menu Array */
 export const SLB_MENU_ITEMS = [
     {title: '기본정보', route: '/user'},
-    {title: '계정정보', route: '/user/account'},
+    {title: '이메일변경', route: '/user/changeid'},
+    {title: '비밀번호변경', route: '/user/changepwd'},
+    {title: '회원탈퇴', route: '/user/secede'},
 ];
 
 

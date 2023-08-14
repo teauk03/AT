@@ -1,15 +1,19 @@
+@use "@/styles/variables";
 @use '@/styles/Breakpoints';
 
+/* [UserAccount Start] Container Style */
 .profile-container {
-  @include Breakpoints.profile-container;
+  margin: 0 auto;
+  width: 900px;
+  height: 100vh;
+  display: flex;
 
   .profile-wrapper {
-    width: 100%;
-    margin: 1.5rem 3.5rem 3.5rem;
-    border: 1.3px solid #DBDBDB;
+    margin: 0;
+    border-left: variables.$border-default-2px;
 
     .main {
-      width: 100%;
+      width: 680px;
       padding-bottom: 3.5rem;
       display: flex;
       flex-direction: column;
@@ -26,21 +30,22 @@
       }
 
       /* User Info */
-      .section-info {
+      .section-user-info {
         width: 90%;
         margin-top: .5rem;
 
-        .account {
+        .account-item {
           padding: 1.5rem 3rem .5rem 3rem;
           border-bottom: 1.3px solid #DBDBDB;
           display: flex;
           align-items: center;
           gap: 2rem;
 
-          .info-name {
+          .account-item-name {
             width: 115px;
             margin-bottom: 0;
             font-size: 1rem;
+            font-weight: bold;
           }
 
           .input {

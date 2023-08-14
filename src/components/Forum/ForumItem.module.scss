@@ -11,7 +11,7 @@
 
     /* [ForumItem] Post Container */
     .forum-item-container {
-      margin: 0;
+      margin: 0 0 0 3rem;
       padding: 2rem 0;
       display: flex;
       flex-direction: column;
@@ -54,21 +54,30 @@
       }
     }
 
-    /* Side Navbar */
-    .slb-nav {
+    /* [Aside] Side Navbar */
+    .aside-slb {
       min-width: 20%;
-      padding: 2rem 0;
+      height: 50%;
+      margin: 2rem 0;
+      padding: 1rem;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      background: #f1f1f1;
+      border: variables.$border-default-2px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+
+      &:hover {
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+      }
 
       /* Title */
-      .slb-title {
+      .aside-slb-title {
         margin-bottom: 1.5rem;
 
         .title {
           margin-bottom: .5rem;
-          font-size: 1.2rem;
+          font-size: 1rem;
           font-weight: bold;
         }
 
@@ -83,7 +92,7 @@
           color: #475569;
           font-size: 16px;
           font-weight: 500;
-          border: 1px solid variables.$base-color-border;
+          border: 1px solid variables.$border-default-style;
           border-radius: 10px;
         }
 
@@ -105,21 +114,42 @@
         }
       }
 
-      /* Sub Title */
-      .menu {
+      /* [Aside Forum] Sub Title */
+      .aside-menu {
         margin-top: 0;
         display: flex;
         flex-direction: column;
-        gap: .5rem;
+        gap: 1.5rem;
 
-        .sub-title {
-          margin-bottom: .5rem;
-          font-size: 1rem;
-          font-weight: 600;
-        }
+        .aside-item-list {
+          display: flex;
+          flex-direction: column;
+          gap: .2rem;
+          font-size: .9rem;
 
-        .item {
-          gap: .5rem;
+          .aside-item-title {
+            margin: .5rem 0;
+            font-size: .9rem;
+            font-weight: 600;
+            color: variables.$color-slate-gray;
+          }
+
+          .aside-item-title:first-child {
+            margin-top: .5rem;
+          }
+
+          .item-link-wrapper {
+            margin-right: .5rem;
+            padding: 0 .5rem;
+
+            a {
+              color: variables.$color-slate-text;
+            }
+          }
+
+          .item-link-wrapper:hover {
+            font-weight: bold;
+          }
         }
       }
     }
