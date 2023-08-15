@@ -1,0 +1,34 @@
+{
+  "FOOTER": [
+    {
+      "title": "고객서비스",
+      "link": [
+        { "link_title": "기기대여", "href": "/reserve/home" },
+        { "link_title": "매장위치", "href": "/store/location" },
+        { "link_title": "커뮤니티", "href": "/community" }
+      ]
+    },
+    {
+      "title": "고객지원",
+      "link": [
+        { "link_title": "고객지원", "href": "/support" },
+        { "link_title": "대여안내", "href": "/rental/guide" },
+        { "link_title": "상담 봇", "href": "/chatbot" }
+      ]
+    },
+    {
+      "title": "회사소개",
+      "link": [
+        { "link_title": "기업정보", "href": "/company/info" },
+        { "link_title": "공지사항", "href": "/company/notice" },
+        { "link_title": "이벤트", "href": "/company/event" }
+      ]
+    },
+    {
+      "title": "SNS",
+      "link": [
+        { "link_title": "Twitter", "href": "https://twitter.com/ATTACK_Bucheon?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" }
+      ]
+    }
+  ]
+}

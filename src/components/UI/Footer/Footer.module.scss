@@ -30,6 +30,8 @@
 
   &-navigate-item {
     margin-left: 60px;
+    display: flex;
+    flex-direction: column;
 
     h5 {
       margin: 0;
@@ -40,7 +42,8 @@
       color: variables.$base-font-color-dark;
     }
 
-    p {
+    a {
+      margin: .5rem 0;
       font-style: normal;
       font-weight: 400;
       font-size: 12px;
