@@ -13,7 +13,6 @@ const OverviewMainSection = () => {
     const gameInfo = GAMES_DATA.games.find(game => game.title === GAME_TITLE);
     const GAME_PRICE = gameInfo ? gameInfo.price : 'N/A';
 
-
     return (
         <section className={styles['game-explain']}>
             <img className={styles['game-bg']} alt=""/>
@@ -56,10 +55,6 @@ const OverviewMainSection = () => {
                             {gameInfo?.series_last}
                         </span>
                     </div>
-                    {/* 게시물 등록 시간 */}
-                    <div className={styles.posted}>
-                        Posted 8 days ago
-                    </div>
                 </div>
 
                 {/* 상세 설명 네비게이션 */}
@@ -74,7 +69,7 @@ const OverviewMainSection = () => {
                     </ul>
                     <ul className={styles['explain-contents']}>
                         <li className={styles['explain-title']}>가격</li>
-                        <li className={styles['explain-subtitle']}>{gameInfo?.price}</li>
+                        <li className={styles['explain-subtitle']}>{GAME_PRICE}</li>
                     </ul>
                     <ul className={styles['explain-contents']}>
                         <li className={styles['explain-title']}>시간</li>
@@ -86,8 +81,7 @@ const OverviewMainSection = () => {
                 {/* 상세 설명 */}
                 <article className={styles['overview-text']}>
                     <div className={styles['overview-text-header']}>개요</div>
-                    <div className={styles['overview-text-subheader']}>-
-                    </div>
+                    <div className={styles['overview-text-subheader']}>-</div>
                 </article>
 
                 {/* 예약 안내 (data-overview-information.json) */}
