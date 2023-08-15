@@ -4,23 +4,27 @@ import styles from './Navbar.module.scss';
 
 import Link from "next/link";
 import {GLB_MENU_ITEMS} from "@/data/dataMenuItem";
-import UserLoginMenu from "@/components/UI/NavbarGlobal/UserLoginMenu/UserLoginMenu";
+import Image from 'next/image'
+import NavigationLogo from '@/../public/img/home-bg-Transparent.png';
 import NavItems from "@/components/UI/NavbarGlobal/NavItems/NavItems";
 import {useSession} from "next-auth/react";
 
 import {MenuItem} from '@/types/Navigation';
+import NavbarLink from "@/components/UI/NavbarGlobal/NavbarLink";
+import SvgIconComponent from "@/components/SvgIconComponent";
+import DropdownMenu from "@/components/UI/NavbarGlobal/Dropdown/DropdownMenu";
 
 
 const NavbarComponent = () => {
+    /* [Client] 유저 세션 사용 */
     const {data: session} = useSession();
-
 
     const [
         gblMenuItems,
         setGlbMenuItems
     ] = useState<MenuItem[]>(GLB_MENU_ITEMS);
 
-    // [State] 모달 클릭 여부
+    /* [State] 모달 클릭 여부 */
     const [
         isMenClicked,
         setMenuClicked
@@ -28,7 +32,7 @@ const NavbarComponent = () => {
     const modalRef = useRef<HTMLElement | null>(null);
 
 
-    // 함수 실행시 State false -> true
+    /* 함수 실행시 State false -> true */
     const setIsUserModalClicked = () => setMenuClicked(!isMenClicked);
 
 
@@ -85,7 +89,17 @@ const NavbarComponent = () => {
     return (
         <nav className={styles.navbar}>
             {/* Navigation Home */}
-            <Link className={styles['nav-logo']} href={'/'}>ATTACK</Link>
+            <div className={styles['navbar-wrapper']}>
+                <Link className={styles['navbar-logo']} href={'/'}>
+                    <Image
+                        src={NavigationLogo}
+                        width={120.79}
+                        height={17}
+                        alt="어택 로고 이미지"
+                    />
+                </Link>
+            </div>
+
             <button className={styles['hamburger-btn']}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
                      strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
@@ -100,12 +114,36 @@ const NavbarComponent = () => {
             </ul>
 
 
-            {/* [Navigation Btn Wrap] Scss : UserLoginMenu.module.scss */}
+            {/* [Navigation User Session Wrap] */}
             <div className={styles['login-menu-wrap']}>
-                <UserLoginMenu
-                    onClick={setIsUserModalClicked}
-                    isMenClicked={isMenClicked}
-                />
+                <>
+                    {!session &&
+                        <>
+                            <NavbarLink
+                                className={`${styles['create-btn']} ${styles['selected-btn']}`}
+                                href={'/join/'}
+                                label={'회원가입'}
+                            />
+                            <NavbarLink
+                                className={styles['create-btn']}
+                                href={'/login/'}
+                                label={'로그인'}
+                            />
+                        </>
+                    }
+
+                     {/* 로그인시 노출 */}
+                    {session?.user &&
+                        <>
+                            <div className={styles['user-session-wrap']} onClick={setIsUserModalClicked}>
+                                <SvgIconComponent width={25} height={25} svgPath={'M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z'}/>
+                                <span className={styles['user-session-info']}>{session.user.name}</span>
+                            </div>
+                             {/* 클릭시 DropdownMenu 노출 */}
+                            {isMenClicked && <DropdownMenu session={session}/>}
+                        </>
+                    }
+                </>
             </div>
         </nav>
     );

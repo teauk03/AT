@@ -1,34 +1,44 @@
 @use '@/styles/variables';
 /* [Login] Dropdown Menu */
 .dropdown {
-  width: 11rem;
+  width: 13rem;
   height: 10.5rem;
+  top: 50px;
+  right: 35px;
   position: absolute;
-  border: 1px solid variables.$base-font-color-dark;
-  background: variables.$background-color-white;
-  border-radius: 5px;
-  top: 65px;
-  right: 50px;
+  border: variables.$border-default-1px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: variables.$base-color-white;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  }
 }
 
-.section {
+.dropdown-section {
   padding: .5rem;
 
-  .user {
+  &-user {
     display: flex;
     flex-direction: column;
     gap: 1em;
+  }
 
-    .menu {
+  &-menu {
+    display: flex;
+    align-items: center;
+
+    .dropdown-section-img {
       display: flex;
+      justify-content: center;
       align-items: center;
+      margin-right: 10px;
+    }
 
-      .user-img-wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-right: 10px;
-      }
+    a:hover {
+      font-weight: bold;
     }
   }
 }

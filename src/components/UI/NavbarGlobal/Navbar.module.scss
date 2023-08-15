@@ -4,30 +4,28 @@
 /* Navigation Container */
 .navbar {
   width: 100%;
-  padding: .3rem 2rem;
+  padding: .7rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #252954;
+  background: #fff;
   position: sticky;
   top: 0;
   z-index: 1;
 
   /* Navigation Home */
-  .nav-logo {
-    height: 100%;
-    background: linear-gradient(93.51deg, #9B51E0 2.84%, #3081ED 99.18%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 32px;
+  .navbar-wrapper {
+    display: flex;
+    align-items: center;
+
+    .navbar-logo {
+      height: 100%;
+    }
   }
 
   /* [Navigation] Link Wrap */
   .nav-link-wrap {
     margin: 0 auto 0 3rem;
-    padding: .5rem 0 0 0;
     display: flex;
     gap: 2rem;
 
@@ -35,11 +33,11 @@
       position: relative;
       font-style: normal;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: .9rem;
 
       /* [Link] 네비게이션 아이템 */
       .nav-item {
-        color: #BCBCBC;
+        color: #333;
       }
 
       /* [active] 네비게이션 액티브 이벤트 */
@@ -67,7 +65,7 @@
         position: absolute;
         top: 100%;
         left: 0;
-        background-color: #fff;
+        background: #fff;
         border: 1px solid #ccc;
         transition: all 0.3s ease;
 
@@ -77,7 +75,7 @@
         }
 
         li:hover {
-          background-color: #f0f0f0;
+          background: #f0f0f0;
         }
       }
     }
@@ -96,13 +94,45 @@
     display: flex;
     align-items: center;
   }
-
   .hamburger-btn {
     display: none;
     color: #D7D7D7;
     background: #1F1D2B;
     border: none;
     margin-right: 10px;
+  }
+}
+
+/* [Navigation User Session Wrap]
+ * 로그인, 로그아웃 버튼 */
+.create-btn {
+  margin: .5rem 0;
+  padding: 0.713rem 1.875rem;
+  background: transparent;
+  border: none;
+  color: #BCBCBC;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+
+  &.selected-btn {
+    border: 1px solid #D7D7D7;
+    border-radius: 10px;
+  }
+}
+
+/* [Navigation User Session Wrap]
+ * 로그인시 노출 */
+.user-session-wrap {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  color: variables.$color-dark-gray;
+  cursor: pointer;
+
+  .user-session-info {
+    padding: .4rem .3rem .3rem;
+    font-weight: 500;
   }
 }
 

@@ -1,14 +1,15 @@
+@use "@/styles/variables";
 @use '@/styles/Breakpoints';
 
 /* Container */
 .footer-container {
   @include Breakpoints.global-wrap-style;
-  color: #FFFFFF;
-  background: #252954;
+  color: variables.$base-font-color-dark;
+  background: variables.$color-light-gray;
 
   /* Footer */
   .footer {
-    margin: 50px 0;
+    margin: 50px 0 25px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -32,10 +33,10 @@
         h5 {
           margin: 0;
           font-style: normal;
-          font-weight: 400;
+          font-weight: 500;
           font-size: 20px;
           line-height: 30px;
-          color: #FFFFFF;
+          color: variables.$base-font-color-dark;
         }
 
         p {
@@ -44,7 +45,7 @@
           font-size: 12px;
           line-height: 18px;
           letter-spacing: 0.03em;
-          color: #D7D7D7;
+          color: variables.$color-navbar-gray;
         }
       }
     }
@@ -56,14 +57,14 @@
     display: flex;
     justify-content: space-between;
     padding-bottom: 30px;
-    border-top: 1px solid #F2F2F2;
+    border-top: 1px solid variables.$base-font-color-dark;
 
     p {
       margin: 1rem 0;
       font-style: normal;
       font-weight: 400;
       font-size: 12px;
-      color: #828282;
+      color: variables.$color-navbar-gray;
     }
   }
 }

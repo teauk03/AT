@@ -8,7 +8,6 @@ import {usePathname, useRouter} from "next/navigation";
 import {useFetchPosts} from "@/hooks/Board/useFetchPosts";
 import SearchBoxForum from "@/components/UI/SearchBox/SearchBoxForum";
 import {NoticeItemProps} from "@/types/Borad";
-import Link from "next/link";
 
 
 const ForumContainer = ({ result: initialPosts, totalPosts, page }: NoticeItemProps) => {

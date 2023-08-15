@@ -1,20 +1,21 @@
 /*
 Error: Invalid CSS after "...ude Breakpoints": expected "}", was ".global-wrap-st..."
-        on line 5 of Footer.module.scss
+        on line 6 of Footer.module.scss
 
-1: @use '@/styles/Breakpoints';
-2: 
-3: /* Container *\/
-4: .footer-container {
-5:   @include Breakpoints.global-wrap-style;
-6:   color: #FFFFFF;
-7:   background: #252954;
-8: 
-9:   /* Footer *\/
-10:   .footer {
+1: @use "@/styles/variables";
+2: @use '@/styles/Breakpoints';
+3: 
+4: /* Container *\/
+5: .footer-container {
+6:   @include Breakpoints.global-wrap-style;
+7:   color: variables.$base-font-color-dark;
+8:   background: variables.$color-light-gray;
+9: 
+10:   /* Footer *\/
+11:   .footer {
 
 Backtrace:
-Footer.module.scss:5
+Footer.module.scss:6
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
@@ -38,4 +39,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"...ude Breakpoints\": expected \"}\", was \".global-wrap-st...\"\A         on line 5 of Footer.module.scss\A \A 1: @use '@/styles/Breakpoints';\A 2: \A 3: /* Container */\A 4: .footer-container {\A 5:   @include Breakpoints.global-wrap-style;\A 6:   color: #FFFFFF;\A 7:   background: #252954;\A 8: \A 9:   /* Footer */\A 10:   .footer {"; }
+  content: "Error: Invalid CSS after \"...ude Breakpoints\": expected \"}\", was \".global-wrap-st...\"\A         on line 6 of Footer.module.scss\A \A 1: @use \"@/styles/variables\";\A 2: @use '@/styles/Breakpoints';\A 3: \A 4: /* Container */\A 5: .footer-container {\A 6:   @include Breakpoints.global-wrap-style;\A 7:   color: variables.$base-font-color-dark;\A 8:   background: variables.$color-light-gray;\A 9: \A 10:   /* Footer */\A 11:   .footer {"; }

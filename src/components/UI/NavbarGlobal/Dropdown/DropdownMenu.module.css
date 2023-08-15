@@ -1,21 +1,21 @@
 /*
-Error: Invalid CSS after "...solid variables": expected ";", was ".$base-font-col..."
-        on line 7 of DropdownMenu.module.scss
+Error: Invalid CSS after "...rder: variables": expected ";", was ".$border-defaul..."
+        on line 9 of DropdownMenu.module.scss
 
-2: /* [Login] Dropdown Menu *\/
-3: .dropdown {
-4:   width: 11rem;
+4:   width: 13rem;
 5:   height: 10.5rem;
-6:   position: absolute;
-7:   border: 1px solid variables.$base-font-color-dark;
-8:   background: variables.$background-color-white;
-9:   border-radius: 5px;
-10:   top: 65px;
-11:   right: 50px;
-12: }
+6:   top: 50px;
+7:   right: 35px;
+8:   position: absolute;
+9:   border: variables.$border-default-1px;
+10:   border-radius: 8px;
+11:   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+12:   background: variables.$base-color-white;
+13:   transition: all 0.3s ease;
+14: 
 
 Backtrace:
-DropdownMenu.module.scss:7
+DropdownMenu.module.scss:9
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
@@ -45,4 +45,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"...solid variables\": expected \";\", was \".$base-font-col...\"\A         on line 7 of DropdownMenu.module.scss\A \A 2: /* [Login] Dropdown Menu */\A 3: .dropdown {\A 4:   width: 11rem;\A 5:   height: 10.5rem;\A 6:   position: absolute;\A 7:   border: 1px solid variables.$base-font-color-dark;\A 8:   background: variables.$background-color-white;\A 9:   border-radius: 5px;\A 10:   top: 65px;\A 11:   right: 50px;\A 12: }"; }
+  content: "Error: Invalid CSS after \"...rder: variables\": expected \";\", was \".$border-defaul...\"\A         on line 9 of DropdownMenu.module.scss\A \A 4:   width: 13rem;\A 5:   height: 10.5rem;\A 6:   top: 50px;\A 7:   right: 35px;\A 8:   position: absolute;\A 9:   border: variables.$border-default-1px;\A 10:   border-radius: 8px;\A 11:   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\A 12:   background: variables.$base-color-white;\A 13:   transition: all 0.3s ease;\A 14: "; }
