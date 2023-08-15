@@ -1,0 +1,20 @@
+{
+  "games": [
+    {
+      "title": "beatmania IIDX 30 RESIDENT",
+      "series_first": "Konami",
+      "series_last": "Bemami Series",
+      "genre": "Music",
+      "time": "1 hour",
+      "price": "12,000"
+    },
+    {
+      "title": "Sound Vortex Exceed Gear",
+      "series_first": "Konami",
+      "series_last": "Bemami Series",
+      "genre": "Music",
+      "time": "1 hour",
+      "price": "15,000"
+    }
+  ]
+}

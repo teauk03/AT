@@ -4,6 +4,10 @@
 .content-container {
   display: flex;
   flex-direction: column;
+
+  .content-item-list {
+    padding: 0 4rem;
+  }
 }
 
 /* [NoticeNavigation] 네비게이션 */
@@ -39,7 +43,7 @@
 
 /* [ForumContainer] 이벤트, 공지사항 타이틀 */
 .notice-container {
-  margin: 0 7rem;
+  margin: 0 4rem 0 7rem;
   display: flex;
   border-bottom: variables.$border-default-1px;
 

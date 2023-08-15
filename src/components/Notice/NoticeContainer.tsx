@@ -27,7 +27,8 @@ const NoticeContainer = (
     }: NoticeItemProps & { path: string }) => {
 
     /* [Custom Hook] useFetchPosts 훅을 사용하여 데이터를 가져옴 */
-    const { currentPage, result, totalPages, setCurrentPage
+    const {
+        currentPage, result, totalPages, setCurrentPage
     } = useFetchPosts(
         `/api/notice/${path}`, page, initialPosts, totalPosts
     );
@@ -38,8 +39,10 @@ const NoticeContainer = (
             {/* 공지사항 헤더 */}
             <NoticeHeader/>
 
-            {/* 게시글 렌더링 */}
-            <ForumItem result={result} path='announcement'/>
+            <div className={styles['content-item-list']}>
+                {/* 게시글 렌더링 */}
+                <ForumItem result={result} path='announcement'/>
+            </div>
 
             {/* 페이지 네이션 */}
             <PaginationForum

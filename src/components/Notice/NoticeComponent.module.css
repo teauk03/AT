@@ -1,21 +1,21 @@
 /*
 Error: Invalid CSS after "...ttom: variables": expected ";", was ".$border-defaul..."
-        on line 44 of NoticeComponent.module.scss
+        on line 48 of NoticeComponent.module.scss
 
-39: 
-40: /* [ForumContainer] 이벤트, 공지사항 타이틀 *\/
-41: .notice-container {
-42:   margin: 0 7rem;
-43:   display: flex;
-44:   border-bottom: variables.$border-default-1px;
-45: 
-46:   .notice-new-post,
-47:   .notice-title {
-48:     margin: 1rem 0 0 0;
-49:     padding: 1rem 0;
+43: 
+44: /* [ForumContainer] 이벤트, 공지사항 타이틀 *\/
+45: .notice-container {
+46:   margin: 0 4rem 0 7rem;
+47:   display: flex;
+48:   border-bottom: variables.$border-default-1px;
+49: 
+50:   .notice-new-post,
+51:   .notice-title {
+52:     margin: 1rem 0 0 0;
+53:     padding: 1rem 0;
 
 Backtrace:
-NoticeComponent.module.scss:44
+NoticeComponent.module.scss:48
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
@@ -45,4 +45,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"...ttom: variables\": expected \";\", was \".$border-defaul...\"\A         on line 44 of NoticeComponent.module.scss\A \A 39: \A 40: /* [ForumContainer] 이벤트, 공지사항 타이틀 */\A 41: .notice-container {\A 42:   margin: 0 7rem;\A 43:   display: flex;\A 44:   border-bottom: variables.$border-default-1px;\A 45: \A 46:   .notice-new-post,\A 47:   .notice-title {\A 48:     margin: 1rem 0 0 0;\A 49:     padding: 1rem 0;"; }
+  content: "Error: Invalid CSS after \"...ttom: variables\": expected \";\", was \".$border-defaul...\"\A         on line 48 of NoticeComponent.module.scss\A \A 43: \A 44: /* [ForumContainer] 이벤트, 공지사항 타이틀 */\A 45: .notice-container {\A 46:   margin: 0 4rem 0 7rem;\A 47:   display: flex;\A 48:   border-bottom: variables.$border-default-1px;\A 49: \A 50:   .notice-new-post,\A 51:   .notice-title {\A 52:     margin: 1rem 0 0 0;\A 53:     padding: 1rem 0;"; }

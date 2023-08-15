@@ -104,9 +104,13 @@ const ReserveHome = () => {
 
                                         {/* 상세페이지 이동 링크 박스 */}
                                         <div className={styles['game-card-buttons']}>
-                                            <Link
+                                            {/*<Link
                                                 className={`${styles['search-buttons']} ${styles['card-buttons']}`}
                                                 href={'/reserve/overview'}
+                                            >Apply Now</Link>*/}
+                                            <Link
+                                                className={`${styles['search-buttons']} ${styles['card-buttons']}`}
+                                                href={`/reserve/overview?game=${encodeURIComponent(game.title)}`}
                                             >Apply Now</Link>
                                             <Link
                                                 className={`${styles['search-buttons']} ${styles['card-buttons-msg']}`}
