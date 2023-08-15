@@ -2,7 +2,6 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { getServerSession } from "next-auth/next"
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { connectDB } from "@/utils/mongoDb";
-import {IDivisionMapping} from "@/types/Borad";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== 'POST') {
@@ -14,13 +13,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(403).json({ error: '로그인이 필요합니다.' });
     }
 
-    const { title, content, division_title, division }: {
-        title?: string;
-        content?: string;
-        division_title?: string;
-        division?: keyof IDivisionMapping
-    } = req.body;
+    if (session.user.role !== 'admin') {
+        return res.status(403).json({ error: '관리자만 접근이 가능합니다.' });
+    }
 
+    const { title, content, division_title, division } = req.body;
     if (!title) {
         return res.status(400).json({ error: '제목은 필수입니다.' });
     }
@@ -29,28 +26,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(400).json({ error: '본문을 작성해주세요.' });
     }
 
-    const collectionMapping: IDivisionMapping = {
-        'Konami': 'konami',
-        'Namco': 'namco',
-        'ETC': 'etc'
-    };
-
-    const collectionName = division ? collectionMapping[division] : undefined;
-
-    if (!division_title) {
-        return res.status(400).json({ error: '게임사 카테고리를 선택해주세요.' });
-    }
-
-    if (!division || !collectionName) {
-        return res.status(400).json({ error: '게임 카테고리를 선택해주세요.' });
-    }
-
-    if (typeof collectionName === 'undefined') {
-        return res.status(400).json({ error: '올바르지 않은 컬렉션 이름입니다.' });
+    if (!division || (division !== '공지사항' && division !== '이벤트')) {
+        return res.status(400).json({ error: '올바른 카테고리를 선택해주세요.' });
     }
 
     try {
-        const db = (await connectDB).db("forum");
+        const db = (await connectDB).db("admin_user");
+        const collectionName = division === '공지사항' ? 'notice' : 'event';
         await db.collection(collectionName).insertOne({ userName: session.user.name, title, content, division_title, division });
         return res.status(200).json({ message: '게시물이 성공적으로 작성되었습니다.' });
     } catch (error) {

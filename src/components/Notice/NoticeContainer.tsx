@@ -29,7 +29,7 @@ const NoticeContainer = (
     /* [Custom Hook] useFetchPosts 훅을 사용하여 데이터를 가져옴 */
     const { currentPage, result, totalPages, setCurrentPage
     } = useFetchPosts(
-        `/api/notice${path}`, page, initialPosts, totalPosts
+        `/api/notice/${path}`, page, initialPosts, totalPosts
     );
 
 

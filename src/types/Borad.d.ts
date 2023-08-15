@@ -31,16 +31,22 @@ export interface TextCountHooks {
  * 게시글 생성에 사용되는 옵션 정의
  * (성공 or 에러 발생시 실행되는 콜백 함수) */
 export interface  CreatePostOptions {
-    onSuccess?: () => void;
+    onSuccess?: (message: string) => void;
     onError?: (error: Error) => void;
 }
 
+/* 서버 응답 인터페이스 */
+export interface ServerResponse {
+    error?: string;
+}
 
 /* 포스트 데이터를 정의 (제목, 내용, 사용자 이름) */
 export interface PostData {
     title: string;
     content: string;
     userName: string;
+    division_title: string;
+    division: string;
 }
 
 
@@ -60,4 +66,11 @@ export interface FormContainerProps {
     onTitleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     textLength?: number;
     buttons: React.ReactNode;
+}
+
+/* api/post/nes - handler */
+export interface IDivisionMapping {
+    Konami: string;
+    Namco: string;
+    ETC: string;
 }

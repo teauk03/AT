@@ -17,7 +17,7 @@ const Announcement = async (page: any) => {
                 result={posts}
                 totalPosts={totalPosts}
                 page={page}
-                path='event'
+                path='announcement'
             />
         )
 

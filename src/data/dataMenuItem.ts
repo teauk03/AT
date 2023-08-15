@@ -67,11 +67,6 @@ export const ASIDE_FORUM_ITEMS = [
     },
 ];
 
-export const ADMIN_FORUM_ITEMS = [
-    {title: '공지사항', route: '/forum'},
-    {title: '이벤트', route: '/forum'},
-];
-
 
 /* [SLB] Navbar Menu Array */
 export const SLB_MENU_ITEMS = [

@@ -8,7 +8,7 @@ const listPosts = async (req: NextApiRequest, res: NextApiResponse) => {
          * limit : 페이지당 아이템 수 (기본값: 10) */
         const page = Number(req.query.page) || 1;
         const limit = Number(req.query.limit) || 10;
-        const posts = await getAllPostsFromForum('post', page, limit);
+        const posts = await getAllPostsFromForum('forum','post', page, limit);
 
 
         /* 전체 게시물 수를 계산. */
