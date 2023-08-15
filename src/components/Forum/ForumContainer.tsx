@@ -29,7 +29,6 @@ const ForumContainer = ({ result: initialPosts, totalPosts, page}: NoticeItemPro
 
     /* 검색 결과를 상태로 설정 */
     const handleSearchResults = (results: Post[]) => setSearchResults(results);
-    console.log(initialPosts)
 
     /* 새 게시물 작성 버튼 */
     const status = "unauthenticated";

@@ -4,10 +4,11 @@ import SvgIconComponent from "@/components/SvgIconComponent";
 import Link from "next/link";
 import {MongoPost} from "@/types/Borad";
 
-const SearchResult = ({posts}: { posts?: Array<MongoPost> }) => {
+const SearchResult = ({posts, searchQuery}: { posts?: Array<MongoPost>; searchQuery: string }) => {
     //console.log('posts', posts)
     return (
         <main className={styles.container}>
+
             {/* Forum Header */}
             <div className={styles['forum-header']}>
                 <h2 className={styles['forum-header-title']}>커뮤니티</h2>
@@ -23,6 +24,9 @@ const SearchResult = ({posts}: { posts?: Array<MongoPost> }) => {
                     </Link>
                 </div>
             </div>
+            <span style={{textAlign: 'center'}}>
+                다음에 대한 결과 표시: <span className="font-semibold">{searchQuery}</span>
+            </span>
             <ul className={styles['forum-item-container']}>
                 {posts ? (
 

@@ -7,7 +7,8 @@ interface IQuery {
     nickname?: { $regex: string; $options: string };
 }
 
-const searchPosts = async (req: NextApiRequest, res: NextApiResponse) => {
+/* 검색 엔드포인트 */
+const handleSearchPostsEndpoint = async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method === "GET") {
         try {
             const searchType = req.query.searchType as string; // 검색 필터 (제목, 본문, 닉네임)
@@ -20,30 +21,23 @@ const searchPosts = async (req: NextApiRequest, res: NextApiResponse) => {
                 return;
             }
 
-            const db = (await connectDB).db("admin_user");
+            const db = (await connectDB).db("forum");
 
             /* 검색 쿼리 생성 */
-            let query: IQuery = {};
-            if (searchType === 'title') {
-                query = {title: {$regex: searchQuery, $options: 'i'}};
-            } else if (searchType === 'body') {
-                query = {body: {$regex: searchQuery, $options: 'i'}};
-            } else if (searchType === 'nickname') {
-                query = {nickname: {$regex: searchQuery, $options: 'i'}};
-            }
-
-            console.log(req.query);
-            console.log(req.query.q)
+            let query: IQuery = {
+                [searchType]: { $regex: searchQuery, $options: 'i' }
+            };
 
             /* 검색된 게시물 조회 */
-            const posts = await db.collection('notice')
+            const posts = await db.collection('post')
                 .find(query)
                 .skip((page - 1) * limit)
                 .limit(limit)
                 .toArray();
 
             /* 검색된 게시물 수 계산 */
-            const totalPosts = await db.collection('notice').countDocuments(query);
+            const totalPosts = await db.collection('post')
+                .countDocuments(query);
 
             res.status(200).json({posts, totalPosts});
         } catch (error) {
@@ -52,4 +46,4 @@ const searchPosts = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 };
 
-export default searchPosts;
+export default handleSearchPostsEndpoint;
