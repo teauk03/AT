@@ -56,7 +56,9 @@ const OverviewMainSection = () => {
                             {gameInfo?.series_last}
                         </span>
                     </div>
-                    <div className={styles.posted}>Posted 8 days ago<span className="app-number">98 Application</span>
+                    {/* 게시물 등록 시간 */}
+                    <div className={styles.posted}>
+                        Posted 8 days ago
                     </div>
                 </div>
 
