@@ -1,41 +1,39 @@
 'use client'
 import React, {useState} from 'react';
 import styles from "@/components/Forum/ForumItem.module.scss";
+import Link from "next/link";
 import ForumSideNavbar from "@/components/Forum/SLB/ForumSlb";
 import ForumItem from "@/components/Forum/ForumItem";
 import PaginationForum from "@/components/UI/Pagination/PaginationForum";
-import {usePathname, useRouter} from "next/navigation";
+import {usePathname} from "next/navigation";
 import {useFetchPosts} from "@/hooks/Board/useFetchPosts";
-import SearchBoxForum from "@/components/UI/SearchBox/SearchBoxForum";
-import {NoticeItemProps} from "@/types/Borad";
-import Link from "next/link";
+import SearchForum from "@/components/UI/SearchBox/SearchForum";
 import SvgIconComponent from "@/components/SvgIconComponent";
+import SearchResult from "@/components/UI/SearchBox/SearcgResult";
+import {NoticeItemProps, Post} from "@/types/Borad";
+import useNewPostHandler from "@/hooks/Board/useNewPostAuth";
 
 
-const ForumContainer = ({ result: initialPosts, totalPosts, page }: NoticeItemProps) => {
+
+const ForumContainer = ({ result: initialPosts, totalPosts, page}: NoticeItemProps) => {
     /* usePathname : 현재 URL 경로(값)를 가져옴 */
     const pathname  = usePathname();
-    const isForumRoute = pathname === '/forum';
-    //console.log('[ForumContainer] usePathname : ', pathname, isForumRoute)
+    const isForumRoute = pathname === '/announcement' && '/event';
 
+    /* 검색된 게시물 상태 */
+    const [searchResults, setSearchResults] = useState<Post[] | null>(null);
 
+    /* 게시물 가져오기 로직 (currentPage, result, totalPages 등 관리) */
     const { currentPage, result, totalPages, setCurrentPage
-    } = useFetchPosts(
-        '/api/post/list', page, initialPosts, totalPosts
-    );
+    } = useFetchPosts('/api/post/list', page, initialPosts, totalPosts);
 
+    /* 검색 결과를 상태로 설정 */
+    const handleSearchResults = (results: Post[]) => setSearchResults(results);
+    console.log(initialPosts)
 
-    const router = useRouter();
-    const handleNewPostOnClick = (e: React.MouseEvent) => {
-        if (status === 'unauthenticated') {
-            e.preventDefault();
-            alert('로그인 후 이용 가능합니다.');
-            router.push('/login');
-        } else {
-            router.push('/write');
-        }
-    }
-
+    /* 새 게시물 작성 버튼 */
+    const status = "unauthenticated";
+    const handleNewPostOnClick = useNewPostHandler(status);
 
     return (
         <main className={styles.container}>
@@ -53,14 +51,17 @@ const ForumContainer = ({ result: initialPosts, totalPosts, page }: NoticeItemPr
                     </Link>
                 </div>
             </div>
-            
+
             {/* 커뮤니티 네비게이션, 작성글 리스트 */}
             <div className={styles['article-list']}>
-                {/* 현재 경로가 "/forum"인 경우에만 "ForumSideNavbar"를 렌더링 */}
-                {isForumRoute && <ForumSideNavbar/>}
+                {/* 현재 경로가 "announcement, event"이 아니면 "ForumSideNavbar"를 렌더링 */}
+                {!isForumRoute && <ForumSideNavbar/>}
 
                 {/* 게시글 렌더링 */}
-                <ForumItem result={result} path='forum'/>
+                {searchResults === null && <ForumItem result={result} path='forum'/>}
+
+                {/* 새로운 게시물 렌더링 컴포넌트 */}
+                {searchResults !== null && <SearchResult/>}
             </div>
 
             {/* [Footer] 커뮤니티 이전, 다음버튼 */}
@@ -71,7 +72,7 @@ const ForumContainer = ({ result: initialPosts, totalPosts, page }: NoticeItemPr
             />
 
             {/* [Footer] 커뮤니티 검색 */}
-            <SearchBoxForum/>
+            <SearchForum onSearchResults={handleSearchResults}/>
         </main>
     );
 };

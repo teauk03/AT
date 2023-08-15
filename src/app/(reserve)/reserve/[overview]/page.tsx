@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './ReserveOverview.module.scss';
 import ReserveTopNavbar from "@/components/Reserve/ReserveTopNavbar";
-import OverviewContainer from "@/components/Reserve/Overview/OverviewContainer";
 import OverviewAsideSection from "@/components/Reserve/Overview/OverviewAsideSection";
 import OverviewMainSection from "@/components/Reserve/Overview/OverviewMainSection";
 
@@ -13,7 +12,6 @@ const Overview = () => {
 
             {/* 상세페이지 컨테이너 */}
             <main className={styles['game-overview']}>
-                {/*<OverviewContainer/>*/}
                 {/* [Left Section] 상세페이지 Aside */}
                 <OverviewAsideSection/>
 

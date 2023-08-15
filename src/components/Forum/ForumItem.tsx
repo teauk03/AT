@@ -18,7 +18,7 @@ const ForumItem = ({ result, path }: { result: { posts: Post[]; totalPosts: numb
             {posts.map((noticeItem, noticeIndex) => {
                 return (
                     <li className={styles['forum-list']} key={noticeIndex}>
-                        {/* User Name */}
+                        {/* User Title */}
                         <div className={styles['author-wrap']}>
                             <SvgIconComponent
                                 width={20} height={20}

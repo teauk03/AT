@@ -1,5 +1,6 @@
 import {ObjectId} from "mongodb";
 import React, {ChangeEvent} from "react";
+import exp from "constants";
 
 /* [util] getPostsFromForum Result Type */
 interface Post {
@@ -73,4 +74,14 @@ export interface IDivisionMapping {
     Konami: string;
     Namco: string;
     ETC: string;
+}
+
+/* 검색 인터페이스 */
+export interface MongoPost {
+    _id: string;
+    userName: string;
+    title: string;
+    content: string;
+    division_title: string | null;
+    division: string | null;
 }

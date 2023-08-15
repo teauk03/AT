@@ -6,7 +6,7 @@ import {NoticeItemProps} from "@/types/Borad";
 import {useFetchPosts} from "@/hooks/Board/useFetchPosts";
 import PaginationForum from "@/components/UI/Pagination/PaginationForum";
 import ForumItem from "@/components/Forum/ForumItem";
-import SearchBoxForum from "@/components/UI/SearchBox/SearchBoxForum";
+import SearchForum from "@/components/UI/SearchBox/SearchForum";
 
 
 /**
@@ -52,7 +52,7 @@ const NoticeContainer = (
             />
 
             {/* 커뮤니티 검색 */}
-            <SearchBoxForum/>
+            <SearchForum/>
         </div>
     )
 };
