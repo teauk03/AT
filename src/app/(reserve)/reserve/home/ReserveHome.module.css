@@ -1,346 +1,56 @@
-@charset "UTF-8";
-/* [Main] 예약페이지 메인 */
-.reserve-main {
-  --body-bg-color: #e5ecef;
-  --theme-bg-color: #fafafb;
-  --body-color: #2f2f33;
-  --active-color: #0162ff;
-  --active-light-color: #e1ebfb;
-  --header-bg-color: #fff;
-  --search-border-color: #efefef;
-  --border-color: #d8d8d8;
-  --alert-bg-color: #e8f2ff;
-  --subtitle-color: #83838e;
-  --inactive-color: #f0f0f0;
-  --placeholder-color: #9b9ba5;
-  --time-button: #fc5757;
-  --level-button: #5052d5;
-  --button-color: #fff;
-  display: flex;
-  flex-direction: column;
-  max-width: 1400px;
-  margin: 0 auto;
-  overflow: hidden;
-  background-color: var(--theme-bg-color);
-  /* 이미지 (max-width: 100%) */
-  /* [div] 예약페이지 컨테이너 */
-  /* article - 예약 리스트 */ }
-  .reserve-main img {
-    max-width: 100%; }
-  .reserve-main .reserve-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    scroll-behavior: smooth;
-    padding: 30px 40px;
-    overflow: auto;
-    /* nav - 검색 네비게이션 */
-    /* [section] 메인 컨텐츠 컨테이너 */ }
-    .reserve-main .reserve-container .search-menu {
-      width: 100%;
-      height: 56px;
-      padding-left: 20px;
-      display: flex;
-      flex-shrink: 0;
-      white-space: nowrap;
-      align-items: center;
-      background: var(--header-bg-color);
-      border-radius: 8px; }
-      .reserve-main .reserve-container .search-menu .search-box:focus {
-        outline: none; }
-      .reserve-main .reserve-container .search-menu div:not(:last-of-type) {
-        border-right: 1px solid var(--search-border-color); }
-      .reserve-main .reserve-container .search-menu .search-bar {
-        height: 55px;
-        width: 100%;
-        display: flex;
-        position: relative;
-        border: 1px solid #D1D1D6; }
-        .reserve-main .reserve-container .search-menu .search-bar input {
-          padding: 0 3rem;
-          width: 100%;
-          height: 100%;
-          display: block;
-          border: none;
-          background: transparent no-repeat 0 50% / 14px; }
-    .reserve-main .reserve-container .main-container {
-      display: flex;
-      flex-grow: 1;
-      padding-top: 30px;
-      /* aside - 사이드 메뉴 */
-      /* section - 메인 컨텐츠 아이템 섹션 */ }
-      .reserve-main .reserve-container .main-container .search-type {
-        width: 270px;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        flex-shrink: 0;
-        /* [게임사] 사이드 체크 박스 */ }
-        .reserve-main .reserve-container .main-container .search-type .game-time {
-          padding-top: 20px;
-          /* 사이드 체크 박스 */ }
-          .reserve-main .reserve-container .main-container .search-type .game-time-title {
-            font-size: 14px;
-            font-weight: 500; }
-          .reserve-main .reserve-container .main-container .search-type .game-time .game-wrapper {
-            padding-top: 20px; }
-            .reserve-main .reserve-container .main-container .search-type .game-time .game-wrapper .type-container {
-              display: flex;
-              align-items: center;
-              color: var(--subtitle-color);
-              font-size: 13px;
-              /* 사이드 체크 박스 */ }
-              .reserve-main .reserve-container .main-container .search-type .game-time .game-wrapper .type-container label {
-                margin-left: 2px;
-                display: flex;
-                align-items: center;
-                cursor: pointer; }
-              .reserve-main .reserve-container .main-container .search-type .game-time .game-wrapper .type-container + .reserve-main .reserve-container .main-container .search-type .game-time .game-wrapper .type-container {
-                margin-top: 10px; }
-              .reserve-main .reserve-container .main-container .search-type .game-time .game-wrapper .type-container .game-number {
-                margin-left: auto;
-                background-color: var(--inactive-color);
-                color: var(--subtitle-color);
-                font-size: 10px;
-                font-weight: 500;
-                padding: 5px;
-                border-radius: 4px; }
-              .reserve-main .reserve-container .main-container .search-type .game-time .game-wrapper .type-container .game-style {
-                display: none; }
-              .reserve-main .reserve-container .main-container .search-type .game-time .game-wrapper .type-container .game-style + label:before {
-                content: "";
-                margin-right: 10px;
-                width: 16px;
-                height: 16px;
-                border: 1px solid var(--subtitle-color);
-                border-radius: 4px;
-                cursor: pointer; }
-              .reserve-main .reserve-container .main-container .search-type .game-time .game-wrapper .type-container .game-style:checked + label:before {
-                background-color: var(--active-color);
-                border-color: var(--active-color);
-                background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' class='feather feather-check'%3e%3cpath d='M20 6L9 17l-5-5'/%3e%3c/svg%3e");
-                background-position: 50%;
-                background-size: 14px;
-                background-repeat: no-repeat; }
-              .reserve-main .reserve-container .main-container .search-type .game-time .game-wrapper .type-container .game-style:checked + label + span {
-                background-color: var(--active-light-color);
-                color: var(--active-color); }
-      .reserve-main .reserve-container .main-container .searched-bar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        animation: slideY 0.6s both; }
-      .reserve-main .reserve-container .main-container .searched-show {
-        font-size: 19px;
-        font-weight: 600; }
-      .reserve-main .reserve-container .main-container .searched-sort {
-        font-size: 14px;
-        color: var(--subtitle-color); }
-        .reserve-main .reserve-container .main-container .searched-sort .post-time {
-          font-weight: 600;
-          color: var(--subtitle-color); }
-        .reserve-main .reserve-container .main-container .searched-sort .menu-icon {
-          font-size: 9px;
-          color: var(--placeholder-color);
-          margin-left: 6px; }
-  .reserve-main .game-cards {
-    padding-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 25px;
-    grid-row-gap: 25px;
-    animation: slideY .6s both;
-    /* Responsive(max-width: 1212px) - 예약 카드 */
-    /* Responsive(max-width: 930px) - 예약 카드 */
-    /* 게임 카드 목록 */ }
-    @media screen and (max-width: 1212px) {
-      .reserve-main .game-cards {
-        grid-template-columns: repeat(2, 1fr); } }
-    @media screen and (max-width: 930px) {
-      .reserve-main .game-cards {
-        grid-template-columns: repeat(1, 1fr); } }
-    .reserve-main .game-cards .game-card {
-      padding: 20px 16px;
-      background-color: var(--header-bg-color);
-      border-radius: 8px;
-      cursor: pointer;
-      transition: .2s;
-      /* 상세페이지 이동 링크 박스 */ }
-      .reserve-main .game-cards .game-card:hover {
-        transform: scale(1.02); }
-      .reserve-main .game-cards .game-card svg {
-        width: 46px;
-        padding: 10px;
-        border-radius: 8px; }
-      .reserve-main .game-cards .game-card-title {
-        font-weight: 600;
-        margin-top: 16px;
-        font-size: 14px; }
-      .reserve-main .game-cards .game-card-subtitle {
-        color: var(--subtitle-color);
-        font-size: 13px;
-        margin-top: 14px;
-        line-height: 1.6em; }
-      .reserve-main .game-cards .game-card-header {
-        display: flex;
-        align-items: flex-start; }
-        .reserve-main .game-cards .game-card-header .menu-dot {
-          background-color: var(--placeholder-color);
-          box-shadow: -6px 0 0 0 var(--placeholder-color), 6px 0 0 0 var(--placeholder-color);
-          width: 4px;
-          height: 4px;
-          border: 0;
-          padding: 0;
-          border-radius: 50%;
-          margin-left: auto;
-          margin-right: 8px; }
-      .reserve-main .game-cards .game-card .game-card-buttons {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        margin-top: 4px;
-        /* Link */ }
-        .reserve-main .game-cards .game-card .game-card-buttons .card-buttons,
-        .reserve-main .game-cards .game-card .game-card-buttons .card-buttons-msg {
-          padding: 10px;
-          width: 100%;
-          font-size: 12px;
-          text-align: center;
-          cursor: pointer; }
-        .reserve-main .game-cards .game-card .game-card-buttons .card-buttons {
-          margin-right: 12px; }
-          .reserve-main .game-cards .game-card .game-card-buttons .card-buttons-msg {
-            background-color: var(--inactive-color);
-            color: var(--subtitle-color); }
+/*
+Error: Invalid CSS after "...ound: variables": expected ";", was ".$bg-color-white;"
+        on line 38 of ReserveHome.module.scss
 
-/* nav - 검색 네비게이션 */
-.search.item {
-  position: absolute;
-  top: 10px;
-  left: 25px;
-  font-size: 13px;
-  color: var(--active-color);
-  border: 1px solid var(--search-border-color);
-  padding: 8px 10px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center; }
-  .search.item svg {
-    width: 12px;
-    margin-left: 5px; }
-  .search.item:last-child {
-    left: 235px; }
+33:       display: flex;
+34:       flex-direction: column;
+35:       flex-shrink: 0;
+36:       white-space: nowrap;
+37:       align-items: center;
+38:       background: variables.$bg-color-white;
+39:       border-radius: 8px;
+40: 
+41:       .search-box:focus {
+42:         outline: none;
+43:       }
 
-/* 예약카드 정보 버튼 박스 디자인
- * 상세페이지 이동 링크 박스 디자인 */
-.search-buttons {
-  margin-top: 14px;
-  padding: 8px 10px;
-  color: var(--button-color);
-  background: var(--active-color);
-  border-radius: 6px;
-  border: none;
-  font-size: 13px;
-  font-weight: 600; }
-
-.search-button {
-  height: 55px;
-  margin-left: auto;
-  padding: 0 15px;
-  background: var(--active-color);
-  font-weight: 600;
-  font-size: 14px;
-  border: none;
-  color: var(--button-color);
-  cursor: pointer; }
-
-.detail-button {
-  background-color: var(--active-light-color);
-  color: var(--active-color);
-  font-size: 11px;
-  font-weight: 500;
-  padding: 6px 8px;
-  border-radius: 4px; }
-  .detail-button + .detail-button {
-    margin-left: 4px; }
-
-/* [section] 메인 컨텐츠 아이템 섹션 */
-.searched-games {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  padding-left: 40px; }
-
-/* slideY 애니메이션 - 객체를 Y축 방향으로 200px만큼 이동시키면서 투명도를 0으로 시작
- * 100% 상태에서는 기본 위치로 돌아오고 투명도가 1이 됨*/
-@keyframes slideY {
-  0% {
-    opacity: 0;
-    transform: translateY(200px); } }
-/* slide 애니메이션: 객체를 X축 방향으로 300px만큼 이동시키면서 투명도를 0으로 시작
- * 100% 상태에서는 기본 위치로 돌아오고 투명도가 1이 됨 */
-@keyframes slide {
-  0% {
-    opacity: 0;
-    transform: translateX(300px); } }
-/* Responsive(max-width: 930px) */
-@media screen and (max-width: 930px) {
-  .search-job, .search-salary {
-    display: none; }
-
-  .search-bar {
-    width: auto; } }
-/* Responsive(max-width: 730px) */
-@media screen and (max-width: 730px) {
-  .search-type {
-    display: none; }
-
-  .searched-games {
-    padding-left: 0; }
-
-  .search-menu div:not(:last-of-type) {
-    border: 0; }
-
-  .game-cards {
-    grid-template-columns: repeat(2, 1fr); }
-
-  .search-location {
-    display: none; } }
-/* Responsive(max-width: 620px) */
-@media screen and (max-width: 620px) {
-  .game-cards {
-    grid-template-columns: repeat(1, 1fr); }
-
-  .header-menu a:not(:first-child) {
-    margin-left: 10px; } }
-/* Responsive(max-width: 590px) */
-@media screen and (max-width: 590px) {
-  .header-menu {
-    display: none; } }
-/* Responsive(max-width: 520px) */
-@media screen and (max-width: 520px) {
-  .search.item {
-    display: none; }
-
-  .search-bar {
-    flex-grow: 1; }
-
-  .search-bar input {
-    padding: 0 0 0 30px; }
-
-  .search-button {
-    margin-left: 16px; }
-
-  .searched-bar {
-    flex-direction: column;
-    align-items: flex-start; }
-
-  .searched-sort {
-    margin-top: 5px; }
-
-  .main-container {
-    padding-top: 20px; } }
-
-/*# sourceMappingURL=ReserveHome.module.css.map */
+Backtrace:
+ReserveHome.module.scss:38
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:815:in `block in try_declaration'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1284:in `rethrow'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:820:in `try_declaration'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:743:in `declaration_or_ruleset'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:758:in `declaration_or_ruleset'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:758:in `declaration_or_ruleset'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:681:in `ruleset'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:707:in `block_child'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:137:in `stylesheet'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:41:in `parse'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/engine.rb:414:in `_to_tree'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:387:in `run'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:63:in `process_result'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/base.rb:50:in `parse'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/base.rb:18:in `parse!'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/bin/sass:13:in `<top (required)>'
+C:/Ruby31-x64/bin/sass:32:in `load'
+C:/Ruby31-x64/bin/sass:32:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"...ound: variables\": expected \";\", was \".$bg-color-white;\"\A         on line 38 of ReserveHome.module.scss\A \A 33:       display: flex;\A 34:       flex-direction: column;\A 35:       flex-shrink: 0;\A 36:       white-space: nowrap;\A 37:       align-items: center;\A 38:       background: variables.$bg-color-white;\A 39:       border-radius: 8px;\A 40: \A 41:       .search-box:focus {\A 42:         outline: none;\A 43:       }"; }

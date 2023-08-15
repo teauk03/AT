@@ -87,7 +87,7 @@ const NavbarComponent = () => {
 
 
     return (
-        <nav className={styles.navbar}>
+        <nav className={styles.navbar} ref={modalRef}>
             {/* Navigation Home */}
             <div className={styles['navbar-wrapper']}>
                 <Link className={styles['navbar-logo']} href={'/'}>

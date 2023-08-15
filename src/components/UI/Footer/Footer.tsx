@@ -1,37 +1,41 @@
 "use client";
 import React from 'react';
 import styles from './Footer.module.scss';
+import Image from "next/image";
+import NavigationLogo from "../../../../public/img/home-bg-Transparent.png";
+import Link from "next/link";
 
 
-/* TODO : Index 페이지 디자인시 footer-container 삭제 후
-*   container 클래스에 적용 */
 const FooterClientComponent = () => {
     return (
         <div className={styles['footer-container']}>
             <footer className={styles.footer}>
                 <section className={styles['footer-main']}>
-                    Attack
+                    <Link href={'/'}>
+                        <Image src={NavigationLogo} width={320.79} height={17.8} alt="어택 로고 이미지"/>
+                    </Link>
                 </section>
+
                 <nav className={styles['footer-navigate']}>
-                    <div className={styles['nav-item']}>
+                    <div className={styles['footer-navigate-item']}>
                         <h5>고객서비스</h5>
                         <p>기기대여</p>
                         <p>매장위치</p>
                         <p>커뮤니티</p>
                     </div>
-                    <div className={styles['nav-item']}>
+                    <div className={styles['footer-navigate-item']}>
                         <h5>고객지원</h5>
                         <p>고객지원</p>
                         <p>대여안내</p>
                         <p>상담 봇</p>
                     </div>
-                    <div className={styles['nav-item']}>
+                    <div className={styles['footer-navigate-item']}>
                         <h5>회사소개</h5>
                         <p>기업정보</p>
                         <p>공지사항</p>
                         <p>이벤트</p>
                     </div>
-                    <div className={styles['nav-item']}>
+                    <div className={styles['footer-navigate-item']}>
                         <h5>SNS</h5>
                         <p>Twitter</p>
                     </div>

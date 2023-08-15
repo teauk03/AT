@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from "@/app/(reserve)/reserve/home/ReserveHome.module.scss";
+import SvgIconComponent from "@/components/SvgIconComponent";
 
 const ReserveTopNavbar = () => {
     return (
@@ -16,22 +17,17 @@ const ReserveTopNavbar = () => {
                         </svg>
                     </button>
                 </section>
-            </div>
-            <div className={styles['search-menu']}>
                 <section className={styles['search-bar']}>
                     <div className={`${styles.item} ${styles.search}`}>beatmania IIDX 30 RESIDENT
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                             strokeWidth="3" width={20} height={20} strokeLinecap="round" strokeLinejoin="round"
-                             className={`${styles.feather} ${styles['feather-briefcase']}`}>
-                            <path d="M18 6L6 18M6 6l12 12"/>
-                        </svg>
+                        <SvgIconComponent width={20} height={20} svgPath={'M18 6L6 18M6 6l12 12'}/>
                     </div>
                     <div className={`${styles.item} ${styles.search}`}>Sound Vortex Exceed Gear
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                             stroke="currentColor" width={20} height={20} strokeWidth="3" strokeLinecap="round"
-                             strokeLinejoin="round" className={`${styles.feather} ${styles['feather-x']}`}>
-                            <path d="M18 6L6 18M6 6l12 12"/>
-                        </svg>
+                        <SvgIconComponent width={20} height={20} svgPath={'M18 6L6 18M6 6l12 12'}/>
+                    </div>
+                    <div className={`${styles.item} ${styles.search}`}>GITADORA FUZZ-UP 기타프릭스
+                        <SvgIconComponent width={20} height={20} svgPath={'M18 6L6 18M6 6l12 12'}/>
+                    </div><div className={`${styles.item} ${styles.search}`}>MAIMAI DX FESTIVAL PLUS
+                        <SvgIconComponent width={20} height={20} svgPath={'M18 6L6 18M6 6l12 12'}/>
                     </div>
                 </section>
             </div>

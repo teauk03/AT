@@ -6,73 +6,66 @@
   @include Breakpoints.global-wrap-style;
   color: variables.$base-font-color-dark;
   background: variables.$color-light-gray;
+}
 
-  /* Footer */
-  .footer {
-    margin: 50px 0 25px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+/* Footer */
+.footer {
+  margin: 50px 0 25px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-
-    &-main {
-      max-width: 40%;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 30px;
-      line-height: 40px;
-
-    }
-
-    &-navigate {
-      display: flex;
-
-      .nav-item {
-        margin-left: 60px;
-
-        h5 {
-          margin: 0;
-          font-style: normal;
-          font-weight: 500;
-          font-size: 20px;
-          line-height: 30px;
-          color: variables.$base-font-color-dark;
-        }
-
-        p {
-          font-style: normal;
-          font-weight: 400;
-          font-size: 12px;
-          line-height: 18px;
-          letter-spacing: 0.03em;
-          color: variables.$color-navbar-gray;
-        }
-      }
-    }
+  &-main {
+    max-width: 40%;
+    margin-left: 4.5rem;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 40px;
   }
 
-
-  /* Site Legal */
-  .Legal {
+  &-navigate {
     display: flex;
-    justify-content: space-between;
-    padding-bottom: 30px;
-    border-top: 1px solid variables.$base-font-color-dark;
+  }
+
+  &-navigate-item {
+    margin-left: 60px;
+
+    h5 {
+      margin: 0;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 30px;
+      color: variables.$base-font-color-dark;
+    }
 
     p {
-      margin: 1rem 0;
       font-style: normal;
       font-weight: 400;
       font-size: 12px;
+      line-height: 18px;
+      letter-spacing: 0.03em;
       color: variables.$color-navbar-gray;
     }
   }
 }
 
+/* Site Legal */
+.Legal {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30px;
+  border-top: 1px solid variables.$base-font-color-dark;
 
-
-
-
+  p {
+    margin: 1rem 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    color: variables.$color-navbar-gray;
+  }
+}
 
 /* Media Responsive */
 @media screen and (max-width: 1500px) {
@@ -84,11 +77,13 @@
 @media screen and (max-width: 1040px) {
   .box {
     flex-direction: column;
+
     .infobox {
       max-height: 450px;
       max-width: none;
       margin-bottom: 50px;
     }
+
     .display {
       display: none;
       max-height: none;
@@ -107,11 +102,13 @@
   }
   .footer {
     flex-direction: column;
+
     &-main {
       max-width: 80%;
       margin-bottom: 50px;
       text-align: center;
     }
+
     &-navigate {
       .nav {
         &:first-child {
@@ -144,6 +141,7 @@
     grid-template-columns: auto auto;
     justify-content: space-evenly;
     padding: 50px 0;
+
     &:before {
       height: 200px;
       top: 90px;
@@ -160,11 +158,13 @@
 @media screen and (max-width: 700px) {
   .box {
     flex-direction: column;
+
     .infobox {
       max-height: none;
       max-width: none;
       margin-bottom: 50px;
     }
+
     .display {
       display: block;
       max-height: none;
@@ -174,13 +174,15 @@
 
   .discover-title {
     justify-content: center;
+
     .filters {
       display: none;
     }
   }
-  .auction{
+  .auction {
     .title {
       justify-content: center;
+
       .titleslim {
         display: none;
       }
@@ -199,6 +201,7 @@
         font-size: 45px;
         line-height: 50px;
       }
+
       &-slimtext {
         font-size: 12px;
         line-height: 16px;
@@ -225,12 +228,15 @@
   .footer-navigate {
     justify-content: space-between;
     width: 100%;
+
     .nav {
       margin-left: 20px;
+
       h5 {
         font-size: 15px;
         line-height: 30px;
       }
+
       p {
         font-size: 10px;
         line-height: 18px;
@@ -240,7 +246,7 @@
 }
 
 @media screen and (max-width: 480px) {
-  .landingpage{
+  .landingpage {
     .box {
       .infobox {
         &-boldtext {
@@ -248,9 +254,11 @@
           line-height: 1.4em;
           text-align: center;
         }
+
         &-slimtext {
           text-align: center;
         }
+
         &-btnwrapper {
           justify-content: center;
         }
@@ -260,11 +268,19 @@
 }
 
 @keyframes leftslide {
-  from {transform: translateX(-700px);}
-  to {transform: translateX(0px);}
+  from {
+    transform: translateX(-700px);
+  }
+  to {
+    transform: translateX(0px);
+  }
 }
 
 @keyframes rightslide {
-  from {transform: translateX(550px);}
-  to {transform: translateX(0px);}
+  from {
+    transform: translateX(550px);
+  }
+  to {
+    transform: translateX(0px);
+  }
 }

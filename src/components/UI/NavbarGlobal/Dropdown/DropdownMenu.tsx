@@ -1,7 +1,6 @@
 'use client'
 import React from 'react';
 import styles from "@/components/UI/NavbarGlobal/Dropdown/DropdownMenu.module.scss";
-import Image from "next/image";
 import {Session} from "next-auth";
 import {signOut} from "next-auth/react";
 import NavbarLink from "@/components/UI/NavbarGlobal/NavbarLink";
