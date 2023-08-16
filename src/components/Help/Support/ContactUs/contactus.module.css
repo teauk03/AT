@@ -9,94 +9,110 @@
   align-items: center;
   gap: 1rem;
   /* Start Fieldset 약관 동의 박스 */
-  /* Button Wrapper */ }
-  .container .fieldset {
-    width: 100%;
-    max-width: 40rem;
-    height: 80%;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    /* 약관 동의 상세 페이지 */
-    /* CheckBox Wrapper */ }
-    .container .fieldset .legend {
-      padding: 0.7rem;
-      width: fit-content;
-      font-weight: bold;
-      margin-bottom: 0.5rem; }
-    .container .fieldset h1 {
-      margin: 0 0 1rem 0;
-      font-size: 1.5rem; }
-    .container .fieldset .agree-wrapper {
-      width: 30rem;
-      height: 30rem;
-      padding: 1rem 2.5rem 1rem 2.5rem;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      overflow: auto; }
-      .container .fieldset .agree-wrapper .article {
-        padding: 0.5rem 0 0.5rem 0; }
-        .container .fieldset .agree-wrapper .article b {
-          padding: 0.5rem 0 0.5rem 0;
-          font-size: 13px; }
-        .container .fieldset .agree-wrapper .article p {
-          margin: 0.1rem 0 0.1rem 0;
-          font-size: 13px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center; }
-          .container .fieldset .agree-wrapper .article p span {
-            padding: 0.5rem 0 0 0;
-            font-weight: bold; }
-    .container .fieldset .checkbox-wrapper {
-      margin: 3rem 0 2rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem; }
-      .container .fieldset .checkbox-wrapper .box {
-        font-weight: bold;
-        cursor: pointer; }
-  .container .wrap-btn {
-    margin-bottom: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    /* Cancel Button */
-    /* Check button */ }
-    .container .wrap-btn .submit-btn-delete {
-      width: 8rem;
-      height: 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #333;
-      font-weight: bold;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      background: #fefefe;
-      transition: background 0.1s ease-in-out; }
-      .container .wrap-btn .submit-btn-delete:hover {
-        background: #f3f4f6; }
-    .container .wrap-btn .submit-btn-add {
-      width: 8rem;
-      height: 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fefefe;
-      font-weight: bold;
-      border: none;
-      border-radius: 5px;
-      background: #4caf50;
-      transition: background 0.1s ease-in-out; }
-      .container .wrap-btn .submit-btn-add:hover {
-        background: #45a049; }
+  /* Button Wrapper */
+}
+.container .fieldset {
+  width: 100%;
+  max-width: 40rem;
+  height: 80%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  /* 약관 동의 상세 페이지 */
+  /* CheckBox Wrapper */
+}
+.container .fieldset .legend {
+  padding: 0.7rem;
+  width: fit-content;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.container .fieldset h1 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+.container .fieldset .agree-wrapper {
+  width: 30rem;
+  height: 30rem;
+  padding: 1rem 2.5rem 1rem 2.5rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: auto;
+}
+.container .fieldset .agree-wrapper .article {
+  padding: 0.5rem 0 0.5rem 0;
+}
+.container .fieldset .agree-wrapper .article b {
+  padding: 0.5rem 0 0.5rem 0;
+  font-size: 13px;
+}
+.container .fieldset .agree-wrapper .article p {
+  margin: 0.1rem 0 0.1rem 0;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container .fieldset .agree-wrapper .article p span {
+  padding: 0.5rem 0 0 0;
+  font-weight: bold;
+}
+.container .fieldset .checkbox-wrapper {
+  margin: 3rem 0 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.container .fieldset .checkbox-wrapper .box {
+  font-weight: bold;
+  cursor: pointer;
+}
+.container .wrap-btn {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  /* Cancel Button */
+  /* Check button */
+}
+.container .wrap-btn .submit-btn-delete {
+  width: 8rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #fefefe;
+  transition: background 0.1s ease-in-out;
+}
+.container .wrap-btn .submit-btn-delete:hover {
+  background: #f3f4f6;
+}
+.container .wrap-btn .submit-btn-add {
+  width: 8rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fefefe;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  background: #4caf50;
+  transition: background 0.1s ease-in-out;
+}
+.container .wrap-btn .submit-btn-add:hover {
+  background: #45a049;
+}
 
 /*# sourceMappingURL=contactus.module.css.map */

@@ -4,45 +4,62 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column; }
+  flex-direction: column;
+}
 
 .loading-text {
-  text-align: center; }
+  text-align: center;
+}
 
 /* 애니메이션 실행 코드 */
 .spinner {
-  animation: rotator 1.4s linear infinite; }
+  animation: rotator 1.4s linear infinite;
+}
 
 @keyframes rotator {
   0% {
-    transform: rotate(0deg); }
+    transform: rotate(0deg);
+  }
   100% {
-    transform: rotate(270deg); } }
+    transform: rotate(270deg);
+  }
+}
 .path {
   stroke-dasharray: 187;
   stroke-dashoffset: 0;
   transform-origin: center;
-  animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite; }
+  animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+}
 
 @keyframes colors {
   0% {
-    stroke: #4285F4; }
+    stroke: #4285F4;
+  }
   25% {
-    stroke: #DE3E35; }
+    stroke: #DE3E35;
+  }
   50% {
-    stroke: #F7C223; }
+    stroke: #F7C223;
+  }
   75% {
-    stroke: #1B9A59; }
+    stroke: #1B9A59;
+  }
   100% {
-    stroke: #4285F4; } }
+    stroke: #4285F4;
+  }
+}
 @keyframes dash {
   0% {
-    stroke-dashoffset: 187; }
+    stroke-dashoffset: 187;
+  }
   50% {
     stroke-dashoffset: 46.75;
-    transform: rotate(135deg); }
+    transform: rotate(135deg);
+  }
   100% {
     stroke-dashoffset: 187;
-    transform: rotate(450deg); } }
+    transform: rotate(450deg);
+  }
+}
 
 /*# sourceMappingURL=Loading.module.css.map */

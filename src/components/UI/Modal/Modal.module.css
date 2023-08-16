@@ -1,52 +1,17 @@
-/*
-Error: Invalid CSS after "...ound: variables": expected ";", was ".$base-color-wh..."
-        on line 19 of Modal.module.scss
+/* Error: Can't find stylesheet to import.
+ *   ,
+ * 1 | @use "@/styles/variables";
+ *   | ^^^^^^^^^^^^^^^^^^^^^^^^^
+ *   '
+ *   Modal.module.scss 1:1  root stylesheet */
 
-14: 
-15:   .modal-content {
-16:     padding: 20px;
-17:     display: flex;
-18:     flex-direction: column;
-19:     background: variables.$base-color-white;
-20:     border-radius: 8px;
-21: 
-22:     .modal-text {
-23:       font-size: 14px;
-24:     }
-
-Backtrace:
-Modal.module.scss:19
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:815:in `block in try_declaration'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1284:in `rethrow'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:820:in `try_declaration'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:743:in `declaration_or_ruleset'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:758:in `declaration_or_ruleset'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:681:in `ruleset'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:707:in `block_child'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:137:in `stylesheet'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:41:in `parse'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/engine.rb:414:in `_to_tree'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:387:in `run'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:63:in `process_result'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/base.rb:50:in `parse'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/base.rb:18:in `parse!'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/bin/sass:13:in `<top (required)>'
-C:/Ruby31-x64/bin/sass:32:in `load'
-C:/Ruby31-x64/bin/sass:32:in `<main>'
-*/
-body:before {
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
   white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"...ound: variables\": expected \";\", was \".$base-color-wh...\"\A         on line 19 of Modal.module.scss\A \A 14: \A 15:   .modal-content {\A 16:     padding: 20px;\A 17:     display: flex;\A 18:     flex-direction: column;\A 19:     background: variables.$base-color-white;\A 20:     border-radius: 8px;\A 21: \A 22:     .modal-text {\A 23:       font-size: 14px;\A 24:     }"; }
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @use \"@/styles/variables\";\a   \2502  ^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   Modal.module.scss 1:1  root stylesheet";
+}

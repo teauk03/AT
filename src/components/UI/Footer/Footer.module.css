@@ -1,42 +1,17 @@
-/*
-Error: Invalid CSS after "...ude Breakpoints": expected "}", was ".global-wrap-st..."
-        on line 6 of Footer.module.scss
+/* Error: Can't find stylesheet to import.
+ *   ,
+ * 1 | @use "@/styles/variables";
+ *   | ^^^^^^^^^^^^^^^^^^^^^^^^^
+ *   '
+ *   Footer.module.scss 1:1  root stylesheet */
 
-1: @use "@/styles/variables";
-2: @use '@/styles/Breakpoints';
-3: 
-4: /* Container *\/
-5: .footer-container {
-6:   @include Breakpoints.global-wrap-style;
-7:   color: variables.$base-font-color-dark;
-8:   background: variables.$color-light-gray;
-9: }
-10: 
-11: /* Footer *\/
-
-Backtrace:
-Footer.module.scss:6
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:690:in `block'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:681:in `ruleset'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:707:in `block_child'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:137:in `stylesheet'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:41:in `parse'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/engine.rb:414:in `_to_tree'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:387:in `run'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:63:in `process_result'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/base.rb:50:in `parse'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/base.rb:18:in `parse!'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/bin/sass:13:in `<top (required)>'
-C:/Ruby31-x64/bin/sass:32:in `load'
-C:/Ruby31-x64/bin/sass:32:in `<main>'
-*/
-body:before {
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
   white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"...ude Breakpoints\": expected \"}\", was \".global-wrap-st...\"\A         on line 6 of Footer.module.scss\A \A 1: @use \"@/styles/variables\";\A 2: @use '@/styles/Breakpoints';\A 3: \A 4: /* Container */\A 5: .footer-container {\A 6:   @include Breakpoints.global-wrap-style;\A 7:   color: variables.$base-font-color-dark;\A 8:   background: variables.$color-light-gray;\A 9: }\A 10: \A 11: /* Footer */"; }
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @use \"@/styles/variables\";\a   \2502  ^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   Footer.module.scss 1:1  root stylesheet";
+}

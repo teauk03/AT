@@ -1,75 +1,93 @@
 .top .top__logo {
   color: black;
   font-size: 2.5rem;
-  padding: 1rem; }
+  padding: 1rem;
+}
 
 .root__main {
   display: flex;
   flex-direction: column;
   width: 20rem;
   margin: 0 auto;
-  margin-top: 10vh; }
-  .root__main .agree__title {
-    font-size: 2rem;
-    text-align: center;
-    color: #171A20;
-    margin-bottom: 2rem; }
-  .root__main .agreeAll__terms {
-    border-bottom: 0.1rem solid #DBDBDB;
-    padding-left: 2.5rem; }
-    .root__main .agreeAll__terms .agreeAll__termsContent {
-      margin-bottom: 0.5rem; }
-      .root__main .agreeAll__terms .agreeAll__termsContent .agreeAll__termsInput {
-        width: 2rem;
-        height: 2rem;
-        border-radius: 50%;
-        border: 1px solid #999;
-        appearance: none;
-        cursor: pointer; }
-      .root__main .agreeAll__terms .agreeAll__termsContent .agreeAll__termsInput:checked {
-        background: #9395D1;
-        border: none; }
-      .root__main .agreeAll__terms .agreeAll__termsContent .agreeAll__termsTitle {
-        color: #767676;
-        font-size: 1.3rem; }
-      .root__main .agreeAll__terms .agreeAll__termsContent .agreeAll__termsDetail {
-        color: #767676; }
-      .root__main .agreeAll__terms .agreeAll__termsContent .agreeAll__termsDetail:hover {
-        cursor: pointer; }
-  .root__main .agree__terms {
-    margin-top: 1rem;
-    margin-left: 4rem; }
-    .root__main .agree__terms .agree__termsContent {
-      margin-top: 1rem; }
-      .root__main .agree__terms .agree__termsContent .agree__termsInput {
-        width: 1.5rem;
-        height: 1.5rem;
-        border-radius: 50%;
-        border: 1px solid #999;
-        appearance: none;
-        cursor: pointer; }
-      .root__main .agree__terms .agree__termsContent .agree__termsInput:checked {
-        background: #9395D1;
-        border: none; }
-      .root__main .agree__terms .agree__termsContent .agree__termsTitle {
-        color: #767676; }
-      .root__main .agree__terms .agree__termsContent .agree__termsDetail {
-        color: #767676;
-        cursor: pointer; }
-  .root__main .agree__submit .agree__submitBtn {
-    margin-top: 2.5rem;
-    width: 20rem;
-    height: 2.5rem;
-    border: 1px solid gray;
-    color: #393C41;
-    background-color: #EEEEEE;
-    cursor: pointer; }
-  .root__main .agree__submit .agree__submitBtn:hover {
-    margin-top: 2.5rem;
-    width: 20rem;
-    height: 2.5rem;
-    border: 1px solid gray;
-    color: #393C41;
-    background-color: #dedede; }
+  margin-top: 10vh;
+}
+.root__main .agree__title {
+  font-size: 2rem;
+  text-align: center;
+  color: #171A20;
+  margin-bottom: 2rem;
+}
+.root__main .agreeAll__terms {
+  border-bottom: 0.1rem solid #DBDBDB;
+  padding-left: 2.5rem;
+}
+.root__main .agreeAll__terms .agreeAll__termsContent {
+  margin-bottom: 0.5rem;
+}
+.root__main .agreeAll__terms .agreeAll__termsContent .agreeAll__termsInput {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid #999;
+  appearance: none;
+  cursor: pointer;
+}
+.root__main .agreeAll__terms .agreeAll__termsContent .agreeAll__termsInput:checked {
+  background: #9395D1;
+  border: none;
+}
+.root__main .agreeAll__terms .agreeAll__termsContent .agreeAll__termsTitle {
+  color: #767676;
+  font-size: 1.3rem;
+}
+.root__main .agreeAll__terms .agreeAll__termsContent .agreeAll__termsDetail {
+  color: #767676;
+}
+.root__main .agreeAll__terms .agreeAll__termsContent .agreeAll__termsDetail:hover {
+  cursor: pointer;
+}
+.root__main .agree__terms {
+  margin-top: 1rem;
+  margin-left: 4rem;
+}
+.root__main .agree__terms .agree__termsContent {
+  margin-top: 1rem;
+}
+.root__main .agree__terms .agree__termsContent .agree__termsInput {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid #999;
+  appearance: none;
+  cursor: pointer;
+}
+.root__main .agree__terms .agree__termsContent .agree__termsInput:checked {
+  background: #9395D1;
+  border: none;
+}
+.root__main .agree__terms .agree__termsContent .agree__termsTitle {
+  color: #767676;
+}
+.root__main .agree__terms .agree__termsContent .agree__termsDetail {
+  color: #767676;
+  cursor: pointer;
+}
+.root__main .agree__submit .agree__submitBtn {
+  margin-top: 2.5rem;
+  width: 20rem;
+  height: 2.5rem;
+  border: 1px solid gray;
+  color: #393C41;
+  background-color: #EEEEEE;
+  cursor: pointer;
+}
+.root__main .agree__submit .agree__submitBtn:hover {
+  margin-top: 2.5rem;
+  width: 20rem;
+  height: 2.5rem;
+  border: 1px solid gray;
+  color: #393C41;
+  background-color: #dedede;
+}
 
 /*# sourceMappingURL=agree.module.css.map */
