@@ -3,13 +3,16 @@
 .forum-search,
 .forum-footer {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+}
 
 .forum-footer {
   margin: 2rem;
-  gap: 1rem; }
-  .forum-footer .move-btn {
-    background: none;
-    border: none; }
+  gap: 1rem;
+}
+.forum-footer .move-btn {
+  background: none;
+  border: none;
+}
 
 /*# sourceMappingURL=Pagination.module.css.map */
