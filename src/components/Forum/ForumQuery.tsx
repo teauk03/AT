@@ -27,11 +27,11 @@ const ForumPage = ({path}: {path: string}) => {
 
     useEffect(() => {
         if (division) {
-            axios.get(`/api/post/list?division=${division}`)
+            axios.get(`/api/post/find?division=${division}`)
                 .then(response => {
                     // division에 해당하는 게시물만 필터링
                     const filteredPosts = response.data.posts.filter((post: ForumPostPage) => post.division === division);
-                    console.log('filteredPosts: ',filteredPosts)
+                    console.log('Client filteredPosts: ',filteredPosts)
                     setPosts(filteredPosts);
                 })
                 .then(() => console.log('posts: ', posts))
