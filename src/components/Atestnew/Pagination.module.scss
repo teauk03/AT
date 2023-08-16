@@ -1,0 +1,16 @@
+/* 페이지 네이션 */
+.forum-search,
+.forum-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.forum-footer {
+  margin: 2rem;
+  gap: 1rem;
+
+  .move-btn {
+    background: none;
+    border: none;
+  }
+}

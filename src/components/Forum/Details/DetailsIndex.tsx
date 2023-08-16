@@ -51,7 +51,6 @@ const DetailsIndex = ({result, USER_SESSION}: any) => {
                     </button>
 
                     {/* Meatballs Menu Button */}
-                    {/* TODO - 로그아웃 상태에서 URL 접속 차단하기 */}
                     {USER_SESSION && USER_SESSION.user && result.userName === USER_SESSION.user.name && (
                         <div className={`${styles.meatballs} ${isMenuVisible ? styles.active : ""}`}
                              onClick={() => setMenuVisible(!isMenuVisible)}>

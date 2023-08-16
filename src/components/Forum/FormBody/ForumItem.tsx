@@ -17,7 +17,7 @@ const ForumItem = ({ result, path }: ForumItemProps) => {
     if (!result || !result.posts) {
         return <LoadingForum/>;
     }
-
+    console.log(result);
     const { posts} = result;
 
     return (

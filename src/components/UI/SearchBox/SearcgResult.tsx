@@ -7,7 +7,6 @@ import ForumHeader from "@/components/Forum/ForumHeader/ForumHeader";
 import IsForumRoute from "@/components/Forum/AsideNavbar/isForumRoute";
 import SearchForum from "@/components/UI/SearchBox/SearchForum";
 
-
 /* 검색 결과 - 서버측 렌더링 */
 const SearchResult = (
     // , searchQuery searchQuery: string searchQuery={searchQuery}
