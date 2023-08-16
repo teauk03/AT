@@ -190,3 +190,21 @@
     }
   }
 }
+
+/* Search Result Fail (검색 결과 없음) */
+.search-result-fail {
+  margin-top: 1rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  font-weight: 500;
+  border: variables.$border-default-1px;
+  border-radius: 5px;
+  background: #f1f1f1;
+
+  p {
+    margin: 0;
+  }
+}

@@ -6,6 +6,7 @@
  * @returns {Promise<{posts: Post[], totalPosts: number}>} - 포스트 리스트와 총 포스트 수를 포함한 객체
  * @throws {Error} - 데이터를 가져오는 도중 에러가 발생한 경우
  */
+
 const fetchPostsData = async (endpoint: string, page: number, limit: number = 10) => {
     try {
         /* SITE_URL 환경변수 또는 기본 URL을 사용 */

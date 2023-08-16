@@ -7,11 +7,12 @@ import ForumHeader from "@/components/Forum/ForumHeader";
 import IsForumRoute from "@/components/Forum/isForumRoute";
 import SearchForum from "@/components/UI/SearchBox/SearchForum";
 
-
+/* 검색 결과 - 서버측 렌더링 */
 const SearchResult = (
     // , searchQuery searchQuery: string searchQuery={searchQuery}
     {posts}: { posts?: Array<MongoPost>;  }
 ) => {
+    console.log('posts', posts)
 
     return (
         <main className={styles.container}>
@@ -24,7 +25,7 @@ const SearchResult = (
 
                 {/* 검색 결과 */}
                 <ul className={styles['forum-item-container']}>
-                    {posts ? (
+                    {posts && posts.length > 0 ? (
                         posts.map((post, index) => (
                             <li key={index} className={styles['forum-list']}>
                                 {/* User Title */}
@@ -47,8 +48,10 @@ const SearchResult = (
                             </li>
                         ))
                     ) : (
-                        // posts가 undefined인 경우에 대한 처리
-                        <div>No results found</div>
+                        /* "posts"가 "undefined"인 경우에 대한 처리 */
+                        <div className={styles['search-result-fail']}>
+                            <p>검색결과가 없습니다.</p>
+                        </div>
                     )}
                 </ul>
             </div>
