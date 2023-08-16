@@ -1,10 +1,10 @@
 'use client'
 import React from 'react';
-import styles from "@/components/Notice/NoticeComponent.module.scss";
-import NoticeHeader from "@/components/Notice/NoticeHeader";
+import styles from "@/components/Forum/Notice/NoticeComponent.module.scss";
+import NoticeHeader from "@/components/Forum/Notice/NoticeHeader";
 import {NoticeItemProps, Post} from "@/types/Borad";
 import PaginationForum from "@/components/UI/Pagination/PaginationForum";
-import ForumItem from "@/components/Forum/ForumItem";
+import ForumItem from "@/components/Forum/FormBody/ForumItem";
 import SearchForum from "@/components/UI/SearchBox/SearchForum";
 import useForumLogic from "@/hooks/Board/usePaginationLogic";
 

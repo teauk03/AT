@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "@/components/User/Account.module.scss";
-import AccountDetailInput from "@/components/User/AccountDetailInput";
-import AccountDetailActionBtn from "@/components/User/AccountDetailActionBtn";
+import AccountDetailInput from "@/components/User/Input/AccountDetailInput";
+import AccountDetailActionBtn from "@/components/User/Button/AccountDetailActionBtn";
 import {AccountDetailsProps} from '@/types/Account'
 
 const AccountDetails: React.FC<AccountDetailsProps> = ({ updatedAccountDetails, handleInputChange, handleInfoSaveClick, setEditActiveId, editActiveId }) => {

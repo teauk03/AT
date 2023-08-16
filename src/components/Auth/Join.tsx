@@ -14,7 +14,7 @@ import useEmailField from "@/hooks/Validation/useEmailField";
 import usePasswordField from "@/hooks/Validation/usePasswordField";
 import useNameField from "@/hooks/Validation/useNameField";
 import useDateOfBirthField from "@/hooks/Validation/useDateOfBirthField";
-import AuthInputField from "@/components/Auth/FormElements/AuthInputField";
+import AuthInputField from "@/components/Auth/Input/AuthInputField";
 import PrimaryButton from "@/components/UI/Button/PrimaryButton";
 import DivisionLine from "@/components/Auth/DivisionLine/DivisionLine";
 

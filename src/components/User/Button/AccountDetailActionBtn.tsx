@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Account.module.scss';
+import styles from '../Account.module.scss';
 import {AccountDetailActionsProps} from '@/types/Account'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPen, faCheck, faXmark} from "@fortawesome/free-solid-svg-icons";

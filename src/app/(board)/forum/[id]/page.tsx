@@ -1,7 +1,7 @@
 import {connectDB} from "@/utils/mongoDb";
 import {ObjectId} from "mongodb";
 import {Comment} from "@/components/Forum/Comment/Comment";
-import DetailsIndex from "@/components/Forum/DetailsPage/DetailsIndex";
+import DetailsIndex from "@/components/Forum/Details/DetailsIndex";
 import {getServerSession} from "next-auth";
 import {authOptions} from "@/pages/api/auth/[...nextauth]";
 

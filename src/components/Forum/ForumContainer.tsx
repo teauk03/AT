@@ -1,13 +1,13 @@
 'use client'
 import React from 'react';
 import styles from "@/components/Forum/ForumItem.module.scss";
-import ForumItem from "@/components/Forum/ForumItem";
+import ForumItem from "@/components/Forum/FormBody/ForumItem";
 import PaginationForum from "@/components/UI/Pagination/PaginationForum";
 import SearchForum from "@/components/UI/SearchBox/SearchForum";
 import {NoticeItemProps} from "@/types/Borad";
-import ForumHeader from "@/components/Forum/ForumHeader";
+import ForumHeader from "@/components/Forum/ForumHeader/ForumHeader";
 import usePaginationLogic from "@/hooks/Board/usePaginationLogic";
-import IsForumRoute from "@/components/Forum/isForumRoute";
+import IsForumRoute from "@/components/Forum/AsideNavbar/isForumRoute";
 
 
 /**
@@ -39,7 +39,7 @@ const ForumContainer = (
 
 
     /* Forum Header */
-    const renderForumHeader = () => <ForumHeader />;
+    const renderForumHeader = () => <ForumHeader/>;
 
     const renderForumContent = () => (
         <div className={styles['article-list']}>
@@ -59,7 +59,7 @@ const ForumContainer = (
                 totalPages={totalPages}
             />
             {/* [Footer] 커뮤니티 검색 */}
-            <SearchForum />
+            <SearchForum/>
         </>
     );
 

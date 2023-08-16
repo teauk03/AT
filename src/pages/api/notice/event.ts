@@ -8,9 +8,11 @@ const handler = async (request: NextApiRequest, response: NextApiResponse): Prom
         /* page : 페이지 번호 (기본값: 1)
          * limit : 페이지당 아이템 수 (기본값: 10) */
         const page = Number(request.query.page) || 1;
-        const limit = Number(request.query.limit) || 10;
-        const posts = await getAllPostsFromForum('admin_user','event', page, limit);
-
+        const posts = await getAllPostsFromForum({
+            databaseName: 'admin_user',
+            collectionName: 'event',
+            page
+        });
 
         /* 전체 게시물 수를 계산. */
         const db = (await connectDB).db("admin_user");

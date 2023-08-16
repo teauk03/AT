@@ -1,5 +1,5 @@
 import React from 'react';
-import NoticeContainer from "@/components/Notice/NoticeContainer";
+import NoticeContainer from "@/components/Forum/Notice/NoticeContainer";
 import fetchPostsData from "@/utils/fetchPostsData";
 import ErrorForum from "@/components/UI/Error/ErrorForum";
 export const dynamic: 'force-dynamic' = 'force-dynamic';

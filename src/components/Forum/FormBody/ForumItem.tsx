@@ -1,12 +1,19 @@
-import styles from './ForumItem.module.scss';
+import styles from '../ForumItem.module.scss';
 import Link from "next/link";
 import {Post} from "@/types/Borad";
 import SvgIconComponent from "@/components/SvgIconComponent";
 import LoadingForum from "@/components/UI/Loading/LoadingForum";
 
+interface ForumItemProps {
+    result: {
+        posts: Post[];
+        totalPosts: number;
+    };
+    path: string;
+}
 
 /* 작성글 출력 컴포넌트 */
-const ForumItem = ({ result, path }: { result: { posts: Post[]; totalPosts: number }, path: string }) => {
+const ForumItem = ({ result, path }: ForumItemProps) => {
     if (!result || !result.posts) {
         return <LoadingForum/>;
     }

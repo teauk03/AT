@@ -3,8 +3,8 @@ import styles from '@/components/Forum/ForumItem.module.scss';
 import SvgIconComponent from "@/components/SvgIconComponent";
 import Link from "next/link";
 import {MongoPost} from "@/types/Borad";
-import ForumHeader from "@/components/Forum/ForumHeader";
-import IsForumRoute from "@/components/Forum/isForumRoute";
+import ForumHeader from "@/components/Forum/ForumHeader/ForumHeader";
+import IsForumRoute from "@/components/Forum/AsideNavbar/isForumRoute";
 import SearchForum from "@/components/UI/SearchBox/SearchForum";
 
 

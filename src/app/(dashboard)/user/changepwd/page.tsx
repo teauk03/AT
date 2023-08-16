@@ -2,7 +2,7 @@ import React from 'react';
 import {getServerSession} from "next-auth";
 import {authOptions} from "@/pages/api/auth/[...nextauth]";
 import styles from "@/components/User/Account.module.scss";
-import SideNavigationMenu from "@/components/UI/NavbarAside/AsideNavbar";
+import SideNavigationMenu from "@/components/User/UserAsideNavbar/AsideNavbar";
 import AccountContainer from "@/components/User/AccountContainer";
 import accountDetails from "@/data/account-menu.json";
 

@@ -14,9 +14,6 @@ const ForumHeader = (
     return (
         <div className={styles['forum-header']}>
             <h2 className={styles['forum-header-title']}>커뮤니티</h2>
-            <p className={styles['forum-header-sub']}>
-                ALL
-            </p>
 
             {/* Search & Write Menu */}
             <div className={styles['forum-sub-title']}>

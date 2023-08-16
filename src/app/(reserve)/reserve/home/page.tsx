@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './ReserveHome.module.scss'
 import Link from "next/link";
-import GAME_CARDS from '@/data/data-game-card.json';
-import GAME_NAVIGATION from '@/data/data-game-navigation.json';
+import GAME_CARDS from '@/data/Game/data-game-card.json';
+import GAME_NAVIGATION from '@/data/Game/data-game-navigation.json';
 import {GameCards, GameNavigation} from "@/types/Reserd";
 import ReserveTopNavbar from "@/components/Reserve/ReserveTopNavbar";
 

@@ -5,7 +5,6 @@ import toCamelCase from '@/utils/stringUtils';
 import useErrorHandler from "@/hooks/useErrorHandler";
 
 import {AccountDetail, UserDataProps} from "@/types/Account";
-import UserImage from "@/components/User/UserImage";
 import AccountDetails from "@/components/User/AccountDetails";
 
 
@@ -93,8 +92,11 @@ const AccountContainer = ({user, accountDetails}: UserDataProps): JSX.Element =>
         index: number
     ) => {
         const isUpdated = await updateUserInfo(detail, index);
-        if (isUpdated) setEditActiveId(null);
-        else console.error("Failed to update user information");
+        if (isUpdated) {
+            setEditActiveId(null);
+        } else {
+            console.error("Failed to update user information");
+        }
     }
 
 

@@ -31,9 +31,7 @@ const Forum = async (page: number) => {
     } catch (error) {
         /*console.error(error);*/
         /* 에러 발생 시 에러 메시지 렌더링 */
-        return (
-            <ErrorForum/>
-        )
+        return <ErrorForum/>
     }
 };
 
