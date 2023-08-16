@@ -27,7 +27,6 @@ const ForumWriteContainer = () => {
     /* [Custom Hook] useCreatePost - 게시글 등록 기능
      * - handleNewPostSubmit : 게시글을 등록하는 함수
      * - isLoading : 게시글 등록 요청시 로딩상태 나타내는 변수
-     * [CallBack Fn]
      * onSuccess : 게시글 등록이 성공했을 때 실행되는 함수로 성공 메시지를 담은 모달 출력.
      * onError: 게시글 등록이 실패했을 때 실행되는 함수로 오류 메시지를 담은 모달 출력. */
     const {handleNewPostSubmit, isLoading} = useCreatePost({
@@ -35,13 +34,27 @@ const ForumWriteContainer = () => {
         onError: (error) => openModal(error.message)
     })
 
+    /* 모달 내용이 현재 페이지에 머무르게 하는 메시지인지 확인하는 배열 */
+    const stayOnPageMessages = [
+        '돌아가시겠습니까? 작성한 내용은 삭제됩니다.',
+        '게임사 카테고리를 선택해주세요.',
+        '게임 카테고리를 선택해주세요.',
+        '제목은 필수입니다.',
+        '본문을 작성해주세요.'
+    ];
+
     /* [Function] handleModalSuccess : 등록버튼 클릭 핸들러 (작성 성공) */
     const handleModalSuccess = () => {
-        closeModal();
-        if (modalContent) {
-            router.push('/forum');
+        // 모달 내용이 현재 페이지에 머무르게 하는 메시지인 경우
+        if (stayOnPageMessages.includes(modalContent)) {
+            closeModal(); // 모달만 닫기
+            return; // 함수 종료 (리다이렉트 없음)
         }
-    }
+
+        // 그 외의 경우 forum 페이지로 리다이렉트
+        closeModal();
+        router.push('/forum');
+    };
 
     /* [Function] handleModalClose : 취소버튼 클릭 핸들러 */
     const handleModalClose = (e: React.MouseEvent<HTMLButtonElement>) => {

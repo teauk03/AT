@@ -6,7 +6,7 @@ import PaginationForum from "@/components/UI/Pagination/PaginationForum";
 import SearchForum from "@/components/UI/SearchBox/SearchForum";
 import {NoticeItemProps} from "@/types/Borad";
 import ForumHeader from "@/components/Forum/ForumHeader";
-import useForumLogic from "@/hooks/Board/useForumLogic";
+import usePaginationLogic from "@/hooks/Board/usePaginationLogic";
 import IsForumRoute from "@/components/Forum/isForumRoute";
 
 
@@ -33,38 +33,41 @@ import IsForumRoute from "@/components/Forum/isForumRoute";
 const ForumContainer = (
     { result: initialPosts, totalPosts, page, path }: NoticeItemProps & { path: string }
 ) => {
-    const {currentPage, result, totalPages, setCurrentPage} = useForumLogic(
+    const {currentPage, result, totalPages, setCurrentPage} = usePaginationLogic(
         `/api/${path}/list`, page, initialPosts, totalPosts
     );
 
-    console.log('path', path)
-    console.log('ForumContainer.tsx (result) : ', result)
-    console.log('ForumContainer.tsx (currentPage) : ', currentPage)
-    console.log('ForumContainer.tsx (totalPages) : ', totalPages)
-    console.log('ForumContainer.tsx (setCurrentPage) : ', setCurrentPage)
 
-    return (
-        <main className={styles.container}>
-            {/* Forum Header */}
-            <ForumHeader />
+    /* Forum Header */
+    const renderForumHeader = () => <ForumHeader />;
 
-            {/* 커뮤니티 네비게이션, 작성글 리스트 */}
-            <div className={styles['article-list']}>
-                <IsForumRoute />
+    const renderForumContent = () => (
+        <div className={styles['article-list']}>
+            {/* 커뮤니티 네비게이션 */}
+            <IsForumRoute />
+            {/* 게시글 렌더링 */}
+            <ForumItem result={result} path='forum' />
+        </div>
+    );
 
-                {/* 게시글 렌더링 */}
-                <ForumItem result={result} path='forum'/>
-            </div>
-
+    const renderForumFooter = () => (
+        <>
             {/* [Footer] 페이지 네이션 */}
             <PaginationForum
                 currentPage={currentPage}
                 setCurrentPage={setCurrentPage}
                 totalPages={totalPages}
             />
-
             {/* [Footer] 커뮤니티 검색 */}
-            <SearchForum/>
+            <SearchForum />
+        </>
+    );
+
+    return (
+        <main className={styles.container}>
+            {renderForumHeader()}
+            {renderForumContent()}
+            {renderForumFooter()}
         </main>
     );
 };

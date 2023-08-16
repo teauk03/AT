@@ -1,6 +1,7 @@
 import React from 'react';
 import {connectDB} from "@/utils/mongoDb";
 import SearchResult from "@/components/UI/SearchBox/SearcgResult";
+import fetchPostsData from "@/utils/fetchPostsData";
 
 /**
  * 검색을 위한 쿼리 파라미터 인터페이스.
@@ -9,6 +10,8 @@ import SearchResult from "@/components/UI/SearchBox/SearcgResult";
  * q: string; - 검색 쿼리 문자열
  */
 interface QueryParams {
+    limit: number;
+    page: number;
     type: string;
     q: string;
 }
@@ -43,6 +46,7 @@ const Search = async (query: Query) => {
     const db = (await connectDB).db("forum");
     const searchType = query.searchParams.type;
     const searchQuery = query.searchParams.q;
+
     let searchCondition: SearchCondition = {};
     if (searchType === 'title') {
         searchCondition.title = { $regex: searchQuery, $options: 'i' };
@@ -52,6 +56,7 @@ const Search = async (query: Query) => {
 
     /* 직렬화 및 역직렬화 */
     const posts = JSON.parse(JSON.stringify(postsData));
+
     // searchQuery={searchQuery}
     return <SearchResult posts={posts}/>
 };

@@ -7,13 +7,12 @@ import ForumHeader from "@/components/Forum/ForumHeader";
 import IsForumRoute from "@/components/Forum/isForumRoute";
 import SearchForum from "@/components/UI/SearchBox/SearchForum";
 
+
 /* 검색 결과 - 서버측 렌더링 */
 const SearchResult = (
     // , searchQuery searchQuery: string searchQuery={searchQuery}
     {posts}: { posts?: Array<MongoPost>;  }
 ) => {
-    console.log('posts', posts)
-
     return (
         <main className={styles.container}>
             {/* Forum Header */}
@@ -55,6 +54,13 @@ const SearchResult = (
                     )}
                 </ul>
             </div>
+
+            {/* [Footer] 페이지 네이션 */}
+            {/*<PaginationForum*/}
+            {/*    currentPage={currentPage}*/}
+            {/*    setCurrentPage={setCurrentPage}*/}
+            {/*    totalPages={totalPages}*/}
+            {/*/>*/}
 
             {/* [Footer] 커뮤니티 검색 */}
             <SearchForum/>

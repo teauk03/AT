@@ -13,7 +13,7 @@ import { Post } from '@/types/Borad';
  * @returns {number} totalPages - 총 페이지 수
  * @returns {function} setCurrentPage - 현재 페이지 설정 함수
  */
-const useForumLogic = (
+const usePaginationLogic = (
     apiPath: string, page: number, initialPosts: Post[], totalPosts: number
 ) => {
     const { currentPage, result, totalPages, setCurrentPage } = useFetchPosts(
@@ -25,4 +25,4 @@ const useForumLogic = (
     };
 };
 
-export default useForumLogic;
+export default usePaginationLogic;

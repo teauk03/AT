@@ -72,9 +72,7 @@ export interface FormContainerProps {
 
 /* api/post/nes - handler */
 export interface IDivisionMapping {
-    Konami: string;
-    Namco: string;
-    ETC: string;
+    [key: string]: string;
 }
 
 /* 검색 인터페이스 */

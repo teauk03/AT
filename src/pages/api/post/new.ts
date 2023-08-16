@@ -20,6 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         division_title?: string;
         division?: keyof IDivisionMapping
     } = req.body;
+    console.log('Request Body:', req.body);
 
     if (!title) {
         return res.status(400).json({ error: '제목은 필수입니다.' });
@@ -30,9 +31,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     const collectionMapping: IDivisionMapping = {
-        'Konami': 'konami',
-        'Namco': 'namco',
-        'ETC': 'etc'
+        'SOUND VOLTEX': 'konami',
+        'BeatMania IIDX': 'konami',
+        'GITADORA': 'konami',
+        'DANCERUSH': 'konami',
+        'MAIMAI': 'namco',
+        'Jubeat': 'konami',
+        'popn music': 'konami',
+        'DDR': 'konami',
+        'EZ2AC': 'etc'
     };
 
     const collectionName = division ? collectionMapping[division] : undefined;

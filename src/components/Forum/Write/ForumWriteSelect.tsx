@@ -20,6 +20,7 @@ const ForumWriteSelect = () => {
         setAnnouncement
     } = useSelection();
 
+
     return (
         <>
             {isAdmin ? (
@@ -38,7 +39,7 @@ const ForumWriteSelect = () => {
                 <>
                     {/* 게임사 선택 드롭다운 */}
                     <select className={styles['select-games']} name="division_title" value={manufacturer} onChange={handleManufacturerChange}>
-                        <option value="Attact">선택하세요.</option>
+                        <option value="Company">선택하세요.</option>
                         {manufacturerOptions.map((option, index) => (
                             <option key={index} value={option}>{option}</option>
                         ))}

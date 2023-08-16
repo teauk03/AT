@@ -6,7 +6,7 @@ import {NoticeItemProps, Post} from "@/types/Borad";
 import PaginationForum from "@/components/UI/Pagination/PaginationForum";
 import ForumItem from "@/components/Forum/ForumItem";
 import SearchForum from "@/components/UI/SearchBox/SearchForum";
-import useForumLogic from "@/hooks/Board/useForumLogic";
+import useForumLogic from "@/hooks/Board/usePaginationLogic";
 
 
 /**
@@ -19,20 +19,10 @@ import useForumLogic from "@/hooks/Board/useForumLogic";
  * @returns {JSX.Element} 공지사항 컨테이너를 렌더링
  */
 const NoticeContainer = (
-    {
-        result: initialPosts,
-        totalPosts,
-        page,
-        path
+    {result: initialPosts, totalPosts, page, path
     }: NoticeItemProps & { path: string }) => {
 
-    const {
-        currentPage,
-        result,
-        totalPages,
-        setCurrentPage,
-        searchResults,
-        handleSearchResults,
+    const {currentPage, result, totalPages, setCurrentPage,
     } = useForumLogic(`/api/notice/${path}`, page, initialPosts, totalPosts);
 
 
@@ -54,7 +44,7 @@ const NoticeContainer = (
             />
 
             {/* 커뮤니티 검색 */}
-            <SearchForum onSearchResults={handleSearchResults}/>
+            <SearchForum/>
         </main>
     )
 };

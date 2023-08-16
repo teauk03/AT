@@ -13,6 +13,7 @@ interface ForumFooterProps {
 const PaginationForum = (
     {currentPage, setCurrentPage, totalPages}: ForumFooterProps
 ) => {
+
     /* currentPage 상태 변경 후 스크롤 적용 */
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });

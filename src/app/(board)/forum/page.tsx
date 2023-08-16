@@ -2,7 +2,6 @@ import React from "react";
 import fetchPostsData from "@/utils/fetchPostsData";
 import ForumContainer from "@/components/Forum/ForumContainer";
 import ErrorForum from "@/components/UI/Error/ErrorForum";
-import {NoticeItemProps} from "@/types/Borad";
 
 export const dynamic: 'force-dynamic' = 'force-dynamic';
 
