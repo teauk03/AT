@@ -2,17 +2,13 @@
 import React, {useState} from 'react';
 import styles from "@/components/Forum/ForumItem.module.scss";
 import Link from "next/link";
-import ForumSlbMenu from "@/components/Forum/SLB/ForumSlbMenu";
+import ForumAsideLeftMenu from "@/components/Forum/ForumAside/ForumAsideLeftMenu";
 import SearchModal from "@/components/UI/Modal/SearchModal";
 import SvgIconComponent from "@/components/SvgIconComponent";
 
 const ForumSideNavbar = () => {
         /* 검색 모달 상태관리 */
-    const [
-        isSearchModalOpen,
-        setIsSearchModalOpen
-    ] = useState(false);
-
+    const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
 
     /* 모달 열기 핸들러 */
     const handleOpenSearchModal = (e: React.MouseEvent) => {
@@ -43,7 +39,7 @@ const ForumSideNavbar = () => {
             </div>
 
             {/* Sub Menu */}
-            <ForumSlbMenu/>
+            <ForumAsideLeftMenu/>
         </aside>
     );
 };

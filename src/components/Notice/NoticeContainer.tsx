@@ -2,11 +2,11 @@
 import React from 'react';
 import styles from "@/components/Notice/NoticeComponent.module.scss";
 import NoticeHeader from "@/components/Notice/NoticeHeader";
-import {NoticeItemProps} from "@/types/Borad";
-import {useFetchPosts} from "@/hooks/Board/useFetchPosts";
+import {NoticeItemProps, Post} from "@/types/Borad";
 import PaginationForum from "@/components/UI/Pagination/PaginationForum";
 import ForumItem from "@/components/Forum/ForumItem";
 import SearchForum from "@/components/UI/SearchBox/SearchForum";
+import useForumLogic from "@/hooks/Board/useForumLogic";
 
 
 /**
@@ -26,25 +26,27 @@ const NoticeContainer = (
         path
     }: NoticeItemProps & { path: string }) => {
 
-    /* [Custom Hook] useFetchPosts 훅을 사용하여 데이터를 가져옴 */
     const {
-        currentPage, result, totalPages, setCurrentPage
-    } = useFetchPosts(
-        `/api/notice/${path}`, page, initialPosts, totalPosts
-    );
+        currentPage,
+        result,
+        totalPages,
+        setCurrentPage,
+        searchResults,
+        handleSearchResults,
+    } = useForumLogic(`/api/notice/${path}`, page, initialPosts, totalPosts);
 
 
     return (
-        <div className={styles['content-container']}>
+        <main className={styles['content-container']}>
             {/* 공지사항 헤더 */}
             <NoticeHeader/>
 
-            <div className={styles['content-item-list']}>
+            <section className={styles['content-item-list']}>
                 {/* 게시글 렌더링 */}
                 <ForumItem result={result} path='announcement'/>
-            </div>
+            </section>
 
-            {/* 페이지 네이션 */}
+            {/* [공지사항] 페이지 네이션 */}
             <PaginationForum
                 currentPage={currentPage}
                 setCurrentPage={setCurrentPage}
@@ -52,8 +54,8 @@ const NoticeContainer = (
             />
 
             {/* 커뮤니티 검색 */}
-            <SearchForum/>
-        </div>
+            <SearchForum onSearchResults={handleSearchResults}/>
+        </main>
     )
 };
 

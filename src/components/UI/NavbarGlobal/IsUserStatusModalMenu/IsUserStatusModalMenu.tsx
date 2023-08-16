@@ -1,14 +1,14 @@
 'use client'
 import React from 'react';
-import styles from "@/components/UI/NavbarGlobal/Dropdown/DropdownMenu.module.scss";
+import styles from "@/components/UI/NavbarGlobal/IsUserStatusModalMenu/IsUserStatusModalMenu.module.scss";
 import {Session} from "next-auth";
 import {signOut} from "next-auth/react";
 import NavbarLink from "@/components/UI/NavbarGlobal/NavbarLink";
 import useUnderDevelopmentPopup from "@/hooks/useUnderDevelopmentPopup";
 import SvgIconComponent from "@/components/SvgIconComponent";
 
-
-const DropdownMenu = ({session}: { session: Session | null }) => {
+/* isUserStatusModalMenu */
+const IsUserStatusModalMenu = ({session}: { session: Session | null }) => {
     /* Development Hook */
     const {handleClick} = useUnderDevelopmentPopup();
 
@@ -80,4 +80,4 @@ const DropdownMenu = ({session}: { session: Session | null }) => {
     );
 };
 
-export default DropdownMenu;
+export default IsUserStatusModalMenu;

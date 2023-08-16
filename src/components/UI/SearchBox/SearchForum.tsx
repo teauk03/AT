@@ -11,18 +11,8 @@ interface Post {
     title: string;
 }
 
-interface SearchPostQuery {
-    title?: { $regex: string; $options: string };
-    body?: { $regex: string; $options: string };
-    nickname?: { $regex: string; $options: string };
-}
-
-/**
- * SearchForum 컴포넌트
- * @param {Object} props - 컴포넌트의 프로퍼티
- * @param {function} props.onSearchResults - 검색 결과를 처리하기 위한 콜백 함수
- */
-const SearchForum = ({ onSearchResults }: { onSearchResults: (results: Post[]) => void }) => {
+/* SearchForum 컴포넌트 (검색 팝업) */
+const SearchForum = () => {
     /* 실제 검색어 저장 */
     const search = useSearchParams();
     const [searchQuery, setSearchQuery] = useState<string | null>(search ? search.get("q") : "")

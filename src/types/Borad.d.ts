@@ -14,9 +14,10 @@ interface Post {
 
 /* [Component] ForumItem Props */
 export interface NoticeItemProps {
-    result: Post[];
-    totalPosts: number;
-    page: number;
+    result: Post[],
+    totalPosts: number,
+    page: number,
+    //searchQuery: string
 }
 
 

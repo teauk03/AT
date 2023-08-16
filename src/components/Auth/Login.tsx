@@ -6,7 +6,7 @@ import Link from "next/link";
 import github from "/public/github.svg"
 import google from "/public/google.svg"
 
-import {useLogin} from "@/hooks/useSignIn";
+import {useLogin} from "@/hooks/Auth/useSignIn";
 import SocialLoginButton from "@/components/UI/Button/SocialLogin/SocialLoginButtons";
 import PrimaryButton from "@/components/UI/Button/PrimaryButton";
 import PrimaryCheckBox from "@/components/UI/CheckBox/PrimaryCheckBox";

@@ -1,6 +1,6 @@
 /*
 Error: Invalid CSS after "...rder: variables": expected ";", was ".$border-defaul..."
-        on line 9 of DropdownMenu.module.scss
+        on line 9 of IsUserStatusModalMenu.module.scss
 
 4:   width: 13rem;
 5:   height: 10.5rem;
@@ -15,7 +15,7 @@ Error: Invalid CSS after "...rder: variables": expected ";", was ".$border-defau
 14: 
 
 Backtrace:
-DropdownMenu.module.scss:9
+IsUserStatusModalMenu.module.scss:9
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
@@ -45,4 +45,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"...rder: variables\": expected \";\", was \".$border-defaul...\"\A         on line 9 of DropdownMenu.module.scss\A \A 4:   width: 13rem;\A 5:   height: 10.5rem;\A 6:   top: 50px;\A 7:   right: 35px;\A 8:   position: absolute;\A 9:   border: variables.$border-default-1px;\A 10:   border-radius: 8px;\A 11:   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\A 12:   background: variables.$base-color-white;\A 13:   transition: all 0.3s ease;\A 14: "; }
+  content: "Error: Invalid CSS after \"...rder: variables\": expected \";\", was \".$border-defaul...\"\A         on line 9 of IsUserStatusModalMenu.module.scss\A \A 4:   width: 13rem;\A 5:   height: 10.5rem;\A 6:   top: 50px;\A 7:   right: 35px;\A 8:   position: absolute;\A 9:   border: variables.$border-default-1px;\A 10:   border-radius: 8px;\A 11:   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\A 12:   background: variables.$base-color-white;\A 13:   transition: all 0.3s ease;\A 14: "; }

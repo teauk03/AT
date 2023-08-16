@@ -3,7 +3,7 @@ import styles from "@/components/User/Account.module.scss";
 import Link from "next/link";
 import {getServerSession} from "next-auth";
 import {authOptions} from "@/pages/api/auth/[...nextauth]";
-import SideNavigationMenu from "@/components/UI/NavbarAside/SideNavbar";
+import SideNavigationMenu from "@/components/UI/NavbarAside/AsideNavbar";
 import AccountContainer from "@/components/User/AccountContainer";
 import accountDetails from "@/data/account-menu.json";
 

@@ -5,7 +5,7 @@ import styles from "../Navbar.module.scss";
 import { MenuItemProps } from '@/types/Navigation';
 import {usePathname} from "next/navigation";
 
-const NavItems = ({ gblMenuItems }: MenuItemProps) => {
+const GlobalNavItems = ({ gblMenuItems }: MenuItemProps) => {
     {/* Get the current route */}
     const currentRoute = usePathname();
 
@@ -53,4 +53,4 @@ const NavItems = ({ gblMenuItems }: MenuItemProps) => {
     );
 };
 
-export default NavItems;
+export default GlobalNavItems;

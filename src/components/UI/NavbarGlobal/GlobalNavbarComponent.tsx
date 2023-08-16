@@ -6,16 +6,16 @@ import Link from "next/link";
 import {GLB_MENU_ITEMS} from "@/data/dataMenuItem";
 import Image from 'next/image'
 import NavigationLogo from '@/../public/img/home-bg-Transparent.png';
-import NavItems from "@/components/UI/NavbarGlobal/NavItems/NavItems";
+import GlobalNavItems from "@/components/UI/NavbarGlobal/GlobalNavItems/GlobalNavItems";
 import {useSession} from "next-auth/react";
 
 import {MenuItem} from '@/types/Navigation';
 import NavbarLink from "@/components/UI/NavbarGlobal/NavbarLink";
 import SvgIconComponent from "@/components/SvgIconComponent";
-import DropdownMenu from "@/components/UI/NavbarGlobal/Dropdown/DropdownMenu";
+import IsUserStatusModalMenu from "@/components/UI/NavbarGlobal/IsUserStatusModalMenu/IsUserStatusModalMenu";
 
 
-const NavbarComponent = () => {
+const GlobalNavbarComponent = () => {
     /* [Client] 유저 세션 사용 */
     const {data: session} = useSession();
 
@@ -110,7 +110,7 @@ const NavbarComponent = () => {
 
             {/* [Navigation Link Wrap] Scss : Navbar.module.scss */}
             <ul className={styles['nav-link-wrap']}>
-                <NavItems gblMenuItems={gblMenuItems}/>
+                <GlobalNavItems gblMenuItems={gblMenuItems}/>
             </ul>
 
 
@@ -140,7 +140,7 @@ const NavbarComponent = () => {
                                 <span className={styles['user-session-info']}>{session.user.name}</span>
                             </div>
                              {/* 클릭시 DropdownMenu 노출 */}
-                            {isMenClicked && <DropdownMenu session={session}/>}
+                            {isMenClicked && <IsUserStatusModalMenu session={session}/>}
                         </>
                     }
                 </>
@@ -149,4 +149,4 @@ const NavbarComponent = () => {
     );
 }
 
-export {NavbarComponent};
+export default GlobalNavbarComponent;

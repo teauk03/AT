@@ -6,14 +6,14 @@ import Link from "next/link";
 import github from "/public/github.svg"
 import google from "/public/google.svg"
 
-import {useSignUp} from '@/hooks/useSignUp';
+import {useSignUp} from '@/hooks/Auth/useSignUp';
 import {isValidEmailFormat, hasValidName, hasValidPasswordLength, hasBirthValid} from "@/utils/validation/validation";
 
 import SocialLoginButton from "@/components/UI/Button/SocialLogin/SocialLoginButtons";
-import useEmailField from "@/hooks/Form/useEmailField";
-import usePasswordField from "@/hooks/Form/usePasswordField";
-import useNameField from "@/hooks/Form/useNameField";
-import useDateOfBirthField from "@/hooks/Form/useDateOfBirthField";
+import useEmailField from "@/hooks/Validation/useEmailField";
+import usePasswordField from "@/hooks/Validation/usePasswordField";
+import useNameField from "@/hooks/Validation/useNameField";
+import useDateOfBirthField from "@/hooks/Validation/useDateOfBirthField";
 import AuthInputField from "@/components/Auth/FormElements/AuthInputField";
 import PrimaryButton from "@/components/UI/Button/PrimaryButton";
 import DivisionLine from "@/components/Auth/DivisionLine/DivisionLine";

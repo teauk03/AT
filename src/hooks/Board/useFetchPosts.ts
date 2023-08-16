@@ -15,22 +15,11 @@ import {useEffect, useState} from "react";
  *   setCurrentPage: (page: number) => void
  * }}
  */
-export const useFetchPosts = (
-    url: string,
-    initialPage: number,
-    initialPosts: Post[],
-    totalPosts: number
+const useFetchPosts = (
+    url: string, initialPage: number, initialPosts: Post[], totalPosts: number
 ) => {
-
-    const [
-        currentPage,
-        setCurrentPage
-    ] = useState(initialPage);
-
-    const [
-        result,
-        setResult
-    ] = useState<{ posts: Post[]; totalPosts: number }>({
+    const [currentPage, setCurrentPage] = useState(initialPage);
+    const [result, setResult] = useState<{ posts: Post[]; totalPosts: number }>({
         posts: initialPosts,
         totalPosts,
     });
@@ -46,9 +35,8 @@ export const useFetchPosts = (
     const totalPages = Math.ceil(result.totalPosts / 10);
 
     return {
-        currentPage,
-        result,
-        totalPages,
-        setCurrentPage,
+        currentPage, result, totalPages, setCurrentPage,
     };
 };
+
+export default useFetchPosts;

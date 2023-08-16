@@ -2,7 +2,7 @@ import '@/styles/globals.scss'
 import {Inter} from 'next/font/google'
 import {Metadata} from "next";
 import Providers from "@/context/Providers";
-import {NavbarComponent} from "@/components/UI/NavbarGlobal/Navbar";
+import GlobalNavbarComponent from "@/components/UI/NavbarGlobal/GlobalNavbarComponent";
 import {FooterClientComponent} from "@/components/UI/Footer/Footer";
 import React from "react";
 
@@ -21,7 +21,7 @@ const RootLayout = async ({children}: {
         <html lang="ko">
         <body>
         <Providers>
-            <NavbarComponent/>
+            <GlobalNavbarComponent/>
             {children}
             <FooterClientComponent/>
         </Providers>

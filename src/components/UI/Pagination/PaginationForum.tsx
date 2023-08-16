@@ -3,7 +3,6 @@ import React, {useEffect} from "react";
 import styles from "./Pagination.module.scss";
 import SvgIconComponent from "@/components/SvgIconComponent";
 
-
 interface ForumFooterProps {
     currentPage: number;
     setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
@@ -11,7 +10,9 @@ interface ForumFooterProps {
 }
 
 
-const PaginationForum = ({currentPage, setCurrentPage, totalPages}: ForumFooterProps) => {
+const PaginationForum = (
+    {currentPage, setCurrentPage, totalPages}: ForumFooterProps
+) => {
     /* currentPage 상태 변경 후 스크롤 적용 */
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });

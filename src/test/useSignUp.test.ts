@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react';
-import { useSignUp } from '@/hooks/useSignUp';
+import { useSignUp } from '@/hooks/Auth/useSignUp';
 
 describe('useSignUp Hook', () => {
     it('Verify useSignUp Hook Initialization', () => {
