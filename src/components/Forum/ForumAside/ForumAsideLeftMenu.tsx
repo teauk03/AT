@@ -4,11 +4,6 @@ import Link from "next/link";
 import {ASIDE_FORUM_ITEMS} from "@/data/dataMenuItem";
 
 const ForumAsideLeftMenu = () => {
-    /* 임시 Alert 핸들러 */
-    const handleNoSymbol = () => {
-        alert('준비중 입니다.')
-    }
-
     return (
         <ul className={styles['aside-menu']}>
             {ASIDE_FORUM_ITEMS.map((group, index) => (
@@ -16,7 +11,7 @@ const ForumAsideLeftMenu = () => {
                     <h2 className={styles['aside-item-title']}>{group.title}</h2>
                     {group.items.map((item, idx) => (
                         <div key={idx} className={styles['item-link-wrapper']}>
-                            <Link href={item.route} onClick={handleNoSymbol}>
+                            <Link href={`/forum/category?division_title=${group.title}&division=${item.title}`}>
                                 {item.title}
                             </Link>
                         </div>

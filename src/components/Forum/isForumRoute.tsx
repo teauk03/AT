@@ -2,6 +2,8 @@
 import React from 'react';
 import ForumSideNavbar from "@/components/Forum/ForumAside/ForumAsideLeft";
 import {usePathname} from "next/navigation";
+import styles from "@/components/Forum/ForumItem.module.scss";
+import ForumAsideLeftMenu from "@/components/Forum/ForumAside/ForumAsideLeftMenu";
 
 const IsForumRoute = () => {
     /* usePathname : 현재 URL 경로(값)를 가져옴 */
@@ -11,7 +13,12 @@ const IsForumRoute = () => {
 
     return (
         <>
-            {!isForumRoute && <ForumSideNavbar/>}
+            {!isForumRoute && (
+                <aside className={styles['aside-slb']} role="sub-navigation">
+                    {/* Sub Menu */}
+                    <ForumAsideLeftMenu/>
+                </aside>
+            )}
         </>
     );
 };

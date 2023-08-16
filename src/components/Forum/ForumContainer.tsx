@@ -46,7 +46,7 @@ const ForumContainer = (
             {/* 커뮤니티 네비게이션 */}
             <IsForumRoute />
             {/* 게시글 렌더링 */}
-            <ForumItem result={result} path='forum' />
+            <ForumItem result={result} path='forum'/>
         </div>
     );
 

@@ -58,7 +58,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
         const db = (await connectDB).db("forum");
-        await db.collection(collectionName).insertOne({ userName: session.user.name, title, content, division_title, division });
+        /* collectionName */
+        await db.collection('post').insertOne({ userName: session.user.name, title, content, division_title, division });
         return res.status(200).json({ message: '게시물이 성공적으로 작성되었습니다.' });
     } catch (error) {
         console.error(error);
