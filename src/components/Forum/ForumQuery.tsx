@@ -4,7 +4,7 @@ import React, {useEffect, useState} from 'react';
 import styles from "@/components/Forum/ForumItem.module.scss";
 import {ObjectId} from "mongodb";
 import Link from "next/link";
-import {usePathname} from "next/navigation";
+import {usePathname, useSearchParams} from "next/navigation";
 import ForumHeader from "@/components/Forum/ForumHeader";
 import IsForumRoute from "@/components/Forum/isForumRoute";
 import SvgIconComponent from "@/components/SvgIconComponent";
@@ -17,9 +17,29 @@ type ForumPostPage = {
     title: string;
     content: string;
     userName: string;
+    division: string;
 };
 
 const ForumPage = ({path}: {path: string}) => {
+    const params = useSearchParams();
+    const division = params ? params.get('division') : null;
+    const [posts, setPosts] = useState<ForumPostPage[]>([]);
+
+    useEffect(() => {
+        if (division) {
+            axios.get(`/api/post/list?division=${division}`)
+                .then(response => {
+                    // division에 해당하는 게시물만 필터링
+                    const filteredPosts = response.data.posts.filter((post: ForumPostPage) => post.division === division);
+                    console.log('filteredPosts: ',filteredPosts)
+                    setPosts(filteredPosts);
+                })
+                .then(() => console.log('posts: ', posts))
+                .catch(error => console.error(error));
+        }
+    }, [division]);
+    console.log(division);
+
     /* Forum Header */
     const renderForumHeader = () => <ForumHeader/>;
 
@@ -61,17 +81,7 @@ const ForumPage = ({path}: {path: string}) => {
         </>
     );
 
-    const pathname = usePathname();
-    const division = pathname ? pathname.split('/').pop() : null;
-    const [posts, setPosts] = useState<ForumPostPage[]>([]);
 
-    useEffect(() => {
-        if (division) {
-            axios.get(`/api/post/list?division=${division}`)
-                .then(response => setPosts(response.data.posts))
-                .catch(error => console.error(error));
-        }
-    }, [division]);
 
     return (
         <main className={styles.container}>
