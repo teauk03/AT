@@ -1,146 +1,52 @@
-@charset "UTF-8";
-.container {
-  padding: 0;
-  display: grid;
-  grid-template-areas: "aside main";
-  grid-template-columns: 20rem 1fr;
-  /* Support - page, Support - SLB 내부 h1 */
-  /* SLB - Support Sidebar */
-  /* Main Contents */
-}
-.container h1 {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-.container .aside {
-  width: 70%;
-  grid-area: aside;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-right: 1px solid #ccc;
-}
-.container .aside .aside-menu {
-  margin-top: 3rem;
-}
-.container .aside .aside-menu .aside-menu-item {
-  padding: 0.5rem;
-  transition: font-weight 0.25s ease-in-out, color 0.15s ease;
-}
-.container .aside .aside-menu .aside-menu-item:hover {
-  cursor: pointer;
-  font-weight: bold;
-}
-.container .aside .aside-menu .aside-menu-item:active {
-  cursor: pointer;
-  color: rgb(140, 140, 140);
-}
-.container .main {
-  height: 100%;
-  margin: 0 0 5rem 0;
-  grid-area: main;
-  padding: 0 7rem 0 0;
-  /* Main - TopSection */
-  /* Main - MidSection */
-  /* Main - BottomSection */
-}
-.container .main .top-section {
-  margin-top: 3rem;
-  /* Search Bar */
-}
-.container .main .top-section .search-wrapper {
-  display: flex;
-  align-items: flex-start;
-}
-.container .main .top-section .search-wrapper input {
-  padding: 1rem;
-  width: 35rem;
-  height: 2rem;
-  border-radius: 50px;
-  outline: none;
-}
-.container .main .top-section .current-path {
-  margin-top: 2rem;
-}
-.container .main .top-section .current-path p {
-  margin: 0.5rem 0;
-  font-size: 0.95rem;
-}
-.container .main .top-section .current-path p span {
-  font-weight: bold;
-}
-.container .main .top-section .device-type {
-  display: flex;
-  justify-content: space-between;
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #6d6d6d;
-  padding: 0.7rem;
-  border-bottom: 1px solid black;
-  border-top: 1px solid black;
-}
-.container .main .top-section .device-type .device-item {
-  padding: 0 1.5rem 0 1.5rem;
-  transition: color 0.25s ease-in-out;
-}
-.container .main .top-section .device-type .device-item:hover {
-  cursor: pointer;
-  color: black;
-}
-.container .main .top-section .device-type .device-item:active {
-  cursor: pointer;
-  color: #6d6d6d;
-}
-.container .main .mid-section {
-  margin-top: 3rem;
-}
-.container .main .mid-section .support-list {
-  border-bottom: 1px solid black;
-}
-.container .main .mid-section .support-list .support-title {
-  display: flex;
-  flex-direction: row;
-  gap: 2.5rem;
-  padding: 1rem;
-  cursor: pointer;
-}
-.container .main .mid-section .support-list .support-title .title-number {
-  color: #2b9939;
-  font-weight: bold;
-}
-.container .main .mid-section .support-list .support-content {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: padding 0.25s ease-out, max-height 0.25s ease-out, opacity 0.25s ease-out;
-}
-.container .main .mid-section .support-list .support-content.open {
-  max-height: 10rem;
-  padding: 1rem;
-  opacity: 1;
-}
-.container .main .mid-section .support-list .support-content.open span {
-  word-wrap: break-word;
-}
-.container .main .bottom-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 3rem 3.5rem 1rem 3.5rem;
-}
-.container .main .bottom-section .contactus-text {
-  /* Your styles for contactus-text here */
-}
-.container .main .bottom-section .contactus-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 7rem;
-  height: 3rem;
-  font-weight: bold;
-  background-color: #DBDBDB;
-  border-radius: 10px;
-}
+/*
+Error: Invalid CSS after "...ttom: variables": expected ";", was ".$border-defaul..."
+        on line 67 of support.module.scss
 
-/*# sourceMappingURL=support.module.css.map */
+62:     display: flex;
+63:     justify-content: space-between;
+64:     font-size: 1.1rem;
+65:     font-weight: bold;
+66:     color: #6d6d6d;
+67:     border-bottom: variables.$border-default-1px;
+68: 
+69:     &-item {
+70:       padding: 0 1.5rem 0 1.5rem;
+71:       transition: color 0.25s ease-in-out;
+72:       cursor: pointer;
+
+Backtrace:
+support.module.scss:67
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:815:in `block in try_declaration'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1284:in `rethrow'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:820:in `try_declaration'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:743:in `declaration_or_ruleset'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:758:in `declaration_or_ruleset'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:681:in `ruleset'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:707:in `block_child'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:137:in `stylesheet'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:41:in `parse'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/engine.rb:414:in `_to_tree'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:387:in `run'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:63:in `process_result'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/base.rb:50:in `parse'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/base.rb:18:in `parse!'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/bin/sass:13:in `<top (required)>'
+C:/Ruby31-x64/bin/sass:32:in `load'
+C:/Ruby31-x64/bin/sass:32:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"...ttom: variables\": expected \";\", was \".$border-defaul...\"\A         on line 67 of support.module.scss\A \A 62:     display: flex;\A 63:     justify-content: space-between;\A 64:     font-size: 1.1rem;\A 65:     font-weight: bold;\A 66:     color: #6d6d6d;\A 67:     border-bottom: variables.$border-default-1px;\A 68: \A 69:     &-item {\A 70:       padding: 0 1.5rem 0 1.5rem;\A 71:       transition: color 0.25s ease-in-out;\A 72:       cursor: pointer;"; }

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "@/components/Forum/ForumItem.module.scss";
 import Link from "next/link";
-import {ASIDE_FORUM_ITEMS} from "@/data/dataMenuItem";
+import {ASIDE_FORUM_ITEMS} from "@/data/data-navbar-menu";
 
 const ForumAsideLeftMenu = () => {
     return (

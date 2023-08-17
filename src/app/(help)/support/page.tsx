@@ -3,65 +3,58 @@ import styles from "@/components/Help/Support/support.module.scss";
 
 import DocumentList from "@/components/Help/Support/SupportItem";
 import SupportSideBar from "@/components/Help/Support/SupportSideBar";
+import LoadingForum from "@/components/UI/Loading/LoadingForum";
 import {getServerSession} from "next-auth";
-import AppLink from "@/components/UI/Link/AppLink";
-
 import {connectDB} from "@/utils/mongoDb";
 import {authOptions} from "@/pages/api/auth/[...nextauth]";
-import {SUPPORT_DEVICE_ITEMS} from "@/data/dataHelpItems";
-import {FooterClientComponent} from "@/components/UI/Footer/Footer";
+import {SUPPORT_DEVICE_ITEMS} from "@/data/data-help-items";
+import SupportInputSearch from "@/components/Help/Support/SupportInputSearch";
 
 
 const Support = async (): Promise<JSX.Element> => {
     const session = await getServerSession(authOptions);
-    console.log('session : ', session)
     const db = (await connectDB).db("forum")
     let result = await db.collection('inquiry').find({})
-    if (!result) return <div>Loading...</div>
+    if (!result) return <LoadingForum/>
 
-    try {
-        return (
-            <>
-                <div className={styles.container}>
-                    {/* [SLB] - Support Sidebar */}
-                    <SupportSideBar session={session}/>
+    /* [SLB] - Support Sidebar */
+    const SUPPORT_SIDE_NAV = () => <SupportSideBar session={session}/>
 
-                    {/* Contents */}
-                    <main className={styles.main}>
-                        <section className={styles['top-section']}>
-                            {/*<div className={styles['search-wrapper']}>
-                            <SupportInputSearch/>
-                        </div>*/}
-                            <div className={styles['current-path']}>
-                                <h1 className={styles['current-title']}>문의유형 선택</h1>
-                                <p>문의유형을 선택하면 문의유형에 따라 <span>[자주 찾는 도움말]</span>을 확인할 수 있습니다.<br/>
-                                    찾는 도움말이 보이지 않으면 <span>[검색]</span>을 이용해 원하는 도움말을 찾아 주세요.</p>
-                            </div>
+    /* Contents */
+    const SUPPORT_NAVIGATION = () => (
+        <header className={styles.header}>
+            <section className={styles['header-section']}>
+                <h1>문의유형 선택</h1>
+                <p>문의유형을 선택하면 문의유형에 따라 <span>[자주 찾는 도움말]</span>을 확인할 수 있습니다.<br/>
+                    찾는 도움말이 보이지 않으면 <span>[검색]</span>을 이용해 원하는 도움말을 찾아 주세요.</p>
+            </section>
 
-                            {/* 내부 span 임시태그 */}
-                            <nav className={styles['device-type']}>
-                                {SUPPORT_DEVICE_ITEMS.map((item, index) => (
-                                    <span key={index} className={styles['device-item']}>
-                                    {item.label}
-                                </span>
-                                ))}
-                            </nav>
-                        </section>
+            {/* 내부 span 임시태그 */}
+            <nav className={styles['nav-support']}>
+                {SUPPORT_DEVICE_ITEMS.map((item, index) => (
+                    <span key={index} className={styles['nav-support-item']}>{item.label}</span>
+                ))}
+            </nav>
+        </header>
+    )
 
-                        {/* DocumentList */}
-                        <section className={styles['mid-section']}>
-                            <DocumentList _id={result.toString()}/>
-                        </section>
-                    </main>
-                </div>
-            </>
-        )
+    /* Document Search Bar */
+    const SUPPORT_SEARCH = () => <SupportInputSearch/>
 
-    } catch (error) {
-        return (
-            <p>Something went wrong!</p>
-        )
-    }
+    /* DocumentList */
+    const SUPPORT_DOCUMENT_LIST = () => <DocumentList/>
+
+    /* Return Element */
+    return (
+        <main className={styles.container}>
+            {SUPPORT_SIDE_NAV()}
+            <div className={styles.contents}>
+                {SUPPORT_NAVIGATION()}
+                {SUPPORT_SEARCH()}
+                {SUPPORT_DOCUMENT_LIST()}
+            </div>
+        </main>
+    )
 };
 
 export default Support;

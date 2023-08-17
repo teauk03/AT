@@ -79,7 +79,6 @@ export const SLB_MENU_ITEMS = [
 
 /* [SLB] Support Side Menu Array */
 export const SUPPORT_SLB_ITEMS = [
-    {route: '/support', label: '검색'},
     {route: '/support/myHistory', label: '내 문의 내역'},
     {route: '/support', label: '상담 봇'},
 ]

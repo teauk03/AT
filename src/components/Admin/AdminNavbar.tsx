@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "@/components/Admin/Admin.module.scss";
 import Link from "next/link";
-import {ADMIN_MENU_ITEMS, ADMIN_SETTINGS_ITEMS} from "@/data/dataAdminItems";
+import {ADMIN_MENU_ITEMS, ADMIN_SETTINGS_ITEMS} from "@/data/data-admin-menu";
 
 const AdminNavbar = () => {
     return (

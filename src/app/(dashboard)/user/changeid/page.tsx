@@ -4,7 +4,7 @@ import {authOptions} from "@/pages/api/auth/[...nextauth]";
 import styles from "@/components/User/Account.module.scss";
 import SideNavigationMenu from "@/components/User/UserAsideNavbar/AsideNavbar";
 import AccountContainer from "@/components/User/AccountContainer";
-import accountDetails from "@/data/account-menu.json";
+import accountDetails from "@/data/Account/account-menu.json";
 
 const ChangeId = async () => {
     const session = await getServerSession(authOptions);

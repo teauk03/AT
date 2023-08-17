@@ -3,7 +3,7 @@ import React, {useEffect, useRef, useState} from "react";
 import styles from './Navbar.module.scss';
 
 import Link from "next/link";
-import {GLB_MENU_ITEMS} from "@/data/dataMenuItem";
+import {GLB_MENU_ITEMS} from "@/data/data-navbar-menu";
 import Image from 'next/image'
 import NavigationLogo from '@/../public/img/home-bg-Transparent.png';
 import GlobalNavItems from "@/components/UI/NavbarGlobal/GlobalNavItems/GlobalNavItems";

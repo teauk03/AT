@@ -1,5 +1,14 @@
 @use '@/styles/variables';
 
+/* [main] Container */
+.container {
+  width: 100%;
+  min-height: 100%;
+  padding: 0 7.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
 /* [div] 콘텐츠 컨테이너 */
 .content-container {
   display: flex;

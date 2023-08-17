@@ -3,7 +3,7 @@ import React, {useState, useEffect} from "react";
 import styles from "./SideNavbar.module.scss";
 
 import Link from "next/link";
-import {SLB_MENU_ITEMS} from '@/data/dataMenuItem';
+import {SLB_MENU_ITEMS} from '@/data/data-navbar-menu';
 import {usePathname} from "next/navigation";
 import {useSession} from "next-auth/react";
 

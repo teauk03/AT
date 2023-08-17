@@ -2,7 +2,7 @@ import React from 'react';
 import styles from "@/components/Help/Support/ContactUs/contactus.module.scss"
 import ContactUsButton from "@/components/Help/Support/ContactUs/ContactUsButton";
 import ContactUsCheckBox from "@/components/Help/Support/ContactUs/ContactUsCheckBox";
-import {SUPPORT_CONTACTUS_POLICY} from "@/data/dataHelpItems";
+import {SUPPORT_CONTACTUS_POLICY} from "@/data/data-help-items";
 
 const ContactUs = () => {
     return (

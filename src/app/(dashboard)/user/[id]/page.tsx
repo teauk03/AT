@@ -4,7 +4,7 @@ import {getServerSession} from "next-auth";
 import SideNavigationMenu from "@/components/User/UserAsideNavbar/AsideNavbar";
 import AccountContainer from "@/components/User/AccountContainer"
 import {authOptions} from "@/pages/api/auth/[...nextauth]";
-import {accountDetails} from "@/data/dataUserAccount";
+import {accountDetails} from "@/data/Account/dataUserAccount";
 
 
 const UserProfile = async () => {

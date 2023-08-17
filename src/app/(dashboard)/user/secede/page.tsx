@@ -5,7 +5,7 @@ import {getServerSession} from "next-auth";
 import {authOptions} from "@/pages/api/auth/[...nextauth]";
 import SideNavigationMenu from "@/components/User/UserAsideNavbar/AsideNavbar";
 import AccountContainer from "@/components/User/AccountContainer";
-import accountDetails from "@/data/account-menu.json";
+import accountDetails from "@/data/Account/account-menu.json";
 
 /* TODO : 클라이언트 컴포넌트로 분리 및 탈퇴 페이지 설계 */
 const Secede = async () => {

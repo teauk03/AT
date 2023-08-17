@@ -1,12 +1,9 @@
-'use client'
 import React from 'react';
 import styles from "@/components/Forum/ForumItem.module.scss";
 import ForumItem from "@/components/Forum/FormBody/ForumItem";
 import PaginationForum from "@/components/UI/Pagination/PaginationForum";
 import SearchForum from "@/components/UI/SearchBox/SearchForum";
-import {NoticeItemProps} from "@/types/Borad";
 import ForumHeader from "@/components/Forum/ForumHeader/ForumHeader";
-import usePaginationLogic from "@/hooks/Board/usePaginationLogic";
 import IsForumRoute from "@/components/Forum/AsideNavbar/isForumRoute";
 
 

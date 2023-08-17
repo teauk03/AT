@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface SvgIconComponentProps {
+type SvgIconComponentProps = {
     svgPath: string;
     width: number;
     height: number;

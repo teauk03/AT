@@ -1,13 +1,11 @@
 'use client'
 import React, {useState} from 'react';
-import { useDocsAPI } from '@/hooks/Support/useDocsAPI';
-import { DocsInputObjectId } from '@/types/Document';
 import styles from "@/components/Help/Support/support.module.scss";
+import SUPPORT_DATA from '@/data/Support/data-support-items.json';
 
 
 /* 문서 출력 컴포넌트 */
-const DocumentList = (props: DocsInputObjectId): JSX.Element => {
-  const saveDocsData = useDocsAPI(props._id);
+const DocumentList = (): JSX.Element => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleDocumentContent = (index: number) => {
@@ -15,25 +13,26 @@ const DocumentList = (props: DocsInputObjectId): JSX.Element => {
   };
 
   return (
-      <>
-        {saveDocsData.length > 0 ?
-            saveDocsData.map((docsItem, docsIndex) =>
+      <section className={styles['mid-section']}>
+        {SUPPORT_DATA.REGISTER.length > 0 ?
+            SUPPORT_DATA.REGISTER.map((support, index) =>
                 <div
                     className={styles['support-list']}
-                    key={docsIndex}
-                    onClick={() => toggleDocumentContent(docsIndex)}
+                    key={index}
+                    onClick={() => toggleDocumentContent(index)}
                 >
                   <div className={styles['support-title']}>
-                    <span className={styles['title-number']}>{docsIndex+1}</span>
-                    <strong className={styles['title-text']}>{docsItem.title}</strong>
+                    <span className={styles['title-number']}>{index + 1}</span>
+                    <span>{support.subject}</span>
+                    <strong className={styles['title-text']}>{support.title}</strong>
                   </div>
-                  <div className={`${styles['support-content']} ${openIndex === docsIndex ? styles['open'] : ''}`}>
-                    <span>{docsItem.content}</span>
+                  <div className={`${styles['support-content']} ${openIndex === index ? styles['open'] : ''}`}>
+                    <span>{support.content}</span>
                   </div>
                 </div>
             )
             : <p className={styles['none-text']}>문서가 없습니다.</p>}
-      </>
+      </section>
   );
 };
 

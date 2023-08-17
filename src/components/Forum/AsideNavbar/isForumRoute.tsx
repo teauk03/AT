@@ -7,7 +7,7 @@ import ForumAsideLeftMenu from "@/components/Forum/AsideNavbar/ForumAsideLeftMen
 const IsForumRoute = () => {
     /* usePathname : 현재 URL 경로(값)를 가져옴 */
     const pathname  = usePathname();
-    const isForumRoute = pathname === '/announcement' || '/event';
+    const isForumRoute = pathname === '/announcement' && '/event';
 
     return (
         <>

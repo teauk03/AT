@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import styles from './NoticeComponent.module.scss';
+import styles from '../NoticeComponent.module.scss';
 import {usePathname} from "next/navigation";
 import {useSession} from "next-auth/react";
 import Link from "next/link";

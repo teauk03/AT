@@ -1,7 +1,7 @@
 'use client'
 import React, {useState} from 'react';
 import styles from './MusicGameSlide.module.scss';
-import games from '@/data/dataCarouselItem';
+import games from '@/data/data-carousel-item';
 
 const MusicGameSlide = () => {
     const [activeItem, setActiveItem] = useState<number | null>(null);

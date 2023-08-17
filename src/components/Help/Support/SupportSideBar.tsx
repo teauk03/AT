@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './support.module.scss';
 import AppLink from "@/components/UI/Link/AppLink";
-import {SUPPORT_SLB_ITEMS} from "@/data/dataMenuItem";
+import {SUPPORT_SLB_ITEMS} from "@/data/data-navbar-menu";
 import {SupportSideBarProps} from "@/types/Help";
 
 const SupportSideBar = ({session}: SupportSideBarProps) => {
