@@ -3,74 +3,71 @@ import React, {useState} from 'react';
 import styles from './Calendar.module.css';
 
 const Calendar = () => {
-    /* 년월 상태 관리 */
-    const [year, setYear] = useState(2023);
-    const [month, setMonth] = useState(8);
-
     const weekDays = ['월', '화', '수', '목', '금', '토', '일'];
-    const monthDays = 31;
-    let dayCounter = 0;
 
-    /* 년월 변경 핸들러 */
-    const handleSwipe = (direction: 'left' | 'right') => {
-        if (direction === 'left') {
-            setMonth((prevMonth) => (prevMonth === 12 ? 1 : prevMonth + 1));
-            if (month === 12) {
-                setYear((prevYear) => prevYear + 1);
-            }
-        } else {
-            setMonth((prevMonth) => (prevMonth === 1 ? 12 : prevMonth - 1));
-            if (month === 1) {
-                setYear((prevYear) => prevYear - 1);
-            }
+    // 현재 주의 시작 날짜 설정
+    const now = new Date();
+    const dayOfWeek = now.getDay();
+    const startOfWeek = new Date(now.getFullYear(), now.getMonth(), now.getDate() - (dayOfWeek === 0 ? 6 : dayOfWeek - 1));
+    const [currentWeekStart, setCurrentWeekStart] = useState(startOfWeek);
+
+    // 현재 선택된 날짜 설정
+    const [selectedDate, setSelectedDate] = useState(now);
+
+    // 현재 주의 일자를 가져오는 함수
+    const getDaysOfWeek = () => {
+        const daysOfWeek = [];
+        for (let i = 0; i < 7; i++) {
+            const day = new Date(currentWeekStart.getFullYear(), currentWeekStart.getMonth(), currentWeekStart.getDate() + i);
+            daysOfWeek.push(day);
         }
+        return daysOfWeek;
+    };
+
+    // 주를 이동하는 함수
+    const moveWeek = (direction: 'left' | 'right') => {
+        const newWeekStart = new Date(currentWeekStart.getFullYear(), currentWeekStart.getMonth(), currentWeekStart.getDate() + (direction === 'left' ? 7 : -7));
+        setCurrentWeekStart(newWeekStart);
+        setSelectedDate(newWeekStart);
+    };
+
+    // 날짜 클릭 처리 함수
+    const handleDateClick = (date: Date) => {
+        setSelectedDate(date);
     };
 
     return (
         <div className={styles.container}>
             <div className={styles.calendar}>
-                <div className={styles.front}>
-                    <div className={styles.currentMonth}>
-                        <table className={styles.weeks}>
-                            <thead>
-                            <tr>
-                                {weekDays.map((day) => <th key={day}>{day}</th>)}
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td colSpan={7}>
-                                    <div className={styles.swipeArea}>
-                                        <button onClick={() => handleSwipe('right')}>←</button>
-                                        <span>{year}.{month}</span>
-                                        <button onClick={() => handleSwipe('left')}>→</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            {[...Array(5)].map((_, weekIndex) => (
-                                <tr key={weekIndex}>
-                                    {[...Array(7)].map((_, dayIndex) => {
-                                        let dayClass = '';
-                                        if (dayIndex === 6) dayClass = styles.sunday;
-                                        if (dayIndex === 5) dayClass = styles.saturday;
-                                        if (weekIndex === 0 && dayIndex < 4) {
-                                            return <td key={dayIndex} className={styles.lastMonth}></td>;
-                                        }
-                                        dayCounter++;
-                                        if (dayCounter > monthDays) {
-                                            return <td key={dayIndex}></td>;
-                                        }
-                                        let displayDay = dayCounter;
-                                        if (dayCounter < 10) {
-                                            displayDay = Number(String(dayCounter).slice(1));
-                                        }
-                                        return <td key={dayIndex} className={dayClass}>{displayDay}</td>;
-                                    })}
-                                </tr>
-                            ))}
-                            </tbody>
-                        </table>
-                    </div>
+                {/* 날짜 헤더 부분 (요일과 현재 날짜 표시) */}
+                <ul className={styles.header}>
+                    <li className={styles['current-date']}>
+                        {selectedDate.getFullYear()}.{(selectedDate.getMonth() + 1).toString().padStart(2, '0')}.{selectedDate.getDate().toString().padStart(2, '0')}
+                    </li>
+
+                    {/* 요일 */}
+                    <li className={styles['week-days']}>
+                        {weekDays.map((day, index) => (
+                            <div key={day} className={`${index === 6 ? styles.sunday : index === 5 ? styles.saturday : ''}`}>
+                                {day}
+                            </div>
+                        ))}
+                    </li>
+                </ul>
+
+                {/* 달력 날짜 부분 (이번 주의 일자 표시) */}
+                <div className={styles.monthDays}>
+                    <button className={styles.arrow} onClick={() => moveWeek('right')}>←</button>
+                    {getDaysOfWeek().map((day, index) => (
+                        <span key={index} className={`
+                        ${currentWeekStart.getMonth() !== day.getMonth() ? styles.inactive : ''}
+                        ${selectedDate.getDate() === day.getDate() ? styles.selected : ''}
+                        ${index === 6 ? styles.sunday : index === 5 ? styles.saturday : ''}
+                        `} onClick={() => handleDateClick(day)}>
+                            {day.getDate()}
+                        </span>
+                    ))}
+                    <button className={styles.arrow} onClick={() => moveWeek('left')}>→</button>
                 </div>
             </div>
         </div>

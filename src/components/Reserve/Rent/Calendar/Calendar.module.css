@@ -1,48 +1,57 @@
+@charset "UTF-8";
 .container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f3f4f6; }
+  flex-direction: column;
+  align-items: center; }
 
 .calendar {
-  width: 300px;
-  min-height: 280px;
   border: 1px solid #ccc;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: #fff; }
+  padding: 10px;
+  width: 300px; }
 
-.front {
-  padding: 20px; }
-
-.currentMonth .weeks {
-  width: 100%;
-  border-collapse: collapse; }
-  .currentMonth .weeks thead th {
-    text-align: center;
-    padding: 8px;
-    background-color: #f0f1f3; }
-  .currentMonth .weeks tbody td {
-    text-align: center;
-    padding: 8px;
-    border: 1px solid #e0e1e3; }
-    .currentMonth .weeks tbody td.lastMonth {
-      color: #aaa; }
-  .currentMonth .weeks .sunday {
-    color: red; }
-  .currentMonth .weeks .saturday {
-    color: blue; }
-.currentMonth .swipeArea {
+/* 날짜 헤더 */
+.header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0; }
-  .currentMonth .swipeArea button {
-    background-color: transparent;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
-    transition: color 0.3s; }
-    .currentMonth .swipeArea button:hover {
-      color: #007bff; }
+  justify-content: space-around;
+  flex-direction: column;
+  font-weight: bold; }
+  .header .week-days {
+    width: 14%;
+    display: flex;
+    text-align: center; }
+  .header .current-date {
+    text-align: center;
+    margin: 10px 0; }
+
+/* 달력 날짜 */
+.monthDays {
+  display: flex;
+  align-items: center; }
+  .monthDays .days {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between; }
+    .monthDays .days span {
+      width: 14%;
+      text-align: center;
+      padding: 5px 0; }
+
+/* 버튼 */
+.arrow {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer; }
+
+.arrow:hover {
+  color: #007bff; }
+
+/* 주말 표시 */
+.sunday {
+  color: red; }
+
+.saturday {
+  color: blue; }
 
 /*# sourceMappingURL=Calendar.module.css.map */
