@@ -38,7 +38,6 @@ const JoinComponent: FC = (): JSX.Element => {
         e.preventDefault();
         const data = {birth, name, email, password};
         await signup(data)
-        //if (error) alert(error);
     };
 
     return (
@@ -74,11 +73,7 @@ const JoinComponent: FC = (): JSX.Element => {
                     <DivisionLine text={'이메일로 가입하기'}/>
 
                     {/* Sign Up */}
-                    <form
-                        className={styles.form}
-                        onSubmit={handleSubmit}
-                        noValidate
-                    >
+                    <form className={styles.form} onSubmit={handleSubmit} noValidate>
                         <AuthInputField
                             label={'Email'}
                             htmlFor={'emailForm'}

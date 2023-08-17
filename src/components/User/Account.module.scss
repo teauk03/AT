@@ -1,123 +1,145 @@
 @use "@/styles/variables";
 @use '@/styles/Breakpoints';
 
-/* [UserAccount Start] Container Style */
+/* [UserAccount Start] Container */
 .profile-container {
   margin: 0 auto;
   width: 900px;
-  height: 100vh;
+  height: auto;
   display: flex;
+}
 
-  .profile-wrapper {
-    margin: 0;
-    border-left: variables.$border-default-2px;
+/* [UserAccount] 메인 컨텐츠 */
+.profile-wrapper {
+  margin: 0;
+  border-left: variables.$border-default-2px;
+}
 
-    .profile-main {
-      width: 680px;
-      padding: 1.4rem 0 0 0;
+/* [UserAccount] 폼 디자인 */
+.profile-form {
+  width: 680px;
+  padding: 1.4rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  gap: .5rem;
+
+  .profile-title-wrapper {
+    width: 100%;
+    margin-left: 4rem;
+    padding: 3rem 0 0 0;
+    border-bottom: variables.$border-default-2px;
+
+    .profile-title {
+      margin-left: 3rem;
+      padding: 0 0 .5rem 1rem;
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+  }
+
+
+  /* User Title */
+  .user-image-wrapper {
+    margin: 3rem auto 0 0;
+    padding-left: 5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* User Info */
+  .section-user-info {
+    width: 90%;
+    margin: .5rem 0 25rem 0;
+
+    .account-item {
+      padding: 1.5rem 3rem .5rem 3rem;
+      border-bottom: 1.3px solid #DBDBDB;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      align-content: center;
-      gap: .5rem;
+      gap: 2rem;
 
-      .profile-title-wrapper {
-        width: 100%;
-        margin-left: 4rem;
-        padding: 3rem 0 0 0;
-        border-bottom: variables.$border-default-2px;
-
-        .profile-title {
-          margin-left: 3rem;
-          padding: 0 0 .5rem 1rem;
-          font-size: 1.8rem;
-          font-weight: 500;
-        }
-      }
-
-
-      /* User Title */
-      .user-image-wrapper {
-        margin: 3rem auto 0 0;
-        padding-left: 5rem;
+      .account-item-name {
+        width: 115px;
+        margin-bottom: 0;
+        font-size: 1rem;
         font-weight: bold;
+      }
+
+      .input {
+        width: 300px;
+        border: none;
+        outline: none;
+        background-color: rgba(0, 0, 0, 0);
+        margin-left: 3rem;
+      }
+
+      /* Check & X mark */
+      .save-wrapper {
         display: flex;
-        align-items: center;
-        gap: 1rem;
+        gap: 10px;
+
+        .exit-btn { color: red; }
+        .check-btn { color: green; }
       }
 
-      /* User Info */
-      .section-user-info {
-        width: 90%;
-        margin-top: .5rem;
-
-        .account-item {
-          padding: 1.5rem 3rem .5rem 3rem;
-          border-bottom: 1.3px solid #DBDBDB;
-          display: flex;
-          align-items: center;
-          gap: 2rem;
-
-          .account-item-name {
-            width: 115px;
-            margin-bottom: 0;
-            font-size: 1rem;
-            font-weight: bold;
-          }
-
-          .input {
-            width: 300px;
-            border: none;
-            outline: none;
-            background-color: rgba(0, 0, 0, 0);
-            margin-left: 3rem;
-          }
-
-          /* Check & X mark */
-          .save-wrapper {
-            display: flex;
-            gap: 10px;
-
-            .exit-btn { color: red; }
-            .check-btn { color: green; }
-          }
-
-          /* Post & Comment Count */
-          .count {
-            width: 350px;
-            margin: 0 0 0 3rem;
-          }
-
-          /* Edit Button */
-          .edit-wrapper {
-            width: 30px;
-            text-align: center;
-
-            button { font-size: 13px; }
-          }
-
-          /* Check  X mark & Edit Button */
-          .edit-btn {
-            border: none;
-            background: none;
-          }
-        }
+      /* Post & Comment Count */
+      .count {
+        width: 350px;
+        margin: 0 0 0 3rem;
       }
 
-      /* [Component] UserAccount */
-      .delete-wrapper {
-        width: 90%;
-        padding: 1.5rem 0 0 3rem;
+      /* Edit Button */
+      .edit-wrapper {
+        width: 30px;
+        text-align: center;
 
-        .delete-btn {
-          width: 65px;
-          height: 20px;
-          margin-right: auto;
-          font-size: 15px;
-          line-height: 24px;
-          color: #767678;
-        }
+        button { font-size: 13px; }
+      }
+
+      /* Check  X mark & Edit Button */
+      .edit-btn {
+        border: none;
+        background: none;
       }
     }
   }
+}
+
+
+
+/* [UserAccount] 텍스트 박스
+ * [UserAccount] 이메일 변경
+ * [UserAccount] 비밀번호 변경
+ * [UserAccount] 회원 탈퇴 */
+.profile-text-wrap {
+  margin-left: 4rem;
+  padding: 1rem 0;
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  /* [UserAccount] 이메일 변경 */
+
+  /* [UserAccount] 비밀번호 변경 */
+
+  /* [UserAccount] 회원 탈퇴 */
+  .secede-sub-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}
+
+/* [UserAccount] 폼 제출 버튼 */
+.account-form-btn {
+  margin: 3rem 0 25rem 0;
+  padding: 1rem 1.5rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
 }

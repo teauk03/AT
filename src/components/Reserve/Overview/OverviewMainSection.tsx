@@ -4,13 +4,13 @@ import styles from "@/app/(reserve)/reserve/[overview]/ReserveOverview.module.sc
 import {useSearchParams} from "next/navigation";
 import SvgIconComponent from "@/components/SvgIconComponent";
 import DATA from '@/data/Reserve/data-overview-information.json';
-import GAMES_DATA from '@/data/Reserve/data-overview-games.json';
+import GAME_CARDS from "@/data/Game/data-game-card.json";
 import ComplexSvgIconComponent from "@/components/SvgComplexIconComponent";
 
 const OverviewMainSection = () => {
     const searchParams = useSearchParams();
     const GAME_TITLE = searchParams ? decodeURIComponent(searchParams.get('game') as string) : '';
-    const gameInfo = GAMES_DATA.games.find(game => game.title === GAME_TITLE);
+    const gameInfo = GAME_CARDS.ITEMS.find(game => game.title === GAME_TITLE);
     const GAME_PRICE = gameInfo ? gameInfo.price : 'N/A';
 
     return (

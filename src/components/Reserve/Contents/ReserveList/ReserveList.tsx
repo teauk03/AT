@@ -8,7 +8,7 @@ const ReserveList = () => {
     /* [예약카드] 게임 카드 목록 */
     const RESERVE_GAME_LIST = () => (
         <>
-            {GAME_CARDS.GAME_CARDS.map((game: GameCards, index: number) => (
+            {GAME_CARDS.ITEMS.map((game: GameCards, index: number) => (
                 <div key={index} className={styles['game-card']}>
                     {/* 게임카드 헤더 */}
                     <div className={styles['game-card-header']}>
@@ -30,11 +30,11 @@ const ReserveList = () => {
                         <Link
                             className={`${styles['search-buttons']} ${styles['card-buttons']}`}
                             href={`/reserve/overview?game=${encodeURIComponent(game.title)}`}
-                        >Apply Now</Link>
+                        >예약하기</Link>
                         <Link
                             className={`${styles['search-buttons']} ${styles['card-buttons-msg']}`}
-                            href={'/reserve'}
-                        >Messages</Link>
+                            href={'/support'}
+                        >문의하기</Link>
                     </div>
                 </div>
             ))}

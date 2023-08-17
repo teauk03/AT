@@ -1,11 +1,15 @@
 {
-  "GAME_CARDS": [
+  "ITEMS": [
     {
       "company": "Konami",
       "title": "Sound Vortex Exceed Gear",
       "subtitle": "임시 이미지 입니다.",
       "backgroundColor": "#2e2882",
       "price": "12,000",
+      "time": "1 hour",
+      "genre": "Music",
+      "series_first": "Konami",
+      "series_last": "Bemami Series",
       "image": "https://i.namu.wiki/i/xXtrnPvjNaN4ubh5urw1qIZXCkpUOmP_M6Fai3HptNYTYcattGrJpN5TeqSLLY75aa9d6W--c_mLwskRRMkTeARjCBU1_Bd5GBShBh3V1Vsy0fp_ZqPI4LYpbhzGwA32oSTwvDA-eUt_tCQ4mQJkPg.webp"
     },
     {
@@ -14,6 +18,10 @@
       "subtitle": "임시 이미지 입니다.",
       "backgroundColor": "#55acee",
       "price": "12,000",
+      "time": "1 hour",
+      "genre": "Music",
+      "series_first": "Konami",
+      "series_last": "Bemami Series",
       "image": "https://i.namu.wiki/i/685EDA7NlC346gHkMJo_ikrPvDNXT_-ffokpNTx0KzKLoU3Own95f3HSsvf8dzBlxW7ktYeb62mD_kyTouSz_GqWmBG4Txgqz_eSzsN1vPdXX75MvBHlOxAg4qQHxt4Jj6fDXMDgUcpDf7Pndts60A.webp"
     },
     {
@@ -21,7 +29,11 @@
       "title": "MAIMAI DX FESTiVAL PLUS",
       "subtitle": "임시 이미지 입니다.",
       "backgroundColor": "#55acee",
-      "price": "12,000",
+      "price": "6,000",
+      "time": "1 hour",
+      "genre": "Music",
+      "series_first": "Namco",
+      "series_last": "",
       "image": "https://i.namu.wiki/i/YcIe2IM4zE0mpznjrEeIGAdpYxZhTUP0oEbEI9l7WO2N27NrdDbTdgsXQdMEsq0qxbnjkCh_hdGewYssnVIPYg.svg"
     },
     {
@@ -30,6 +42,10 @@
       "subtitle": "임시 이미지 입니다.",
       "backgroundColor": "#55acee",
       "price": "12,000",
+      "time": "1 hour",
+      "genre": "Music",
+      "series_first": "Konami",
+      "series_last": "Bemami Series",
       "image": "https://i.namu.wiki/i/Wd1HKpUUPiWPf9FYpaiDFFy3Yp51MKN6ohizK7JbRXjFpZkPQfBF_6bWQCg5wcHC78Hl3Qk9vH8x2ceNO6PjNeOrhpFKUmfT1kphSp7LtDiJe-gVtP25pOuZA93ZKqid6MSSmo2R7xHdfYFR7TImxQ.webp"
     },
     {
@@ -38,6 +54,10 @@
       "subtitle": "임시 이미지 입니다.",
       "backgroundColor": "#55acee",
       "price": "12,000",
+      "time": "1 hour",
+      "genre": "Music",
+      "series_first": "Konami",
+      "series_last": "Bemami Series",
       "image": "https://i.namu.wiki/i/Wd1HKpUUPiWPf9FYpaiDFFy3Yp51MKN6ohizK7JbRXjFpZkPQfBF_6bWQCg5wcHC78Hl3Qk9vH8x2ceNO6PjNeOrhpFKUmfT1kphSp7LtDiJe-gVtP25pOuZA93ZKqid6MSSmo2R7xHdfYFR7TImxQ.webp"
     },
     {
@@ -46,6 +66,10 @@
       "subtitle": "임시 이미지 입니다.",
       "backgroundColor": "#55acee",
       "price": "12,000",
+      "time": "1 hour",
+      "genre": "Music",
+      "series_first": "Konami",
+      "series_last": "Bemami Series",
       "image": "https://www.konami.com/kde_cms/na_publish/uploads/konami-logo.png"
     },
     {
@@ -54,6 +78,10 @@
       "subtitle": "임시 이미지 입니다.",
       "backgroundColor": "#55acee",
       "price": "12,000",
+      "time": "1 hour",
+      "genre": "Music",
+      "series_first": "Konami",
+      "series_last": "Bemami Series",
       "image": "https://www.konami.com/kde_cms/na_publish/uploads/konami-logo.png"
     },
     {
@@ -62,6 +90,10 @@
       "subtitle": "임시 이미지 입니다.",
       "backgroundColor": "#55acee",
       "price": "12,000",
+      "time": "1 hour",
+      "genre": "Music",
+      "series_first": "Konami",
+      "series_last": "Bemami Series",
       "image": "https://www.konami.com/kde_cms/na_publish/uploads/konami-logo.png"
     }
   ]

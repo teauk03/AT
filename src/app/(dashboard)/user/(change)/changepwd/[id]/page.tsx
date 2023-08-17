@@ -1,10 +1,9 @@
 import React from 'react';
 import styles from "@/components/User/Account.module.scss";
 import SideNavigationMenu from "@/components/User/UserAsideNavbar/AsideNavbar";
-import AccountContainer from "@/components/User/AccountContainer";
 import {authOptions} from "@/pages/api/auth/[...nextauth]";
 import {getServerSession} from "next-auth";
-import accountDetails from "@/data/Account/account-menu.json";
+import InputBox from "@/components/UI/Input/InputBox";
 
 
 const ChangePassword = async () => {
@@ -26,16 +25,37 @@ const ChangePassword = async () => {
             {/* Side Navbar */}
             <SideNavigationMenu/>
 
-            <div className={styles['profile-wrapper']}>
-                <main className={styles['profile-main']}>
+            <main className={styles['profile-wrapper']}>
+                <form className={styles['profile-form']}>
                     {/* MyPage Title */}
-                    <div className={styles['profile-title-wrapper']}>
+                    <section className={styles['profile-title-wrapper']}>
                         <h2 className={styles['profile-title']}>비밀번호 변경</h2>
-                    </div>
-
-
-                </main>
-            </div>
+                    </section>
+                    <section>
+                        <InputBox
+                            name={'password'}
+                            type={'password'}
+                            label={'비밀번호를 입력하세요.'}
+                            autoComplete={'current-password'}
+                        />
+                        <InputBox
+                            name={'password'}
+                            type={'password'}
+                            label={'새로운 비밀번호를 입력하세요.'}
+                            autoComplete={'current-password'}
+                        />
+                        <InputBox
+                            name={'password'}
+                            type={'password'}
+                            label={'새로운 비밀번호를 다시 입력하세요.'}
+                            autoComplete={'current-password'}
+                        />
+                    </section>
+                    <button className={styles['account-form-btn']}>
+                        변경하기
+                    </button>
+                </form>
+            </main>
         </div>
     )
 };

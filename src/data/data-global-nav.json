@@ -23,7 +23,7 @@
       "route": "/reserve/home",
       "subMenu": [
         {
-          "title": "대여안내",
+          "title": "예약확인",
           "route": "/reserve/home"
         }
       ]

@@ -168,7 +168,6 @@
     /* 게임 설명 */
     .game-explain {
       background-color: var(--header-bg-color);
-      margin-left: 40px;
       border-radius: 0 0 8px 8px;
 
       .game-bg {
@@ -366,6 +365,7 @@
   /* [Search Bar] 검색 박스 */
   .game-overview {
     display: flex;
+    gap: 11.875rem;
   }
   .game-cards,
   .searched-bar {

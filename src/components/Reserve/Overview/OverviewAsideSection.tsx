@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from "@/app/(reserve)/reserve/[overview]/ReserveOverview.module.scss";
-import GAMES_DATA from '@/data/Reserve/data-overview-games.json';
+import GAME_CARDS from "@/data/Game/data-game-card.json";
 
 const OverviewAsideSection = () => {
     return (
         <section className={styles['game-overview-cards']}>
-            {GAMES_DATA.games.map((game) => (
+            {GAME_CARDS.ITEMS.map((game) => (
                 <div className={styles['game-overview-card']}>
                     {/* 상세페이지 아이템 */}
                     <div className={`${styles['game-card']} ${styles['overview-card']}`}>

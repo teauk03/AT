@@ -26,8 +26,8 @@ const Setting = async () => {
             {/* Side Navbar */}
             <SideNavigationMenu/>
 
-            <div className={styles['profile-wrapper']}>
-                <main className={styles['profile-main']}>
+            <main className={styles['profile-wrapper']}>
+                <form className={styles['profile-form']}>
                     {/* MyPage Title */}
                     <div className={styles['profile-title-wrapper']}>
                         <h2 className={styles['profile-title']}>기본정보</h2>
@@ -38,8 +38,8 @@ const Setting = async () => {
                         user={user}
                         accountData={USER_ACCOUNT.ITEMS}
                     />
-                </main>
-            </div>
+                </form>
+            </main>
         </div>
     );
 }
