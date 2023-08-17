@@ -12,96 +12,104 @@
   position: sticky;
   top: 0;
   z-index: 1;
+}
 
-  /* Navigation Home */
-  .navbar-wrapper {
+/* SingIn SingUp Wrap */
+.login-menu-wrap {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  gap: .5rem;
+}
+
+/* [Responsive] Hamburger Menu */
+.hamburgerlogowrap {
+  display: flex;
+  align-items: center;
+}
+.hamburger-btn {
+  display: none;
+  color: #D7D7D7;
+  background: #1F1D2B;
+  border: none;
+  margin-right: 10px;
+}
+
+/* Navigation Home */
+.navbar-wrapper {
+  display: flex;
+  align-items: center;
+
+  .navbar-logo {
+    height: 100%;
+  }
+}
+
+/* [Navigation] Link Wrap */
+.nav-wrap {
+  margin: 0 auto 0 3rem;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 3rem;
+
+  .nav-link {
+    position: relative;
     display: flex;
-    align-items: center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: .9rem;
+    text-align: center;
 
-    .navbar-logo {
-      height: 100%;
+    /* [Link] 네비게이션 아이템 */
+    .nav-item {
+      font-size: 1.25rem;
+      color: #333;
+    }
+
+    /* [active] 네비게이션 액티브 이벤트 */
+    .active-link {
+      background: linear-gradient(93.51deg, #9B51E0 2.84%, #3081ED 99.18%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      border-bottom: 1.5px solid #9B51E0;
     }
   }
+}
 
-  /* [Navigation] Link Wrap */
-  .nav-wrap {
-    margin: 0 auto 0 3rem;
-    display: flex;
-    gap: 2rem;
+/* [Nav] 메가 메뉴 */
+.mega-menu {
+  width: 100%;
+  padding: .5rem 0 .5rem 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border: 1px solid #ccc;
+  background: #fff;
+  transition: all 0.3s ease;
+  display: none;
 
-    .nav-link {
-      position: relative;
-      font-style: normal;
-      font-weight: 600;
-      font-size: .9rem;
+  .sub-menu {
+    margin: 0;
+    text-align: center;
 
-      /* [Link] 네비게이션 아이템 */
-      .nav-item {
-        color: #333;
-      }
+    li {
+      padding: 10px 0;
+    }
 
-      /* [active] 네비게이션 액티브 이벤트 */
-      .active-link {
-        background: linear-gradient(93.51deg, #9B51E0 2.84%, #3081ED 99.18%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        border-bottom: 1.5px solid #9B51E0;
-      }
+    li:hover {
+      background: #f0f0f0;
+    }
 
-      /* [passive] 네비게이션 패시브 이벤트 */
-      .non-active-link:not(:last-child) {
-        margin-right: 32px;
-      }
-
-      /* [Link] 네비게이션 서브 아이템 */
-      &:hover .sub-menu {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-      }
-
-      .sub-menu {
-        //display: block; // 항상 표시
-        display: none;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        left: 0;
-        background: #fff;
-        border: 1px solid #ccc;
-        transition: all 0.3s ease;
-
-        li {
-          padding: 10px;
-        }
-
-        li:hover {
-          background: #f0f0f0;
-        }
-      }
+    .sub-nav-item {
+      text-align: center;
     }
   }
+}
 
-  /* SingIn SingUp Wrap */
-  .login-menu-wrap {
-    display: flex;
-    align-items: center;
-    align-content: center;
-    gap: .5rem;
-  }
-
-  /* [Responsive] Hamburger Menu */
-  .hamburgerlogowrap {
-    display: flex;
-    align-items: center;
-  }
-  .hamburger-btn {
-    display: none;
-    color: #D7D7D7;
-    background: #1F1D2B;
-    border: none;
-    margin-right: 10px;
-  }
+.nav-link:hover .mega-menu {
+  display: block; // 메뉴 아이템에 호버하면 메가 메뉴 출력
 }
 
 /* [Navigation User Session Wrap]
