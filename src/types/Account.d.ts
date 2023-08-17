@@ -37,8 +37,12 @@ export interface UserData {
 /* 사용자 데이터 컴포넌트의 속성.
  * accountDetails - 사용자의 계정 세부 정보 */
 export interface UserDataProps {
+    user: UserData,
+    accountData: AccountDetail[],
+}
+
+export interface UserProfileData {
     user: UserData;
-    accountData: AccountDetail[];
 }
 
 

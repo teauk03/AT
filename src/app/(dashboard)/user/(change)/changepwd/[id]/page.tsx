@@ -1,12 +1,13 @@
 import React from 'react';
-import {getServerSession} from "next-auth";
-import {authOptions} from "@/pages/api/auth/[...nextauth]";
 import styles from "@/components/User/Account.module.scss";
 import SideNavigationMenu from "@/components/User/UserAsideNavbar/AsideNavbar";
 import AccountContainer from "@/components/User/AccountContainer";
+import {authOptions} from "@/pages/api/auth/[...nextauth]";
+import {getServerSession} from "next-auth";
 import accountDetails from "@/data/Account/account-menu.json";
 
-const ChangeId = async () => {
+
+const ChangePassword = async () => {
     const session = await getServerSession(authOptions);
     const user = session?.user || null;
 
@@ -20,7 +21,6 @@ const ChangeId = async () => {
         };
     }
 
-
     return (
         <div className={styles['profile-container']}>
             {/* Side Navbar */}
@@ -30,19 +30,14 @@ const ChangeId = async () => {
                 <main className={styles['profile-main']}>
                     {/* MyPage Title */}
                     <div className={styles['profile-title-wrapper']}>
-                        <h2 className={styles['profile-title']}>이메일 변경</h2>
+                        <h2 className={styles['profile-title']}>비밀번호 변경</h2>
                     </div>
 
-                    {/* Account Contents */}
-                    {/* TODO: 타입 지정 및 별도의 컴포넌트로 분리 고려중 */}
-                    <AccountContainer
-                        user={user}
-                        accountDetails={accountDetails.accountDetails}
-                    />
+
                 </main>
             </div>
         </div>
     )
 };
 
-export default ChangeId;
+export default ChangePassword;

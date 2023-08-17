@@ -4,18 +4,15 @@ import styles from "../Navbar.module.scss";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 import {MenuItemProps} from '@/types/Navigation';
+import {useSession} from "next-auth/react";
 
 const GlobalNavItems = ({gblMenuItems}: MenuItemProps) => {
+    const {data: session} = useSession();
     const currentRoute = usePathname();
     const [showSubMenu, setShowSubMenu] = useState(false);
 
-    const handleMouseEnter = () => {
-        setShowSubMenu(true);
-    };
-
-    const handleMouseLeave = () => {
-        setShowSubMenu(false);
-    };
+    const handleMouseEnter = () => setShowSubMenu(true);
+    const handleMouseLeave = () => setShowSubMenu(false);
 
     return (
         <ul className={styles['nav-wrap']} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
@@ -32,7 +29,11 @@ const GlobalNavItems = ({gblMenuItems}: MenuItemProps) => {
                             <ul className={styles['sub-menu']} key={item.route}>
                                 {item.subMenu.map((subItem) => (
                                     <li className={styles['sub-nav-link']} key={subItem.route}>
-                                        <Link href={subItem.route} className={styles['sub-nav-item']}>
+                                        <Link
+                                            href={subItem.title === "마이페이지" && session?.user?._id
+                                            ? `/user/mypage/${session.user.name}`
+                                            : subItem.route}
+                                              className={styles['sub-nav-item']}>
                                             {subItem.title}
                                         </Link>
                                     </li>

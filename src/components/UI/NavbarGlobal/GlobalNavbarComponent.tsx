@@ -18,19 +18,11 @@ import {MenuItem} from '@/types/Navigation';
 const GlobalNavbarComponent = () => {
     /* [Client] 유저 세션 사용 */
     const {data: session} = useSession();
-
-    const [
-        gblMenuItems,
-        setGlbMenuItems
-    ] = useState<MenuItem[]>(GLOBAL_NAV.ITEMS);
+    const [gblMenuItems, setGlbMenuItems] = useState<MenuItem[]>(GLOBAL_NAV.ITEMS);
 
     /* [State] 모달 클릭 여부 */
-    const [
-        isMenClicked,
-        setMenuClicked
-    ] = useState(false);
+    const [isMenClicked, setMenuClicked] = useState(false);
     const modalRef = useRef<HTMLElement | null>(null);
-
 
     /* 함수 실행시 State false -> true */
     const setIsUserModalClicked = () => setMenuClicked(!isMenClicked);

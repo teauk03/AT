@@ -28,9 +28,6 @@ const Setting = async () => {
 
             <div className={styles['profile-wrapper']}>
                 <main className={styles['profile-main']}>
-                    {/* User Title */}
-                    {/*<UserImage user={user} accountDetails={accountDetails}/>*/}
-
                     {/* MyPage Title */}
                     <div className={styles['profile-title-wrapper']}>
                         <h2 className={styles['profile-title']}>기본정보</h2>
