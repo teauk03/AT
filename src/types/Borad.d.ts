@@ -84,3 +84,7 @@ export interface MongoPost {
     division_title: string | null;
     division: string | null;
 }
+
+export interface pathTypeProps {
+    path: string;
+}

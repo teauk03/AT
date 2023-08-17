@@ -30,13 +30,8 @@ import IsForumRoute from "@/components/Forum/AsideNavbar/isForumRoute";
  * @see src\utils\fetchPostsData.ts
  * @see src\utils\fetchSearchPostsData.ts
  **/
-const ForumContainer = (
-    { result: initialPosts, totalPosts, page, path }: NoticeItemProps & { path: string }
-) => {
-    const {currentPage, result, totalPages, setCurrentPage} = usePaginationLogic(
-        `/api/${path}/list`, page, initialPosts, totalPosts
-    );
-
+const ForumContainer = () => {
+    const PATH = 'post';
 
     /* Forum Header */
     const renderForumHeader = () => <ForumHeader/>;
@@ -46,18 +41,14 @@ const ForumContainer = (
             {/* 커뮤니티 네비게이션 */}
             <IsForumRoute />
             {/* 게시글 렌더링 */}
-            <ForumItem result={result} path='forum'/>
+            <ForumItem path={PATH}/>
         </div>
     );
 
     const renderForumFooter = () => (
         <>
             {/* [Footer] 페이지 네이션 */}
-            <PaginationForum
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-                totalPages={totalPages}
-            />
+            <PaginationForum path={PATH}/>
             {/* [Footer] 커뮤니티 검색 */}
             <SearchForum/>
         </>

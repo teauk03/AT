@@ -1,14 +1,8 @@
 'use client'
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import styles from "./Pagination.module.scss";
 import SvgIconComponent from "@/components/SvgIconComponent";
-
-type ForumFooterProps = {
-    currentPage: number;
-    setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
-    totalPages: number;
-}
-
+import {pathTypeProps} from "@/types/Borad";
 
 /**
  * 포럼의 페이지네이션 컴포넌트
@@ -18,27 +12,31 @@ type ForumFooterProps = {
  * @param {number} props.totalPages - 전체 페이지 수
  * @returns {JSX.Element} 페이지네이션 컨트롤을 렌더링하는 요소
  */
-const PaginationForum = (
-    {currentPage, setCurrentPage, totalPages}: ForumFooterProps
-) => {
+const PaginationForum = ({path}: pathTypeProps) => {
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(0);
 
-
-    /* currentPage 상태 변경 후 스크롤 적용 */
     useEffect(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, [currentPage]);
+        const fetchData = async () => {
+            const res = await fetch(`/api/${path}/list`);
+            const result = await res.json();
+            const { totalPosts } = result;
+            setTotalPages(Math.ceil(totalPosts / 10));
+        };
+        fetchData();
+    }, [path]);
 
     const handlePreviousPage = () => {
         if (currentPage > 1) {
             setCurrentPage(currentPage - 1);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({top: 0, behavior: 'smooth'});
         }
     };
 
     const handleNextPage = () => {
         if (currentPage < totalPages) {
             setCurrentPage(currentPage + 1);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({top: 0, behavior: 'smooth'});
         }
     };
 
