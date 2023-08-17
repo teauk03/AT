@@ -1,45 +1,45 @@
-.container {
-  max-width: 400px;
-  margin: auto;
-  padding: 20px;
-  background-color: #f5f5f5;
-  border-radius: 10px;
-}
+@charset "UTF-8";
+.main {
+  width: 100%;
+  background: #f5f5f5;
+  border-radius: 10px; }
+  .main .container {
+    width: 940px;
+    margin: 0 auto;
+    padding: 5rem 0; }
 
 .header {
-  text-align: center;
-  padding: 10px 0;
-}
+  text-align: left;
+  padding: 10px 0; }
+  .header .title {
+    font-size: 24px;
+    font-weight: bold; }
 
-.title {
-  font-size: 24px;
-  font-weight: bold;
-}
-
+/* 예약 폼 */
 .reserveForm {
   padding: 20px;
-}
+  display: flex;
+  justify-content: center;
+  gap: 5rem; }
+  .reserveForm .label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px; }
+  .reserveForm .input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px; }
+  .reserveForm .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem; }
 
-.formGroup {
-  margin-bottom: 20px;
-}
-
-.label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
+/* 폼 제출 버튼 */
 .submitButton {
-  text-align: center;
-}
+  display: flex;
+  gap: 1rem;
+  text-align: center; }
 
 .button {
   padding: 10px 20px;
@@ -49,10 +49,8 @@
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.3s;
-}
-.button:hover {
-  background-color: #157ab5;
-}
+  transition: background-color 0.3s; }
+  .button:hover {
+    background-color: #157ab5; }
 
 /*# sourceMappingURL=Reserve.module.css.map */
