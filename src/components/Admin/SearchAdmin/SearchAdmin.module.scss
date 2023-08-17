@@ -1,0 +1,81 @@
+/* Admin Search Bar */
+.search-and-user {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  background: #f0f1f6;
+  margin-bottom: 30px;
+
+  [type="search"] {
+    width: 100%;
+    height: 50px;
+    font-size: 1.5rem;
+    padding-left: 15px;
+    background: #fff;
+    color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.075);
+  }
+
+  &::placeholder {
+    color: #171616;
+  }
+
+
+  /* Admin Profile */
+  .admin-profile {
+    display: flex;
+    align-items: center;
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    .notifications {
+      position: relative;
+    }
+
+    .badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: -10px;
+      right: -3px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      font-size: 10px;
+      color: #fff;
+      background: #ec1848;
+    }
+  }
+
+  .greeting {
+    margin: 0 10px 0 20px;
+  }
+}
+
+.search-form {
+  position: relative;
+
+  input {
+    border: none;
+  }
+
+  button {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    border: none;
+    background: none;
+    transform: translateY(-50%);
+
+    svg {
+      width: 26px;
+      height: 26px;
+      fill: #171616;
+    }
+  }
+}

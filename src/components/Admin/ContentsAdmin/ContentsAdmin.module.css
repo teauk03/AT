@@ -1,0 +1,14 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 30px; }
+  .grid-container > article {
+    display: flex;
+    height: 300px;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.075); }
+    .grid-container > article:first-child, .grid-container > article:last-child {
+      grid-column: 1 / -1; }
+
+/*# sourceMappingURL=ContentsAdmin.module.css.map */

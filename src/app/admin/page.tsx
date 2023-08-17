@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from '../../components/Admin/Admin.module.scss';
-import AdminNavbar from "@/components/Admin/AdminNavbar";
-import AdminSearchBar from "@/components/Admin/AdminSearchBar";
-import AdminGridContainer from "@/components/Admin/AdminGridContainer";
+import AdminAside from "@/components/Admin/AsideAdmin/AdminAside";
+import AdminSearchBar from "@/components/Admin/SearchAdmin/AdminSearchBar";
+import AdminGridContainer from "@/components/Admin/ContentsAdmin/AdminGridContainer";
 import AdminSvgItems from "@/components/Admin/AdminSvgItems";
 import {getServerSession} from "next-auth";
 import {authOptions} from "@/pages/api/auth/[...nextauth]";
@@ -21,26 +21,23 @@ const AdminPage = async () => {
     }
 
     return (
-        <>
+        <main className={styles.container}>
             <svg style={{display: 'none'}}>
                 <AdminSvgItems/>
             </svg>
 
             {/* AdminPage Header */}
             <div className={styles['page-header']}>
-                <AdminNavbar/>
+                <AdminAside/>
             </div>
 
             {/* AdminPage Content */}
             <section className={styles['page-content']}>
-                <div className={styles['search-and-user']}>
-                    <AdminSearchBar/>
-                </div>
-
+                <AdminSearchBar/>
                 {/* AdminPage Grid Container */}
                 <AdminGridContainer/>
             </section>
-        </>
+        </main>
     )
 }
 
