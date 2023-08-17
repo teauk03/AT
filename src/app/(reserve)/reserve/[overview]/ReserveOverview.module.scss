@@ -386,6 +386,39 @@
 .explain-contents {
   margin: 0;
 }
+/* [CheckBox & Link] 대여버튼 */
+.overview-move-wrap {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+
+  .overview-input-label {
+    display: flex;
+    gap: .5rem;
+    font-size: 1rem;
+    cursor: pointer;
+
+    span {
+      font-weight: bold;
+    }
+  }
+
+  .move-rent-link {
+    background-color: #f76754;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #d65542;
+    }
+  }
+}
 
 /* Responsive(max-width: 760px) - 상세페이지 아이템 */
 @media screen and (max-width: 760px) {

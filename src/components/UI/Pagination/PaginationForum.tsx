@@ -14,7 +14,7 @@ import {pathTypeProps} from "@/types/Borad";
  */
 const PaginationForum = ({path}: pathTypeProps) => {
     const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(0);
+    const [totalPages, setTotalPages] = useState(1);
 
     useEffect(() => {
         const fetchData = async () => {

@@ -21,7 +21,9 @@ const FooterClientComponent = () => {
                         <div key={index} className={styles['footer-navigate-item']}>
                             <h5>{section.title}</h5>
                             {section.link.map((link, linkIndex) => (
-                                <Link key={linkIndex} href={link.href}>{link.link_title}</Link>
+                                link.href.includes('twitter.com')
+                                ? <a key={linkIndex} target="_blank" href={link.href}>{link.link_title}</a>
+                                : <Link key={linkIndex} href={link.href}>{link.link_title}</Link>
                             ))}
                         </div>
                     ))}

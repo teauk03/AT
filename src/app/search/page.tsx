@@ -53,9 +53,7 @@ const Search = async (query: Query) => {
 
     /* 직렬화 및 역직렬화 */
     const posts = JSON.parse(JSON.stringify(postsData));
-
-    // searchQuery={searchQuery}
-    return <SearchResult posts={posts}/>
+    return <SearchResult posts={posts} searchQuery={searchQuery} searchType={searchType}/>
 };
 
 export default Search;

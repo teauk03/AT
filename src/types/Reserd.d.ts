@@ -9,11 +9,16 @@ export interface GameNavigation {
 
 /* [ReserveHome] 예약 카드 */
 export interface GameCards {
+    game_id: number;
     company: string;
     title: string;
     subtitle: string;
     backgroundColor: string;
     price: string;
+    time: string;
+    genre: string;
+    series_first: string;
+    series_last: string;
     image: string;
 }
 

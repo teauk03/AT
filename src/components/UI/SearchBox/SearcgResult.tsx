@@ -6,12 +6,19 @@ import {MongoPost} from "@/types/Borad";
 import ForumHeader from "@/components/Forum/ForumHeader/ForumHeader";
 import IsForumRoute from "@/components/Forum/AsideNavbar/isForumRoute";
 import SearchForum from "@/components/UI/SearchBox/SearchForum";
+import PaginationForum from "@/components/UI/Pagination/PaginationForum";
 
-/* 검색 결과 - 서버측 렌더링 */
-const SearchResult = (
-    // , searchQuery searchQuery: string searchQuery={searchQuery}
-    {posts}: { posts?: Array<MongoPost>;  }
-) => {
+/**
+ * 검색 결과 컴포넌트
+ * @param {Object} props
+ * @param {Array<MongoPost>} props.posts - 검색 결과로 얻은 게시물 목록
+ * @param {string} props.searchQuery - 사용자가 입력한 검색 쿼리
+ * @param {string} props.searchType - 검색 유형 (예: 'title')
+ * @returns {JSX.Element} 검색 결과 페이지를 렌더링하는 요소
+ */
+const SearchResult = ({posts, searchQuery, searchType}: { posts?: Array<MongoPost> , searchQuery: string , searchType: string}) => {
+    const PATH = `/search?type=${searchType}&q=${searchQuery}`;
+
     return (
         <main className={styles.container}>
             {/* Forum Header */}
@@ -55,12 +62,7 @@ const SearchResult = (
             </div>
 
             {/* [Footer] 페이지 네이션 */}
-            {/*<PaginationForum*/}
-            {/*    currentPage={currentPage}*/}
-            {/*    setCurrentPage={setCurrentPage}*/}
-            {/*    totalPages={totalPages}*/}
-            {/*/>*/}
-
+            <PaginationForum path={PATH}/>
             {/* [Footer] 커뮤니티 검색 */}
             <SearchForum/>
         </main>
