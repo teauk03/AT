@@ -10,8 +10,7 @@ const GlobalNavItems = ({ gblMenuItems }: MenuItemProps) => {
     const currentRoute = usePathname();
 
     const [
-        activeSubMenu,
-        setActiveSubMenu
+        activeSubMenu, setActiveSubMenu
     ] = useState<string | null>(null);
 
     const handleMouseEnter = (title: string) => {
@@ -23,7 +22,7 @@ const GlobalNavItems = ({ gblMenuItems }: MenuItemProps) => {
     };
 
     return (
-        <ul className={styles['nav-link-wrap']} onMouseLeave={handleMouseLeave}>
+        <ul className={styles['nav-wrap']} onMouseLeave={handleMouseLeave}>
             {/* Global Navigation */}
             {gblMenuItems.map((item) => (
                 <li
