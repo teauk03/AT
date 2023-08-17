@@ -1,0 +1,12 @@
+{
+  "ITEMS": [
+    {
+      "route": "/support/myHistory",
+      "label": "내 문의 내역"
+    },
+    {
+      "route": "/support",
+      "label": "상담 봇"
+    }
+  ]
+}

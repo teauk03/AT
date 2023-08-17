@@ -4,10 +4,10 @@ import {getServerSession} from "next-auth";
 import SideNavigationMenu from "@/components/User/UserAsideNavbar/AsideNavbar";
 import AccountContainer from "@/components/User/AccountContainer"
 import {authOptions} from "@/pages/api/auth/[...nextauth]";
-import {accountDetails} from "@/data/Account/dataUserAccount";
+import USER_ACCOUNT from "@/data/Account/data-user-setting.json";
 
 
-const UserProfile = async () => {
+const Setting = async () => {
     const session = await getServerSession(authOptions);
     const user = session?.user || null;
 
@@ -39,7 +39,7 @@ const UserProfile = async () => {
                     {/* Account Contents */}
                     <AccountContainer
                         user={user}
-                        accountDetails={accountDetails}
+                        accountData={USER_ACCOUNT.ITEMS}
                     />
                 </main>
             </div>
@@ -47,4 +47,4 @@ const UserProfile = async () => {
     );
 }
 
-export default UserProfile;
+export default Setting;

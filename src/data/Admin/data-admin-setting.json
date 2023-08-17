@@ -1,0 +1,14 @@
+{
+  "ITEMS": [
+    {
+      "route": "/admin",
+      "svgHref": "#settings",
+      "label": "Settings"
+    },
+    {
+      "route": "/admin",
+      "svgHref": "#options",
+      "label": "Options"
+    }
+  ]
+}

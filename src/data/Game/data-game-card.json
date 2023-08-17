@@ -39,6 +39,30 @@
       "backgroundColor": "#55acee",
       "price": "12,000",
       "image": "https://i.namu.wiki/i/Wd1HKpUUPiWPf9FYpaiDFFy3Yp51MKN6ohizK7JbRXjFpZkPQfBF_6bWQCg5wcHC78Hl3Qk9vH8x2ceNO6PjNeOrhpFKUmfT1kphSp7LtDiJe-gVtP25pOuZA93ZKqid6MSSmo2R7xHdfYFR7TImxQ.webp"
+    },
+    {
+      "company": "Konami",
+      "title": "Jubeat 유비트",
+      "subtitle": "임시 이미지 입니다.",
+      "backgroundColor": "#55acee",
+      "price": "12,000",
+      "image": "https://www.konami.com/kde_cms/na_publish/uploads/konami-logo.png"
+    },
+    {
+      "company": "Konami",
+      "title": "DanceDanceRevolution",
+      "subtitle": "임시 이미지 입니다.",
+      "backgroundColor": "#55acee",
+      "price": "12,000",
+      "image": "https://www.konami.com/kde_cms/na_publish/uploads/konami-logo.png"
+    },
+    {
+      "company": "Konami",
+      "title": "Pop'n music",
+      "subtitle": "임시 이미지 입니다.",
+      "backgroundColor": "#55acee",
+      "price": "12,000",
+      "image": "https://www.konami.com/kde_cms/na_publish/uploads/konami-logo.png"
     }
   ]
 }

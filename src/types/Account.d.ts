@@ -38,7 +38,7 @@ export interface UserData {
  * accountDetails - 사용자의 계정 세부 정보 */
 export interface UserDataProps {
     user: UserData;
-    accountDetails: AccountDetail[];
+    accountData: AccountDetail[];
 }
 
 

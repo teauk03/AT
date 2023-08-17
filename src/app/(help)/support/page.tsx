@@ -3,20 +3,16 @@ import styles from "@/components/Help/Support/support.module.scss";
 
 import DocumentList from "@/components/Help/Support/SupportItem";
 import SupportSideBar from "@/components/Help/Support/SupportSideBar";
-import LoadingForum from "@/components/UI/Loading/LoadingForum";
-import {getServerSession} from "next-auth";
-import {connectDB} from "@/utils/mongoDb";
-import {authOptions} from "@/pages/api/auth/[...nextauth]";
-import {SUPPORT_DEVICE_ITEMS} from "@/data/data-help-items";
 import SupportInputSearch from "@/components/Help/Support/SupportInputSearch";
+import {getServerSession} from "next-auth";
+
+import {authOptions} from "@/pages/api/auth/[...nextauth]";
+import SUPPORT_NAV from "@/data/Support/data-support-nav.json";
+
 
 
 const Support = async (): Promise<JSX.Element> => {
     const session = await getServerSession(authOptions);
-    const db = (await connectDB).db("forum")
-    let result = await db.collection('inquiry').find({})
-    if (!result) return <LoadingForum/>
-
     /* [SLB] - Support Sidebar */
     const SUPPORT_SIDE_NAV = () => <SupportSideBar session={session}/>
 
@@ -31,7 +27,7 @@ const Support = async (): Promise<JSX.Element> => {
 
             {/* 내부 span 임시태그 */}
             <nav className={styles['nav-support']}>
-                {SUPPORT_DEVICE_ITEMS.map((item, index) => (
+                {SUPPORT_NAV.ITEMS.map((item, index) => (
                     <span key={index} className={styles['nav-support-item']}>{item.label}</span>
                 ))}
             </nav>

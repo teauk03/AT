@@ -1,5 +1,5 @@
 import { useState, ChangeEvent } from 'react';
-import { SLB_FORUM_ITEMS } from "@/data/data-navbar-menu";
+import { SLB_FORUM_ITEMS } from "@/data/Array/data-navbar-menu";
 
 const useSelection = () => {
     const [manufacturer, setManufacturer] = useState('Konami');

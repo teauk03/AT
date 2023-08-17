@@ -2,7 +2,7 @@ import React from 'react';
 import styles from "@/components/Help/Support/ContactUs/contactus.module.scss"
 import ContactUsButton from "@/components/Help/Support/ContactUs/ContactUsButton";
 import ContactUsCheckBox from "@/components/Help/Support/ContactUs/ContactUsCheckBox";
-import {SUPPORT_CONTACTUS_POLICY} from "@/data/data-help-items";
+import SUPPORT_CONTACTUS from "@/data/Support/data-support-policy.json";
 
 const ContactUs = () => {
     return (
@@ -11,7 +11,7 @@ const ContactUs = () => {
                 <legend className={styles.legend}>개인 정보 정책</legend>
                 <h1>문의 사항 및 개인 정보 수집 및 이용 동의</h1>
                 <div className={styles['agree-wrapper']}>
-                    {SUPPORT_CONTACTUS_POLICY.map((article, index) => (
+                    {SUPPORT_CONTACTUS.ITEMS.map((article, index) => (
                         <article className={styles['article']} key={index}>
                             <b className={styles['article-title']}>{article.title}</b>
                             <p className={styles['article-text']}>

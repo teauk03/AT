@@ -3,16 +3,16 @@ import React, {useEffect, useRef, useState} from "react";
 import styles from './Navbar.module.scss';
 
 import Link from "next/link";
-import {GLB_MENU_ITEMS} from "@/data/data-navbar-menu";
 import Image from 'next/image'
 import NavigationLogo from '@/../public/img/home-bg-Transparent.png';
 import GlobalNavItems from "@/components/UI/NavbarGlobal/GlobalNavItems/GlobalNavItems";
 import {useSession} from "next-auth/react";
 
-import {MenuItem} from '@/types/Navigation';
 import NavbarLink from "@/components/UI/NavbarGlobal/NavbarLink";
 import SvgIconComponent from "@/components/SvgIconComponent";
 import IsUserStatusModalMenu from "@/components/UI/NavbarGlobal/IsUserStatusModalMenu/IsUserStatusModalMenu";
+import GLOBAL_NAV from "@/data/data-global-nav.json";
+import {MenuItem} from '@/types/Navigation';
 
 
 const GlobalNavbarComponent = () => {
@@ -22,7 +22,7 @@ const GlobalNavbarComponent = () => {
     const [
         gblMenuItems,
         setGlbMenuItems
-    ] = useState<MenuItem[]>(GLB_MENU_ITEMS);
+    ] = useState<MenuItem[]>(GLOBAL_NAV.ITEMS);
 
     /* [State] 모달 클릭 여부 */
     const [
@@ -75,7 +75,7 @@ const GlobalNavbarComponent = () => {
 
     /* 관리자 페이지 렌더링 훅(useEffect) */
     useEffect(() => {
-        const newGlbMenuItems = [...GLB_MENU_ITEMS];
+        const newGlbMenuItems = [...GLOBAL_NAV.ITEMS];
 
         /* 관리자인 경우 메뉴에 관리자 페이지를 추가 */
         if (session?.user?.role === 'admin') {

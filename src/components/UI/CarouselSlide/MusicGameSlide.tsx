@@ -1,7 +1,7 @@
 'use client'
 import React, {useState} from 'react';
 import styles from './MusicGameSlide.module.scss';
-import games from '@/data/data-carousel-item';
+import CAROUSEL_GAME from '@/data/data-game-carousel.json';
 
 const MusicGameSlide = () => {
     const [activeItem, setActiveItem] = useState<number | null>(null);
@@ -15,14 +15,13 @@ const MusicGameSlide = () => {
     const SLIDE_MARGIN = 15; // 각 슬라이드의 마진 가정
 
     // 슬라이드 항목의 총 너비 계산
-    const totalWidth = (SLIDE_WIDTH + SLIDE_MARGIN * 2) * games.length;
+    const totalWidth = (SLIDE_WIDTH + SLIDE_MARGIN * 2) * CAROUSEL_GAME.ITEMS.length;
 
     // 현재 슬라이드에 따른 translate 값 계산
     const translateValue = -(SLIDE_WIDTH + SLIDE_MARGIN * 2) * current;
-    console.log(current)
 
     // 배열 유효성을 검사
-    if (!Array.isArray(games) || games.length <= 0) return null;
+    if (!Array.isArray(CAROUSEL_GAME.ITEMS) || CAROUSEL_GAME.ITEMS.length <= 0) return null;
 
 
     return (
@@ -39,7 +38,7 @@ const MusicGameSlide = () => {
                     }}
                     >
                         {/* Carousel Item */}
-                        {games.map((game, index) => (
+                        {CAROUSEL_GAME.ITEMS.map((game, index) => (
                             <div key={index}
                                  className={`${styles.item} ${activeItem === index ? styles.active : ''}`}
                                  style={{backgroundImage: `url(${game.image})`}}
@@ -55,7 +54,7 @@ const MusicGameSlide = () => {
                 </div>
                 {/* Carousel Button */}
                 <div className={styles['slide-dots']}>
-                    {games.map((_, index) => (
+                    {CAROUSEL_GAME.ITEMS.map((_, index) => (
                         <button
                             key={index}
                             onClick={() => setCurrent(index)}

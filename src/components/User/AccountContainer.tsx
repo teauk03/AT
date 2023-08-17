@@ -3,15 +3,14 @@ import axios from 'axios';
 import React, {useState} from "react";
 import toCamelCase from '@/utils/stringUtils';
 import useErrorHandler from "@/hooks/useErrorHandler";
-
-import {AccountDetail, UserDataProps} from "@/types/Account";
 import AccountDetails from "@/components/User/AccountDetails";
+import {AccountDetail, UserDataProps} from "@/types/Account";
 
 
 /* [Component] 사용자 계정 세부 정보를 관리하는 컴포넌트입니다.
  * user - 사용자 정보
  * accountDetails - 사용자 계정 세부 정보  */
-const AccountContainer = ({user, accountDetails}: UserDataProps): JSX.Element => {
+const AccountContainer = ({user, accountData}: UserDataProps): JSX.Element => {
     const {handleError} = useErrorHandler();
 
     /* 활성화된 <input> 요소의 id를 추적하는 State */
@@ -35,12 +34,12 @@ const AccountContainer = ({user, accountDetails}: UserDataProps): JSX.Element =>
         setUpdatedAccountDetails
     ] = useState<AccountDetail[]>(() => {
         /* accountDetails 배열을 순회하며 라벨 - 값 쌍을 생성 */
-        const labelMap: Record<string, string> = accountDetails.reduce((map, detail) => ({
+        const labelMap: Record<string, string> = accountData.reduce((map, detail) => ({
             ...map, [detail.label]: getFieldValue(detail.label)
         }), {});
 
         /* accountDetails 배열을 순회하며 각 detail값을 labelMap에서 찾아 업데이트 */
-        return accountDetails.map(detail => ({
+        return accountData.map(detail => ({
             ...detail, value: labelMap[detail.label] ?? '-',
         }));
     });
@@ -57,9 +56,9 @@ const AccountContainer = ({user, accountDetails}: UserDataProps): JSX.Element =>
         index: number
     ): Promise<boolean> => {
         try {
-            // [PUT] 사용자 정보를 업데이트 요청
+            // [PUT] 사용자 정보를 업데이트 요청 _id
             const response = await axios.put(
-                `/api/user/${user._id}`,
+                `/api/user/setting/${user.name}`,
                 {[detail.label.toLowerCase()]: updatedAccountDetails[index].value});
 
             // 요청성공 -> true

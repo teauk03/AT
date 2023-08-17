@@ -1,0 +1,34 @@
+{
+  "ITEMS": [
+    {
+      "route": "/admin",
+      "svgHref": "#pages",
+      "label": "Pages"
+    },
+    {
+      "route": "/admin",
+      "svgHref": "#users",
+      "label": "Users"
+    },
+    {
+      "route": "/admin",
+      "svgHref": "#trends",
+      "label": "Trends"
+    },
+    {
+      "route": "/admin",
+      "svgHref": "#collection",
+      "label": "Collection"
+    },
+    {
+      "route": "/admin",
+      "svgHref": "#comments",
+      "label": "Comments"
+    },
+    {
+      "route": "/admin",
+      "svgHref": "#appearance",
+      "label": "Appearance"
+    }
+  ]
+}

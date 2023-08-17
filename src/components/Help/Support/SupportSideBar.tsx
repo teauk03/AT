@@ -1,15 +1,16 @@
 import React from 'react';
 import styles from './support.module.scss';
 import AppLink from "@/components/UI/Link/AppLink";
-import {SUPPORT_SLB_ITEMS} from "@/data/data-navbar-menu";
 import {SupportSideBarProps} from "@/types/Help";
+import SUPPORT_ASIDE from "@/data/Support/data-support-aside.json";
+
 
 const SupportSideBar = ({session}: SupportSideBarProps) => {
     return (
         <aside className={styles['aside']}>
             <ul className={styles['aside-menu']}>
                 <h1>고객 지원</h1>
-                {SUPPORT_SLB_ITEMS.map((item, index) => (
+                {SUPPORT_ASIDE.ITEMS.map((item, index) => (
                     (index !== 6 || session) && (
                         <li key={index} className={styles['aside-menu-item']}>
                             <AppLink href={item.route} label={item.label} />

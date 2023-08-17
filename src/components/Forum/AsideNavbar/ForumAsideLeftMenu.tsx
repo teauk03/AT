@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from "@/components/Forum/ForumItem.module.scss";
+import ASIDE_FORUM from "@/data/data-forum-aside.json";
 import Link from "next/link";
-import {ASIDE_FORUM_ITEMS} from "@/data/data-navbar-menu";
 
 const ForumAsideLeftMenu = () => {
     return (
         <ul className={styles['aside-menu']}>
-            {ASIDE_FORUM_ITEMS.map((group, index) => (
+            {ASIDE_FORUM.ITEMS.map((group, index) => (
                 <li key={index} className={styles['aside-item-list']}>
                     <h2 className={styles['aside-item-title']}>{group.title}</h2>
                     {group.items.map((item, idx) => (

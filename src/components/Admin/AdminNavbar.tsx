@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from "@/components/Admin/Admin.module.scss";
 import Link from "next/link";
-import {ADMIN_MENU_ITEMS, ADMIN_SETTINGS_ITEMS} from "@/data/data-admin-menu";
+import ADMIN_ASIDE  from "@/data/Admin/data-admin-aside.json";
+import ADMIN_SETTING  from "@/data/Admin/data-admin-setting.json";
 
 const AdminNavbar = () => {
     return (
@@ -18,7 +19,7 @@ const AdminNavbar = () => {
                     <h3 className={styles.title}>Admin</h3>
                 </li>
                 {/* AdminPage Menu Items*/}
-                {ADMIN_MENU_ITEMS.map((item, index)=> (
+                {ADMIN_ASIDE.ITEMS.map((item, index)=> (
                     <li key={index}>
                         <Link href={item.route}>
                             <svg><use xlinkHref={item.svgHref}></use></svg>
@@ -31,7 +32,7 @@ const AdminNavbar = () => {
                 <li className={styles['menu-heading']}>
                     <h3 className={styles.title}>Settings</h3>
                 </li>
-                {ADMIN_SETTINGS_ITEMS.map((item, index) => (
+                {ADMIN_SETTING.ITEMS.map((item, index) => (
                     <li key={index}>
                         <Link href={item.route}>
                             <svg><use xlinkHref={item.svgHref}></use></svg>
