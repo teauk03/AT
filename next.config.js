@@ -11,6 +11,9 @@ const nextConfig = {
         sourceMap: false,
         outputStyle: 'compressed',
     },
+    images: {
+        domains: ['i.namu.wiki'],
+    },
 }
 
 module.exports = nextConfig

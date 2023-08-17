@@ -34,7 +34,7 @@
       "subMenu": [
         {
           "title": "마이페이지",
-          "route": "/account"
+          "route": "/mypage"
         }
       ]
     }
