@@ -3,6 +3,7 @@ import React from 'react';
 import styles from "@/components/Reserve/Reserve.module.scss";
 import {useSearchParams} from "next/navigation";
 import Calendar from "@/components/Reserve/Rent/Calendar/Calendar";
+import Link from "next/link";
 
 const RentContainer = () => {
     /* 쿼리스트링을 사용해 동적 라우팅 : 게임의 타이틀 */
@@ -20,20 +21,18 @@ const RentContainer = () => {
                     <Calendar/>
 
                     <div className={styles.wrapper}>
-                        <div className={styles.formGroup}>
-                            <label className={styles.label}>시간 (셀렉트로 처리)</label>
-                            <input type="text" className={styles.input} required/>
+                        <div className={styles['input-wrapper']}>
+                            <div className={styles.formGroup}>
+                                <label className={styles.label}>이름</label>
+                                <input type="text" className={styles.input} required/>
+                            </div>
+                            <div className={styles.formGroup}>
+                                <label className={styles.label}>연락처</label>
+                                <input type="tel" className={styles.input} required/>
+                            </div>
                         </div>
-                        <div className={styles.formGroup}>
-                            <label className={styles.label}>이름</label>
-                            <input type="text" className={styles.input} required/>
-                        </div>
-                        <div className={styles.formGroup}>
-                            <label className={styles.label}>연락처</label>
-                            <input type="tel" className={styles.input} required/>
-                        </div>
-                        <div className={styles.submitButton}>
-                            <button type="submit" className={styles.button}>돌아가기</button>
+                        <div className={styles['submit-button']}>
+                            <Link href={'/reserve/home'} className={styles.button}>돌아가기</Link>
                             <button type="submit" className={styles.button}>예약하기</button>
                         </div>
                     </div>

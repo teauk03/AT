@@ -46,11 +46,20 @@
     flex-direction: column;
     gap: 2.5rem;
   }
+
+  .input-wrapper {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
 }
 
 /* 폼 제출 버튼 */
-.submitButton {
+.submit-button {
   display: flex;
+  justify-content: center;
   gap: 1rem;
   text-align: center;
 }

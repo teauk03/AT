@@ -62,7 +62,7 @@ const Calendar = () => {
                 <div className={styles['month-days']}>
                     {getDaysOfWeek().map((day, index) => (
                         <div key={index} className={styles['month-days-wrap']}>
-                            <span className={`${currentWeekStart.getMonth() !== day.getMonth() ? styles.inactive : ''}${selectedDate.getDate() === day.getDate() ? styles.selected : ''}${index === 6 ? styles.sunday : index === 5 ? styles.saturday : ''}`} onClick={() => handleDateClick(day)}>
+                            <span className={`${currentWeekStart.getMonth() !== day.getMonth() ? styles.inactive : ''}${selectedDate.getDate() === day.getDate() && selectedDate.getMonth() === day.getMonth() && selectedDate.getFullYear() === day.getFullYear() ? styles.selectedDate : ''}${index === 6 ? styles.sunday : index === 5 ? styles.saturday : ''}`} onClick={() => handleDateClick(day)}>
                                 {day.getDate()}
                             </span>
                             {day.getDate() === now.getDate() && day.getMonth() === now.getMonth() && day.getFullYear() === now.getFullYear() && <span className={styles.today}>오늘</span>}

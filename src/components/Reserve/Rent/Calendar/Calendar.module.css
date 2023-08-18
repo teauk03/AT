@@ -53,6 +53,9 @@
     font-size: 1.25rem;
     text-align: center;
     cursor: pointer; }
+  .month-days .selectedDate {
+    background-color: #3dd28d;
+    color: #333; }
 
 /* 버튼 */
 .arrow-wrap {
