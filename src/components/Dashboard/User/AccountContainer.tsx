@@ -1,9 +1,10 @@
 'use client'
 import axios from 'axios';
 import React, {useState} from "react";
+import {getSession, signIn} from "next-auth/react";
+import styles from "@/components/Dashboard/User/Account.module.scss";
 import toCamelCase from '@/utils/stringUtils';
 import useErrorHandler from "@/hooks/useErrorHandler";
-import styles from "@/components/Dashboard/User/Account.module.scss";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheck, faPen, faXmark} from "@fortawesome/free-solid-svg-icons";
 import {AccountDetail, UserDataProps} from "@/types/Account";
@@ -73,13 +74,16 @@ const AccountContainer = ({ user, accountData }: UserDataProps): JSX.Element => 
 
     /* 사용자 정보를 수정하고 서버로 전송 */
     const handleInfoSaveClick = async (detail: AccountDetail, index: number) => {
+        /* updateUserInfo 함수의 동작에 따라 업데이트된 정보를 전송하거나 처리 */
         const isUpdated = await updateUserInfo(detail, index);
         if (isUpdated) {
+            /* 업데이트가 성공하면 필요한 경우 세션 갱신 */
             setEditActiveId(null);
         } else {
             console.error("Failed to update user information");
         }
-    }
+    };
+
 
 
     /* 렌더링 */

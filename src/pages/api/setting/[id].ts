@@ -11,15 +11,11 @@ export default async function handler(request: NextApiRequest, response: NextApi
             return response.status(400).send("Invalid ID");
         }
 
-
         const 사용자정보 = { _id: new ObjectId(사용자ID) };
         const 바꿀데이터 = request.body;
-        console.log(바꿀데이터)
 
         const db = (await connectDB).db('forum');
         const result = await db.collection('user_card').updateOne(사용자정보, { $set: 바꿀데이터 });
-        console.log('result', result)
-        return response.status(200).json({ message: '정보가 수정되었습니다.', 바꿀데이터 });
-        //redirect(302, `/`);
+        return response.status(200).redirect(302, `/`);
     }
 }
