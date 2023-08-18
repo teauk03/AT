@@ -22,22 +22,7 @@
   justify-content: center;
   flex-direction: column;
   gap: 5rem; }
-  .reserveForm .label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px; }
-  .reserveForm .input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px; }
   .reserveForm .wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem; }
-  .reserveForm .input-wrapper {
-    width: 50%;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 2.5rem; }
