@@ -20,15 +20,18 @@ interface Result {
     division: string;
 }
 
+/* 임시 타입 정의
+ * result: Result;
+ * USER_SESSION: UserSession  | null; */
 export interface DetailsIndexProps {
     result: Result;
-    USER_SESSION: UserSession;
+    USER_SESSION: UserSession | null;
 }
 
 export interface ContentButtonsProps {
     isMenuVisible: boolean;
     setMenuVisible: (visible: boolean) => void;
     result: Result;
-    USER_SESSION: UserSession;
+    USER_SESSION: UserSession | null;
     handleDelete: (id: string) => void;
 }

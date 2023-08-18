@@ -15,9 +15,7 @@ import {useEffect, useState} from "react";
  *   setCurrentPage: (page: number) => void
  * }}
  */
-const useFetchPosts = (
-    url: string, initialPage: number, initialPosts: Post[], totalPosts: number
-) => {
+const useFetchPosts = (url: string, initialPage: number, initialPosts: Post[], totalPosts: number)=> {
     const [currentPage, setCurrentPage] = useState(initialPage);
     const [result, setResult] = useState<{ posts: Post[]; totalPosts: number }>({
         posts: initialPosts,
@@ -30,7 +28,7 @@ const useFetchPosts = (
             .then((response) => response.json())
             .then((result) => setResult(result))
             .catch((error) => setResult(initialResult));
-    }, [currentPage, initialPosts, totalPosts]);
+    }, [currentPage, initialPosts, totalPosts, url]);
 
     const totalPages = Math.ceil(result.totalPosts / 10);
 

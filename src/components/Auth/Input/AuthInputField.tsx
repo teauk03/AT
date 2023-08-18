@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "@/components/Auth/Join.module.scss";
-import {DynamicAuthFieldProps} from '@/types/Form';
+import {DynamicAuthFieldProps} from '@/types/From';
 
 const AuthInputField = ({
                             label,

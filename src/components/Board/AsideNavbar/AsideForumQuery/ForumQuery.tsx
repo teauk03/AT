@@ -31,14 +31,11 @@ const ForumPage = ({path}: {path: string}) => {
                 .then(response => {
                     // division에 해당하는 게시물만 필터링
                     const filteredPosts = response.data.posts.filter((post: ForumPostPage) => post.division === division);
-                    console.log('Client filteredPosts: ',filteredPosts)
                     setPosts(filteredPosts);
                 })
-                .then(() => console.log('posts: ', posts))
                 .catch(error => console.error(error));
         }
     }, [division]);
-    console.log(division);
 
     /* Forum Header */
     const renderForumHeader = () => <ForumHeader/>;

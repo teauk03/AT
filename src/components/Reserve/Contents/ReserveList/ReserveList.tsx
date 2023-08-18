@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from "@/app/(reserve)/reserve/home/ReserveHome.module.scss";
 import Link from "next/link";
+import Image from "next/image";
 import GAME_CARDS from "@/data/Game/data-game-card.json";
 import {GameCards} from "@/types/Reserd";
 
@@ -12,7 +13,7 @@ const ReserveList = () => {
                 <div key={index} className={styles['game-card']}>
                     {/* 게임카드 헤더 */}
                     <div className={styles['game-card-header']}>
-                        <img src={game.image} alt="Title Image"/>
+                        <Image  src={game.image} width={500} height={200} alt="게임 타이틀 이미지"/>
                         <div className={styles['menu-dot']}></div>
                     </div>
                     <div className={styles['game-card-title']}>{game.title}</div>

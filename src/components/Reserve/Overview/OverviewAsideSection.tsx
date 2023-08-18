@@ -5,8 +5,8 @@ import GAME_CARDS from "@/data/Game/data-game-card.json";
 const OverviewAsideSection = () => {
     return (
         <section className={styles['game-overview-cards']}>
-            {GAME_CARDS.ITEMS.map((game) => (
-                <div className={styles['game-overview-card']}>
+            {GAME_CARDS.ITEMS.map((game, index) => (
+                <div key={index} className={styles['game-overview-card']}>
                     {/* 상세페이지 아이템 */}
                     <div className={`${styles['game-card']} ${styles['overview-card']}`}>
                         {/* [SLB] 상세페이지 아이템 */}

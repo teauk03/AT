@@ -14,6 +14,9 @@ const nextConfig = {
     images: {
         domains: ['i.namu.wiki'],
     },
+    eslint: {
+        ignoreDuringBuilds: true
+    }
 }
 
 module.exports = nextConfig

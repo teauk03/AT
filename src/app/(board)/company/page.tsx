@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Company.module.scss';
+import Image from "next/image";
 import INDEX_PAGE_JSON from '@/data/data-index-page.json';
 
 const Company = () => {
@@ -20,7 +21,7 @@ const Company = () => {
                                         <div className="thumb">
                                             <p>{demo.tags}</p>
                                             <div className="inner">
-                                                <img className="invert" loading="lazy" src={demo.imgUrl} />
+                                                <Image className="invert" loading="lazy" src={demo.imgUrl} width={500} height={200} alt={'회사이미지'}/>
                                             </div>
                                         </div>
                                     </div>
