@@ -82,8 +82,12 @@
         display: flex;
         gap: 10px;
 
-        .exit-btn { color: red; }
-        .check-btn { color: green; }
+        .exit-btn {
+          color: red;
+        }
+        .check-btn {
+          color: green;
+        }
       }
 
       /* Post & Comment Count */
@@ -97,7 +101,13 @@
         width: 30px;
         text-align: center;
 
-        button { font-size: 13px; }
+        .pen-btn {
+          cursor: pointer;
+        }
+
+        button {
+          font-size: 13px;
+        }
       }
 
       /* Check  X mark & Edit Button */

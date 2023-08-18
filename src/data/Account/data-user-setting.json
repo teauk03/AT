@@ -14,7 +14,7 @@
       "label": "Birth",
       "value": "-",
       "disabled": true,
-      "type": "text"
+      "type": "paragraph"
     },
     {
       "id": 3,

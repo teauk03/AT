@@ -3,8 +3,11 @@ import axios from 'axios';
 import React, {useState} from "react";
 import toCamelCase from '@/utils/stringUtils';
 import useErrorHandler from "@/hooks/useErrorHandler";
-import AccountDetails from "@/components/Dashboard/User/AccountDetails";
+// import AccountDetails from "@/components/Dashboard/User/AccountDetails";
 import {AccountDetail, UserDataProps} from "@/types/Account";
+import styles from "@/components/Dashboard/User/Account.module.scss";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCheck, faPen, faXmark} from "@fortawesome/free-solid-svg-icons";
 
 
 /* [Component] 사용자 계정 세부 정보를 관리하는 컴포넌트입니다.
@@ -14,8 +17,7 @@ const AccountContainer = ({ user, accountData }: UserDataProps): JSX.Element => 
     const {handleError} = useErrorHandler();
 
     /* 활성화된 <input> 요소의 id를 추적하는 State */
-    const [editActiveId, setEditActiveId
-    ] = useState<number | null>(null);
+    const [editActiveId, setEditActiveId] = useState<number | null>(null);
 
 
     /* 주어진 필드에 해당하는 사용자 정보를 찾아 문자열로 반환 */
@@ -41,12 +43,7 @@ const AccountContainer = ({ user, accountData }: UserDataProps): JSX.Element => 
     });
 
 
-    /**
-     * 사용자 정보를 업데이트하고 결과 반환.
-     * @param detail - 업데이트를 원하는 계정 정보 항목에 대한 정보를 가진 객체
-     * @param index - 업데이트를 원하는 계정 정보 항목의 인덱스
-     * @return 성공적으로 업데이트하면 true, 그렇지 않으면 false 반환
-     */
+    /* 사용자 정보를 업데이트하고 결과 반환. */
     const updateUserInfo = async (detail: AccountDetail, index: number): Promise<boolean> => {
         try {
             // [PUT] 사용자 정보를 업데이트 요청 _id
@@ -91,13 +88,47 @@ const AccountContainer = ({ user, accountData }: UserDataProps): JSX.Element => 
     return (
         <>
             {/* User Info */}
-            <AccountDetails
-                updatedAccountDetails={updatedAccountDetails}
-                handleInputChange={handleInputChange}
-                handleInfoSaveClick={handleInfoSaveClick}
-                setEditActiveId={setEditActiveId}
-                editActiveId={editActiveId}
-            />
+            <div className={styles['section-user-info']}>
+                {updatedAccountDetails.map((detail, index) => (
+                    <div className={styles['account-item']} key={index}>
+                        <h2 className={styles['account-item-name']}>{detail.title}</h2>
+                        {detail.type === 'text' ? (
+                            <>
+                                <input
+                                    className={styles.input}
+                                    type="text"
+                                    value={detail.value}
+                                    onChange={e => handleInputChange(e, index)}
+                                    disabled={index !== editActiveId} // index를 사용하여 비활성화
+                                />
+                            </>
+                        ) : (
+                            <p className={styles.count}>{detail.value}</p>
+                        )}
+
+                        {detail.type === 'text' ? (
+                            <>
+                                {editActiveId === index ? ( // index를 사용하여 조건 처리
+                                    <div className={styles['save-wrapper']}>
+                                        <button className={`${styles['edit-btn']} ${styles['exit-btn']}`} onClick={() => setEditActiveId(null)}>
+                                            <FontAwesomeIcon icon={faXmark}/>
+                                        </button>
+                                        <button className={`${styles['edit-btn']} ${styles['check-btn']}`} type={"submit"} onClick={() => handleInfoSaveClick(detail, index)}>
+                                            <FontAwesomeIcon icon={faCheck}/>
+                                        </button>
+                                    </div>
+                                ) : (
+                                    <div className={styles['edit-wrapper']}>
+                                        <div className={`${styles['edit-btn']} ${styles['pen-btn']}`} onClick={() => {setEditActiveId(index);}}>
+                                            <FontAwesomeIcon icon={faPen}/>
+                                        </div>
+                                    </div>
+                                )}
+                            </>
+                        ) : null}
+                    </div>
+                ))}
+            </div>
         </>
     )
 }

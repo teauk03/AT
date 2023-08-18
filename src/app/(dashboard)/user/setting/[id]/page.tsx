@@ -34,10 +34,7 @@ const Setting = async () => {
                     </div>
 
                     {/* Account Contents */}
-                    <AccountContainer
-                        user={user}
-                        accountData={USER_ACCOUNT.ITEMS}
-                    />
+                    <AccountContainer user={user} accountData={USER_ACCOUNT.ITEMS}/>
                 </form>
             </main>
         </div>
