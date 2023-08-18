@@ -1,11 +1,11 @@
 import {Session as NextAuthSession} from "next-auth/core/types";
 
-export interface User {
+/* [API] NEW Comment */
+interface User {
     name: string;
     email: string;
 }
 
-/* [API] NEW Comment */
 export interface Session extends NextAuthSession {
     user: User;
 }

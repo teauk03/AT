@@ -51,4 +51,4 @@ const Comment = (props: CommentInputObjectId): JSX.Element => {
     )
 }
 
-export {Comment};
+export default Comment;
