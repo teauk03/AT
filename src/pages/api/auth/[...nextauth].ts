@@ -121,7 +121,6 @@ export const authOptions: NextAuthOptions = {
         /** 세션 콜백: 사용자의 ID와 역할을 세션에 추가 */
         session: async ({session, token}: { session: any; token: any }): Promise<any> => {
             if (token.user) session.user = token.user;
-            console.log(session)
             return session;
         },
     },

@@ -1,7 +1,6 @@
 'use client'
 import axios from 'axios';
 import React, {useState} from "react";
-import {getSession, signIn} from "next-auth/react";
 import styles from "@/components/Dashboard/User/Account.module.scss";
 import toCamelCase from '@/utils/stringUtils';
 import useErrorHandler from "@/hooks/useErrorHandler";
@@ -22,8 +21,6 @@ const AccountContainer = ({ user, accountData }: UserDataProps): JSX.Element => 
     /* 주어진 필드에 해당하는 사용자 정보를 찾아 문자열로 반환 */
     const getFieldValue = (field: string): string => {
         const formattedField = toCamelCase(field);
-        console.log('user:', user); // user 객체 확인
-        console.log('formattedField:', formattedField);
         const userField = user[formattedField];
         return userField ? userField.toString() : '-';
     }
@@ -48,9 +45,10 @@ const AccountContainer = ({ user, accountData }: UserDataProps): JSX.Element => 
     const updateUserInfo = async (detail: AccountDetail, index: number): Promise<boolean> => {
         try {
             // [PUT] 사용자 정보를 업데이트 요청 _id
-            const response = await axios.put(
+            const response = await axios.post(
                 `/api/user/setting/${user.name}`,
                 {[detail.label.toLowerCase()]: updatedAccountDetails[index].value});
+            console.log(user.name)
             return response.status === 200;
 
         } catch (error) {
@@ -61,7 +59,7 @@ const AccountContainer = ({ user, accountData }: UserDataProps): JSX.Element => 
     }
 
 
-    /* 사용자의 입력을 처리해 상태 업데이트 */
+    /* 사용자의 입력을 처리후 상태 업데이트 */
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
         const {value} = e.target;
         setUpdatedAccountDetails(prevDetails => {
@@ -74,10 +72,11 @@ const AccountContainer = ({ user, accountData }: UserDataProps): JSX.Element => 
 
     /* 사용자 정보를 수정하고 서버로 전송 */
     const handleInfoSaveClick = async (detail: AccountDetail, index: number) => {
-        /* updateUserInfo 함수의 동작에 따라 업데이트된 정보를 전송하거나 처리 */
+        /* updateUserInfo 함수의 동작에 따라 업데이트된 정보를 전송 */
         const isUpdated = await updateUserInfo(detail, index);
+        console.log(isUpdated)
+        alert('정보가 업데이트 되었습니다.')
         if (isUpdated) {
-            /* 업데이트가 성공하면 필요한 경우 세션 갱신 */
             setEditActiveId(null);
         } else {
             console.error("Failed to update user information");
