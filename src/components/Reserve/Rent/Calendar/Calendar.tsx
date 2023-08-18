@@ -61,9 +61,12 @@ const Calendar = () => {
                 {/* 달력 날짜 부분 (이번 주의 일자 표시) */}
                 <div className={styles['month-days']}>
                     {getDaysOfWeek().map((day, index) => (
-                        <span key={index} className={`${currentWeekStart.getMonth() !== day.getMonth() ? styles.inactive : ''}${selectedDate.getDate() === day.getDate() ? styles.selected : ''}${index === 6 ? styles.sunday : index === 5 ? styles.saturday : ''}`} onClick={() => handleDateClick(day)}>
-                            {day.getDate()}
-                        </span>
+                        <div key={index} className={styles['month-days-wrap']}>
+                            <span className={`${currentWeekStart.getMonth() !== day.getMonth() ? styles.inactive : ''}${selectedDate.getDate() === day.getDate() ? styles.selected : ''}${index === 6 ? styles.sunday : index === 5 ? styles.saturday : ''}`} onClick={() => handleDateClick(day)}>
+                                {day.getDate()}
+                            </span>
+                            {day.getDate() === now.getDate() && day.getMonth() === now.getMonth() && day.getFullYear() === now.getFullYear() && <span className={styles.today}>오늘</span>}
+                        </div>
                     ))}
                 </div>
 

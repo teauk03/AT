@@ -40,6 +40,13 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap; }
+  .month-days .month-days-wrap span {
+    width: 100%;
+    display: flex;
+    flex-direction: column; }
+  .month-days .month-days-wrap .today {
+    color: red;
+    font-size: 12px; }
   .month-days span {
     width: 2%;
     padding: 5px 0;
