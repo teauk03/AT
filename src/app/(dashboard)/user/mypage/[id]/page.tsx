@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from '@/components/User/MyPage/MyPage.module.scss';
-import MyPageAside from "@/components/User/MyPage/Aside/MyPageAside";
-import Profile from "@/components/User/MyPage/MyPageBody/Profile";
-import Timeline from "@/components/User/MyPage/MyPageBody/Timeline";
-import MyPageAsideRight from "@/components/User/MyPage/Aside/MyPageAsideRight";
+import styles from '@/components/Dashboard/User/MyPage/MyPage.module.scss';
+import MyPageAside from "@/components/Dashboard/User/MyPage/UserAsideNavbar/Aside/MyPageAside";
+import Profile from "@/components/Dashboard/User/MyPage/MyPageBody/Profile";
+import Timeline from "@/components/Dashboard/User/MyPage/MyPageBody/Timeline";
+import MyPageAsideRight from "@/components/Dashboard/User/MyPage/UserAsideNavbar/Aside/MyPageAsideRight";
 import {getServerSession} from "next-auth";
 import {authOptions} from "@/pages/api/auth/[...nextauth]";
 

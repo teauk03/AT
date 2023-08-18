@@ -1,5 +1,5 @@
 import React from 'react';
-import ForumQuery from "@/components/Forum/AsideNavbar/AsideForumQuery/ForumQuery";
+import ForumQuery from "@/components/Board/AsideNavbar/AsideForumQuery/ForumQuery";
 
 const PostCategory = () => {
     return <ForumQuery path={'forum'}/>

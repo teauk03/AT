@@ -1,9 +1,7 @@
-import ForumWriteContainer from "@/components/Forum/Write/ForumWriteContainer";
+import ForumWriteContainer from "@/components/Board/Write/ForumWriteContainer";
 
 const Write = () => {
-    return (
-        <ForumWriteContainer/>
-    )
+    return <ForumWriteContainer/>
 }
 
 export default Write;

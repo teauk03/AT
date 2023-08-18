@@ -87,4 +87,5 @@ export interface MongoPost {
 
 export interface pathTypeProps {
     path: string;
+    href?: string;
 }

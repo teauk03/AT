@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "@/components/User/Account.module.scss";
+import styles from "@/components/Dashboard/User/Account.module.scss";
 import {getServerSession} from "next-auth";
-import SideNavigationMenu from "@/components/User/UserAsideNavbar/AsideNavbar";
-import AccountContainer from "@/components/User/AccountContainer"
+import SideNavigationMenu from "@/components/Dashboard/User/MyPage/UserAsideNavbar/AsideNavbar";
+import AccountContainer from "@/components/Dashboard/User/AccountContainer"
 import {authOptions} from "@/pages/api/auth/[...nextauth]";
 import USER_ACCOUNT from "@/data/Account/data-user-setting.json";
 

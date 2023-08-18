@@ -20,19 +20,7 @@ const useSelection = () => {
         item => item.manufacturer === manufacturer
     );
 
-    return {
-        manufacturer,
-        setManufacturer,
-        game,
-        setGame,
-        handleManufacturerChange,
-        handleGameChange,
-        gameOptions,
-        announcement,
-        setAnnouncement,
-        adminMenu,
-        setAdminMenu
-    };
+    return {manufacturer, setManufacturer, game, setGame, handleManufacturerChange, handleGameChange, gameOptions, announcement, setAnnouncement, adminMenu, setAdminMenu};
 };
 
 export default useSelection;

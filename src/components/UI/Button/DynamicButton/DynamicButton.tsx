@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import styles from '@/components/Forum/Write/write.module.scss';
+import styles from '@/components/Board/Write/write.module.scss';
 import {DynamicButtonProps} from '@/types/Button';
 
 /**

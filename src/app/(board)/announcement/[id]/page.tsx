@@ -1,3 +1,4 @@
+import React from "react";
 import {connectDB} from "@/utils/mongoDb";
 import {ObjectId} from "mongodb";
 import {Comment} from "@/components/Board/Comment/Comment";
@@ -5,14 +6,14 @@ import DetailsIndex from "@/components/Board/Forum/Details/DetailsIndex";
 import {getServerSession} from "next-auth";
 import {authOptions} from "@/pages/api/auth/[...nextauth]";
 import LoadingForum from "@/components/UI/Loading/LoadingForum";
-import React from "react";
 
-const ForumPost = async (props: any): Promise<JSX.Element> => {
+const NoticePost = async (props: any): Promise<JSX.Element> => {
     const USER_SESSION = await getServerSession(authOptions);
-    const db = (await connectDB).db("forum")
-    let result = await db.collection('post').findOne({
+    const db = (await connectDB).db("admin_user")
+    let result = await db.collection('notice').findOne({
         _id: new ObjectId(props.params.id)
     })
+    console.log(result)
     if (!result) return <LoadingForum/>;
 
     return (
@@ -26,4 +27,4 @@ const ForumPost = async (props: any): Promise<JSX.Element> => {
     )
 }
 
-export default ForumPost;
+export default NoticePost;

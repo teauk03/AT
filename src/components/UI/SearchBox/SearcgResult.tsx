@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from '@/components/Forum/ForumItem.module.scss';
+import styles from '@/components/Board/Forum/ForumItem.module.scss';
 import SvgIconComponent from "@/components/SvgIconComponent";
 import Link from "next/link";
 import {MongoPost} from "@/types/Borad";
-import ForumHeader from "@/components/Forum/ForumHeader/ForumHeader";
-import IsForumRoute from "@/components/Forum/AsideNavbar/isForumRoute";
+import ForumHeader from "@/components/Board/Forum/ForumHeader/ForumHeader";
+import IsForumRoute from "@/components/Board/AsideNavbar/isForumRoute";
 import SearchForum from "@/components/UI/SearchBox/SearchForum";
 import PaginationForum from "@/components/UI/Pagination/PaginationForum";
 

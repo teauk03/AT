@@ -1,7 +1,7 @@
 import {connectDB} from "@/utils/mongoDb";
 import {ObjectId} from "mongodb";
 import {EditIdProps} from "@/types/Borad";
-import EditPostContainer from "@/components/Forum/Edit/EditPostContainer";
+import EditPostContainer from "@/components/Board/Edit/EditPostContainer";
 
 async function EditPost(props: EditIdProps): Promise<JSX.Element> {
     const db = (await connectDB).db("forum")

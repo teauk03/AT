@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from "@/components/User/Account.module.scss";
+import styles from "@/components/Dashboard/User/Account.module.scss";
 import {getServerSession} from "next-auth";
 import {authOptions} from "@/pages/api/auth/[...nextauth]";
-import SideNavigationMenu from "@/components/User/UserAsideNavbar/AsideNavbar";
+import SideNavigationMenu from "@/components/Dashboard/User/MyPage/UserAsideNavbar/AsideNavbar";
 import SECEDE_JSON from "@/data/Account/Setting/data-user-secede.json";
 
 /* TODO : 클라이언트 컴포넌트로 분리 및 탈퇴 페이지 설계 */
