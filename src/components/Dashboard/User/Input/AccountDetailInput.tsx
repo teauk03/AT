@@ -6,8 +6,7 @@ const AccountDetailInput: React.FC<AccountDetailInputProps> = ({detail, index, h
     /* detail.type 에 따라 입력 필드 또는 텍스트를 렌더링 */
     return (
         <>
-            {
-                detail.type === 'text' ? (
+            {detail.type === 'text' ? (
                     <input
                         className={styles.input}
                         type="text"
@@ -18,8 +17,7 @@ const AccountDetailInput: React.FC<AccountDetailInputProps> = ({detail, index, h
                     /* type property 가 text 가 아니라면 <p> 요소 렌더링 */
                 ) : (
                     <p className={styles.count}>{detail.value}</p>
-                )
-            }
+                )}
         </>
     );
 };

@@ -12,10 +12,7 @@ const nextConfig = {
         outputStyle: 'compressed',
     },
     images: {
-        domains: ['i.namu.wiki'],
-    },
-    eslint: {
-        ignoreDuringBuilds: true
+        domains: ['i.namu.wiki', 'www.konami.com'],
     }
 }
 

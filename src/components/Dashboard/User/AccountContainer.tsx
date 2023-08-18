@@ -8,15 +8,13 @@ import {AccountDetail, UserDataProps} from "@/types/Account";
 
 
 /* [Component] 사용자 계정 세부 정보를 관리하는 컴포넌트입니다.
- * user - 사용자 정보
- * accountDetails - 사용자 계정 세부 정보  */
+ * user : 사용자 정보
+ * accountDetails : 사용자 계정 세부 정보  */
 const AccountContainer = ({ user, accountData }: UserDataProps): JSX.Element => {
     const {handleError} = useErrorHandler();
 
     /* 활성화된 <input> 요소의 id를 추적하는 State */
-    const [
-        editActiveId,
-        setEditActiveId
+    const [editActiveId, setEditActiveId
     ] = useState<number | null>(null);
 
 
@@ -68,9 +66,7 @@ const AccountContainer = ({ user, accountData }: UserDataProps): JSX.Element => 
 
 
     /* 사용자의 입력을 처리해 상태 업데이트 */
-    const handleInputChange = (
-        e: React.ChangeEvent<HTMLInputElement>,
-        index: number) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
         const {value} = e.target;
         setUpdatedAccountDetails(prevDetails => {
             const newDetails = [...prevDetails];
@@ -81,10 +77,7 @@ const AccountContainer = ({ user, accountData }: UserDataProps): JSX.Element => 
 
 
     /* 사용자 정보를 수정하고 서버로 전송 */
-    const handleInfoSaveClick = async (
-        detail: AccountDetail,
-        index: number
-    ) => {
+    const handleInfoSaveClick = async (detail: AccountDetail, index: number) => {
         const isUpdated = await updateUserInfo(detail, index);
         if (isUpdated) {
             setEditActiveId(null);

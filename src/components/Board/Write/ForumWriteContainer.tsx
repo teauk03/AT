@@ -39,6 +39,7 @@ const ForumWriteContainer = () => {
         '돌아가시겠습니까? 작성한 내용은 삭제됩니다.',
         '게임사 카테고리를 선택해주세요.',
         '게임 카테고리를 선택해주세요.',
+        '올바른 카테고리를 선택해주세요.',
         '제목은 필수입니다.',
         '본문을 작성해주세요.'
     ];
@@ -99,13 +100,8 @@ const ForumWriteContainer = () => {
             />
 
             {/* 모달 팝업 생성 */}
-            {
-                isOpen &&
-                <Modal
-                    isOpen={isOpen}
-                    onClose={modalContent === '돌아가시겠습니까? 작성한 내용은 삭제됩니다.' ? handleCancelConfirm : handleModalSuccess}
-                    onAbort={handleModalAbort}
-                >
+            {isOpen &&
+                <Modal isOpen={isOpen} onClose={modalContent === '돌아가시겠습니까? 작성한 내용은 삭제됩니다.' ? handleCancelConfirm : handleModalSuccess} onAbort={handleModalAbort}>
                     {modalContent}
                 </Modal>
             }

@@ -2,68 +2,78 @@
 
 /* Modal */
 .modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 15px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
 
   .modal-content {
+    width: calc(100% - 40em);
+    max-width: 34.5em;
+    height: 200px;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    background: variables.$base-color-white;
+    gap: .5rem;
+    overflow: hidden;
+    background:rgba(255, 255, 255, 0.9);
     border-radius: 8px;
 
     .modal-text {
-      font-size: 14px;
-    }
-
-    .abort-wrapper {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-
-      /* Modal Button */
-      .abort-btn,
-      .success-btn {
-        width: 30%;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: all 0.3s ease;
-
-        &:focus { outline: none; }
-      }
-
-      .abort-btn {
-        background-color: #f44336;
-        color: white;
-
-        &:hover {
-          background-color: #e53929;
-          transform: scale(1.05);
-        }
-      }
-
-      .success-btn {
-        background-color: #4CAF50;
-        color: white;
-
-        &:hover {
-          background-color: #43a047;
-          transform: scale(1.05);
-        }
-      }
+      padding: 2rem;
+      font-size: 1rem;
     }
   }
+}
+
+/* Modal Button */
+.abort-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.abort-btn,
+.success-btn {
+  width: 30%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+
+  &:focus { outline: none; }
+}
+
+.abort-btn {
+  background: #e74c3c;
+  color: white;
+
+  &:hover {
+    background: #c0392b;
+    transform: scale(1.05);
+  }
+}
+
+.success-btn {
+  background: #2ecc71;
+  color: white;
+
+  &:hover {
+    background: #27ae60;
+    transform: scale(1.05);
+  }
+}
+.ok-btn {
+  width: 80%;
+  margin: 0 auto;
 }
 
 /* Search Modal */
