@@ -1,7 +1,7 @@
 import '@/styles/globals.scss'
 import {Inter} from 'next/font/google'
 import {Metadata} from "next";
-import Providers from "@/context/Providers";
+import Providers from "@/components/context/Providers";
 import GlobalNavbarComponent from "@/components/UI/NavbarGlobal/GlobalNavbarComponent";
 import {FooterClientComponent} from "@/components/UI/Footer/Footer";
 import React from "react";
