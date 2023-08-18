@@ -35,7 +35,7 @@ const ChangeId = async () => {
                     {/* Account Contents */}
                     <section className={styles['profile-text-wrap']}>
                         <p>
-                            어택ID 변경을 위해 현재 넥슨ID를 확인 후 본인확인을 진행해주세요.<br/>
+                            어택ID 변경을 위해 현재 어택ID를 확인 후 본인확인을 진행해주세요.<br/>
                             어택ID는 6개월에 1회 변경이 가능합니다.<br/>
                             어택ID 변경을 완료하시면, 기존 어택ID(이메일)는 30일 동안 재사용이 불가능합니다.
                         </p>

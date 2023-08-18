@@ -4,8 +4,8 @@ import {getServerSession} from "next-auth";
 import {authOptions} from "@/pages/api/auth/[...nextauth]";
 import SideNavigationMenu from "@/components/Dashboard/User/MyPage/UserAsideNavbar/AsideNavbar";
 import SECEDE_JSON from "@/data/Account/Setting/data-user-secede.json";
+import UserDeleteButton from "@/components/Dashboard/User/UserDeleteButton/UserDeleteButton";
 
-/* TODO : 클라이언트 컴포넌트로 분리 및 탈퇴 페이지 설계 */
 const Secede = async () => {
     const session = await getServerSession(authOptions);
     const user = session?.user || null;
@@ -45,9 +45,7 @@ const Secede = async () => {
                         ))}
                     </section>
 
-                    <button className={styles['account-form-btn']}>
-                        회원탈퇴
-                    </button>
+                    <UserDeleteButton/>
                 </form>
             </main>
         </div>

@@ -8,12 +8,12 @@ import { NextApiRequest, NextApiResponse } from "next";
  * @param {NextApiResponse} response - Next.js API 응답 객체
  * @returns {Promise<void>} - 프로미스를 반환하지만 실제로는 리턴되지 않음
  */
-export default async function handler(request: NextApiRequest, response: NextApiResponse) {
+const handler = async(request: NextApiRequest, response: NextApiResponse)=> {
     if (request.method === 'POST') {
         /* 쿼리스트링 : URL에서 사용자 ID를 가져옴 */
         const userId = request.query.id;
 
-        if (typeof userId !== "string" || !ObjectId.isValid(userId)) {
+        if (typeof userId !== 'string' || !ObjectId.isValid(userId)) {
             return response.status(400).send("Invalid ID");
         }
 
