@@ -2,11 +2,7 @@ import { ObjectId } from 'mongodb';
 import { NextApiRequest, NextApiResponse } from "next";
 import {connectDB} from "@/utils/mongoDb";
 
-const handlerUserEditInfo = async (
-    request: NextApiRequest,
-    response: NextApiResponse
-): Promise<void> => {
-
+const handlerUserEditInfo = async (request: NextApiRequest, response: NextApiResponse): Promise<void> => {
     /* PUT 요청 처리 */
     if (request.method === 'PUT') {
         /* 요청 쿼리 스트링에서 사용자 ID 검색 */

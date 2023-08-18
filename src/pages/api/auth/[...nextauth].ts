@@ -109,6 +109,10 @@ export const authOptions: NextAuthOptions = {
                 token.user.birth = user.birth;
                 token.user.role = user.role;
                 token.user.lastAccess  = user.lastAccess;
+
+                /* 다른 곳에서 "Summary"와 "Skills"를 가져와서 추가 */
+                token.user.summary = user.summary || '소개를 입력하세요.';
+                token.user.skills = user.skills || '즐겨하는 게임을 입력하세요';
             }
 
             return token;

@@ -27,7 +27,7 @@ const Setting = async () => {
             <SideNavigationMenu/>
 
             <main className={styles['profile-wrapper']}>
-                <form className={styles['profile-form']}>
+                <form className={styles['profile-form']} action={`/api/setting/${user._id}`} method="POST">
                     {/* MyPage Title */}
                     <div className={styles['profile-title-wrapper']}>
                         <h2 className={styles['profile-title']}>기본정보</h2>
