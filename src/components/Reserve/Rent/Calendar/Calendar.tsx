@@ -1,6 +1,7 @@
 'use client'
 import React, {useState} from 'react';
-import styles from './Calendar.module.css';
+import styles from './Calendar.module.scss';
+import SvgIconComponent from "@/components/SvgIconComponent";
 
 const Calendar = () => {
     const weekDays = ['월', '화', '수', '목', '금', '토', '일'];
@@ -38,17 +39,19 @@ const Calendar = () => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.calendar}>
+            <section className={styles.calendar}>
                 {/* 날짜 헤더 부분 (요일과 현재 날짜 표시) */}
                 <ul className={styles.header}>
                     <li className={styles['current-date']}>
+                        <span>
                         {selectedDate.getFullYear()}.{(selectedDate.getMonth() + 1).toString().padStart(2, '0')}.{selectedDate.getDate().toString().padStart(2, '0')}
+                        </span>
                     </li>
 
                     {/* 요일 */}
                     <li className={styles['week-days']}>
                         {weekDays.map((day, index) => (
-                            <div key={day} className={`${index === 6 ? styles.sunday : index === 5 ? styles.saturday : ''}`}>
+                            <div key={day} className={`${styles.days} ${index === 6 ? styles.sunday : index === 5 ? styles.saturday : ''}`}>
                                 {day}
                             </div>
                         ))}
@@ -56,20 +59,25 @@ const Calendar = () => {
                 </ul>
 
                 {/* 달력 날짜 부분 (이번 주의 일자 표시) */}
-                <div className={styles.monthDays}>
-                    <button className={styles.arrow} onClick={() => moveWeek('right')}>←</button>
+                <div className={styles['month-days']}>
                     {getDaysOfWeek().map((day, index) => (
-                        <span key={index} className={`
-                        ${currentWeekStart.getMonth() !== day.getMonth() ? styles.inactive : ''}
-                        ${selectedDate.getDate() === day.getDate() ? styles.selected : ''}
-                        ${index === 6 ? styles.sunday : index === 5 ? styles.saturday : ''}
-                        `} onClick={() => handleDateClick(day)}>
+                        <span key={index} className={`${currentWeekStart.getMonth() !== day.getMonth() ? styles.inactive : ''}${selectedDate.getDate() === day.getDate() ? styles.selected : ''}${index === 6 ? styles.sunday : index === 5 ? styles.saturday : ''}`} onClick={() => handleDateClick(day)}>
                             {day.getDate()}
                         </span>
                     ))}
-                    <button className={styles.arrow} onClick={() => moveWeek('left')}>→</button>
                 </div>
-            </div>
+
+                {/* 이전 다음 버튼 */}
+                <div className={styles['arrow-wrap']}>
+                    <button className={styles.arrow} onClick={() => moveWeek('right')}>
+                        <SvgIconComponent width={25} height={25} svgPath={'M11.25 9l-3 3m0 0l3 3m-3-3h7.5M21 12a9 9' +
+                            ' 0 11-18 0 9 9 0 0118 0z'} />
+                    </button>
+                    <button className={styles.arrow} onClick={() => moveWeek('left')}>
+                        <SvgIconComponent width={25} height={25} svgPath={'M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z'} />
+                    </button>
+                </div>
+            </section>
         </div>
     );
 };
