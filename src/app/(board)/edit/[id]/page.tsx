@@ -3,7 +3,7 @@ import {ObjectId} from "mongodb";
 import {EditIdProps} from "@/types/Borad";
 import EditPostContainer from "@/components/Board/Edit/EditPostContainer";
 
-async function EditPost(props: EditIdProps): Promise<JSX.Element> {
+async function EditPost(props: EditIdProps) {
     const db = (await connectDB).db("forum")
     let result = await db.collection('post').findOne({
         _id: new ObjectId(props.params.id)

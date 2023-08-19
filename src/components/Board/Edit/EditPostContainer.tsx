@@ -4,6 +4,7 @@ import React, {useState} from "react";
 import FormContent from "@/components/Board/Write/FormContent";
 import DynamicButton from "@/components/UI/Button/DynamicButton/DynamicButton";
 import Modal from "@/components/UI/Modal/Modal";
+import {useRouter} from "next/navigation";
 
 interface EditPostContainerProps {
     initialTitle: string;
@@ -12,6 +13,7 @@ interface EditPostContainerProps {
 }
 
 const EditPostContainer: React.FC<EditPostContainerProps> = ({initialTitle, initialContent, postId}) => {
+    const router = useRouter();
 
     const [
         isLoading,
@@ -43,12 +45,11 @@ const EditPostContainer: React.FC<EditPostContainerProps> = ({initialTitle, init
 
     const handleCancelConfirm = () => {
         setIsOpen(false);
-        window.location.href = '/forum';
+        router.push('/forum')
     };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
         const formData = new FormData(e.currentTarget);
         const title = formData.get('title') as string;
         const content = formData.get('content') as string;
@@ -69,7 +70,7 @@ const EditPostContainer: React.FC<EditPostContainerProps> = ({initialTitle, init
             setIsOpen(true);
 
             /*After saving, redirect to the forum or the edited post's page*/
-            window.location.href = '/forum';
+            router.push('/forum')
 
         } catch (error) {
             console.error(error);
@@ -86,7 +87,6 @@ const EditPostContainer: React.FC<EditPostContainerProps> = ({initialTitle, init
                 onSubmit={handleSubmit}
                 buttons={
                     <>
-                        {/* 필요한 버튼들 */}
                         <DynamicButton
                             className={'submit-btn-delete'}
                             label={'취소'}
@@ -106,8 +106,7 @@ const EditPostContainer: React.FC<EditPostContainerProps> = ({initialTitle, init
             />
 
             {/* 모달 팝업 생성 */}
-            {
-                isOpen &&
+            {isOpen &&
                 <Modal
                     isOpen={isOpen}
                     onClose={modalContent === '돌아가시겠습니까? 작성한 내용은 삭제됩니다.' ? handleCancelConfirm : handleModalSuccess}

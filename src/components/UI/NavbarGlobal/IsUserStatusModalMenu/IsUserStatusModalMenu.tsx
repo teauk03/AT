@@ -1,10 +1,10 @@
 'use client'
 import React from 'react';
 import styles from "@/components/UI/NavbarGlobal/IsUserStatusModalMenu/IsUserStatusModalMenu.module.scss";
-import {Session} from "next-auth";
-import {signOut} from "next-auth/react";
 import NavbarLink from "@/components/UI/NavbarGlobal/NavbarLink";
 import SvgIconComponent from "@/components/SvgIconComponent";
+import {signOut} from "next-auth/react";
+import {Session} from "next-auth";
 
 /* isUserStatusModalMenu */
 const IsUserStatusModalMenu = ({session}: { session: Session | null }) => {

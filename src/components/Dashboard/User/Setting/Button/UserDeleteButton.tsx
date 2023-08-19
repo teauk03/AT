@@ -8,7 +8,6 @@ const UserDeleteButton = () => {
 
     const handleDeleteOne = async () => {
         if (session && session.user) {
-            console.log(session.user._id);
             const response = await fetch('/api/user/delete', {
                 method: 'DELETE',
                 headers: {

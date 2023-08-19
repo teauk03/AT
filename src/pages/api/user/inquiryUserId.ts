@@ -6,7 +6,6 @@ const handlerInquiryUserId = async (request: NextApiRequest, response: NextApiRe
         try {
             let db = (await connectDB).db('forum');
             const { birth, name } = request.body;
-            console.log(request.body)
 
             /* Input 공백 여부 검사 */
             if (!birth) {

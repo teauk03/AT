@@ -12,6 +12,7 @@ const handler = async(request: NextApiRequest, response: NextApiResponse)=> {
     if (request.method === 'POST') {
         /* 쿼리스트링 : URL에서 사용자 ID를 가져옴 */
         const userId = request.query.id;
+        console.log(userId)
 
         if (typeof userId !== 'string' || !ObjectId.isValid(userId)) {
             return response.status(400).send("Invalid ID");
@@ -22,6 +23,11 @@ const handler = async(request: NextApiRequest, response: NextApiResponse)=> {
 
         const db = (await connectDB).db('forum');
         const result = await db.collection('user_card').updateOne(userInformation, { $set: dataToChange });
-        return response.status(200).redirect(302, `/`);
+
+        /* 업데이트된 사용자 정보 다시 조회 */
+        const updatedUser = await db.collection('user_card').findOne(userInformation);
+        return response.status(200).json({message: '정보 변경 성공', result, updatedUser})
     }
 }
+
+export default handler;

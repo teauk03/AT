@@ -113,8 +113,10 @@ export const authOptions: NextAuthOptions = {
                 /* 다른 곳에서 "Summary"와 "Skills"를 가져와서 추가 */
                 token.user.summary = user.summary || '소개를 입력하세요.';
                 token.user.skills = user.skills || '즐겨하는 게임을 입력하세요';
-            }
 
+                /* 세션 만료 시간 */
+                //token.expires = new Date().getTime() + 24 * 60 * 60 * 1000;
+            }
             return token;
         },
 

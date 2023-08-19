@@ -7,6 +7,7 @@ import useErrorHandler from "@/hooks/useErrorHandler";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheck, faPen, faXmark} from "@fortawesome/free-solid-svg-icons";
 import {AccountDetail, UserDataProps} from "@/types/Account";
+import {useSession} from "next-auth/react";
 
 
 /* [Component] 사용자 계정 세부 정보를 관리하는 컴포넌트입니다.
@@ -14,6 +15,7 @@ import {AccountDetail, UserDataProps} from "@/types/Account";
  * accountDetails : 사용자 계정 세부 정보  */
 const AccountContainer = ({ user, accountData }: UserDataProps): JSX.Element => {
     const {handleError} = useErrorHandler();
+    const { data: session } = useSession();
 
     /* 활성화된 <input> 요소의 id를 추적하는 State */
     const [editActiveId, setEditActiveId] = useState<number | null>(null);
@@ -26,38 +28,18 @@ const AccountContainer = ({ user, accountData }: UserDataProps): JSX.Element => 
     }
 
     /* 계정 세부 정보 업데이트에 대한 상태를 추가 */
-    const [updatedAccountDetails, setUpdatedAccountDetails
-    ] = useState<AccountDetail[]>(() => {
+    const [updatedAccountDetails, setUpdatedAccountDetails] = useState<AccountDetail[]>(() => {
         /* accountDetails 배열을 순회하며 라벨 - 값 쌍을 생성 */
         const labelMap: Record<string, string> = accountData.reduce((map, detail) => ({
             ...map, [detail.label]: getFieldValue(detail.label)
         }), {});
 
         /* accountDetails 배열을 순회하며 각 detail값을 labelMap에서 찾아 업데이트 */
-        return accountData
-            .filter(detail => labelMap[detail.label] !== '-') // 값이 '-'인 경우 필터링
-            .map(detail => ({
+        return accountData.filter(detail => labelMap[detail.label] !== '-') // 값이 '-'인 경우 필터링
+                .map(detail => ({
                 ...detail, value: labelMap[detail.label] ?? '-',
             }));
     });
-
-    /* 사용자 정보를 업데이트하고 결과 반환. */
-    const updateUserInfo = async (detail: AccountDetail, index: number): Promise<boolean> => {
-        try {
-            // [PUT] 사용자 정보를 업데이트 요청 _id
-            const response = await axios.post(
-                `/api/user/setting/${user.name}`,
-                {[detail.label.toLowerCase()]: updatedAccountDetails[index].value});
-            console.log(user.name)
-            return response.status === 200;
-
-        } catch (error) {
-            // 에러가 발생하면 에러를 핸들링하고 false 반환
-            handleError(error as Error);
-            return false;
-        }
-    }
-
 
     /* 사용자의 입력을 처리후 상태 업데이트 */
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
@@ -68,27 +50,30 @@ const AccountContainer = ({ user, accountData }: UserDataProps): JSX.Element => 
             return newDetails;
         });
     }
-
-
-    /* 사용자 정보를 수정하고 서버로 전송 */
+    
+    /* 사용자 정보를 업데이트하고 결과 반환 및 서버로 전송 */
     const handleInfoSaveClick = async (detail: AccountDetail, index: number) => {
-        /* updateUserInfo 함수의 동작에 따라 업데이트된 정보를 전송 */
-        const isUpdated = await updateUserInfo(detail, index);
-        console.log(isUpdated)
-        alert('정보가 업데이트 되었습니다.')
-        if (isUpdated) {
-            setEditActiveId(null);
-        } else {
-            console.error("Failed to update user information");
+        try {
+            const response = await axios.post(
+                `/api/setting/${user._id}`,
+                { [detail.label.toLowerCase()]: updatedAccountDetails[index].value }
+            );
+
+            if (response.status === 200) {
+                alert('정보가 업데이트 되었습니다.');
+                setEditActiveId(null);
+            } else {
+                console.error("Failed to update user information");
+                alert('정보 업데이트에 실패했습니다.');
+            }
+        } catch (error) {
+            handleError(error as Error);
         }
     };
-
-
 
     /* 렌더링 */
     return (
         <>
-            {/* User Info */}
             <div className={styles['section-user-info']}>
                 {updatedAccountDetails.map((detail, index) => (
                     <div className={styles['account-item']} key={index}>

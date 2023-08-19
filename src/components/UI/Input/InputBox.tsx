@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './InputBox.module.scss';
 import {LoginInputProps} from '@/types/Input';
 
-const InputBox = ({name, type, label, autoComplete}: LoginInputProps) => (
+const InputBox = ({name, type, label, autoComplete, onChange}: LoginInputProps) => (
     <div className={styles['input-wrapper']}>
         <input
             id={`${name}Form`}
@@ -10,6 +10,7 @@ const InputBox = ({name, type, label, autoComplete}: LoginInputProps) => (
             type={type}
             name={name}
             autoComplete={autoComplete}
+            onChange={onChange}
             required
         />
         <label className={styles['input-label']} htmlFor={`${name}Form`}>

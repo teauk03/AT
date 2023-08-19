@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from "@/components/Dashboard/User/Account.module.scss";
 import SideNavigationMenu from "@/components/Dashboard/User/MyPage/UserAsideNavbar/AsideNavbar";
+import UserEmailUpdateButton from "@/components/Dashboard/User/Setting/Button/UserEmailUpdateButton";
 import {authOptions} from "@/pages/api/auth/[...nextauth]";
 import {getServerSession} from "next-auth";
-import InputBox from "@/components/UI/Input/InputBox";
 
 const ChangeId = async () => {
     const session = await getServerSession(authOptions);
@@ -18,7 +18,6 @@ const ChangeId = async () => {
             },
         };
     }
-
 
     return (
         <div className={styles['profile-container']}>
@@ -41,25 +40,7 @@ const ChangeId = async () => {
                         </p>
                     </section>
                     <p>현재 어택 이메일 : <span>{user.email}</span></p>
-
-                    <section>
-                        <InputBox
-                            name={'email'}
-                            type={'email'}
-                            label={'새로운 이메일을 입력하세요.'}
-                            autoComplete={'current-password'}
-                        />
-                        <InputBox
-                            name={'password'}
-                            type={'password'}
-                            label={'비밀번호를 입력하세요.'}
-                            autoComplete={'current-password'}
-                        />
-                    </section>
-
-                    <button className={styles['account-form-btn']}>
-                        변경하기
-                    </button>
+                    <UserEmailUpdateButton user={user}/>
                 </form>
             </main>
         </div>
