@@ -58,21 +58,6 @@ const handlerRegister = async (request: NextApiRequest, response: NextApiRespons
 
         try {
             let db = (await connectDB).db('forum');
-            /* 데이터 베이스 내 이미 존재하는 닉네임 검사 */
-            const existingUser = await db.collection('user_card').findOne({$or: [{name}]});
-            if (existingUser) {
-                response.status(409).json({message: '이미 존재하는 닉네임입니다.'});
-                return;
-            }
-
-
-            /* 데이터 베이스 내 이미 존재하는 이메일 검사 */
-            const existingEmail = await db.collection('user_card').findOne({$or: [{email}]});
-            if (existingEmail) {
-                response.status(409).json({message: '이미 존재하는 이메일입니다.'});
-                return;
-            }
-            
             /* 비밀번호 해시값으로 변경 & DB 추가 */
             let passwordHash: string = await bcrypt.hash(request.body.password, 10)
             await db.collection('user_card').insertOne({

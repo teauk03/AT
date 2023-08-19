@@ -105,7 +105,6 @@
 /* 조건부 렌더링 (인증 버튼) */
 .info-input-wrapper {
   display: flex;
-  flex-direction: row;
   align-items: center;
 
   .form-fieldset {
@@ -119,8 +118,9 @@
   }
 
   .verification-btn {
-    width: 20%;
-    margin-left: 10px;
+    width: 22%;
+    height: 2.5rem;
+    margin: .2rem  0 0 8px;
     background: none;
   }
 }
