@@ -1,0 +1,9 @@
+PUT http://localhost:3000/api/setting/changeEmail
+Content-Type: application/json
+
+{
+  "_id": "123456",
+  "currentPassword": "current_password",
+  "newPassword": "new_password",
+  "newPasswordConfirm": "new_password"
+}

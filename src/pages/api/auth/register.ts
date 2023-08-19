@@ -1,20 +1,10 @@
 import bcrypt from 'bcrypt';
 import {NextApiRequest, NextApiResponse} from "next";
 import {connectDB} from "@/utils/mongoDb";
-import {
-    hasValidPasswordLength,
-    isValidEmailFormat,
-    hasValidName,
-    hasBirthValid
-} from '@/utils/validation/validation';
+import {hasValidPasswordLength, isValidEmailFormat, hasValidName, hasBirthValid} from '@/utils/validation/validation';
 
 
-const handlerRegister = async (
-    request: NextApiRequest,
-    response: NextApiResponse
-): Promise<void> => {
-
-
+const handlerRegister = async (request: NextApiRequest, response: NextApiResponse): Promise<void> => {
     /* POST 요청 처리 */
     if (request.method === 'POST') {
         const {email, password, name, birth} = request.body;
@@ -50,8 +40,6 @@ const handlerRegister = async (
 
         try {
             let db = (await connectDB).db('forum');
-
-
             /* 데이터 베이스 내 이미 존재하는 닉네임 검사 */
             const existingUser = await db.collection('user_card').findOne({$or: [{name}]});
             if (existingUser) {
@@ -71,6 +59,8 @@ const handlerRegister = async (
             /* 비밀번호 해시값으로 변경 & DB 추가 */
             let passwordHash: string = await bcrypt.hash(request.body.password, 10)
             await db.collection('user_card').insertOne({...request.body, password: passwordHash, role: 'customer'});
+
+            await db.collection('user_card').insertOne({...request.body, password, role: 'customer'});
 
 
             /* Response */

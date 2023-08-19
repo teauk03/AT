@@ -92,8 +92,8 @@ export const authOptions: NextAuthOptions = {
     /** 세션 설정: JWT 사용 */
     session: {
         strategy: 'jwt',
-        maxAge: 24 * 60 * 60 // 1일 (24시간)
-        //updateAge: 24 * 60 * 60, // 24시간
+        maxAge: 24 * 60 * 60, // 1일 (24시간)
+        updateAge: 24 * 60 * 60, // 24시간마다 세션 정보 업데이트
     },
 
 
@@ -106,6 +106,7 @@ export const authOptions: NextAuthOptions = {
                 token.user._id = user._id;
                 token.user.name = user.name;
                 token.user.email = user.email;
+                token.user.password = user.password;
                 token.user.birth = user.birth;
                 token.user.role = user.role;
                 token.user.lastAccess  = user.lastAccess;

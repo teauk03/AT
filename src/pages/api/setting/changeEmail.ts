@@ -15,9 +15,9 @@ const handler = async (request: NextApiRequest, response: NextApiResponse) => {
                 {_id: requestBody._id},
                 {$set: requestBody}
             );
-        console.log(result)
+
         return response.status(200).json({
-            message: '이메일이 변경되었습니다.'
+            message: '이메일이 변경되었습니다.',result
         });
     }
 }

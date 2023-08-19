@@ -22,7 +22,7 @@ const UserEmailUpdateButton: React.FC<CustomSession> = ({user}) => {
                 email: userEmail,
             })
         });
-        const result = await response.json()
+        const request = await response.json()
     }
 
     return (
@@ -39,7 +39,7 @@ const UserEmailUpdateButton: React.FC<CustomSession> = ({user}) => {
                 <InputBox
                     name={'password'}
                     type={'password'}
-                    label={'비밀번호를 입력하세요.'}
+                    label={'비밀번호를 입력하세요. (이메일 인증으로 변경 예정)'}
                     autoComplete={'current-password'}
                 />
             </section>
