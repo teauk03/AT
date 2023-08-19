@@ -24,7 +24,7 @@
       "subMenu": [
         {
           "title": "예약확인",
-          "route": "/reserve/home"
+          "route": "/reserve/confirm"
         }
       ]
     },

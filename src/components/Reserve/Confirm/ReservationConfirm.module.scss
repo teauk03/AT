@@ -1,0 +1,67 @@
+.container {
+  height: 50rem;
+}
+
+/* 헤더 : 유저 타이틀 */
+.header {
+  padding: 5rem 0 2rem 0;
+
+  &-contents {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  &-info {
+
+    &-id {
+
+    }
+  }
+
+  &-link {
+    white-space: nowrap;
+
+    &-item {
+      width: 40%;
+      padding: 0 1rem;
+
+      span, em {
+        display: block;
+      }
+    }
+
+    &-item:first-child {
+      margin: 1rem 1.5rem;
+    }
+  }
+}
+
+/* 메인 컨텐츠 : 예약 리스트 */
+.main {
+  &-contents {
+
+  }
+
+  &-section {
+    padding: 0 0 1rem 0;
+  }
+
+  &-list {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  &-item {
+
+    &-link {
+
+    }
+  }
+
+  &-icon {
+
+    &-item {
+
+    }
+  }
+}
