@@ -1,0 +1,28 @@
+@charset "UTF-8";
+.container {
+  height: 50rem; }
+
+/* 헤더 : 유저 타이틀 */
+.header {
+  padding: 5rem 0 2rem 0; }
+  .header-contents {
+    max-width: 360px;
+    margin: 0 auto; }
+  .header-link {
+    white-space: nowrap; }
+    .header-link-item {
+      width: 40%;
+      padding: 0 1rem; }
+      .header-link-item span, .header-link-item em {
+        display: block; }
+    .header-link-item:first-child {
+      margin: 1rem 1.5rem; }
+
+/* 메인 컨텐츠 : 예약 리스트 */
+.main-section {
+  padding: 0 0 1rem 0; }
+.main-list {
+  max-width: 720px;
+  margin: 0 auto; }
+
+/*# sourceMappingURL=ReservationConfirm.module.css.map */

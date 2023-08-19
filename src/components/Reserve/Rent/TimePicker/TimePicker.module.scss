@@ -1,0 +1,64 @@
+.timepicker {
+  padding: 1rem 0;
+
+  &-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem 3rem;
+  }
+
+  &-title {
+    font-size: 1.5rem;
+  }
+
+  &-contents {
+
+  }
+
+  &-am {
+
+  }
+
+  &-pm {
+
+  }
+
+  &-sub-title {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .5rem;
+
+    &-item {
+      width: 50px;
+      height: 30px;
+      align-items: center;
+      align-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+
+      &-active {
+        background: #3dd28d;
+      }
+    }
+
+    &-item:hover {
+      font-weight: bold;
+    }
+  }
+}
+
+/* 선택된 시간 */
+.result-time {
+  font-size: 1.2rem;
+
+  span {
+    font-weight: 700;
+  }
+}

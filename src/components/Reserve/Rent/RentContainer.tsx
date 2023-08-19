@@ -4,7 +4,7 @@ import styles from "@/components/Reserve/Reserve.module.scss";
 import {useSearchParams} from "next/navigation";
 import Calendar from "@/components/Reserve/Rent/Calendar/Calendar";
 import Link from "next/link";
-import TimePicker from "@/components/Reserve/Rent/Calendar/TimePicker/TimePicker";
+import TimePicker from "@/components/Reserve/Rent/TimePicker/TimePicker";
 
 const RentContainer = () => {
     /* 쿼리스트링을 사용해 동적 라우팅 : 게임의 타이틀 */

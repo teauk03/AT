@@ -25,7 +25,7 @@
   .reserveForm .wrapper {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem; }
+    gap: 1rem; }
 
 /* 폼 제출 버튼 */
 .submit-button {
