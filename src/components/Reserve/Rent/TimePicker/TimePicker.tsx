@@ -2,7 +2,11 @@
 import React, {useState} from 'react';
 import styles from './TimePicker.module.scss';
 
-const TimePicker = () => {
+interface TimePickerProps {
+    onChange?: (time: string) => void;
+}
+
+const TimePicker: React.FC<TimePickerProps> = ({ onChange }) => {
     const timeIntervals = [
         '00:00', '00:30', '01:00', '01:30', '02:00', '02:30', '03:00', '03:30',
         '04:00', '04:30', '05:00', '05:30', '06:00', '06:30', '07:00', '07:30',
@@ -17,16 +21,42 @@ const TimePicker = () => {
     const [endTime, setEndTime] = useState<string | null>(null);
 
     const [selectedTime, setSelectedTime] = useState<string | null>(null);
+    const [hour, setHour] = useState<number>(0);
+    const [minute, setMinute] = useState<number>(0);
 
     const handleTimeClick = (time: string) => {
         if (selectedTime && endTime) {
             setStartTime(null);
             setEndTime(null);
+            setSelectedTime(null); // 선택을 초기화
         } else if (startTime) {
+            const newSelectedTime = `${startTime} ~ ${time}`;
             setEndTime(time);
-            setSelectedTime(`${startTime} ~ ${time}`);
-        } else {
+            setSelectedTime(newSelectedTime);
+
+            if (onChange) {
+                onChange(newSelectedTime); // 상위 컴포넌트로 선택된 시간을 전달.
+            }
+        }  else {
             setStartTime(time);
+        }
+    };
+
+    const handleHourChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const value = parseInt(event.target.value);
+        setHour(value);
+        updateTime(value, minute);
+    };
+
+    const handleMinuteChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const value = parseInt(event.target.value);
+        setMinute(value);
+        updateTime(hour, value);
+    };
+
+    const updateTime = (hour: number, minute: number) => {
+        if (onChange) {
+            onChange(`${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`);
         }
     };
 

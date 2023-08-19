@@ -3,7 +3,11 @@ import React, {useState} from 'react';
 import styles from './Calendar.module.scss';
 import SvgIconComponent from "@/components/SvgIconComponent";
 
-const Calendar = () => {
+interface CalendarProps {
+    onChange?: (date: Date) => void;
+}
+
+const Calendar = ({ onChange }: CalendarProps) => {
     const weekDays = ['월', '화', '수', '목', '금', '토', '일'];
 
     // 현재 주의 시작 날짜 설정
@@ -35,6 +39,9 @@ const Calendar = () => {
     // 날짜 클릭 처리 함수
     const handleDateClick = (date: Date) => {
         setSelectedDate(date);
+        if (onChange) {
+            onChange(date);
+        }
     };
 
     return (
