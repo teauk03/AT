@@ -13,17 +13,17 @@
     {
       "route": "/admin",
       "svgHref": "#trends",
-      "label": "Trends"
-    },
-    {
-      "route": "/admin",
-      "svgHref": "#collection",
-      "label": "Collection"
+      "label": "Reservation"
     },
     {
       "route": "/admin",
       "svgHref": "#comments",
       "label": "Comments"
+    },
+    {
+      "route": "/admin",
+      "svgHref": "#collection",
+      "label": "API"
     },
     {
       "route": "/admin",

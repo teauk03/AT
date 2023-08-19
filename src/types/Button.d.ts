@@ -14,6 +14,7 @@ export interface DynamicButtonProps {
 export interface PrimaryButtonProps {
     disabled: boolean;
     label: string;
+    onClick?: () => void;
 }
 
 /* [Components - button] Social Login Button */

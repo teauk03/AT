@@ -8,7 +8,6 @@ const handler = async (request: NextApiRequest, response: NextApiResponse) => {
     if (request.method === 'PUT') {
         const { _id, currentPassword, newPassword, newPasswordConfirm } = request.body;
 
-        console.log(request.body)
         // newPassword와 newPasswordConfirm이 일치하는지 확인
         if (newPassword !== newPasswordConfirm) {
             return response.status(400).json({ message: '새 비밀번호가 일치하지 않습니다.' });

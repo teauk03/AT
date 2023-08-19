@@ -1,13 +1,19 @@
 import bcrypt from 'bcrypt';
 import {NextApiRequest, NextApiResponse} from "next";
 import {connectDB} from "@/utils/mongoDb";
-import {hasValidPasswordLength, isValidEmailFormat, hasValidName, hasBirthValid} from '@/utils/validation/validation';
+import {
+    hasValidPasswordLength,
+    isValidEmailFormat,
+    hasValidName,
+    hasBirthValid,
+    hasValidNickName, hasValidPhone
+} from '@/utils/validation/validation';
 
 
 const handlerRegister = async (request: NextApiRequest, response: NextApiResponse): Promise<void> => {
     /* POST 요청 처리 */
     if (request.method === 'POST') {
-        const {email, password, name, birth} = request.body;
+        const {email, password, name, nickname, birth, phone} = request.body;
 
 
         /* 이메일 유효성 검사 */
@@ -37,6 +43,18 @@ const handlerRegister = async (request: NextApiRequest, response: NextApiRespons
             return;
         }
 
+        /* 닉네임 유효성 검사 */
+        if (!hasValidNickName(nickname)) {
+            response.status(400).json({message: '닉네임 : 필수 입력사항입니다.'});
+            return;
+        }
+
+        /* 닉네임 유효성 검사 */
+        if (!hasValidPhone(phone)) {
+            response.status(400).json({message: '휴대전화번호 : 필수 입력사항입니다.'});
+            return;
+        }
+
 
         try {
             let db = (await connectDB).db('forum');
@@ -54,14 +72,12 @@ const handlerRegister = async (request: NextApiRequest, response: NextApiRespons
                 response.status(409).json({message: '이미 존재하는 이메일입니다.'});
                 return;
             }
-
-
+            
             /* 비밀번호 해시값으로 변경 & DB 추가 */
             let passwordHash: string = await bcrypt.hash(request.body.password, 10)
-            await db.collection('user_card').insertOne({...request.body, password: passwordHash, role: 'customer'});
-
-            await db.collection('user_card').insertOne({...request.body, password, role: 'customer'});
-
+            await db.collection('user_card').insertOne({
+                ...request.body, password: passwordHash, role: 'customer'
+            });
 
             /* Response */
             response.status(200).json({message: '회원가입이 정상적으로 처리되었습니다.'});

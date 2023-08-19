@@ -1,15 +1,8 @@
 import { useState, useEffect, ChangeEvent } from 'react';
 
 const useEmailField = (initialValue: string, validateEmail: (email: string) => boolean) => {
-    const [
-        email,
-        setEmail
-    ] = useState(initialValue);
-
-    const [
-        isEmailValid,
-        setEmailValid
-    ] = useState(false);
+    const [email, setEmail] = useState(initialValue);
+    const [isEmailValid, setEmailValid] = useState(false);
 
     useEffect(() => {
         setEmailValid(validateEmail(email));

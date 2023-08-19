@@ -7,7 +7,7 @@ export interface DynamicAuthFieldProps {
     autoComplete: string;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     value: string;
-    type?: 'email' | 'password' | 'text' | 'number' | undefined;
+    type?: string | 'email' | 'password' | 'text' | 'number' | undefined;
     isInputValidation: boolean;
     validInputResult: string;
     invalidInputResult: string | null;

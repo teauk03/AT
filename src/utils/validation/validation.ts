@@ -14,28 +14,43 @@ const isEmailNotEmpty = (email: string): boolean => {
     return email.trim() !== "";
 }
 
-// Password Validation: 길이가 8 이상이면 유효
-const hasValidPasswordLength = (password: string): boolean => {
-    //return password.length >= 8;
-    return password.length >= 2;
-}
 
-// Naming Validation: 이름이 비어있지 않아야 함
+/* Naming Validation: 이름, 닉네임이 비어있지 않아야 함 */
 const hasValidName = (name: string): boolean => {
     //return name.trim() !== "";
     return name.length >= 2;
 }
+
+const hasValidNickName = (name: string): boolean => {
+    //return name.trim() !== "";
+    return name.length >= 2;
+}
+
 
 // Password Validation: 비어있지 않아야 함
 const hasPassword = (password: string): boolean => {
     return password.trim() !== "";
 }
 
+// Password Validation: 길이가 8 이상이면 유효
+const hasValidPasswordLength = (password: string): boolean => {
+    //return password.length >= 8;
+    return password.length >= 2;
+}
+
+
 // BirthField Validation: 숫자만 입력 가능
 const hasBirthValid = (birth: string): boolean => {
     const isOnlyDigits = /^\d+$/;
     return isOnlyDigits.test(birth);
 }
+
+/* Phone Validation: 휴대폰 번호가 비어있지 않아야 함 */
+const hasValidPhone = (name: string): boolean => {
+    //return name.trim() !== "";
+    return name.length >= 2;
+}
+
 
 // Input validation : (Client - SignIn)
 const validateSignInInputs = (email: string, password: string): string | null => {
@@ -53,9 +68,7 @@ const handleSignInError = (response: SignInResponse | undefined) => {
 
     // 서버 오류 체크.
     if (response.status >= 500) return '서버에서 오류가 발생했습니다. 다시 시도해주세요.';
-
     const errorMessage = typeof response?.error === 'string' ? response?.error : response?.error;
-
     switch (errorMessage) {
         case 'User not found':
         case 'Invalid email format':
@@ -112,8 +125,10 @@ export {
     isEmailNotEmpty,
     hasValidPasswordLength,
     hasValidName,
+    hasValidNickName,
     hasPassword,
     hasBirthValid,
+    hasValidPhone,
 
     // Sign In
     validateSignInInputs,

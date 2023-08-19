@@ -1,5 +1,4 @@
 'use client'
-
 import React, {FC} from 'react';
 import styles from './Join.module.scss';
 import Link from "next/link";
@@ -7,16 +6,20 @@ import github from "/public/github.svg"
 import google from "/public/google.svg"
 
 import {useSignUp} from '@/hooks/Auth/useSignUp';
-import {isValidEmailFormat, hasValidName, hasValidPasswordLength, hasBirthValid} from "@/utils/validation/validation";
+import {
+    isValidEmailFormat,
+    hasValidName,
+    hasValidPasswordLength,
+    hasBirthValid,
+    hasValidNickName, hasValidPhone
+} from "@/utils/validation/validation";
 
 import SocialLoginButton from "@/components/UI/Button/SocialLogin/SocialLoginButtons";
-import useEmailField from "@/hooks/Validation/useEmailField";
-import usePasswordField from "@/hooks/Validation/usePasswordField";
-import useNameField from "@/hooks/Validation/useNameField";
-import useDateOfBirthField from "@/hooks/Validation/useDateOfBirthField";
 import AuthInputField from "@/components/Auth/Input/AuthInputField";
 import PrimaryButton from "@/components/UI/Button/PrimaryButton";
 import DivisionLine from "@/components/Auth/DivisionLine/DivisionLine";
+import useValueField from "@/hooks/Validation/useSignUpValueField";
+import VerificationButton from "@/components/Auth/VerificationButton";
 
 /**
  * JoinComponent 는 사용자의 회원 가입을 제공하는 컴포넌트입니다.
@@ -28,15 +31,119 @@ import DivisionLine from "@/components/Auth/DivisionLine/DivisionLine";
  * 사용자를 홈페이지('/')로 리다이렉트합니다.
  */
 const JoinComponent: FC = (): JSX.Element => {
-    const {signup, isLoading, error, signedUp} = useSignUp();
-    const {email, isEmailValid, handleEmailChange} = useEmailField("", isValidEmailFormat);
-    const {password, isPasswordValid, handlePasswordChange} = usePasswordField("", hasValidPasswordLength);
-    const {name, isNameValid, handleNameChange} = useNameField("", hasValidName);
-    const {birth, isBirthValid, handleBirthChange} = useDateOfBirthField("", hasBirthValid);
+    const {
+        signup, isLoading,
+        error, signedUp
+    } = useSignUp();
+    const {
+        value: email,
+        isValueValid: isEmailValid,
+        handleChange: handleEmailChange
+    } = useValueField("", isValidEmailFormat);
+    const {
+        value: password,
+        isValueValid: isPasswordValid,
+        handleChange: handlePasswordChange
+    } = useValueField("", hasValidPasswordLength);
+    const {
+        value: name,
+        isValueValid: isNameValid,
+        handleChange: handleNameChange
+    } = useValueField("", hasValidName);
+    const {
+        value: birth,
+        isValueValid: isBirthValid,
+        handleChange: handleBirthChange
+    } = useValueField("", hasBirthValid);
+    const {
+        value: nickname,
+        isValueValid: isNickNameValid,
+        handleChange: handleNickNameChange
+    } = useValueField("", hasValidNickName);
+
+    const {
+        value: phone,
+        isValueValid: isPhoneValid,
+        handleChange: handlePhoneChange
+    } = useValueField("", hasValidPhone);
+
+    const handleEmailVerification = () => {
+        // 이메일 중복 확인 로직
+    };
+
+    const handleNicknameVerification = () => {
+        // 닉네임 중복 확인 로직
+    };
+
+    const handlePhoneVerification = () => {
+        // 휴대폰 인증 로직
+    };
+
+    const INPUT_FIELDS = [
+        {
+            label: '이메일',
+            type: 'email',
+            placeholder: '이메일 (Email)',
+            value: email,
+            validation: isEmailValid,
+            handleChange: handleEmailChange,
+            validInputResult: '사용 가능한 이메일 입니다.',
+            VerificationButton: { label: '중복확인', onClick: handleEmailVerification }
+        },
+        {
+            label: '비밀번호',
+            type: 'password',
+            placeholder: '비밀번호',
+            value: password,
+            validation: isPasswordValid,
+            handleChange: handlePasswordChange,
+            validInputResult: '사용 가능한 비밀번호입니다.',
+        },
+        {
+            label: '닉네임',
+            type: 'text',
+            placeholder: '닉네임',
+            value: nickname,
+            validation: isNickNameValid,
+            handleChange: handleNickNameChange,
+            validInputResult: '사용 가능한 닉네임 입니다.',
+            VerificationButton: { label: '중복확인', onClick: handleNicknameVerification }
+        },
+        {
+            label: '이름',
+            type: 'text',
+            placeholder: '이름',
+            value: name,
+            validation: isNameValid,
+            handleChange: handleNameChange,
+            validInputResult: '사용 가능한 이름 입니다.'
+        },
+        {
+            label: '휴대폰번호',
+            type: 'number',
+            placeholder: '전화번호',
+            value: phone,
+            validation: isPhoneValid,
+            handleChange: handlePhoneChange,
+            validInputResult: '사용 가능한 전화번호 입니다.',
+            VerificationButton: { label: '인증', onClick: handlePhoneVerification }
+        },
+        {
+            label: '생년월일',
+            type: 'text',
+            placeholder: '생년월일',
+            value: birth,
+            validation: isBirthValid,
+            handleChange: handleBirthChange,
+            validInputResult: '사용 가능한 생년월일 입니다.'
+        }
+    ];
+
+
 
     const handleSubmit = async (e: any): Promise<void> => {
         e.preventDefault();
-        const data = {birth, name, email, password};
+        const data = {name, email, password, nickname, phone, birth};
         await signup(data)
     };
 
@@ -46,7 +153,6 @@ const JoinComponent: FC = (): JSX.Element => {
                 <div className={styles.join}>
                     {/* Header */}
                     <section className={styles['title-wrapper']}>
-                        <h1 className={styles.title}>Create Account</h1>
                         <div className={styles['link-wrapper']}>
                             <span className={styles['sub-text']}>
                                 {'계정이 이미 있으신가요?'}{' '}
@@ -54,7 +160,6 @@ const JoinComponent: FC = (): JSX.Element => {
                             <Link href={'/login'}>로그인</Link>
                         </div>
                     </section>
-
                     {/* Social */}
                     <section className={styles['social-wrapper']}>
                         <SocialLoginButton
@@ -68,70 +173,36 @@ const JoinComponent: FC = (): JSX.Element => {
                             alt='Login for Google'
                         />
                     </section>
-
                     {/* Division Line */}
                     <DivisionLine text={'이메일로 가입하기'}/>
 
                     {/* Sign Up */}
                     <form className={styles.form} onSubmit={handleSubmit} noValidate>
-                        <AuthInputField
-                            label={'Email'}
-                            htmlFor={'emailForm'}
-                            name={'email'}
-                            value={email}
-                            type={'email'}
-                            placeholder={'이메일 (Email)'}
-                            autoComplete={'on'}
-                            onChange={handleEmailChange}
-                            isInputValidation={isEmailValid}
-                            validInputResult='사용 가능한 이메일 입니다.'
-                            invalidInputResult={error}
-                        />
-                        <AuthInputField
-                            label={'Password'}
-                            htmlFor={'passwordForm'}
-                            name={'password'}
-                            value={password}
-                            type={'password'}
-                            placeholder={'비밀번호'}
-                            autoComplete={'on'}
-                            onChange={handlePasswordChange}
-                            isInputValidation={isPasswordValid}
-                            validInputResult='사용 가능한 비밀번호입니다.'
-                            invalidInputResult={error}
-                        />
-                        <AuthInputField
-                            label={'Name (닉네임)'}
-                            htmlFor={'nameForm'}
-                            name={'name'}
-                            value={name}
-                            type={'text'}
-                            placeholder={'Name (닉네임)'}
-                            autoComplete={'off'}
-                            onChange={handleNameChange}
-                            isInputValidation={isNameValid}
-                            validInputResult='사용 가능한 닉네임 입니다.'
-                            invalidInputResult={error}
-                        />
-
-                        <AuthInputField
-                            label={'생년월일'}
-                            htmlFor={'birthForm'}
-                            name={'birth'}
-                            value={birth}
-                            type={'text'}
-                            placeholder={'생년월일 8자리 (예: 20230730)'}
-                            autoComplete={'off'}
-                            onChange={handleBirthChange}
-                            isInputValidation={isBirthValid}
-                            validInputResult='ok'
-                            invalidInputResult={error}
-                        />
-
-                        <PrimaryButton
-                            disabled={isLoading}
-                            label={'회원가입'}
-                        />
+                        {INPUT_FIELDS.map((field, index) => (
+                            <div className={styles['info-input-wrapper']} key={index}>
+                                <AuthInputField
+                                    label={field.label}
+                                    htmlFor={`${field.label}Form`}
+                                    name={field.label.toLowerCase()}
+                                    value={field.value}
+                                    type={field.type}
+                                    placeholder={field.placeholder}
+                                    autoComplete={'on'}
+                                    onChange={field.handleChange}
+                                    isInputValidation={field.validation}
+                                    validInputResult={field.validInputResult}
+                                    invalidInputResult={error ? `${field.placeholder} : ${error}` : ""}
+                                />
+                                {field.VerificationButton && (
+                                    <VerificationButton
+                                        label={field.VerificationButton.label}
+                                        disabled={true}
+                                        onClick={field.VerificationButton.onClick}
+                                    />
+                                )}
+                            </div>
+                        ))}
+                        <PrimaryButton disabled={isLoading} label={'회원가입'}/>
                     </form>
                 </div>
             </div>
