@@ -13,12 +13,12 @@ type typeMenuSectionProps = {
 
 const MenuSection = ({ aside_title, items }: typeMenuSectionProps) => {
     return (
-        <li className={styles['menu-heading']}>
+        <div className={styles['menu-heading']}>
             <h3 className={styles.title}>{aside_title}</h3>
             {items.map((item, index) => (
                 <MenuItem key={index} item={item} />
             ))}
-        </li>
+        </div>
     );
 };
 

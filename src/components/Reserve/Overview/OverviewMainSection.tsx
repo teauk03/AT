@@ -15,6 +15,7 @@ const OverviewMainSection = () => {
     const searchParams = useSearchParams();
     const queryGameTitle = searchParams ? decodeURIComponent(searchParams.get('game') as string) : '';
     const gameInfo = getGameInfo(queryGameTitle);
+    console.log(queryGameTitle)
 
     /* 체크박스 체킹 유무 */
     const [isCheckBoxChecked, setIsCheckBoxChecked] = useState(false);

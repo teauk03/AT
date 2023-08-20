@@ -6,8 +6,9 @@ import Calendar from "@/components/Reserve/Rent/Calendar/Calendar";
 import Link from "next/link";
 import TimePicker from "@/components/Reserve/Rent/TimePicker/TimePicker";
 import RentModal from "@/components/Reserve/Rent/Modal/RentModal";
+import {UserProfileData} from "@/types/Account";
 
-const RentContainer = () => {
+const RentContainer: React.FC<UserProfileData> = ({ user }) => {
     const [showModal, setShowModal] = useState<boolean>(false);
     const [selectedDay, setSelectedDay] = useState<Date | null>(null);
     const [selectedTime, setSelectedTime] = useState<string | null>(null);
@@ -24,20 +25,21 @@ const RentContainer = () => {
         setSelectedTime(time);
     };
 
-    const handleSubmit = (event: React.FormEvent) => {
+    /* 모달 표시 */
+    const handleSubmitOpenModal = (event: React.FormEvent) => {
         event.preventDefault();
-        // 모달 표시
         setShowModal(true);
     };
 
-    console.log(selectedTime)
     return (
         <main className={styles.main}>
             <div className={styles.container}>
                 <div className={styles.header}>
                     <span className={styles.title}>예약하기</span>
+                    <span className={styles.title}>{' > '}</span>
+                    <Link href={'/reserve/home'}><span className={styles.title}>{game}</span></Link>
                 </div>
-                <form className={styles.reserveForm} onSubmit={handleSubmit}>
+                <form className={styles.reserveForm} onSubmit={handleSubmitOpenModal}>
                     {/* 캘린더 */}
                     <Calendar onChange={handleDateChange} />
                     <div className={styles.wrapper}>
@@ -48,8 +50,10 @@ const RentContainer = () => {
                             <button type="submit" className={styles.button}>예약하기</button>
                         </div>
                     </div>
+                    {showModal &&
+                        <RentModal selectedDay={selectedDay} selectedTime={selectedTime} game={game}/>
+                    }
                 </form>
-                {showModal && <RentModal selectedDay={selectedDay} selectedTime={selectedTime} />}
             </div>
         </main>
     );

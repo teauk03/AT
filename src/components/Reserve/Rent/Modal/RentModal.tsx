@@ -4,17 +4,38 @@ import styles from './RentModal.module.scss';
 interface ModalProps {
     selectedDay: Date | null;
     selectedTime: string | null;
+    game: string | null;
 }
 
-const RentModal: React.FC<ModalProps> = ({ selectedDay, selectedTime }) => {
+const RentModal: React.FC<ModalProps> = ({ selectedDay, selectedTime, game }) => {
     const [showModal, setShowModal] = useState(true);
-    console.log('selectedDay : ', selectedDay)
-    console.log('selectedTime : ', selectedTime)
+
     const handleConfirm = () => {
-        // 여기서 폼 전송 로직을 추가합니다.
+        fetch('/api/reservation/new', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                division_title: game,
+                days: selectedDay,
+                time: selectedTime
+            })
+        })
+            .then(response => response.json()) // 응답을 JSON 형태로 파싱
+            .then(data => {
+                // 성공 처리
+                console.log(data)
+                setShowModal(false);
+            })
+            .catch(error => {
+                // 오류 처리
+                console.error('An error occurred:', error);
+            });
     };
 
-    if (!showModal) return null; // 모달이 숨겨져 있을 경우 아무 것도 렌더링하지 않습니다.
+    /* 모달이 숨겨져 있을 경우 아무 것도 렌더링 X */
+    if (!showModal) return null;
 
     return (
         <div className={styles.modal}>

@@ -4,15 +4,59 @@
   grid-gap: 30px;
 
   > article {
-    display: flex;
     height: 300px;
+    display: flex;
+    flex-direction: column;
     background: #fff;
     border-radius: 4px;
     box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.075);
 
+    h1 {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
     &:first-child,
     &:last-child {
+      padding: 2rem 3rem;
       grid-column: 1 / -1;
+    }
+  }
+}
+
+/* article first-child */
+.reserve {
+  max-width: 50rem;
+  margin: 0 auto;
+
+  &-inner {
+    padding: 0 1rem;
+  }
+
+  &-list {
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 3rem;
+  }
+
+  &-item {
+    width: 35rem;
+  }
+
+  &-submit-btn {
+    margin-left: auto;
+
+    button:first-child {
+      margin-right: 1rem;
+    }
+
+    button {
+      background: none;
+      border: none;
+    }
+
+    button:hover {
+      font-weight: bold;
     }
   }
 }

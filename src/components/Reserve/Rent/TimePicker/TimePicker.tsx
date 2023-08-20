@@ -98,10 +98,9 @@ const TimePicker: React.FC<TimePickerProps> = ({ onChange }) => {
                         </ul>
                     </div>
                 </div>
-                {selectedTime && <p className={styles['result-time']}><span>선택된 시간 : </span> {selectedTime}</p>}
-                <button type={'button'} disabled={!selectedTime}>
-                    예약시간 선택
-                </button>
+                {selectedTime &&
+                    <p className={styles['result-time']}><span>선택된 시간 : </span> {selectedTime}</p>
+                }
             </div>
         </div>
     );

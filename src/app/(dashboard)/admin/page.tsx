@@ -7,10 +7,8 @@ import AdminSvgItems from "@/components/Dashboard/Admin/AdminSvgItems";
 import {getServerSession} from "next-auth";
 import {authOptions} from "@/pages/api/auth/[...nextauth]";
 
-
 const AdminPage = async () => {
     const session = await getServerSession(authOptions)
-
     if (session?.user?.role !== 'admin' || null) {
         return {
             redirect: {

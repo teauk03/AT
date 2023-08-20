@@ -13,7 +13,7 @@ const nextConfig = {
     },
     images: {
         domains: ['i.namu.wiki', 'www.konami.com'],
-    }
+    },
 }
 
 module.exports = nextConfig

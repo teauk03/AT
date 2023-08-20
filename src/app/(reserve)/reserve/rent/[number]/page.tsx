@@ -1,24 +1,11 @@
 import React from 'react';
 import RentContainer from "@/components/Reserve/Rent/RentContainer";
-import {getServerSession} from "next-auth";
-import {authOptions} from "@/pages/api/auth/[...nextauth]";
-
-
+import getUserServerSession from "@/utils/DB/getUserServerSession";
 
 const Rent = async () => {
-    const session = await getServerSession(authOptions);
-    const user = session?.user || null;
-
-    if (!user) {
-        return {
-            redirect: {
-                destination: "login",
-                permanent: false,
-            },
-        }
-    }
-
-    return <RentContainer/>
+    const user = await getUserServerSession();
+    if (user && 'redirect' in user) return user;
+    return <RentContainer user={user}/>
 };
 
 export default Rent;
