@@ -5,7 +5,11 @@ import AdminSvgItems from "@/components/Dashboard/Admin/AdminSvgItems";
 import AdminAside from "@/components/Dashboard/Admin/AsideAdmin/AdminAside";
 import ForumGridContainer from "@/components/Dashboard/Admin/ManagementComponent/ManagementGrid";
 
-const ManagementComponent = () => {
+type MANAGEMENT_PROPS_TYPE = {
+    title: string;
+}
+
+const ManagementComponent = ({title}: MANAGEMENT_PROPS_TYPE) => {
     return (
         <main className={styles.container}>
             <svg style={{display: 'none'}}>
@@ -18,9 +22,14 @@ const ManagementComponent = () => {
             </div>
 
             <section className={styles['page-content']}>
+                {/* AdminPage Aside Menu */}
                 <AdminSearchBar/>
                 {/* AdminPage Grid Container */}
-                <ForumGridContainer/>
+                <section className={styles['grid-container']}>
+                    <article>
+                        <h1>{title}</h1>
+                    </article>
+                </section>
             </section>
         </main>
     );

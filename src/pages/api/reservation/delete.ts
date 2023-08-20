@@ -11,8 +11,6 @@ const deleteReservationHandler = async (request: NextApiRequest, response: NextA
 
     try {
         const db = (await connectDB).db("reservation")
-        const body = request.body;
-
         let result = await db.collection('reservation_list').deleteOne(
             {_id: new ObjectId(request.body._id)},
         );

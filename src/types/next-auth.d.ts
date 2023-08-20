@@ -1,3 +1,4 @@
+import {ReactNode} from "react";
 import {Session as NextAuthSession} from "next-auth/core/types";
 import {ObjectId} from "mongodb";
 
@@ -18,6 +19,12 @@ declare module "next-auth" {
         /* 만료 시간 (일반적으로 ISO 문자열 형식) */
         //expires: string;
     }
+}
+
+
+/* [Providers] children */
+export interface Props {
+    children: ReactNode;
 }
 
 
