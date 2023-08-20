@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "@/components/Dashboard/Admin/ContentsAdmin/ContentsAdmin.module.scss";
+import styles from "@/components/Dashboard/Admin/ContentsAdmin.module.scss";
 
 type MANAGEMENT_PROPS_TYPE = {
     title: string;

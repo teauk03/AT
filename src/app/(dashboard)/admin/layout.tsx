@@ -1,7 +1,5 @@
 import React from 'react';
 import styles from "@/components/Dashboard/Admin/Admin.module.scss";
-import {getServerSession} from "next-auth";
-import {authOptions} from "@/pages/api/auth/[...nextauth]";
 import AdminSvgItems from "@/components/Dashboard/Admin/AdminSvgItems";
 import AdminAside from "@/components/Dashboard/Admin/AsideAdmin/AdminAside";
 import AdminSearchBar from "@/components/Dashboard/Admin/SearchAdmin/AdminSearchBar";
