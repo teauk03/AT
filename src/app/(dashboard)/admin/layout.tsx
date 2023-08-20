@@ -1,15 +1,12 @@
 import React from 'react';
 import styles from "@/components/Dashboard/Admin/Admin.module.scss";
-import AdminSearchBar from "@/components/Dashboard/Admin/SearchAdmin/AdminSearchBar";
+import {getServerSession} from "next-auth";
+import {authOptions} from "@/pages/api/auth/[...nextauth]";
 import AdminSvgItems from "@/components/Dashboard/Admin/AdminSvgItems";
 import AdminAside from "@/components/Dashboard/Admin/AsideAdmin/AdminAside";
-import ForumGridContainer from "@/components/Dashboard/Admin/ManagementComponent/ManagementGrid";
+import AdminSearchBar from "@/components/Dashboard/Admin/SearchAdmin/AdminSearchBar";
 
-type MANAGEMENT_PROPS_TYPE = {
-    title: string;
-}
-
-const ManagementComponent = ({title}: MANAGEMENT_PROPS_TYPE) => {
+const AdminLayout = async ({children}: { children: React.ReactNode }): Promise<JSX.Element> => {
     return (
         <main className={styles.container}>
             <svg style={{display: 'none'}}>
@@ -21,18 +18,13 @@ const ManagementComponent = ({title}: MANAGEMENT_PROPS_TYPE) => {
                 <AdminAside/>
             </div>
 
+            {/* AdminPage Aside Content */}
             <section className={styles['page-content']}>
-                {/* AdminPage Aside Menu */}
                 <AdminSearchBar/>
-                {/* AdminPage Grid Container */}
-                <section className={styles['grid-container']}>
-                    <article>
-                        <h1>{title}</h1>
-                    </article>
-                </section>
+                {children}
             </section>
         </main>
     );
 };
 
-export default ManagementComponent;
+export default AdminLayout;

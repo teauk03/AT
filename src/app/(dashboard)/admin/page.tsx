@@ -19,23 +19,12 @@ const AdminPage = async () => {
     }
 
     return (
-        <main className={styles.container}>
-            <svg style={{display: 'none'}}>
-                <AdminSvgItems/>
-            </svg>
-
-            {/* AdminPage Header */}
-            <div className={styles['page-header']}>
-                <AdminAside/>
-            </div>
-
-            {/* AdminPage Content */}
-            <section className={styles['page-content']}>
-                <AdminSearchBar/>
-                {/* AdminPage Grid Container */}
-                <AdminGridContainer/>
-            </section>
-        </main>
+        <section className={styles['grid-container']}>
+            <article>
+                <h1>t</h1>
+                내용
+            </article>
+        </section>
     )
 }
 

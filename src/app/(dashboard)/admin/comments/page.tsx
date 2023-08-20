@@ -1,8 +1,8 @@
 import React from 'react';
-import ManagementComponent from "@/components/Dashboard/Admin/ManagementComponent/ManagementComponent";
+import ForumGridContainer from "@/components/Dashboard/Admin/ManagementGrid";
 
 const CommentsManagement = () => {
-    return <ManagementComponent title={'Comments Management'}/>
+    return <ForumGridContainer title={'Comments Management'}/>
 };
 
 export default CommentsManagement;

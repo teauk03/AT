@@ -1,8 +1,8 @@
 import React from 'react';
-import ManagementComponent from "@/components/Dashboard/Admin/ManagementComponent/ManagementComponent";
+import ForumGridContainer from "@/components/Dashboard/Admin/ManagementGrid";
 
 const UserAccountManagement = () => {
-    return <ManagementComponent title={'UserAccount Management'}/>
+    return <ForumGridContainer title={'UserAccount Management'}/>
 };
 
 export default UserAccountManagement;

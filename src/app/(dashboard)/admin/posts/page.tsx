@@ -1,8 +1,10 @@
 import React from 'react';
-import ManagementComponent from "@/components/Dashboard/Admin/ManagementComponent/ManagementComponent";
+import ForumGridContainer from "@/components/Dashboard/Admin/ManagementGrid";
 
 const AdminForumManagement = () => {
-    return <ManagementComponent title={'Posts Management'}/>
+    return (
+        <ForumGridContainer title={'Posts Management'}/>
+    )
 };
 
 export default AdminForumManagement;

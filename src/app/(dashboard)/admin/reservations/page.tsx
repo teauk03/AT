@@ -1,8 +1,8 @@
 import React from 'react';
-import ManagementComponent from "@/components/Dashboard/Admin/ManagementComponent/ManagementComponent";
+import ForumGridContainer from "@/components/Dashboard/Admin/ManagementGrid";
 
 const AdminReservationManagement = () => {
-    return <ManagementComponent title={'Reservation Management'}/>
+    return <ForumGridContainer title={'Reservation Management'}/>
 };
 
 export default AdminReservationManagement;
