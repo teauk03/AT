@@ -2,7 +2,7 @@ import {connectDB} from "@/utils/mongoDb";
 import { NextApiRequest, NextApiResponse } from "next";
 import {ObjectId} from "mongodb";
 
-export default async function handler(request: NextApiRequest, response: NextApiResponse) {
+const putPostHandler = async (request: NextApiRequest, response: NextApiResponse) => {
     if (request.method === 'POST') {
 
         let editNotice = {
@@ -20,3 +20,5 @@ export default async function handler(request: NextApiRequest, response: NextApi
         return response.status(200).redirect(302, '/forum');
     }
 }
+
+export default putPostHandler;

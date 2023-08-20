@@ -1,8 +1,8 @@
 import React from 'react';
-import ForumManagementComponent from "@/components/Dashboard/Admin/ForumManagementComponent/ForumManagementComponent";
+import ManagementComponent from "@/components/Dashboard/Admin/ManagementComponent/ManagementComponent";
 
 const AdminReservationManagement = () => {
-    return <ForumManagementComponent/>
+    return <ManagementComponent/>
 };
 
 export default AdminReservationManagement;

@@ -1,22 +1,18 @@
 import React from 'react';
-import {getServerSession} from "next-auth";
-import {authOptions} from "@/pages/api/auth/[...nextauth]";
-import ReservationConfirmContainer from "@/components/Reserve/Confirm/ReservationConfirmContainer";
+import styles from "@/components/Reserve/Confirm/ReservationConfirm.module.scss";
+import getUserServerSession from "@/utils/DB/getUserServerSession";
+import ReserveHeader from "@/components/Reserve/Confirm/Header/ReserveHeader";
+import ReserveBody from "@/components/Reserve/Confirm/Body/ReserveBody";
 
 const ReservationConfirm = async () => {
-    // const session = await getServerSession(authOptions);
-    // const user = session?.user || null;
-    //
-    // if (!user) {
-    //     return {
-    //         redirect: {
-    //             destination: "login",
-    //             permanent: false,
-    //         },
-    //     }
-    // }
-
-    return <ReservationConfirmContainer/>
+    const user = await getUserServerSession();
+    if (user && 'redirect' in user) return user;
+    return (
+        <div className={styles.container}>
+            <ReserveHeader user={user}/>
+            <ReserveBody/>
+        </div>
+    )
 };
 
 export default ReservationConfirm;

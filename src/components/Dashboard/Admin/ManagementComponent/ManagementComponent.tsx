@@ -3,9 +3,9 @@ import styles from "@/components/Dashboard/Admin/Admin.module.scss";
 import AdminSearchBar from "@/components/Dashboard/Admin/SearchAdmin/AdminSearchBar";
 import AdminSvgItems from "@/components/Dashboard/Admin/AdminSvgItems";
 import AdminAside from "@/components/Dashboard/Admin/AsideAdmin/AdminAside";
-import ForumGridContainer from "@/components/Dashboard/Admin/ForumManagementComponent/ForumManagementGrid";
+import ForumGridContainer from "@/components/Dashboard/Admin/ManagementComponent/ManagementGrid";
 
-const ForumManagementComponent = () => {
+const ManagementComponent = () => {
     return (
         <main className={styles.container}>
             <svg style={{display: 'none'}}>
@@ -26,4 +26,4 @@ const ForumManagementComponent = () => {
     );
 };
 
-export default ForumManagementComponent;
+export default ManagementComponent;

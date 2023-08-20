@@ -2,6 +2,7 @@ import React from "react";
 import styles from './page.module.scss';
 import MusicGameSlide from "@/components/UI/CarouselSlide/MusicGameSlide";
 import Link from "next/link";
+import {useSearchParams} from "next/navigation";
 
 const Home = (): JSX.Element => {
     return (
@@ -17,6 +18,8 @@ const Home = (): JSX.Element => {
                             <h1>Attack</h1>
                             <p>Hello</p>
                             <Link href={'/dataweb'}>Test Web</Link>
+                            <Link href={'/dataweb/query'}>Query Web</Link>
+                            <Link href={'/dataweb/dynamicRoute'}>dynamicRoute</Link>
                         </div>
                     </section>
                 </div>

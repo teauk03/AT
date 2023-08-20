@@ -1,8 +1,8 @@
 import React from 'react';
-import ForumManagementComponent from "@/components/Dashboard/Admin/ForumManagementComponent/ForumManagementComponent";
+import ManagementComponent from "@/components/Dashboard/Admin/ManagementComponent/ManagementComponent";
 
 const UserAccountManagement = () => {
-    return <ForumManagementComponent/>
+    return <ManagementComponent/>
 };
 
 export default UserAccountManagement;

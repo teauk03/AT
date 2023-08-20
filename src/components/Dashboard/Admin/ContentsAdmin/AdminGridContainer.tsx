@@ -2,15 +2,11 @@ import React from 'react';
 import styles from "@/components/Dashboard/Admin/ContentsAdmin/ContentsAdmin.module.scss";
 import getConnectServerDb from "@/utils/DB/getConnectServerDb";
 import LoadingForum from "@/components/UI/Loading/LoadingForum";
+import formatDate from "@/utils/formatDate";
 
 const AdminGridContainer = async () => {
-    const {results} = await getConnectServerDb("reservation", "reservation_list");
+    const {results} = await getConnectServerDb("reservation", "reservation_list", 5);
     if (!results) return <LoadingForum/>;
-
-    const results_data = (dateString: any) => {
-        const date = new Date(dateString);
-        return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-    };
 
     return (
         <section className={styles['grid-container']}>
@@ -24,7 +20,7 @@ const AdminGridContainer = async () => {
                                     <span>{item.name}</span>
                                     <span>{item.division}</span>
                                     <span>{item.division_title}</span>
-                                    <span>{results_data(item.days)}</span>
+                                    <span>{formatDate(item.days)}</span>
                                     <span>{item.time}</span>
                                 </div>
                                 <div className={styles['reserve-submit-btn']}>
