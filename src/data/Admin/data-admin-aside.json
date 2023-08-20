@@ -2,21 +2,26 @@
   "ITEMS": [
     {
       "route": "/admin",
+      "svgHref": "#settings",
+      "label": "Home"
+    },
+    {
+      "route": "/admin/posts",
       "svgHref": "#pages",
       "label": "Pages"
     },
     {
-      "route": "/admin",
+      "route": "/admin/users",
       "svgHref": "#users",
       "label": "Users"
     },
     {
-      "route": "/admin",
+      "route": "/admin/reservations",
       "svgHref": "#trends",
       "label": "Reservation"
     },
     {
-      "route": "/admin",
+      "route": "/admin/comments",
       "svgHref": "#comments",
       "label": "Comments"
     },

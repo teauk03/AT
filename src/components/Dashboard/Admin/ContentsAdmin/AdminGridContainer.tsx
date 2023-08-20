@@ -37,6 +37,7 @@ const AdminGridContainer = async () => {
                 </div>
             </article>
             <article>
+                <h1>근무 시간표</h1>
             </article>
         </section>
     );
