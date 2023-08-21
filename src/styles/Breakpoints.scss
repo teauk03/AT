@@ -46,3 +46,10 @@
   width: 100%;
   display: flex;
 }
+
+/* Grid Column */
+@mixin threeColumnGrid($repeatValue, $columnSize) {
+  display: grid;
+  grid-template-columns: repeat($repeatValue, $columnSize);
+  gap: 20px;
+}

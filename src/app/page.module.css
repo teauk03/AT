@@ -1,67 +1,42 @@
-.main {
-  min-height: 100vh;
-  padding: 0 7.5rem;
-  display: flow-root;
-}
-.main .contents {
-  display: flex;
-  flex-direction: column;
-  overflow-x: clip;
-  overflow-y: visible;
-}
-.main .contents .hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.main .contents .hero .wrapper {
-  max-width: 520px;
-  padding: 5rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-.main .contents .hero .wrapper h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-.main .contents .hero .wrapper p {
-  font-size: 1.2rem;
-  color: #4B5563;
-}
-.main .arduino {
-  padding: 5rem 0;
-  text-align: center;
-}
-.main .arduino .wrapper h3 {
-  font-size: 2.5rem;
-}
-.main .arduino .wrapper p {
-  max-width: 800px;
-  margin: 0 auto;
-  font-size: 1.1rem;
-  color: #4B5563;
-}
-.main .block-coding {
-  padding: 5rem 0;
-}
-.main .block-coding div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.main .block-coding div h3 {
-  font-size: 2.5rem;
-  margin-top: 2rem;
-}
-.main .block-coding div p {
-  max-width: 800px;
-  margin: 0 auto;
-  font-size: 1.1rem;
-  color: #4B5563;
-}
+/*
+Error: Invalid CSS after "...ude Breakpoints": expected "}", was ".threeColumnGri..."
+        on line 92 of page.module.scss
 
-/*# sourceMappingURL=page.module.css.map */
+87:     color: #777;
+88:     margin: 10px 0;
+89:   }
+90: }
+91: .games-card {
+92:   @include Breakpoints.threeColumnGrid(3, 2fr);
+93: }
+94: 
+95: /* 게임 타이틀 내부 Navbar *\/
+96: .swiper-wrapper {
+97:   padding-bottom: 2.5vw;
+
+Backtrace:
+page.module.scss:92
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:690:in `block'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:681:in `ruleset'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:707:in `block_child'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:137:in `stylesheet'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:41:in `parse'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/engine.rb:414:in `_to_tree'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:387:in `run'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:63:in `process_result'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/base.rb:50:in `parse'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/exec/base.rb:18:in `parse!'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/bin/sass:13:in `<top (required)>'
+C:/Ruby31-x64/bin/sass:32:in `load'
+C:/Ruby31-x64/bin/sass:32:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"...ude Breakpoints\": expected \"}\", was \".threeColumnGri...\"\A         on line 92 of page.module.scss\A \A 87:     color: #777;\A 88:     margin: 10px 0;\A 89:   }\A 90: }\A 91: .games-card {\A 92:   @include Breakpoints.threeColumnGrid(3, 2fr);\A 93: }\A 94: \A 95: /* 게임 타이틀 내부 Navbar */\A 96: .swiper-wrapper {\A 97:   padding-bottom: 2.5vw;"; }
