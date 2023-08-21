@@ -8,7 +8,8 @@
   display: flex;
   flex-direction: column;
   color: variables.$base-font-color-dark;
-  background: variables.$color-light-gray;
+  background: variables.$base-background-main;
+  border-top: variables.$border-default-2px;
 }
 
 /* Footer */
@@ -68,7 +69,7 @@
   display: flex;
   justify-content: space-between;
   padding-bottom: 30px;
-  border-top: 1px solid variables.$base-font-color-dark;
+  border-top: variables.$border-default-1px;
 
   .text {
     margin: 1rem 0;

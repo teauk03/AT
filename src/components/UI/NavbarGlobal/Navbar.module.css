@@ -1,21 +1,21 @@
 /*
-Error: Invalid CSS after "  color: variables": expected ";", was ".$color-dark-gray;"
-        on line 135 of Navbar.module.scss
+Error: Invalid CSS after "...ound: variables": expected ";", was ".$base-backgrou..."
+        on line 9 of Navbar.module.scss
 
-130:  * 로그인시 노출 *\/
-131: .user-session-wrap {
-132:   display: flex;
-133:   align-items: center;
-134:   align-content: center;
-135:   color: variables.$color-dark-gray;
-136:   cursor: pointer;
-137: 
-138:   .user-session-info {
-139:     padding: .4rem .3rem .3rem;
-140:     font-weight: 500;
+4: /* Header(Navigation) *\/
+5: .header {
+6:   width: 100%;
+7:   height: auto;
+8:   z-index: 100;
+9:   background: variables.$base-background-main;
+10:   transition: background 0.5s;
+11: 
+12:   .navbar {
+13:     max-width: 1440px;
+14:     margin: 0 auto;
 
 Backtrace:
-Navbar.module.scss:135
+Navbar.module.scss:9
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
@@ -45,4 +45,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"  color: variables\": expected \";\", was \".$color-dark-gray;\"\A         on line 135 of Navbar.module.scss\A \A 130:  * 로그인시 노출 */\A 131: .user-session-wrap {\A 132:   display: flex;\A 133:   align-items: center;\A 134:   align-content: center;\A 135:   color: variables.$color-dark-gray;\A 136:   cursor: pointer;\A 137: \A 138:   .user-session-info {\A 139:     padding: .4rem .3rem .3rem;\A 140:     font-weight: 500;"; }
+  content: "Error: Invalid CSS after \"...ound: variables\": expected \";\", was \".$base-backgrou...\"\A         on line 9 of Navbar.module.scss\A \A 4: /* Header(Navigation) */\A 5: .header {\A 6:   width: 100%;\A 7:   height: auto;\A 8:   z-index: 100;\A 9:   background: variables.$base-background-main;\A 10:   transition: background 0.5s;\A 11: \A 12:   .navbar {\A 13:     max-width: 1440px;\A 14:     margin: 0 auto;"; }

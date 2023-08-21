@@ -22,7 +22,7 @@ html {
   font-size: variables.$base-font-size;
   font-weight: normal;
   line-height: 1.5;
-  background-color: #fff;
+  background: variables.$base-background-main;
   color: #4d5058;
 
   // 글꼴 크기 조정 방지
@@ -39,7 +39,7 @@ html {
 body {
   min-height: 100%;
   margin: 0;
-  background: #efefef;
+
 }
 
 /* wrap 글로벌 클래스 */

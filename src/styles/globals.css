@@ -11,7 +11,7 @@ Error: Invalid CSS after "...ude Breakpoints": expected "}", was ".font-base;"
 22:   font-size: variables.$base-font-size;
 23:   font-weight: normal;
 24:   line-height: 1.5;
-25:   background-color: #fff;
+25:   background: variables.$base-background-main;
 26:   color: #4d5058;
 
 Backtrace:
@@ -39,4 +39,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"...ude Breakpoints\": expected \"}\", was \".font-base;\"\A         on line 21 of globals.scss\A \A 16:   //color: #fff;\A 17:   text-shadow: none;\A 18: }\A 19: \A 20: html {\A 21:   @include Breakpoints.font-base;\A 22:   font-size: variables.$base-font-size;\A 23:   font-weight: normal;\A 24:   line-height: 1.5;\A 25:   background-color: #fff;\A 26:   color: #4d5058;"; }
+  content: "Error: Invalid CSS after \"...ude Breakpoints\": expected \"}\", was \".font-base;\"\A         on line 21 of globals.scss\A \A 16:   //color: #fff;\A 17:   text-shadow: none;\A 18: }\A 19: \A 20: html {\A 21:   @include Breakpoints.font-base;\A 22:   font-size: variables.$base-font-size;\A 23:   font-weight: normal;\A 24:   line-height: 1.5;\A 25:   background: variables.$base-background-main;\A 26:   color: #4d5058;"; }
