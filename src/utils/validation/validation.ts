@@ -1,7 +1,7 @@
 // Email Validation
 import {AxiosError} from "axios";
 import {SignInResponse} from "next-auth/react";
-import {SignupData} from '@/types/Auth';
+import {SignupData} from '@/types/next-auth';
 
 const isValidEmailFormat = (email: string): boolean => {
     //const emailRegex: RegExp = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;

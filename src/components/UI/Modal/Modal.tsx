@@ -1,10 +1,9 @@
 import React from 'react';
 import styles from './Modal.module.scss';
 import ModalButton from "@/components/UI/Modal/ModalButton";
-import {ModalProps} from '@/types/Modal';
+import {UI_MODAL_PROPS} from "@/types/UI";
 
-
-const Modal = ({isOpen, onClose, onAbort, children}: ModalProps) => {
+const Modal = ({isOpen, onClose, onAbort, children}: UI_MODAL_PROPS) => {
     if (!isOpen) return null;
 
     return (

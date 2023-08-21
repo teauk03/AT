@@ -10,7 +10,7 @@ import {
     handleException
 } from '@/utils/validation/validation';
 
-import {SignupData, SignUpState} from '@/types/Auth';
+import {SignupData, SignUpState} from '@/types/next-auth';
 
 
 /* [Custom Hook] 회원가입 */

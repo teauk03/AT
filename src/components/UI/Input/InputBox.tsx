@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './InputBox.module.scss';
-import {LoginInputProps} from '@/types/Input';
+import {UI_LOGIN_INPUT_PROPS} from "@/types/UI";
 
-const InputBox = ({name, type, label, autoComplete, onChange}: LoginInputProps) => (
+const InputBox = ({name, type, label, autoComplete, onChange}: UI_LOGIN_INPUT_PROPS) => (
     <div className={styles['input-wrapper']}>
         <input
             id={`${name}Form`}

@@ -1,11 +1,10 @@
 import React from 'react';
-// import styles from "@/components/Dashboard/Admin/Contents/AdminContents.module.scss";
 import styles from "@/components/Dashboard/Admin/Admin.module.scss";
-import {MANAGEMENT_POSTS_TYPE} from "@/types/Admin";
+import {ADMIN_MANAGEMENT_POSTS_TYPE} from "@/types/Account";
 
 type FORUM_PROPS_TYPE = {
     title: string;
-    results: MANAGEMENT_POSTS_TYPE[];
+    results: ADMIN_MANAGEMENT_POSTS_TYPE[];
 }
 
 /* 추후 사용여부 고려 */

@@ -9,7 +9,7 @@ import {
     handleException
 } from "@/utils/validation/validation";
 
-import {LoginState} from '@/types/Auth';
+import {LoginState} from '@/types/next-auth';
 
 
 /* [Custom Hook] 로그인 */

@@ -1,6 +1,5 @@
 import {ObjectId} from "mongodb";
 import React, {ChangeEvent} from "react";
-import exp from "constants";
 
 /* [util] getPostsFromForum Result Type */
 interface Post {
@@ -11,23 +10,12 @@ interface Post {
     [key: string]: any;
 }
 
-
-/* [Component] ForumItem Props */
-export interface NoticeItemProps {
-    result: Post[],
-    totalPosts: number,
-    page: number,
-    //searchQuery: string
-}
-
-
 /* [Custom Hook] useCountText.ts */
 export interface TextCountHooks {
     textLength: number;
     setText: React.Dispatch<React.SetStateAction<string>>;
     onTextChanged: (event: ChangeEvent<HTMLInputElement>) => void;
 }
-
 
 /* [Custom Hook] useCreatePost.ts
  * 게시글 생성에 사용되는 옵션 정의

@@ -1,5 +1,4 @@
 import {StaticImageData} from "next/image";
-import ModalButton from "@/components/UI/Modal/ModalButton";
 
 /* [Components - button] Dynamic Button */
 export interface DynamicButtonProps {

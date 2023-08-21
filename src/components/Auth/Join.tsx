@@ -20,7 +20,7 @@ import PrimaryButton from "@/components/UI/Button/PrimaryButton";
 import DivisionLine from "@/components/Auth/DivisionLine/DivisionLine";
 import useValueField from "@/hooks/Validation/useSignUpValueField";
 import VerificationButton from "@/components/Auth/VerificationButton";
-import {InputField} from "@/types/Input";
+import {UI_JOIN_INPUT_FIELD} from "@/types/UI";
 
 /**
  * JoinComponent 는 사용자의 회원 가입을 제공하는 컴포넌트입니다.
@@ -119,7 +119,7 @@ const JoinComponent: FC = (): JSX.Element => {
     };
 
     /* 이름, 생년월일, 휴대폰번호 필드 */
-    const FIRST_INPUT_FIELDS: InputField[] = [
+    const FIRST_INPUT_FIELDS: UI_JOIN_INPUT_FIELD[] = [
         {
             label: '이름',
             type: 'text',
@@ -150,7 +150,7 @@ const JoinComponent: FC = (): JSX.Element => {
         }
     ];
     /* 이메일, 비밀번호, 닉네임 필드 */
-    const SECOND_INPUT_FIELDS: InputField[] = [
+    const SECOND_INPUT_FIELDS: UI_JOIN_INPUT_FIELD[] = [
         {
             label: '이메일',
             type: 'email',

@@ -21,16 +21,3 @@ export interface GameCards {
     series_last: string;
     image: string;
 }
-
-export interface ReservationContent {
-    item: string;
-}
-
-export interface ReservationInformation {
-    title: string;
-    contents: ReservationContent[];
-}
-
-export interface Data {
-    RESERVATION_INFORMATION: ReservationInformation[];
-}

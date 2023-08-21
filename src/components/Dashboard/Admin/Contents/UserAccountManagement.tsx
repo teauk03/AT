@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from "@/components/Dashboard/Admin/Admin.module.scss";
-import {MANAGEMENT_USERS_TYPE} from "@/types/Admin";
+import {ADMIN_MANAGEMENT_USERS_TYPE} from "@/types/Account";
 
 type USERS_PROPS_TYPE = {
     title: string;
-    results: MANAGEMENT_USERS_TYPE[];
+    results: ADMIN_MANAGEMENT_USERS_TYPE[];
 }
 
 /* 추후 사용여부 고려 */
