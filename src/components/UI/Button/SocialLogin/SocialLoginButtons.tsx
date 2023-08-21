@@ -2,9 +2,9 @@
 import {signIn} from "next-auth/react";
 import styles from './SocialLogin.module.scss';
 import Image from "next/image";
-import {SocialLoginButtonProps} from '@/types/Button';
+import {SOCIAL_LOGIN_BUTTON_PROPS} from "@/types/UI";
 
-const SocialLoginButton: React.FC<SocialLoginButtonProps> = ({ provider, src, alt }) => {
+const SocialLoginButton: React.FC<SOCIAL_LOGIN_BUTTON_PROPS> = ({ provider, src, alt }) => {
     return (
         <button
             className={styles.social}

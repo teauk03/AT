@@ -1,7 +1,7 @@
 import React from 'react';
-import {ModalButtonProps} from "@/types/Button";
+import {MODAL_BUTTON_PROPS} from "@/types/UI";
 
-const ModalButton: React.FC<ModalButtonProps> = ({ label, onClick, className }) => {
+const ModalButton: React.FC<MODAL_BUTTON_PROPS> = ({ label, onClick, className }) => {
     return (
         <button className={className} onClick={onClick}>
             {label}
