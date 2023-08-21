@@ -2,20 +2,29 @@
 @use '@/styles/Breakpoints';
 
 /* Container */
-.footer-container {
-  @include Breakpoints.global-wrap-style;
+.footer {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
   color: variables.$base-font-color-dark;
   background: variables.$color-light-gray;
 }
 
 /* Footer */
-.footer {
+.ftr-sec {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.ftr-top {
+  width: 1100px;
   margin: 50px 0 25px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  &-main {
+  .ftr-link {
     max-width: 40%;
     margin-left: 4.5rem;
     font-style: normal;
@@ -24,11 +33,11 @@
     line-height: 40px;
   }
 
-  &-navigate {
+  .ftr-nav {
     display: flex;
   }
 
-  &-navigate-item {
+  .ftr-item {
     margin-left: 60px;
     display: flex;
     flex-direction: column;
@@ -55,13 +64,13 @@
 }
 
 /* Site Legal */
-.Legal {
+.ftr-Legal {
   display: flex;
   justify-content: space-between;
   padding-bottom: 30px;
   border-top: 1px solid variables.$base-font-color-dark;
 
-  p {
+  .text {
     margin: 1rem 0;
     font-style: normal;
     font-weight: 400;

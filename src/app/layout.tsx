@@ -3,7 +3,7 @@ import {Inter} from 'next/font/google'
 import {Metadata} from "next";
 import Providers from "@/components/context/Providers";
 import GlobalNavbarComponent from "@/components/UI/NavbarGlobal/GlobalNavbarComponent";
-import {FooterClientComponent} from "@/components/UI/Footer/Footer";
+import FooterClientComponent from "@/components/UI/Footer/Footer";
 import React from "react";
 
 const inter = Inter({subsets: ['latin']})
@@ -17,11 +17,13 @@ const RootLayout = async ({children}: { children: React.ReactNode }): Promise<JS
     return (
         <html lang="ko">
         <body>
-        <Providers>
-            <GlobalNavbarComponent/>
-            {children}
-            <FooterClientComponent/>
-        </Providers>
+        <div className="wrap">
+            <Providers>
+                <GlobalNavbarComponent/>
+                {children}
+                <FooterClientComponent/>
+            </Providers>
+        </div>
         </body>
         </html>
     )
