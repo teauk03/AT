@@ -76,7 +76,7 @@ const GlobalNavbarComponent = () => {
 
     return (
         <header className={styles.header}>
-            <nav className={styles.navbar} ref={modalRef}>
+            <nav className={styles.nav} ref={modalRef}>
                 <NavbarHome/>
                 <GlobalNavItems gblMenuItems={gblMenuItems}/>
                 <NavbarUserSession session={session} isMenClicked={isMenClicked} setIsUserModalClicked={setIsUserModalClicked}/>

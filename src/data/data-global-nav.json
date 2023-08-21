@@ -2,7 +2,75 @@
   "ITEMS": [
     {
       "title": "커뮤니티",
-      "route": "/forum"
+      "route": "/forum",
+      "subMenu": [
+        {
+          "title": "Konami",
+          "route": "/forum",
+          "subMenu": [
+            {
+              "title": "Sound Vortex",
+              "route": "/forum"
+            },
+            {
+              "title": "beatmania IIDX",
+              "route": "/forum"
+            },
+            {
+              "title": "GITADORA",
+              "route": "/forum"
+            },
+            {
+              "title": "Jubeat",
+              "route": "/forum"
+            },
+            {
+              "title": "Jubeat",
+              "route": "/forum"
+            },
+            {
+              "title": "DanceDanceRevolution",
+              "route": "/forum"
+            }
+          ]
+        },
+        {
+          "title": "Namco",
+          "route": "/forum",
+          "subMenu": [
+            {
+              "title": "MAIMAI",
+              "route": "/forum"
+            },
+            {
+              "title": "Namco",
+              "route": "/forum"
+            },
+            {
+              "title": "ETC",
+              "route": "/forum"
+            }
+          ]
+        },
+        {
+          "title": "ETC",
+          "route": "/forum",
+          "subMenu": [
+            {
+              "title": "EZ2AC",
+              "route": "/forum"
+            },
+            {
+              "title": "Namco",
+              "route": "/forum"
+            },
+            {
+              "title": "ETC",
+              "route": "/forum"
+            }
+          ]
+        }
+      ]
     },
     {
       "title": "매장소식",

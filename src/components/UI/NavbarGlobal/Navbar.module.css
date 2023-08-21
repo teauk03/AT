@@ -10,7 +10,7 @@ Error: Invalid CSS after "...ound: variables": expected ";", was ".$base-backgro
 9:   background: variables.$base-background-main;
 10:   transition: background 0.5s;
 11: 
-12:   .navbar {
+12:   .nav {
 13:     max-width: 1440px;
 14:     margin: 0 auto;
 
@@ -45,4 +45,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"...ound: variables\": expected \";\", was \".$base-backgrou...\"\A         on line 9 of Navbar.module.scss\A \A 4: /* Header(Navigation) */\A 5: .header {\A 6:   width: 100%;\A 7:   height: auto;\A 8:   z-index: 100;\A 9:   background: variables.$base-background-main;\A 10:   transition: background 0.5s;\A 11: \A 12:   .navbar {\A 13:     max-width: 1440px;\A 14:     margin: 0 auto;"; }
+  content: "Error: Invalid CSS after \"...ound: variables\": expected \";\", was \".$base-backgrou...\"\A         on line 9 of Navbar.module.scss\A \A 4: /* Header(Navigation) */\A 5: .header {\A 6:   width: 100%;\A 7:   height: auto;\A 8:   z-index: 100;\A 9:   background: variables.$base-background-main;\A 10:   transition: background 0.5s;\A 11: \A 12:   .nav {\A 13:     max-width: 1440px;\A 14:     margin: 0 auto;"; }

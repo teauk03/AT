@@ -14,13 +14,6 @@ const GlobalNavItems = ({ gblMenuItems }: MenuItemProps) => {
     const handleMouseEnter = () => setShowSubMenu(true);
     const handleMouseLeave = () => setShowSubMenu(false);
 
-    /*"subMenu": [
-        {
-            "title": "마이페이지",
-            "route": "/user/mypage"
-        }
-    ]*/
-
     const renderSubMenu = (subMenu: MenuItem[]) => (
         <ul className={styles['sub-menu']}>
             {subMenu.map((subItem) => (
