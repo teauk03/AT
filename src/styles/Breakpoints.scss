@@ -24,13 +24,7 @@
 }
 
 @mixin mobile {
-  @media only screen and (min-width: variables.$responsive-mobile) {
-    @content;
-  }
-}
-
-@mixin tablet {
-  @media only screen and (min-width: variables.$responsive-tablet) {
+  @media screen and (max-width: variables.$responsive-mobile) {
     @content;
   }
 }

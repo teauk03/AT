@@ -2,17 +2,13 @@
 import React, {useEffect, useRef, useState} from "react";
 import styles from './Navbar.module.scss';
 
-import Link from "next/link";
-import Image from 'next/image'
-import NavigationLogo from '@/../public/img/home-bg-Transparent.png';
-import GlobalNavItems from "@/components/UI/NavbarGlobal/GlobalNavItems/GlobalNavItems";
-import {useSession} from "next-auth/react";
+import GlobalNavItems from "@/components/UI/NavbarGlobal/GlobalNavItems";
+import NavbarUserSession from "@/components/UI/NavbarGlobal/NavbarSession";
 
-import NavbarLink from "@/components/UI/NavbarGlobal/NavbarLink";
-import SvgIconComponent from "@/components/SvgIconComponent";
-import IsUserStatusModalMenu from "@/components/UI/NavbarGlobal/IsUserStatusModalMenu/IsUserStatusModalMenu";
+import {useSession} from "next-auth/react";
 import GLOBAL_NAV from "@/data/data-global-nav.json";
 import {MenuItem} from '@/types/Navigation';
+import NavbarHome from "@/components/UI/NavbarGlobal/NavbarHome";
 
 
 const GlobalNavbarComponent = () => {
@@ -79,65 +75,13 @@ const GlobalNavbarComponent = () => {
 
 
     return (
-        <nav className={styles.navbar} ref={modalRef}>
-            {/* Navigation Home */}
-            <div className={styles['navbar-wrapper']}>
-                <Link className={styles['navbar-logo']} href={'/'}>
-                    <Image
-                        src={NavigationLogo}
-                        width={120.79}
-                        height={17}
-                        alt="어택 로고 이미지"
-                    />
-                </Link>
-            </div>
-
-            <button className={styles['hamburger-btn']}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
-                     strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                     className="feather feather-menu">
-                    <path d="M3 12h18M3 6h18M3 18h18"/>
-                </svg>
-            </button>
-
-            {/* [Navigation Link Wrap] Scss : Navbar.module.scss */}
-            <ul className={styles['nav-link-wrap']}>
+        <header className={styles.header}>
+            <nav className={styles.navbar} ref={modalRef}>
+                <NavbarHome/>
                 <GlobalNavItems gblMenuItems={gblMenuItems}/>
-            </ul>
-
-
-            {/* [Navigation User Session Wrap] */}
-            <div className={styles['login-menu-wrap']}>
-                <>
-                    {!session &&
-                        <>
-                            <NavbarLink
-                                className={`${styles['create-btn']} ${styles['selected-btn']}`}
-                                href={'/join/'}
-                                label={'회원가입'}
-                            />
-                            <NavbarLink
-                                className={styles['create-btn']}
-                                href={'/login/'}
-                                label={'로그인'}
-                            />
-                        </>
-                    }
-
-                     {/* 로그인시 노출 */}
-                    {session?.user &&
-                        <>
-                            <div className={styles['user-session-wrap']} onClick={setIsUserModalClicked}>
-                                <SvgIconComponent width={25} height={25} svgPath={'M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z'}/>
-                                <span className={styles['user-session-info']}>{session.user.name}</span>
-                            </div>
-                             {/* 클릭시 DropdownMenu 노출 */}
-                            {isMenClicked && <IsUserStatusModalMenu session={session}/>}
-                        </>
-                    }
-                </>
-            </div>
-        </nav>
+                <NavbarUserSession session={session} isMenClicked={isMenClicked} setIsUserModalClicked={setIsUserModalClicked}/>
+            </nav>
+        </header>
     );
 }
 

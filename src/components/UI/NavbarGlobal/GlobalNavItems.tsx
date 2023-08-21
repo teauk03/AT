@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react';
-import styles from "../Navbar.module.scss";
+import styles from "./Navbar.module.scss";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MenuItemProps, MenuItem } from '@/types/Navigation';
@@ -13,6 +13,13 @@ const GlobalNavItems = ({ gblMenuItems }: MenuItemProps) => {
 
     const handleMouseEnter = () => setShowSubMenu(true);
     const handleMouseLeave = () => setShowSubMenu(false);
+
+    /*"subMenu": [
+        {
+            "title": "마이페이지",
+            "route": "/user/mypage"
+        }
+    ]*/
 
     const renderSubMenu = (subMenu: MenuItem[]) => (
         <ul className={styles['sub-menu']}>
@@ -47,10 +54,12 @@ const GlobalNavItems = ({ gblMenuItems }: MenuItemProps) => {
     };
 
     return (
-        <ul className={styles['nav-wrap']} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            {/* Global Navigation : 메인 네비게이션 아이템 렌더링 */}
-            {gblMenuItems.map(renderMainNavItem)}
-        </ul>
+        <div className={styles['nav-link-wrap']}>
+            <ul className={styles['nav-wrap']} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                {/* Global Navigation : 메인 네비게이션 아이템 렌더링 */}
+                {gblMenuItems.map(renderMainNavItem)}
+            </ul>
+        </div>
     );
 };
 

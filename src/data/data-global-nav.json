@@ -30,13 +30,7 @@
     },
     {
       "title": "고객지원",
-      "route": "/support",
-      "subMenu": [
-        {
-          "title": "마이페이지",
-          "route": "/user/mypage"
-        }
-      ]
+      "route": "/support"
     }
   ]
 }
