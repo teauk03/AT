@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "@/components/Dashboard/Admin/Admin.module.scss";
-import {MANAGEMENT_RESERVATION_TYPE} from "@/types/Dashboard/Admin";
+import {MANAGEMENT_RESERVATION_TYPE} from "@/types/Admin";
 
 type RESERVATION_PROPS_TYPE = {
     title: string;

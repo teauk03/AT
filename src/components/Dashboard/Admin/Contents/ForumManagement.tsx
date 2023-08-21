@@ -1,7 +1,7 @@
 import React from 'react';
 // import styles from "@/components/Dashboard/Admin/Contents/AdminContents.module.scss";
 import styles from "@/components/Dashboard/Admin/Admin.module.scss";
-import {MANAGEMENT_POSTS_TYPE} from "@/types/Dashboard/Admin";
+import {MANAGEMENT_POSTS_TYPE} from "@/types/Admin";
 
 type FORUM_PROPS_TYPE = {
     title: string;

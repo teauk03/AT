@@ -13,7 +13,7 @@ const QueryStringPage = (props: any) => {
         <div>
             <h3>QueryStringPage</h3>
             <p>
-                파라미터로 "props"를 등록하면 [어쩌구] 자리에 유저가 입력한 내용을 "props"변수에 자동으로 담아줍니다.<br/>
+                파라미터로 &quotprops&quot를 등록하면 [어쩌구] 자리에 유저가 입력한 내용을 &quotprops&quot변수에 자동으로 담아줍니다.<br/>
                 진짠지 /detail/123 같은 URL로 방문해서 출력해봅시다.
             </p>
             {name ? `안녕하세요, 이름은 ${name} 입니다.` : '이름이 없습니다.'}

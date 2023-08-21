@@ -1,5 +1,5 @@
 'use client'
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useMemo} from "react";
 import styles from "./SideNavbar.module.scss";
 
 import Link from "next/link";
@@ -20,18 +20,14 @@ const SideNavigationMenu = (): JSX.Element => {
     /* 현재 라우트 경로 */
     const currentRoute = usePathname();
     /* 내비게이션 메뉴 아이템의 상태 */
-    const [slbMenuItems, setSlbMenuItems] = useState(ACCOUNT_MENU.ACCOUNT_DATA);
-
-    /* 세션의 사용자 이름이 변경되면 메뉴 아이템을 업데이트 */
-    useEffect(() => {
+    const slbMenuItems = useMemo(() => {
         if (session?.user?.name) {
-            const newSlbMenuItems = slbMenuItems.map((item) => ({
+            return ACCOUNT_MENU.ACCOUNT_DATA.map((item) => ({
                 ...item, route: `${item.route}/${session.user.name}`
             }));
-            setSlbMenuItems(newSlbMenuItems);
         }
+        return ACCOUNT_MENU.ACCOUNT_DATA;
     }, [session]);
-
 
     return (
         <aside className={styles['aside-container']}>

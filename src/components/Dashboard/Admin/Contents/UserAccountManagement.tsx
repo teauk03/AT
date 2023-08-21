@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "@/components/Dashboard/Admin/Admin.module.scss";
-import {MANAGEMENT_USERS_TYPE} from "@/types/Dashboard/Admin";
+import {MANAGEMENT_USERS_TYPE} from "@/types/Admin";
 
 type USERS_PROPS_TYPE = {
     title: string;

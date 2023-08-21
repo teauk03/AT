@@ -13,7 +13,7 @@ const Query = () => {
 
     return (
         <div style={{margin:'10px 100px'}}>
-            <p>Link 태그에서 "pathname"과 "query"를 작성해서 넘길수있다.</p>
+            <p>Link 태그에서 &quotpathname&quot과 &quotquery&quot를 작성해서 넘길수있다.</p>
             <h3>DynamicRoute - 링크 : {'href={{ pathname: `/dataweb/query/${user.name}`, query: { age: user.age, email: user.email } }}'}</h3>
             {users.map((user, index) => (
                 <div key={index}>
@@ -38,7 +38,6 @@ const Query = () => {
             })}
             <h3>DynamicRoute (프롭스전달) - 링크 : {'/dataweb/dynamicRoute/${user.name}'}</h3>
             {users.map((user, index) => {
-                console.log('Query ', user)
                 return (
                     <div key={index}>
                         <DynamicRoute user={user}/>

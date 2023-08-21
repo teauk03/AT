@@ -1,17 +1,7 @@
 import React from 'react';
 import Link from "next/link";
 
-type userProps = {
-    user: {
-        name: string;
-        age: number;
-        email: string;
-    };
-}
-
-
-const DynamicRoute: React.FC<userProps> = ({user}) => {
-    console.log('user : ', user)
+const DynamicRoute = ({user}: any) => {
     return (
         <>
             <Link href={{

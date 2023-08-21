@@ -1,5 +1,5 @@
 'use client'
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, useCallback, useEffect, useState} from 'react';
 import styles from './Join.module.scss';
 import Link from "next/link";
 import github from "/public/github.svg"
@@ -76,19 +76,7 @@ const JoinComponent: FC = (): JSX.Element => {
     const [isEmailDuplicated, setEmailDuplicated] = useState(false);
     const [isNicknameDuplicated, setNicknameDuplicated] = useState(false);
 
-    useEffect(() => {
-        if (isEmailValid) {
-            handleVerification();
-        }
-    }, [email, isEmailValid]);
-
-    useEffect(() => {
-        if (isNickNameValid) {
-            handleVerification();
-        }
-    }, [nickname, isNickNameValid]);
-
-    const handleVerification = async () => {
+    const handleVerification = useCallback(async () => {
         try {
             const response = await fetch("/api/check-duplicate", {
                 method: "POST",
@@ -112,8 +100,19 @@ const JoinComponent: FC = (): JSX.Element => {
         } catch (error) {
             console.error("오류가 발생했습니다:", error);
         }
-    };
+    }, [nickname, email]);
 
+    useEffect(() => {
+        if (isEmailValid) {
+            handleVerification();
+        }
+    }, [email, isEmailValid, handleVerification]);
+
+    useEffect(() => {
+        if (isNickNameValid) {
+            handleVerification();
+        }
+    }, [nickname, isNickNameValid, handleVerification]);
 
     const handlePhoneVerification = () => {
         // 휴대폰 인증 로직
