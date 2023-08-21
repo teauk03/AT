@@ -1,11 +1,16 @@
 import React from "react";
 import styles from './page.module.scss';
 import Link from "next/link";
+import AuthButton from "@/components/UI/Button/AuthButton";
+import GlobalNavbarComponent from "@/components/UI/NavbarGlobal/GlobalNavbarComponent";
+import FooterClientComponent from "@/components/UI/Footer/Footer";
 
 const Home = (): JSX.Element => {
     return (
-        <div className={styles.container}>
+        <>
+            <GlobalNavbarComponent/>
             <main className={styles.main}>
+                <AuthButton/>
                 <div className={styles.contents}>
                     {/* Content1 */}
                     <section className={styles.hero}>
@@ -19,7 +24,8 @@ const Home = (): JSX.Element => {
                     </section>
                 </div>
             </main>
-        </div>
+            <FooterClientComponent/>
+        </>
     )
 }
 

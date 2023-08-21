@@ -6,7 +6,7 @@
   width: 100%;
   height: auto;
   z-index: 100;
-  background: #fff;
+  background: #e5e5e5;
   transition: background 0.5s;
 
   .navbar {
@@ -108,20 +108,20 @@
   display: block; // 메뉴 아이템에 호버하면 메가 메뉴 출력
 }
 
-/* [Navigation User Session Wrap]
+/* [Navigation User Session Wrap - Button]
  * 로그인, 로그아웃 버튼 */
 .create-btn {
   margin: .5rem 0;
   padding: 0.713rem 1.875rem;
   background: transparent;
   border: none;
-  color: #BCBCBC;
+  color: #5D7D7D;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
 
   &.selected-btn {
-    border: 1px solid #D7D7D7;
+    border: 1px solid #5D7D7D;
     border-radius: 10px;
   }
 }
@@ -147,7 +147,6 @@
 @include Breakpoints.respond-to('mobile') {
   .navbar {
     width: 100%;
-    height: 56px;
     padding: 0.7rem 1rem;
   }
 

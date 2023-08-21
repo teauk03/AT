@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./Login.module.scss";
 
 import Link from "next/link";
+import Image from "next/image"
 import github from "/public/github.svg"
 import google from "/public/google.svg"
 
@@ -12,6 +13,7 @@ import PrimaryButton from "@/components/UI/Button/PrimaryButton";
 import PrimaryCheckBox from "@/components/UI/CheckBox/PrimaryCheckBox";
 import InputBox from "@/components/UI/Input/InputBox";
 import DivisionLine from "@/components/Auth/DivisionLine/DivisionLine";
+import NavigationLogo from "../../../public/img/home-bg-Transparent.png";
 
 const LoginComponent = (): JSX.Element => {
     const {login, error, isLoading} = useLogin();
@@ -33,9 +35,14 @@ const LoginComponent = (): JSX.Element => {
             <div className={styles.container}>
                 <div className={styles.login}>
                     {/* Logo */}
-                    <h1 className={styles['login-logo']}>
-                        Welcome to Our Application
-                    </h1>
+                    <Link className={styles['navbar-logo']} href={'/'}>
+                        <Image
+                            src={NavigationLogo}
+                            width={200.79}
+                            height={17}
+                            alt="어택 로고 이미지"
+                        />
+                    </Link>
                     <form className={styles.form} onSubmit={handleSubmit} noValidate>
                         {/* E-mail Input & Error */}
                         <InputBox

@@ -18,7 +18,7 @@ const NavbarUserSession: React.FC<NavbarSessionProps> = ({session, isMenClicked,
                     <>
                         <NavbarLink
                             className={`${styles['create-btn']} ${styles['selected-btn']}`}
-                            href={'/join/'}
+                            href={`/join/`}
                             label={'회원가입'}
                         />
                         <NavbarLink

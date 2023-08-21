@@ -1,7 +1,6 @@
 'use client'
 import React, {FC, useCallback, useEffect, useState} from 'react';
 import styles from './Join.module.scss';
-import Link from "next/link";
 import github from "/public/github.svg"
 import google from "/public/google.svg"
 
@@ -14,13 +13,14 @@ import {
     hasValidNickName, hasValidPhone
 } from "@/utils/validation/validation";
 
-import SocialLoginButton from "@/components/UI/Button/SocialLogin/SocialLoginButtons";
 import AuthInputField from "@/components/Auth/Input/AuthInputField";
 import PrimaryButton from "@/components/UI/Button/PrimaryButton";
-import DivisionLine from "@/components/Auth/DivisionLine/DivisionLine";
 import useValueField from "@/hooks/Validation/useSignUpValueField";
 import VerificationButton from "@/components/Auth/VerificationButton";
 import {UI_JOIN_INPUT_FIELD} from "@/types/UI";
+import AppLink from "@/components/UI/Link/AppLink";
+import DivisionLine from "@/components/Auth/DivisionLine/DivisionLine";
+import SocialLoginButton from "@/components/UI/Button/SocialLogin/SocialLoginButtons";
 
 /**
  * JoinComponent 는 사용자의 회원 가입을 제공하는 컴포넌트입니다.
@@ -194,32 +194,14 @@ const JoinComponent: FC = (): JSX.Element => {
         <main className={styles.container}>
             <div className={styles.contents}>
                 <div className={styles.join}>
-                    {/* Header */}
                     <section className={styles['title-wrapper']}>
                         <div className={styles['link-wrapper']}>
                             <span className={styles['sub-text']}>
                                 {'계정이 이미 있으신가요?'}{' '}
                             </span>
-                            <Link href={'/login'}>로그인</Link>
+                            <AppLink href={'/login'} label={'로그인'}/>
                         </div>
                     </section>
-                    {/* Social */}
-                    <section className={styles['social-wrapper']}>
-                        <SocialLoginButton
-                            provider='github'
-                            src={github}
-                            alt='Login for Github'
-                        />
-                        <SocialLoginButton
-                            provider='google'
-                            src={google}
-                            alt='Login for Google'
-                        />
-                    </section>
-                    {/* Division Line */}
-                    <DivisionLine text={'이메일로 가입하기'}/>
-
-                    {/* Sign Up */}
                     <form className={styles.form} onSubmit={handleSubmitStep} noValidate>
                         {(step === 0 ? FIRST_INPUT_FIELDS : SECOND_INPUT_FIELDS).map((field, index) => (
                             <div className={styles['info-input-wrapper']} key={index}>
