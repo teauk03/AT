@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import styles from '@/components/Board/Write/write.module.scss';
-import {DynamicButtonProps} from '@/types/Button';
+import {DYNAMIC_BUTTON_PROPS} from "@/types/UI";
 
 /**
  * DynamicButton 컴포넌트.
@@ -22,7 +22,7 @@ import {DynamicButtonProps} from '@/types/Button';
  *
  * @returns {React.Element} 렌더링된 DynamicButton 컴포넌트.
  */
-const DynamicButton = ({ className, label, disabled, onClick, type = "button" }: DynamicButtonProps) => {
+const DynamicButton = ({ className, label, disabled, onClick, type = "button" }: DYNAMIC_BUTTON_PROPS) => {
     const buttonStyle = `${styles['submit-btn']} ${styles[className]}`;
 
     return (

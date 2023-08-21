@@ -1,14 +1,5 @@
 import {StaticImageData} from "next/image";
 
-/* [Components - button] Dynamic Button */
-export interface DynamicButtonProps {
-    className: string;
-    label: string;
-    disabled: boolean;
-    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-    type?: "button" | "submit" | "reset";
-}
-
 /* [Components - button] Primary Button */
 export interface PrimaryButtonProps {
     disabled: boolean;

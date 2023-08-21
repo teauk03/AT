@@ -1,4 +1,6 @@
 import {ReactNode} from "react";
+import {ChangeEvent} from "react";
+import {StaticImageData} from "next/image";
 
 /* [GLB] Dropdown NavbarLink */
 export interface UI_LINK_COMPONENT {
@@ -20,8 +22,6 @@ export interface UI_MODAL_PROPS {
 
 
 /* [Input] Auth - InputBox */
-import {ChangeEvent} from "react";
-
 export interface UI_LOGIN_INPUT_PROPS {
     name: string;
     type: string;
@@ -33,8 +33,7 @@ export interface UI_LOGIN_INPUT_PROPS {
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-
-/* [JoinComponent] 회원가입 인풋 타입 */
+/* [Input] 회원가입 인풋 타입 */
 export interface UI_JOIN_INPUT_FIELD {
     label: string;
     type: string;
@@ -44,4 +43,46 @@ export interface UI_JOIN_INPUT_FIELD {
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     validInputResult: string;
     VerificationButton?: PrimaryButtonProps; // 선택적 프로퍼티로 추가
+}
+
+/* Division Line */
+export interface DIVISION_LINE_PROPS {
+    text: string;
+}
+
+/* Button */
+/* [Components - button] Dynamic Button */
+export interface DYNAMIC_BUTTON_PROPS {
+    className: string;
+    label: string;
+    disabled: boolean;
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    type?: "button" | "submit" | "reset";
+}
+
+/* [Components - button] Primary Button */
+export interface PrimaryButtonProps {
+    disabled: boolean;
+    label: string;
+    onClick?: () => void;
+}
+
+/* [Components - button] Social Login Button */
+export interface SocialLoginButtonProps {
+    provider: string;
+    src: StaticImageData;
+    alt: string;
+}
+
+/* [Components - button] Add Comment button */
+export interface CommentProps {
+    comment: string;
+    postComment: (comment: string) => void
+}
+
+/* [Component - Modal Button] ModalButton */
+export interface ModalButtonProps {
+    label: string;
+    onClick: (() => void) | undefined;
+    className?: string;
 }

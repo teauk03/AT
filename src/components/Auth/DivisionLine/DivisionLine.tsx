@@ -1,9 +1,9 @@
 'use client'
 import React from 'react';
 import styles from './DivisionLine.module.scss';
-import {DivisionLineProps} from '@/types/DivisionLine';
+import {DIVISION_LINE_PROPS} from "@/types/UI";
 
-const DivisionLine = ({text}: DivisionLineProps) => (
+const DivisionLine = ({text}: DIVISION_LINE_PROPS) => (
     <div className={styles['division-line']}>
         <span className={styles['line-text']}>{text}</span>
     </div>
