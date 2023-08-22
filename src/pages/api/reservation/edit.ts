@@ -18,7 +18,7 @@ const putReservationHandler = async (request: NextApiRequest, response: NextApiR
         );
 
         return response.status(200).json({
-            message: '예약이 취소되었습니다.'
+            message: '예약이 취소되었습니다.', result
         });
     } catch (error) {
         return response.status(500).json({

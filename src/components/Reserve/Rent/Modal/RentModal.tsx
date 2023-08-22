@@ -13,31 +13,25 @@ const RentModal: React.FC<ModalProps> = ({ selectedDay, selectedTime, game }) =>
     const today = new Date();
     const formattedDate = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
 
-    const handleConfirm = () => {
-        fetch('/api/reservation/new', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                division_title: game,
-                days: selectedDay,
-                time: selectedTime,
-                date: formattedDate,
-                status: '예약신청'
-            })
-        })
-            .then(response => response.json()) // 응답을 JSON 형태로 파싱
-            .then(data => {
-                // 성공 처리
-                console.log(data)
-                setShowModal(false);
-            })
-            .catch(error => {
-                // 오류 처리
-                console.error('An error occurred:', error);
-            });
-    };
+    const handleRequest = useRequest({
+        url: '/api/reservation/new',
+        method: 'POST',
+        body: {
+            division_title: game,
+            days: selectedDay,
+            time: selectedTime,
+            date: formattedDate,
+            status: '예약신청'
+        },
+        onSuccess: (data) => {
+            console.log(data)
+            setShowModal(false);
+        },
+        onFailure: (error) => {
+            console.error('An error occurred:', error);
+            alert('예약신청에 실패했습니다.')
+        },
+    })
 
     /* 모달이 숨겨져 있을 경우 아무 것도 렌더링 X */
     if (!showModal) return null;
@@ -50,7 +44,7 @@ const RentModal: React.FC<ModalProps> = ({ selectedDay, selectedTime, game }) =>
                 <p className={styles['modal-text']}>예약 시간과 요일을 다시 한번 확인해주세요.</p>
                 <div className={styles['abort-wrapper']}>
                     <button className={styles['abort-btn']} onClick={() => setShowModal(false)}>취소</button>
-                    <button className={styles['success-btn']} onClick={handleConfirm}>확인</button>
+                    <button className={styles['success-btn']} onClick={handleRequest}>확인</button>
                 </div>
             </div>
         </div>

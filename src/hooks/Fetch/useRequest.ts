@@ -4,8 +4,8 @@ interface UseRequestOptions {
     url: string;
     method?: 'GET' | 'POST' | 'PUT' | 'DELETE';
     body?: any;
-    onSuccess?: () => void;
-    onFailure?: (error: any) => void; // 이 부분을 수정했습니다.
+    onSuccess?: (data: any) => void;
+    onFailure?: (error: any) => void;
 }
 
 const useRequest = ({ url, method = 'POST', body, onSuccess, onFailure }: UseRequestOptions) => {
@@ -19,9 +19,11 @@ const useRequest = ({ url, method = 'POST', body, onSuccess, onFailure }: UseReq
                 body: JSON.stringify(body),
             });
 
+            // 응답을 JSON 형태로 파싱
+            const data = await response.json();
             if (response.ok) {
                 // 요청이 성공적으로 처리되었습니다.
-                onSuccess?.();
+                onSuccess?.(data);
             } else {
                 // 오류 처리
                 const error = await response.json();
