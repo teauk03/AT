@@ -35,6 +35,8 @@
     .grid-container > article:first-child, .grid-container > article:last-child {
       padding: 2rem 3rem;
       grid-column: 1 / -1; }
+  .grid-container .admin-article {
+    height: 43.75rem; }
 
 /* article first-child */
 .reserve {

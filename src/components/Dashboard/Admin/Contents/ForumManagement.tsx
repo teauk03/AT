@@ -13,7 +13,7 @@ type FORUM_PROPS_TYPE = {
 const ForumContainer = ({title, results}: FORUM_PROPS_TYPE) => {
     return (
         <section className={styles['grid-container']}>
-            <article className={styles['reserve-article']}>
+            <article className={styles['admin-article']}>
                 <h1>{title}</h1>
                 <div className={styles.reserve}>
                     <div className={styles['reserve-inner']}>

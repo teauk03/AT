@@ -26,7 +26,7 @@ const UserAccountContainer = ({title, results}: USERS_PROPS_TYPE) => {
                 </div>
             </div>
             <section className={styles['grid-container']}>
-                <article className={styles['reserve-article']}>
+                <article className={styles['admin-article']}>
                     <h1>{title}</h1>
                     <div className={styles.reserve}>
                         <div className={styles['reserve-inner']}>
