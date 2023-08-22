@@ -12,8 +12,6 @@ type RESERVATION_PROPS_TYPE = {
 }
 
 const ReservationContainer = ({title, results}: RESERVATION_PROPS_TYPE) => {
-    const [expanded, setExpanded] = useState<{ [key: number]: boolean }>({}); // 객체 리터럴 타입 사용
-
     /* 필터 변경 (상태, 핸들러) */
     const [filter, setFilter] = useState('예약대기')
     const handleFilterChange = (newFilter: string) => setFilter(newFilter);
