@@ -22,13 +22,11 @@ const useRequest = ({ url, method = 'POST', body, onSuccess, onFailure }: UseReq
             // 응답을 JSON 형태로 파싱
             const data = await response.json();
             if (response.ok) {
-                // 요청이 성공적으로 처리되었습니다.
                 onSuccess?.(data);
             } else {
                 // 오류 처리
-                const error = await response.json();
                 console.error('Request failed');
-                onFailure?.(error);
+                onFailure?.(data);
             }
         } catch (error) {
             // 네트워크 오류 처리

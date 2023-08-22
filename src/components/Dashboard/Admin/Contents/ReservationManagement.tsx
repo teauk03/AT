@@ -4,16 +4,11 @@ import styles from "@/components/Dashboard/Admin/Admin.module.scss";
 import {ADMIN_MANAGEMENT_RESERVATION_TYPE} from "@/types/Account";
 import formatDate from "@/utils/formatDate";
 import ReservationButton from "@/components/Dashboard/Admin/Button/ReservationButton";
-import {ObjectId} from "mongodb";
+import {useParams, useSearchParams} from "next/navigation";
 
 type RESERVATION_PROPS_TYPE = {
     title: string;
     results: ADMIN_MANAGEMENT_RESERVATION_TYPE[];
-}
-
-type ReservationButtonProps = {
-    _id: ObjectId;
-    onStatusChange: () => void; // 콜백 함수
 }
 
 const ReservationContainer = ({title, results}: RESERVATION_PROPS_TYPE) => {
@@ -23,10 +18,6 @@ const ReservationContainer = ({title, results}: RESERVATION_PROPS_TYPE) => {
     const [filter, setFilter] = useState('예약대기')
     const handleFilterChange = (newFilter: string) => setFilter(newFilter);
     const filteredResults = results.filter(item => item.rent_status === filter)
-
-    const handleReservationStatusChange = () => {
-        // 예약 상태가 변경되면 수행할 로직 (예: 예약 데이터 다시 가져오기)
-    };
 
     /* 렌더링 코드 */
     return (
@@ -47,6 +38,11 @@ const ReservationContainer = ({title, results}: RESERVATION_PROPS_TYPE) => {
                         예약거절
                     </button>
                 </div>
+                <div className={styles['nav-item']}>
+                    <button type={"button"} onClick={()=> handleFilterChange('예약취소')}>
+                        예약취소
+                    </button>
+                </div>
             </div>
             <section className={styles['grid-container']}>
                 <article className={styles['admin-article']}>
@@ -62,7 +58,9 @@ const ReservationContainer = ({title, results}: RESERVATION_PROPS_TYPE) => {
                                         <span>{formatDate(item.days)}</span>
                                         <span>{item.time}</span>
                                     </div>
-                                    <ReservationButton reservationId={item._id} onStatusChange={handleReservationStatusChange} />
+                                    <ReservationButton
+                                        reservationId={item._id.toString()}
+                                        reservationStatus={item.rent_status}/>
                                 </div>
                             ))}
                         </div>

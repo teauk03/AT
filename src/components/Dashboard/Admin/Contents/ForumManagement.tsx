@@ -24,7 +24,7 @@ const ForumContainer = ({title, results}: FORUM_PROPS_TYPE) => {
                                     <span>{item.title}</span>
                                     <span>{formatDate(item.content)}</span>
                                 </div>
-                                <ReservationButton reservationId={item._id} />
+                                <ReservationButton reservationId={item._id.toString()} />
                             </div>
                         ))}
                     </div>

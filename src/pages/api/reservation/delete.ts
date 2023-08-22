@@ -5,7 +5,7 @@ import {getServerSession} from "next-auth/next";
 import {authOptions} from "@/pages/api/auth/[...nextauth]";
 
 const deleteReservationHandler = async (request: NextApiRequest, response: NextApiResponse) => {
-    if (request.method !== 'DELETE') return response.status(405).end();
+    if (request.method !== 'POST') return response.status(405).end();
     const session = await getServerSession(request, response, authOptions);
     if (!session) return response.status(403).json({ error: '로그인이 필요합니다.' });
 

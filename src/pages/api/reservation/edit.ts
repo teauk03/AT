@@ -16,16 +16,27 @@ const putReservationHandler = async (request: NextApiRequest, response: NextApiR
             rent_status: request.body.rent_status
         };
 
-        console.log('Updating with query:', updateQuery); // 쿼리 로깅
-
         let result = await db.collection('reservation_list').updateOne(
             {_id: new ObjectId(request.body.reservationId)},
             {$set: updateQuery}
         );
-        console.log(result)
 
-        const message = request.body.rent_status === '예약완료' ? '예약이 완료되었습니다.' : '예약이 거절되었습니다.';
-        return response.status(200).json({message, result});
+        let message = '';
+        switch (request.body.rent_status) {
+            case '예약완료':
+                message = '예약이 완료되었습니다.';
+                break;
+            case '예약거절':
+                message = '예약이 거절되었습니다.';
+                break;
+            case '예약취소':
+                message = '예약이 취소되었습니다.';
+                break;
+            default:
+                message = '알 수 없는 상태입니다.';
+        }
+
+        return response.status(200).json({message});
     } catch (error) {
         return response.status(500).json({
             error: 'Server error'

@@ -30,7 +30,7 @@ const AdminPage = async () => {
                                     <span>{formatDate(item.days)}</span>
                                     <span>{item.time}</span>
                                 </div>
-                                <ReservationButton reservationId={item._id} />
+                                <ReservationButton reservationId={item._id.toString()} />
                             </div>
                         ))}
                     </div>

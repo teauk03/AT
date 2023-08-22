@@ -37,7 +37,7 @@ const UserAccountContainer = ({title, results}: USERS_PROPS_TYPE) => {
                                         <span>{item.user_status}</span>
                                         <span>{formatDate(item.subscription)}</span>
                                     </div>
-                                    <ReservationButton reservationId={item._id} />
+                                    <ReservationButton reservationId={item._id.toString()} />
                                 </div>
                             ))}
                         </div>

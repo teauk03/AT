@@ -1,41 +1,74 @@
 'use client'
-import React from 'react';
+import React, {useState} from 'react';
 import styles from "@/components/Dashboard/Admin/Admin.module.scss";
 import useRequest from "@/hooks/Fetch/useRequest";
 import {ObjectId} from "mongodb";
 
 type ReservationButtonProps = {
-    reservationId: ObjectId;
-    onStatusChange: () => void; // 콜백 함수
+    reservationId: string;
+    reservationStatus?: string;
+    onStatusChange?: () => void; // 콜백 함수
 }
 
-const ReservationButton = ({reservationId, onStatusChange}: ReservationButtonProps) => {
+const ReservationButton = ({reservationId, reservationStatus, onStatusChange}: ReservationButtonProps) => {
+    console.log(typeof reservationId)
     const handleReject = useRequest({
         url: '/api/reservation/edit',
         method: 'PUT',
-        body: { reservationId, rent_status: '예약거절' },
-        onSuccess: (data) => {
-            alert('예약이 거절되었습니다.')
-            onStatusChange();
-        },
-        onFailure: () => alert('예약 거절에 실패했습니다.'),
+        body: { _id: reservationId, rent_status: '예약거절' },
+        onSuccess: (data) => alert(`예약이 거절되었습니다.\n${JSON.stringify(data)}`),
+        onFailure: () => alert('예약 거절에 실패했습니다.')
     });
 
     const handleAccept = useRequest({
         url: '/api/reservation/edit',
         method: 'PUT',
-        body: { reservationId, rent_status: '예약완료' },
-        onSuccess: (data) => {
-            alert('예약이 완료되었습니다.')
-            onStatusChange();
-        },
-        onFailure: () => alert('예약 수락에 실패했습니다.'),
+        body: { _id: reservationId, rent_status: '예약완료' },
+        onSuccess: (data) => alert(`예약되었습니다.\n${JSON.stringify(data)}`),
+        onFailure: () => alert('예약 수락에 실패했습니다.')
+    });
+
+    const handleCancel = useRequest({
+        url: '/api/reservation/edit',
+        method: 'PUT',
+        body: { _id: reservationId, rent_status: '예약취소' },
+        onSuccess: (data) => alert(`예약이 취소되었습니다.\n${JSON.stringify(data)}`),
+        onFailure: () => alert('예약 취소에 실패했습니다.')
+    });
+
+    const handleDelete = useRequest({
+        url: '/api/reservation/delete',
+        method: 'POST',
+        body: { _id: reservationId },
+        onSuccess: (data) => alert(`삭제 되었습니다.\n${JSON.stringify(data)}`),
+        onFailure: (data) => alert(`요청한 작업도중 에러가 발생했습니다.\n${JSON.stringify(data)}`)
     });
 
     return (
         <div className={styles['reserve-submit-btn']}>
-            <button type={"button"} onClick={handleAccept}>수락</button>
-            <button type={"button"} onClick={handleReject}>거절</button>
+            {reservationStatus === '예약대기' && (
+                <>
+                    <button type={"button"} onClick={handleAccept}>수락</button>
+                    <button type={"button"} onClick={handleReject}>거절</button>
+                </>
+            )}
+            {reservationStatus === '예약완료' && (
+                <>
+                    <button type={"button"} onClick={handleCancel}>취소</button>
+                    <button type={"button"} onClick={handleReject}>거절</button>
+                </>
+            )}
+            {reservationStatus === '예약거절' && (
+                <>
+                    <button type={"button"} onClick={handleAccept}>예약</button>
+                    <button type={"button"} onClick={handleDelete}>삭제</button>
+                </>
+            )}
+            {reservationStatus === '예약취소' && (
+                <>
+                    <button type={"button"} onClick={handleDelete}>삭제</button>
+                </>
+            )}
         </div>
     );
 };
