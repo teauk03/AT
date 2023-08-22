@@ -9,14 +9,14 @@ type NEW_RESERVATION_TYPE = {
     time: string;
     days: string;
     date: string;
-    status: string;
+    rent_status: string;
 }
 
 const handler = async (request: NextApiRequest, response:NextApiResponse) => {
     if (request.method !== 'POST') return response.status(405).end();
     const session = await getServerSession(request, response, authOptions);
     if (!session) return response.status(403).json({ error: '로그인이 필요합니다.' });
-    const { division_title, division, time, days, date, status }: NEW_RESERVATION_TYPE = request.body;
+    const { division_title, division, time, days, date, rent_status }: NEW_RESERVATION_TYPE = request.body;
 
     try {
         /* Server Validation */
@@ -24,7 +24,7 @@ const handler = async (request: NextApiRequest, response:NextApiResponse) => {
         await db.collection('reservation_list').insertOne({
             user_id: session.user._id,
             name: session.user.name,
-            division, division_title, time, days, date, status
+            division, division_title, time, days, date, rent_status
         });
 
         return response.status(200).json({

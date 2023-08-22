@@ -1,7 +1,5 @@
 import React from 'react';
 import styles from '@/components/Dashboard/Admin/Admin.module.scss';
-import {getServerSession} from "next-auth";
-import {authOptions} from "@/pages/api/auth/[...nextauth]";
 import getConnectServerDb from "@/utils/DB/getConnectServerDb";
 import LoadingForum from "@/components/UI/Loading/LoadingForum";
 import formatDate from "@/utils/formatDate";
@@ -31,7 +29,7 @@ const AdminPage = async () => {
                                     <span>{formatDate(item.days)}</span>
                                     <span>{item.time}</span>
                                 </div>
-                                <ReservationButton reservationId={item.reservationId} />
+                                <ReservationButton reservationId={item._id} />
                             </div>
                         ))}
                     </div>
