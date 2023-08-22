@@ -4,7 +4,7 @@ import styles from "@/components/Dashboard/Admin/Admin.module.scss";
 import useRequest from "@/hooks/Fetch/useRequest";
 import {ObjectId} from "mongodb";
 
-interface ReservationButtonProps {
+type ReservationButtonProps = {
     reservationId: ObjectId;
 }
 
@@ -17,10 +17,18 @@ const ReservationButton = ({reservationId}: ReservationButtonProps) => {
         onFailure: () => alert('예약 거절에 실패했습니다.'),
     });
 
+    const handleAccept = useRequest({
+        url: '/api/reservation/edit',
+        method: 'PUT',
+        body: { reservationId, rent_status: '예약완료' },
+        onSuccess: (data) => alert('예약이 완료되었습니다.'),
+        onFailure: () => alert('예약 수락에 실패했습니다.'),
+    });
+
     return (
         <div className={styles['reserve-submit-btn']}>
-            <button>수락</button>
-            <button onClick={handleReject} type={"button"}>거절</button>
+            <button type={"button"} onClick={handleAccept}>수락</button>
+            <button type={"button"} onClick={handleReject}>거절</button>
         </div>
     );
 };
