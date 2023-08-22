@@ -3,7 +3,7 @@ import styles from "@/components/Dashboard/Admin/Admin.module.scss";
 import AdminSvgItems from "@/components/Dashboard/Admin/AdminSvgItems";
 import AdminAside from "@/components/Dashboard/Admin/AsideAdmin/AdminAside";
 import AdminSearchBar from "@/components/Dashboard/Admin/SearchAdmin/AdminSearchBar";
-import GlobalNavbarComponent from "@/components/UI/NavbarGlobal/GlobalNavbarComponent";
+import GlobalNavbarComponent from "@/components/UI/Nav/GlobalNavbarComponent";
 
 const AdminLayout = async ({children}: { children: React.ReactNode }): Promise<JSX.Element> => {
     return (

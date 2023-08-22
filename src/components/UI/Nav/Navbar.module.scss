@@ -135,10 +135,15 @@
   align-content: center;
   color: variables.$color-dark-gray;
   cursor: pointer;
+  gap: 20px;
 
   .user-session-info {
     padding: .4rem .3rem .3rem;
     font-weight: 500;
+  }
+
+  .responsive-hamburger {
+    display: none;
   }
 }
 

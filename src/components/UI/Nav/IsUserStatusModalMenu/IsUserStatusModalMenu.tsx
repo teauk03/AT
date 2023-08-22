@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
-import styles from "@/components/UI/NavbarGlobal/IsUserStatusModalMenu/IsUserStatusModalMenu.module.scss";
-import NavbarLink from "@/components/UI/NavbarGlobal/NavbarLink";
+import styles from "@/components/UI/Nav/IsUserStatusModalMenu/IsUserStatusModalMenu.module.scss";
+import NavbarLink from "@/components/UI/Nav/NavbarLink";
 import SvgIconComponent from "@/components/SvgIconComponent";
 import {signOut} from "next-auth/react";
 import {Session} from "next-auth";

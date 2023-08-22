@@ -2,13 +2,13 @@
 import React, {useEffect, useRef, useState} from "react";
 import styles from './Navbar.module.scss';
 
-import GlobalNavItems from "@/components/UI/NavbarGlobal/GlobalNavItems";
-import NavbarUserSession from "@/components/UI/NavbarGlobal/NavbarSession";
+import GlobalNavItems from "@/components/UI/Nav/GlobalNavItems";
+import NavbarUserSession from "@/components/UI/Nav/NavbarSession";
 
 import {useSession} from "next-auth/react";
 import GLOBAL_NAV from "@/data/data-global-nav.json";
 import {MenuItem} from '@/types/Navigation';
-import NavbarHome from "@/components/UI/NavbarGlobal/NavbarHome";
+import NavbarHome from "@/components/UI/Nav/NavbarHome";
 
 
 const GlobalNavbarComponent = () => {

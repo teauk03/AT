@@ -1,24 +1,29 @@
 {
-  "INDEX_PAGE_ELEMENT": [
+  "ELEMENT": [
     {
-      "title": "3D CSS Letter Transition",
-      "tags": "CSS • 3D • Animation",
-      "imgUrl": "/"
+      "title": "커뮤니티",
+      "description": "리듬게임 커뮤니티에서 토론하고 정보를 공유해 보세요.",
+      "route": "/forum"
     },
     {
-      "title": "Section2",
-      "tags": "Section2",
-      "imgUrl": "/"
+      "title": "공지사항",
+      "description": "최신 리듬게임 업데이트 및 공지사항을 확인하세요.",
+      "route": "/notice"
     },
     {
-      "title": "Section3",
-      "tags": "Section3",
-      "imgUrl": "/"
+      "title": "이벤트",
+      "description": "다가오는 리듬게임 이벤트와 참여 방법을 알아보세요.",
+      "route": "/events"
     },
     {
-      "title": "Section4",
-      "tags": "Section4",
-      "imgUrl": "/"
+      "title": "기기대여",
+      "description": "리듬게임 기기 대여 서비스 정보와 이용 방법을 확인하세요.",
+      "route": "/rentals"
+    },
+    {
+      "title": "고객지원",
+      "description": "문의사항이나 도움이 필요한 경우 고객지원 센터를 이용해 주세요.",
+      "route": "/support"
     }
   ]
 }

@@ -10,7 +10,7 @@ Error: Invalid CSS after "...ude Breakpoints": expected "}", was ".threeColumnGr
 92:   @include Breakpoints.threeColumnGrid(3, 2fr);
 93: }
 94: 
-95: /* 게임 타이틀 내부 Navbar *\/
+95: /* 게임 타이틀 네비게이션 *\/
 96: .swiper-wrapper {
 97:   padding-bottom: 2.5vw;
 
@@ -39,4 +39,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"...ude Breakpoints\": expected \"}\", was \".threeColumnGri...\"\A         on line 92 of page.module.scss\A \A 87:     color: #777;\A 88:     margin: 10px 0;\A 89:   }\A 90: }\A 91: .games-card {\A 92:   @include Breakpoints.threeColumnGrid(3, 2fr);\A 93: }\A 94: \A 95: /* 게임 타이틀 내부 Navbar */\A 96: .swiper-wrapper {\A 97:   padding-bottom: 2.5vw;"; }
+  content: "Error: Invalid CSS after \"...ude Breakpoints\": expected \"}\", was \".threeColumnGri...\"\A         on line 92 of page.module.scss\A \A 87:     color: #777;\A 88:     margin: 10px 0;\A 89:   }\A 90: }\A 91: .games-card {\A 92:   @include Breakpoints.threeColumnGrid(3, 2fr);\A 93: }\A 94: \A 95: /* 게임 타이틀 네비게이션 */\A 96: .swiper-wrapper {\A 97:   padding-bottom: 2.5vw;"; }
