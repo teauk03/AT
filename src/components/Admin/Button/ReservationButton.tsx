@@ -11,7 +11,7 @@ const ReservationButton = ({reservationId}: ReservationButtonProps) => {
     const handleReject = useRequest({
         url: '/api/reservation/edit',
         method: 'PUT',
-        body: { reservationId, status: 'rejected' },
+        body: { reservationId, status: '예약거절' },
         onSuccess: () => alert('예약이 거절되었습니다.'),
         onFailure: () => alert('예약 거절에 실패했습니다.'),
     });

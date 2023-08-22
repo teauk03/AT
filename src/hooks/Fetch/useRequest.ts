@@ -2,10 +2,10 @@ import { useCallback } from 'react';
 
 interface UseRequestOptions {
     url: string;
-    method?: 'GET' | 'POST' | 'PUT' | 'DELETE'; // 기타 필요한 HTTP 메소드를 추가할 수 있습니다.
+    method?: 'GET' | 'POST' | 'PUT' | 'DELETE';
     body?: any;
     onSuccess?: () => void;
-    onFailure?: () => void;
+    onFailure?: (error: any) => void; // 이 부분을 수정했습니다.
 }
 
 const useRequest = ({ url, method = 'POST', body, onSuccess, onFailure }: UseRequestOptions) => {
@@ -24,13 +24,14 @@ const useRequest = ({ url, method = 'POST', body, onSuccess, onFailure }: UseReq
                 onSuccess?.();
             } else {
                 // 오류 처리
+                const error = await response.json();
                 console.error('Request failed');
-                onFailure?.();
+                onFailure?.(error);
             }
         } catch (error) {
             // 네트워크 오류 처리
             console.error('Network error:', error);
-            onFailure?.();
+            onFailure?.(error);
         }
     }, [url, method, body, onSuccess, onFailure]);
 

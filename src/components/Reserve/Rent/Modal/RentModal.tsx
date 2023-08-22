@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './RentModal.module.scss';
+import useRequest from "@/hooks/Fetch/useRequest";
 
 interface ModalProps {
     selectedDay: Date | null;
@@ -9,6 +10,8 @@ interface ModalProps {
 
 const RentModal: React.FC<ModalProps> = ({ selectedDay, selectedTime, game }) => {
     const [showModal, setShowModal] = useState(true);
+    const today = new Date();
+    const formattedDate = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
 
     const handleConfirm = () => {
         fetch('/api/reservation/new', {
@@ -19,7 +22,9 @@ const RentModal: React.FC<ModalProps> = ({ selectedDay, selectedTime, game }) =>
             body: JSON.stringify({
                 division_title: game,
                 days: selectedDay,
-                time: selectedTime
+                time: selectedTime,
+                date: formattedDate,
+                status: '예약신청'
             })
         })
             .then(response => response.json()) // 응답을 JSON 형태로 파싱
