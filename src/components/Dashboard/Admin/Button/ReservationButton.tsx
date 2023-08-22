@@ -6,14 +6,18 @@ import {ObjectId} from "mongodb";
 
 type ReservationButtonProps = {
     reservationId: ObjectId;
+    onStatusChange: () => void; // 콜백 함수
 }
 
-const ReservationButton = ({reservationId}: ReservationButtonProps) => {
+const ReservationButton = ({reservationId, onStatusChange}: ReservationButtonProps) => {
     const handleReject = useRequest({
         url: '/api/reservation/edit',
         method: 'PUT',
         body: { reservationId, rent_status: '예약거절' },
-        onSuccess: (data) => alert('예약이 거절되었습니다.'),
+        onSuccess: (data) => {
+            alert('예약이 거절되었습니다.')
+            onStatusChange();
+        },
         onFailure: () => alert('예약 거절에 실패했습니다.'),
     });
 
@@ -21,7 +25,10 @@ const ReservationButton = ({reservationId}: ReservationButtonProps) => {
         url: '/api/reservation/edit',
         method: 'PUT',
         body: { reservationId, rent_status: '예약완료' },
-        onSuccess: (data) => alert('예약이 완료되었습니다.'),
+        onSuccess: (data) => {
+            alert('예약이 완료되었습니다.')
+            onStatusChange();
+        },
         onFailure: () => alert('예약 수락에 실패했습니다.'),
     });
 
