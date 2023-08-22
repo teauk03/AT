@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from "@/components/Dashboard/Admin/Admin.module.scss";
 import {ADMIN_MANAGEMENT_POSTS_TYPE} from "@/types/Account";
+import formatDate from "@/utils/formatDate";
+import ReservationButton from "@/components/Dashboard/Admin/Button/ReservationButton";
 
 type FORUM_PROPS_TYPE = {
     title: string;
@@ -11,9 +13,22 @@ type FORUM_PROPS_TYPE = {
 const ForumContainer = ({title, results}: FORUM_PROPS_TYPE) => {
     return (
         <section className={styles['grid-container']}>
-            <article>
+            <article className={styles['reserve-article']}>
                 <h1>{title}</h1>
-                <div>Test title {results[1].title}</div>
+                <div className={styles.reserve}>
+                    <div className={styles['reserve-inner']}>
+                        {results.map((item, index) => (
+                            <div key={index} className={styles['reserve-list']}>
+                                <div className={styles['reserve-item']}>
+                                    <span>{item.userName}</span>
+                                    <span>{item.title}</span>
+                                    <span>{formatDate(item.content)}</span>
+                                </div>
+                                <ReservationButton reservationId={item._id} />
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </article>
         </section>
     );

@@ -4,14 +4,15 @@ import getConnectServerDb from "@/utils/DB/getConnectServerDb";
 import LoadingForum from "@/components/UI/Loading/LoadingForum";
 import formatDate from "@/utils/formatDate";
 import checkAdminRole from "@/utils/User/checkAdminRole";
-import ReservationButton from "@/components/Admin/Button/ReservationButton";
+import ReservationButton from "@/components/Dashboard/Admin/Button/ReservationButton";
 
 const AdminPage = async () => {
     const adminCheckResult = await checkAdminRole();
     if (adminCheckResult) return adminCheckResult;
 
     /* DB 쿼리 */
-    const {results} = await getConnectServerDb("reservation", "reservation_list", 5);
+    const filter = { rent_status: '예약신청' };
+    const {results} = await getConnectServerDb("reservation", "reservation_list", 5, filter);
     if (!results) return <LoadingForum/>;
 
     return (

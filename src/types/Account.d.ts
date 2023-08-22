@@ -43,10 +43,6 @@ export interface UserProfileData {
     user: UserData;
 }
 
-
-/* User */
-
-
 /* Admin */
 export interface ADMIN_MANAGEMENT_POSTS_TYPE {
     _id: ObjectId;
@@ -55,14 +51,19 @@ export interface ADMIN_MANAGEMENT_POSTS_TYPE {
     content: string;
 }
 
+/* User */
 export interface ADMIN_MANAGEMENT_USERS_TYPE {
+    _id: ObjectId;
     name: string;
+    user_status: string;
+    subscription: string;
 }
 
 export interface ADMIN_MANAGEMENT_RESERVATION_TYPE {
     _id: ObjectId;
     user_id: ObjectId;
     name: string;
+    division: string;
     division_title: string;
     time: string;
     days: string;

@@ -9,7 +9,7 @@ const AdminReservationManagement = async () => {
     if (adminCheckResult) return adminCheckResult;
 
     /* DB 쿼리 */
-    const {results} = await getConnectServerDb("reservation", "reservation_list", 10);
+    const {results} = await getConnectServerDb("reservation", "reservation_list", 25);
     if(!results) return <LoadingForum/>
     return <ReservationContainer title={'Reservation Management'} results={results}/>
 };

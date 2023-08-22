@@ -23,14 +23,8 @@ const RentModal: React.FC<ModalProps> = ({ selectedDay, selectedTime, game }) =>
             date: formattedDate,
             rent_status: '예약신청'
         },
-        onSuccess: (data) => {
-            console.log(data)
-            setShowModal(false);
-        },
-        onFailure: (error) => {
-            console.error('An error occurred:', error);
-            alert('예약신청에 실패했습니다.')
-        },
+        onSuccess: (data) => setShowModal(false),
+        onFailure: (error) => alert('예약신청에 실패했습니다.')
     })
 
     /* 모달이 숨겨져 있을 경우 아무 것도 렌더링 X */

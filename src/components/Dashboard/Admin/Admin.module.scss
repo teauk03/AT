@@ -83,6 +83,24 @@
   }
 }
 
+/* 예약페이지 네비게이션 */
+.reserve-nav {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+
+  .nav-item {
+    padding: 0 1rem;
+  }
+
+  button {
+    margin: 0 .5rem;
+    font-size: 1.1rem;
+    background: none;
+    border: none;
+  }
+}
+
 /* MQ RULES */
 @media screen and (max-width: 767px) {
   .page-header,
@@ -173,13 +191,11 @@
   }
 }
 
-
 @media screen and (max-width: 400px) {
   .page-content .grid > article {
     grid-column: 1 / -1;
   }
 }
-
 
 @media screen and (min-width: 768px) {
   .collapsed {
@@ -213,7 +229,6 @@
     }
   }
 }
-
 
 @media screen and (max-width: 767px) {
   .light-mode .search-and-user .admin-profile svg {
