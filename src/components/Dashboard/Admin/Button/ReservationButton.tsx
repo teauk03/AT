@@ -11,12 +11,13 @@ type ReservationButtonProps = {
 }
 
 const ReservationButton = ({reservationId, reservationStatus, onStatusChange}: ReservationButtonProps) => {
-    console.log(typeof reservationId)
     const handleReject = useRequest({
         url: '/api/reservation/edit',
         method: 'PUT',
         body: { _id: reservationId, rent_status: '예약거절' },
-        onSuccess: (data) => alert(`예약이 거절되었습니다.\n${JSON.stringify(data)}`),
+        onSuccess: (data, e) => {
+            alert(`예약이 거절되었습니다.\n${JSON.stringify(data)}`)
+        },
         onFailure: () => alert('예약 거절에 실패했습니다.')
     });
 
@@ -24,7 +25,9 @@ const ReservationButton = ({reservationId, reservationStatus, onStatusChange}: R
         url: '/api/reservation/edit',
         method: 'PUT',
         body: { _id: reservationId, rent_status: '예약완료' },
-        onSuccess: (data) => alert(`예약되었습니다.\n${JSON.stringify(data)}`),
+        onSuccess: (data) => {
+            alert(`예약되었습니다.\n${JSON.stringify(data)}`)
+        },
         onFailure: () => alert('예약 수락에 실패했습니다.')
     });
 
@@ -32,7 +35,9 @@ const ReservationButton = ({reservationId, reservationStatus, onStatusChange}: R
         url: '/api/reservation/edit',
         method: 'PUT',
         body: { _id: reservationId, rent_status: '예약취소' },
-        onSuccess: (data) => alert(`예약이 취소되었습니다.\n${JSON.stringify(data)}`),
+        onSuccess: (data) => {
+            alert(`예약이 취소되었습니다.\n${JSON.stringify(data)}`)
+        },
         onFailure: () => alert('예약 취소에 실패했습니다.')
     });
 
@@ -40,7 +45,9 @@ const ReservationButton = ({reservationId, reservationStatus, onStatusChange}: R
         url: '/api/reservation/delete',
         method: 'POST',
         body: { _id: reservationId },
-        onSuccess: (data) => alert(`삭제 되었습니다.\n${JSON.stringify(data)}`),
+        onSuccess: (data) => {
+            alert(`삭제 되었습니다.\n${JSON.stringify(data)}`)
+        },
         onFailure: (data) => alert(`요청한 작업도중 에러가 발생했습니다.\n${JSON.stringify(data)}`)
     });
 

@@ -4,12 +4,12 @@ interface UseRequestOptions {
     url: string;
     method?: 'GET' | 'POST' | 'PUT' | 'DELETE';
     body?: any;
-    onSuccess?: (data: any) => void;
+    onSuccess?: (data: any, e: any) => void;
     onFailure?: (error: any) => void;
 }
 
 const useRequest = ({ url, method = 'POST', body, onSuccess, onFailure }: UseRequestOptions) => {
-    const handleRequest = useCallback(async () => {
+    const handleRequest = useCallback(async (e?: any) => {
         try {
             const response = await fetch(url, {
                 method,
@@ -22,7 +22,7 @@ const useRequest = ({ url, method = 'POST', body, onSuccess, onFailure }: UseReq
             // 응답을 JSON 형태로 파싱
             const data = await response.json();
             if (response.ok) {
-                onSuccess?.(data);
+                onSuccess?.(data, e);
             } else {
                 // 오류 처리
                 console.error('Request failed');
