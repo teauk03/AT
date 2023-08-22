@@ -72,6 +72,8 @@
     font-size: 1.1rem;
     background: none;
     border: none; }
+  .reserve-nav .reserve-active {
+    border-bottom: 2px solid black; }
 
 /* MQ RULES */
 @media screen and (max-width: 767px) {
