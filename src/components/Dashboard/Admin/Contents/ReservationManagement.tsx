@@ -1,4 +1,5 @@
-import React from 'react';
+'use client'
+import React, {useState} from 'react';
 import styles from "@/components/Dashboard/Admin/Admin.module.scss";
 import {ADMIN_MANAGEMENT_RESERVATION_TYPE} from "@/types/Account";
 import formatDate from "@/utils/formatDate";
@@ -11,31 +12,41 @@ type RESERVATION_PROPS_TYPE = {
 
 /* 추후 사용여부 고려 */
 const ReservationContainer = ({title, results}: RESERVATION_PROPS_TYPE) => {
+    const [expanded, setExpanded] = useState<{ [key: number]: boolean }>({}); // 객체 리터럴 타입 사용
+
+    /* 필터 변경 (상태, 핸들러) */
+    const [filter, setFilter] = useState('예약대기')
+    const handleFilterChange = (newFilter: string) => {
+        console.log(filter)
+        setFilter(newFilter);
+    }
+    const filteredResults = results.filter(item => item.rent_status === filter)
+    console.log(filteredResults)
     return (
         <>
             <div className={styles['reserve-nav']}>
                 <div className={styles['nav-item']}>
-                    <button type={"button"}>
+                    <button type={"button"} onClick={()=> handleFilterChange('예약대기')}>
                         예약대기
                     </button>
                 </div>
-                <div className={styles['nav-item']}>
+                <div className={styles['nav-item']} onClick={()=> handleFilterChange('예약완료')}>
                     <button type={"button"}>
                         예약완료
                     </button>
                 </div>
-                <div className={styles['nav-item']}>
+                <div className={styles['nav-item']} onClick={()=> handleFilterChange('예약거절')}>
                     <button type={"button"}>
                         예약거절
                     </button>
                 </div>
             </div>
             <section className={styles['grid-container']}>
-                <article className={styles['reserve-article']}>
+                <article className={styles['admin-article']}>
                     <h1>{title}</h1>
                     <div className={styles.reserve}>
                         <div className={styles['reserve-inner']}>
-                            {results.map((item, index) => (
+                            {filteredResults.map((item, index) => (
                                 <div key={index} className={styles['reserve-list']}>
                                     <div className={styles['reserve-item']}>
                                         <span>{item.name}</span>

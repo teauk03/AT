@@ -13,7 +13,7 @@ const putReservationHandler = async (request: NextApiRequest, response: NextApiR
         const db = (await connectDB).db("reservation")
         const updateQuery = {
             _id: new ObjectId(request.body.reservationId),
-            rent_status: request.body.rent_status // 또는 필요한 필드만 업데이트
+            rent_status: request.body.rent_status
         };
 
         console.log('Updating with query:', updateQuery); // 쿼리 로깅

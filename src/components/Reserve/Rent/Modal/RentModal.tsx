@@ -21,7 +21,7 @@ const RentModal: React.FC<ModalProps> = ({ selectedDay, selectedTime, game }) =>
             days: selectedDay,
             time: selectedTime,
             date: formattedDate,
-            rent_status: '예약신청'
+            rent_status: '예약대기'
         },
         onSuccess: (data) => setShowModal(false),
         onFailure: (error) => alert('예약신청에 실패했습니다.')

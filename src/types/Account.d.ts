@@ -67,4 +67,5 @@ export interface ADMIN_MANAGEMENT_RESERVATION_TYPE {
     division_title: string;
     time: string;
     days: string;
+    rent_status: string;
 }
