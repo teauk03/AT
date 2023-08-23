@@ -1,22 +1,25 @@
 'use client'
-import React, {useState} from 'react';
+import React from 'react';
 import styles from "@/components/Dashboard/Admin/Admin.module.scss";
 import useRequest from "@/hooks/Fetch/useRequest";
+import {useRouter} from "next/navigation";
 import {ObjectId} from "mongodb";
 
 type ReservationButtonProps = {
-    reservationId: string;
+    reservationId: any;
     reservationStatus?: string;
     onStatusChange?: () => void; // 콜백 함수
 }
 
 const ReservationButton = ({reservationId, reservationStatus, onStatusChange}: ReservationButtonProps) => {
+    const router = useRouter();
     const handleReject = useRequest({
         url: '/api/reservation/edit',
         method: 'PUT',
         body: { _id: reservationId, rent_status: '예약거절' },
-        onSuccess: (data, e) => {
+        onSuccess: (data) => {
             alert(`예약이 거절되었습니다.\n${JSON.stringify(data)}`)
+            router.refresh();
         },
         onFailure: () => alert('예약 거절에 실패했습니다.')
     });
@@ -27,6 +30,7 @@ const ReservationButton = ({reservationId, reservationStatus, onStatusChange}: R
         body: { _id: reservationId, rent_status: '예약완료' },
         onSuccess: (data) => {
             alert(`예약되었습니다.\n${JSON.stringify(data)}`)
+            router.refresh();
         },
         onFailure: () => alert('예약 수락에 실패했습니다.')
     });
@@ -37,6 +41,7 @@ const ReservationButton = ({reservationId, reservationStatus, onStatusChange}: R
         body: { _id: reservationId, rent_status: '예약취소' },
         onSuccess: (data) => {
             alert(`예약이 취소되었습니다.\n${JSON.stringify(data)}`)
+            router.refresh();
         },
         onFailure: () => alert('예약 취소에 실패했습니다.')
     });
@@ -47,6 +52,7 @@ const ReservationButton = ({reservationId, reservationStatus, onStatusChange}: R
         body: { _id: reservationId },
         onSuccess: (data) => {
             alert(`삭제 되었습니다.\n${JSON.stringify(data)}`)
+            router.refresh();
         },
         onFailure: (data) => alert(`요청한 작업도중 에러가 발생했습니다.\n${JSON.stringify(data)}`)
     });

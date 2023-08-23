@@ -11,7 +11,7 @@ const AdminPage = async () => {
     if (adminCheckResult) return adminCheckResult;
 
     /* DB 쿼리 */
-    const filter = { rent_status: '예약신청' };
+    const filter = {rent_status: '예약대기'};
     const {results} = await getConnectServerDb("reservation", "reservation_list", 5, filter);
     if (!results) return <LoadingForum/>;
 
@@ -30,7 +30,10 @@ const AdminPage = async () => {
                                     <span>{formatDate(item.days)}</span>
                                     <span>{item.time}</span>
                                 </div>
-                                <ReservationButton reservationId={item._id.toString()} />
+                                <ReservationButton
+                                    reservationId={item._id.toString()}
+                                    reservationStatus={item.rent_status}
+                                />
                             </div>
                         ))}
                     </div>

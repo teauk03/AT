@@ -22,20 +22,22 @@ const ReservationContainer = ({title, results}: RESERVATION_PROPS_TYPE) => {
         <>
             <div className={styles['reserve-nav']}>
                 <div className={`${styles['nav-item']} ${filter === '예약대기' ? styles['reserve-active'] : ''}`}>
-                    <button type={"button"} onClick={()=> handleFilterChange('예약대기')}>
+                    <button type={"button"} onClick={() => handleFilterChange('예약대기')}>
                         예약대기
                     </button>
                 </div>
-                <div className={`${styles['nav-item']} ${filter === '예약완료' ? styles['reserve-active'] : ''}`}>                    <button type={"button"} onClick={()=> handleFilterChange('예약완료')}>
+                <div className={`${styles['nav-item']} ${filter === '예약완료' ? styles['reserve-active'] : ''}`}>
+                    <button type={"button"} onClick={() => handleFilterChange('예약완료')}>
                         예약완료
                     </button>
                 </div>
                 <div className={`${styles['nav-item']} ${filter === '예약거절' ? styles['reserve-active'] : ''}`}>
-                <button type={"button"} onClick={()=> handleFilterChange('예약거절')}>
+                    <button type={"button"} onClick={() => handleFilterChange('예약거절')}>
                         예약거절
                     </button>
                 </div>
-                <div className={`${styles['nav-item']} ${filter === '예약취소' ? styles['reserve-active'] : ''}`}>                       <button type={"button"} onClick={()=> handleFilterChange('예약취소')}>
+                <div className={`${styles['nav-item']} ${filter === '예약취소' ? styles['reserve-active'] : ''}`}>
+                    <button type={"button"} onClick={() => handleFilterChange('예약취소')}>
                         예약취소
                     </button>
                 </div>
