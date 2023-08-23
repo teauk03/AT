@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "@/components/Dashboard/User/Account.module.scss";
-import SideNavigationMenu from "@/components/Dashboard/User/MyPage/UserAsideNavbar/AsideNavbar";
+import SideNavigationMenu from "@/components/UI/Nav/MenuNavigation/MenuNavbar";
 import UserEmailUpdateButton from "@/components/Dashboard/User/Setting/Button/UserEmailUpdateButton";
 import {authOptions} from "@/pages/api/auth/[...nextauth]";
 import {getServerSession} from "next-auth";

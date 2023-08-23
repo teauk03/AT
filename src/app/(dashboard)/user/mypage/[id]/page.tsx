@@ -10,6 +10,7 @@ import getConnectServerDb from "@/utils/DB/getConnectServerDb";
 import LoadingForum from "@/components/UI/Loading/LoadingForum";
 import formatDate from "@/utils/formatDate";
 import calculateDuration from "@/utils/calculateDuration";
+import MenuNavbar from "@/components/UI/Nav/MenuNavigation/MenuNavbar";
 
 const DynamicAccount = async () => {
     /* 세션 검증 */
@@ -26,12 +27,19 @@ const DynamicAccount = async () => {
     }
 
     /* DB 쿼리 */
-    const {results} = await getConnectServerDb("reservation", "reservation_list", 5);
+    const {results} = await getConnectServerDb("reservation", "reservation_list", 3);
     if (!results) return <LoadingForum/>
-    console.log(results)
+
+    /* MenuNavbar 프롭스 배열 (버튼 라벨) */
+    const MenuNavbarProps = [
+        {label:"최근 플레이"},
+        {label:"최근 활동"},
+        {label:"팔로우"}
+    ]
+
+    /* 렌더링 */
     return (
         <div className={styles.container}>
-            <MyPageAside user={user}/>
             <main className={styles.main}>
                 <section className={styles.profile}>
                     <Image src={DefaultIMAGE} alt='유저 프로필 이미지' width={100} height={100}/>
@@ -43,11 +51,9 @@ const DynamicAccount = async () => {
                     </div>
                 </section>
                 <section className={styles.timeline}>
-                    <h1 className={styles['timeline-title']}>최근 활동</h1>
+                    <MenuNavbar props={MenuNavbarProps}/>
                     <div className={styles['timeline-container']}>
                         {results.map((item, index) => {
-
-
                             return (
                                 <article key={index} className={styles['timeline-item']}>
                                     {/* TODO : DB에 링크 저장 */}
