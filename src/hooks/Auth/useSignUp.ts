@@ -24,8 +24,14 @@ const useSignUp = () => {
         error: null, isLoading: false, signedUp: false
     });
 
+    const [
+        errorMessage,
+        setErrorMessage
+    ] = useState<string | null>(null);
 
-    const signup = async (data: SignupData) => {
+
+
+    const signupFetching = async (data: SignupData) => {
         setState(prev => ({
             ...prev, isLoading: true, error: null
         }));
@@ -42,9 +48,7 @@ const useSignUp = () => {
 
 
         try {
-            const response = await axios
-                .post('/api/auth/register', data);
-
+            const response = await axios.post('/api/auth/register', data);
             if (response.status === 200) {
                 setState(prev => ({
                     ...prev, signedUp: true, isLoading: false
@@ -56,7 +60,6 @@ const useSignUp = () => {
 
         } catch (err) {
             let errorMessage: string | null = null;
-
             if (axios.isAxiosError(err)) errorMessage = handleSignUpError(err);
             else errorMessage = handleException(err);
 
@@ -66,7 +69,7 @@ const useSignUp = () => {
         }
     };
 
-    return {signup, ...state};
+    return {signupFetching, ...state};
 };
 
 export {useSignUp};

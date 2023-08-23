@@ -1,14 +1,14 @@
-@import "@/styles/variables";
-@import "@/styles/Breakpoints";
+@use "@/styles/variables";
+@use "@/styles/Breakpoints";
 
-// Page
+/* 페이지 */
 .container {
   width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   flex: 1 0 auto;
-  background: $bg-color-white;
+  background: variables.$bg-color-white;
 
   .contents {
     width: 31.25rem;
@@ -88,8 +88,13 @@
           height: 2.5rem;
           padding-left: 0.7rem;
           outline: none;
+          border: variables.$border-default-1px;
           border-radius: 5px;
           transition: border-color 150ms ease-in-out 0s, box-shadow;
+
+          &:focus {
+            border: 2px solid #798FDE;
+          }
         }
       }
     }

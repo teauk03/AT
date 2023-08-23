@@ -52,16 +52,7 @@ const hasValidPhone = (name: string): boolean => {
 }
 
 
-// Input validation : (Client - SignIn)
-const validateSignInInputs = (email: string, password: string): string | null => {
-    if (!email && !password) return '이메일과 비밀번호를 모두 입력해 주세요.';
-    if (!email) return '이메일을 입력해주세요.';
-    if (!isValidEmailFormat(email)) return '올바른 이메일 주소를 입력해주세요.';
-    if (!password) return '비밀번호를 입력해주세요.';
-    return null;
-}
-
-// Sign In error response handler (Server)
+/* Sign In error response handler (Server) */
 const handleSignInError = (response: SignInResponse | undefined) => {
     // response 객체가 존재하는지 확인.
     if (!response) return '응답이 존재하지 않습니다. 다시 시도해주세요.';
@@ -80,36 +71,47 @@ const handleSignInError = (response: SignInResponse | undefined) => {
             return '로그인 중에 오류가 발생했습니다. 다시 시도해주세요.';
     }
 }
+/* Input validation : (Client - SignIn) */
+const validateSignInInputs = (email: string, password: string): string | null => {
+    if (!email && !password) return '이메일과 비밀번호를 모두 입력해 주세요.';
+    if (!email) return '이메일을 입력해주세요.';
+    if (!isValidEmailFormat(email)) return '올바른 이메일 주소를 입력해주세요.';
+    if (!password) return '비밀번호를 입력해주세요.';
+    return null;
+}
 
-// Input validation (Client - SignUp)
+
+/* Sign up error response handler (Server) */
+const handleSignUpError = (err: AxiosError) => {
+    if (!err.response) return '응답이 존재하지 않습니다. 다시 시도해주세요.';
+    if (err.response.status >= 500) return '서버에서 오류가 발생했습니다. 다시 시도해주세요.';
+    console.log('err.response?.data (handleSignUpError) : ', err.response?.data)
+    switch (err.response?.data) {
+        case '사용할 수 없는 이메일입니다.':
+            return '이메일이 유효하지 않습니다.';
+        case '사용할 수 없는 비밀번호입니다.':
+            return '비밀번호가 유효하지 않습니다.';
+        case '생년월일 : 필수 입력사항입니다.':
+            return '생년월일을 입력해주세요.';
+        case '이미 존재하는 닉네임입니다.':
+            return '닉네임이 이미 존재합니다.';
+        case '이미 사용중인 이메일입니다.':
+            return '이미 사용중인 이메일 주소입니다. 다른 이메일 주소를 사용해주세요.';
+        case '인터넷 또는 서버 오류 발생':
+            return '회원가입 중에 오류가 발생했습니다. 다시 시도해주세요.';
+    }
+
+    return null;
+}
+/* Input validation (Client - SignUp) */
 const validateSignUpInputs = (data: SignupData): string | null => {
+    console.log('data (validateSignUpInputs) : ', data)
     const { email, password, name, birth } = data;
 
     if (!email || !password || !name || !birth) return '필수 정보입니다.';
     if (!isEmailNotEmpty(email)) return '사용할 수 없는 이메일입니다.';
     if (!hasValidPasswordLength(password)) return '사용할 수 없는 비밀번호입니다.';
     if (!hasBirthValid(birth)) return '생년월일은 8자리 숫자로 입력해 주세요.';
-    return null;
-}
-
-// Sign up error response handler (Server)
-const handleSignUpError = (err: AxiosError) => {
-    if (!err.response) return '응답이 존재하지 않습니다. 다시 시도해주세요.';
-    if (err.response.status >= 500) return '서버에서 오류가 발생했습니다. 다시 시도해주세요.';
-
-    switch (err.response?.data) {
-        case '사용할 수 없는 이메일입니다.':
-            return '이메일이 유효하지 않습니다.';
-        case '사용할 수 없는 비밀번호입니다.':
-            return '비밀번호가 유효하지 않습니다.';
-        case '이미 존재하는 닉네임입니다.':
-            return '닉네임이 이미 존재합니다.';
-        case '생년월일 : 필수 입력사항입니다.':
-            return '생년월일을 입력해주세요.';
-        case '인터넷 또는 서버 오류 발생':
-            return '회원가입 중에 오류가 발생했습니다. 다시 시도해주세요.';
-    }
-
     return null;
 }
 

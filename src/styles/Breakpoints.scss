@@ -53,3 +53,8 @@
   grid-template-columns: repeat($repeatValue, $columnSize);
   gap: 20px;
 }
+
+/* 그래디언트 */
+@mixin radial-gradient($gradient , $fallback) {
+  background: radial-gradient(at 15% 15%,$gradient, $fallback);
+}

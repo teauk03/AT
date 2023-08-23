@@ -25,9 +25,9 @@ import NavigationLogo from "../../../public/img/home-bg-Transparent.png";
  */
 const JoinComponent: FC = (): JSX.Element => {
     const {
-        signup, isLoading,
-        error, signedUp
+        signupFetching, isLoading, error, signedUp
     } = useSignUp();
+    console.log('JoinComponent : ', error)
     const {
         value: email,
         isValueValid: isEmailValid,
@@ -62,33 +62,6 @@ const JoinComponent: FC = (): JSX.Element => {
     /* 이름, 생년월일, 휴대폰번호, 이메일, 비밀번호, 닉네임 필드 */
     const FIRST_INPUT_FIELDS: UI_JOIN_INPUT_FIELD[] = [
         {
-            label: '이름',
-            type: 'text',
-            placeholder: '이름',
-            value: name,
-            validation: isNameValid,
-            handleChange: handleNameChange,
-            validInputResult: '사용 가능한 이름 입니다.'
-        },
-        {
-            label: '생년월일',
-            type: 'text',
-            placeholder: '생년월일',
-            value: birth,
-            validation: isBirthValid,
-            handleChange: handleBirthChange,
-            validInputResult: '사용 가능한 생년월일 입니다.'
-        },
-        {
-            label: '휴대폰번호',
-            type: 'number',
-            placeholder: '전화번호',
-            value: phone,
-            validation: isPhoneValid,
-            handleChange: handlePhoneChange,
-            validInputResult: '사용 가능한 전화번호 입니다.',
-        },
-        {
             label: '이메일',
             type: 'email',
             placeholder: '이메일 (Email)',
@@ -114,13 +87,42 @@ const JoinComponent: FC = (): JSX.Element => {
             validation: isNickNameValid,
             handleChange: handleNickNameChange,
             validInputResult: '사용 가능한 닉네임 입니다.',
+        },
+        {
+            label: '이름',
+            type: 'text',
+            placeholder: '이름',
+            value: name,
+            validation: isNameValid,
+            handleChange: handleNameChange,
+            validInputResult: '사용 가능한 이름 입니다.'
+        },
+        {
+            label: '생년월일',
+            type: 'text',
+            placeholder: '생년월일',
+            value: birth,
+            validation: isBirthValid,
+            handleChange: handleBirthChange,
+            validInputResult: '사용 가능한 생년월일 입니다.'
+        },
+        {
+            label: '휴대폰번호',
+            type: 'number',
+            placeholder: '전화번호',
+            value: phone,
+            validation: isPhoneValid,
+            handleChange: handlePhoneChange,
+            validInputResult: '사용 가능한 전화번호 입니다.',
         }
     ];
 
     const handleSubmitStep = async (e: any): Promise<void> => {
         e.preventDefault();
-        const data = { name, email, password, nickname, phone, birth };
-        await signup(data);
+        const data = {
+            name, email, password, nickname, phone, birth
+        };
+        await signupFetching(data);
     };
 
     return (

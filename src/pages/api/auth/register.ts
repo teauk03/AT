@@ -40,7 +40,7 @@ const handlerRegister = async (request: NextApiRequest, response: NextApiRespons
 
             /* 생년월일 유효성 검사 */
             if (!hasBirthValid(birth)) {
-                response.status(400).json({message: '생년월일 : 필수 입력사항입니다.'});
+                response.status(400).json({message: `${birth} : 필수 입력사항입니다.`});
                 return;
             }
 
@@ -59,14 +59,14 @@ const handlerRegister = async (request: NextApiRequest, response: NextApiRespons
             /* 닉네임 중복 검사 */
             const existingNickname = await db.collection('user_card').findOne({ nickname });
             if (existingNickname) {
-                response.status(409).json({ message: '이미 존재하는 닉네임입니다.' });
+                response.status(400).json({ message: '이미 존재하는 닉네임입니다.' });
                 return;
             }
 
             /* 이메일 중복 검사 */
             const existingEmail = await db.collection('user_card').findOne({ email });
             if (existingEmail) {
-                response.status(409).json({ message: '이미 존재하는 이메일입니다.' });
+                response.status(400).json({ message: '이미 존재하는 이메일입니다.' });
                 return;
             }
 
@@ -79,7 +79,6 @@ const handlerRegister = async (request: NextApiRequest, response: NextApiRespons
 
             /* Response */
             response.status(200).json({message: '회원가입이 정상적으로 처리되었습니다.'});
-
         } catch (error) {
             response.status(500).json({message: '인터넷 또는 서버 오류 발생'});
         }

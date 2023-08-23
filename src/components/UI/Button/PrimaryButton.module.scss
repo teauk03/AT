@@ -1,5 +1,5 @@
-@import "@/styles/variables";
-@import "@/styles/Breakpoints";
+@use "@/styles/variables";
+@use "@/styles/Breakpoints";
 
 .submit-btn {
   width: 320px;
@@ -12,11 +12,11 @@
   font-weight: 600;
   line-height: 1em;
   color: #4FC3F7;
-  border: 2px solid #4FC3F7;
+  border: 2px solid variables.$brand-representative-color;
   background: none;
 
   &:hover {
-    background: #4FC3F7;
-    color: #fff;
+    color: variables.$base-color-white;
+    background: variables.$brand-representative-color;
   }
 }

@@ -31,7 +31,7 @@ const AuthInputField = ({
             </div>
         </label>
         {name && (
-            <div style={{marginTop: '.2rem', color: isInputValidation ? '#00FF00' : '#FF0000', fontSize: '12px'}}>
+            <div style={{marginTop: '.2rem', color: isInputValidation ? '#4FC3F7' : '#FF0000', fontSize: '12px'}}>
                 {isInputValidation ? validInputResult : invalidInputResult}
             </div>
         )}
