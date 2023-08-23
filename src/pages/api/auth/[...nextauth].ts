@@ -10,7 +10,7 @@ import GoogleProvider from "next-auth/providers/google";
 import KakaoProvider from "next-auth/providers/kakao";
 import CredentialsProvider from "next-auth/providers/credentials";
 import {ObjectId} from "mongodb";
-import {isValidEmailFormat, hasPassword, isEmailNotEmpty, hasBirthValid} from "@/utils/validation/validation";
+import {isValidEmailFormat, hasPassword, isEmailNotEmpty} from "@/utils/validation/validation";
 
 /** NextAuth 인증 옵션 설정 */
 export const authOptions: NextAuthOptions = {
