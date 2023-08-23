@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from './RentModal.module.scss';
 import useRequest from "@/hooks/Fetch/useRequest";
+import {useRouter} from "next/navigation";
 
 interface ModalProps {
     selectedDay: Date | null;
@@ -9,6 +10,8 @@ interface ModalProps {
 }
 
 const RentModal: React.FC<ModalProps> = ({ selectedDay, selectedTime, game }) => {
+    const router = useRouter();
+
     const [showModal, setShowModal] = useState(true);
     const today = new Date();
     const formattedDate = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
@@ -23,7 +26,10 @@ const RentModal: React.FC<ModalProps> = ({ selectedDay, selectedTime, game }) =>
             date: formattedDate,
             rent_status: '예약대기'
         },
-        onSuccess: (data) => setShowModal(false),
+        onSuccess: (data) => {
+            setShowModal(false)
+            router.push('/reserve/confirm')
+        },
         onFailure: (error) => alert('예약신청에 실패했습니다.')
     })
 

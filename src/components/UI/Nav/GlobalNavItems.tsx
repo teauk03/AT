@@ -14,10 +14,10 @@ const GlobalNavItems = ({ gblMenuItems }: MenuItemProps) => {
     const handleMouseEnter = () => setShowSubMenu(true);
     const handleMouseLeave = () => setShowSubMenu(false);
 
-    const renderSubMenu = (subMenu: MenuItem[], index: number) => (
+    const renderSubMenu = (subMenu: MenuItem[]) => (
         <ul className={styles['sub-menu']}>
             {subMenu.map((subItem) => (
-                <li key={index} className={styles['sub-nav-link']}>
+                <li key={subItem.route} className={styles['sub-nav-link']}>
                     <Link href={subItem.title === "마이페이지" && session?.user?._id ? `/user/mypage/${session.user.name}` : subItem.route} className={styles['sub-nav-item']}>
                         {subItem.title}
                     </Link>
@@ -39,7 +39,7 @@ const GlobalNavItems = ({ gblMenuItems }: MenuItemProps) => {
                 {showSubMenu && item.subMenu && item.subMenu.length > 0 && (
                     <div className={styles['mega-menu']}>
                         {/* renderSubMenu : 서브 메뉴 렌더링 함수 호출 */}
-                        {renderSubMenu(item.subMenu, item.index)}
+                        {renderSubMenu(item.subMenu)}
                     </div>
                 )}
             </li>
