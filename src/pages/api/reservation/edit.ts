@@ -12,12 +12,14 @@ const putReservationHandler = async (request: NextApiRequest, response: NextApiR
     try {
         const db = (await connectDB).db("reservation")
         const updateQuery = {
-            _id: new ObjectId(request.body.reservationId),
+            _id: new ObjectId(request.body._id),
             rent_status: request.body.rent_status
         };
 
+        console.log(updateQuery)
+
         let result = await db.collection('reservation_list').updateOne(
-            {_id: new ObjectId(request.body.reservationId)},
+            {_id: new ObjectId(request.body._id)},
             {$set: updateQuery}
         );
 

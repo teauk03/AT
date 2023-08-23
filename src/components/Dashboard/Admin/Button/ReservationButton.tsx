@@ -3,9 +3,10 @@ import React from 'react';
 import styles from "@/components/Dashboard/Admin/Admin.module.scss";
 import useRequest from "@/hooks/Fetch/useRequest";
 import {useRouter} from "next/navigation";
+import {ObjectId} from "mongodb";
 
 type ReservationButtonProps = {
-    reservationId: any;
+    reservationId: ObjectId;
     reservationStatus?: string;
 }
 
