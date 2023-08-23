@@ -14,12 +14,12 @@
 
 /* Footer */
 .ftr-sec {
-  width: 1100px;
+  //width: 1100px;
   margin: 0 auto;
 }
 
 .ftr-top {
-  width: 1100px;
+  //width: 1100px;
   margin: 50px 0 25px 0;
   display: flex;
   align-items: center;
@@ -86,7 +86,6 @@
     max-width: 1200px;
   }
 }
-
 @media screen and (max-width: 1040px) {
   .box {
     flex-direction: column;
@@ -131,7 +130,6 @@
     }
   }
 }
-
 @media screen and (max-width: 925px) {
   .navlinkwrap {
     display: none;
@@ -147,7 +145,6 @@
     text-align: center;
   }
 }
-
 @media screen and (max-width: 825px) {
   .started-items {
     display: grid;
@@ -167,10 +164,10 @@
     justify-content: space-around;
   }
 }
-
-@media screen and (max-width: 700px) {
-  .box {
+@media screen and (max-width: 768px) {
+  .ftr-top {
     flex-direction: column;
+    gap: 20px;
 
     .infobox {
       max-height: none;
@@ -202,7 +199,6 @@
     }
   }
 }
-
 @media screen and (max-width: 600px) {
   .landingpage {
     padding: 0 20px;
@@ -257,7 +253,6 @@
     }
   }
 }
-
 @media screen and (max-width: 480px) {
   .landingpage {
     .box {
@@ -279,7 +274,6 @@
     }
   }
 }
-
 @keyframes leftslide {
   from {
     transform: translateX(-700px);
@@ -288,7 +282,6 @@
     transform: translateX(0px);
   }
 }
-
 @keyframes rightslide {
   from {
     transform: translateX(550px);

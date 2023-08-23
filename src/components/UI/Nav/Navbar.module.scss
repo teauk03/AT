@@ -141,12 +141,24 @@
     padding: .4rem .3rem .3rem;
     font-weight: 500;
   }
-
-  .responsive-hamburger {
-    display: none;
-  }
 }
 
+/* 반응형 메뉴 */
+.responsive-menu {
+  display: none;
+  svg {
+    margin: 0 0 2rem 1.6rem;
+  }
+
+  .nav-link-wrap {
+    display: block;
+  }
+
+  .nav-wrap {
+    margin: 0 auto;
+    flex-direction: column;
+  }
+}
 
 /* TODO : Responsive Design */
 /* [Responsive Mobile] 768px */
@@ -158,6 +170,10 @@
 
   .nav-link-wrap {
     display: none;
+  }
+
+  .responsive-menu {
+    display: block;
   }
 
   .nav-session {

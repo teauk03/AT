@@ -11,6 +11,7 @@ import {MenuItem} from '@/types/Navigation';
 import Link from "next/link";
 import Image from "next/image";
 import NavigationLogo from "../../../../public/img/home-bg-Transparent.png";
+import SvgIconComponent from "@/components/SvgIconComponent";
 
 
 const GlobalNavbarComponent = () => {
@@ -83,6 +84,10 @@ const GlobalNavbarComponent = () => {
                     <Link className={styles['navbar-logo']} href={'/'}>
                         <Image src={NavigationLogo} width={120.79} height={17} alt="어택 로고 이미지"/>
                     </Link>
+                </div>
+                <div className={styles['responsive-menu']}>
+                    <SvgIconComponent width={25} height={25} svgPath={'M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5'}/>
+                    <GlobalNavItems gblMenuItems={gblMenuItems}/>
                 </div>
                 <GlobalNavItems gblMenuItems={gblMenuItems}/>
                 <NavbarUserSession session={session} isMenClicked={isMenClicked} setIsUserModalClicked={setIsUserModalClicked}/>
