@@ -88,11 +88,19 @@
     },
     {
       "title": "기기대여",
-      "route": "/reserve/home",
+      "route": "/reserve/home"
+    },
+    {
+      "title": "마이페이지",
+      "route": "/user/mypage",
       "subMenu": [
         {
           "title": "예약확인",
           "route": "/reserve/confirm"
+        },
+        {
+          "title": "내기록",
+          "route": "/game"
         }
       ]
     },

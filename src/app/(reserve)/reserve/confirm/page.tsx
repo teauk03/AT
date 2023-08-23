@@ -11,8 +11,8 @@ const ReservationConfirm = async () => {
     const user = await getUserServerSession();
     if (user && 'redirect' in user) return user;
 
-    /* DB 쿼리 */
-    const {results} = await getConnectServerDb("reservation", "reservation_list", 10);
+    /* DB 쿼리 (예약확인 - 5개씩) */
+    const {results} = await getConnectServerDb("reservation", "reservation_list", 5);
     if (!results) return <LoadingForum/>;
 
     /* 날짜 계산( D-n ) */

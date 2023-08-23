@@ -8,7 +8,9 @@ import NavbarUserSession from "@/components/UI/Nav/NavbarSession";
 import {useSession} from "next-auth/react";
 import GLOBAL_NAV from "@/data/data-global-nav.json";
 import {MenuItem} from '@/types/Navigation';
-import NavbarHome from "@/components/UI/Nav/NavbarHome";
+import Link from "next/link";
+import Image from "next/image";
+import NavigationLogo from "../../../../public/img/home-bg-Transparent.png";
 
 
 const GlobalNavbarComponent = () => {
@@ -77,7 +79,11 @@ const GlobalNavbarComponent = () => {
     return (
         <header className={styles.header}>
             <nav className={styles.nav} ref={modalRef}>
-                <NavbarHome/>
+                <div className={styles['navbar-wrapper']}>
+                    <Link className={styles['navbar-logo']} href={'/'}>
+                        <Image src={NavigationLogo} width={120.79} height={17} alt="어택 로고 이미지"/>
+                    </Link>
+                </div>
                 <GlobalNavItems gblMenuItems={gblMenuItems}/>
                 <NavbarUserSession session={session} isMenClicked={isMenClicked} setIsUserModalClicked={setIsUserModalClicked}/>
             </nav>

@@ -30,8 +30,7 @@ const GlobalNavItems = ({ gblMenuItems }: MenuItemProps) => {
         const isActive = currentRoute === item.route || (item.subMenu && item.subMenu.some(subItem => currentRoute === subItem.route));
         return (
             <li className={styles['nav-link']} key={item.route}>
-                <Link href={item.route}
-                      className={`${styles['nav-item']} ${isActive ? styles['active-link'] : styles['non-active-link']}`}>
+                <Link href={item.title === "마이페이지" && session?.user?._id ? `/user/mypage/${session.user.name}` : item.route} className={`${styles['nav-item']} ${isActive ? styles['active-link'] : styles['non-active-link']}`}>
                     {item.title}
                 </Link>
 
