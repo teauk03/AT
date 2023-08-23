@@ -27,11 +27,6 @@
     },
     {
       "route": "/admin",
-      "svgHref": "#collection",
-      "label": "API"
-    },
-    {
-      "route": "/admin",
       "svgHref": "#appearance",
       "label": "Appearance"
     }

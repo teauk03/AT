@@ -2,8 +2,8 @@
   "ITEMS": [
     {
       "route": "/admin",
-      "svgHref": "#settings",
-      "label": "Settings"
+      "svgHref": "#collection",
+      "label": "API"
     },
     {
       "route": "/admin",

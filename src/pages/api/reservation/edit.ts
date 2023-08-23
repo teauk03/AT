@@ -16,8 +16,6 @@ const putReservationHandler = async (request: NextApiRequest, response: NextApiR
             rent_status: request.body.rent_status
         };
 
-        console.log(updateQuery)
-
         let result = await db.collection('reservation_list').updateOne(
             {_id: new ObjectId(request.body._id)},
             {$set: updateQuery}
