@@ -147,7 +147,7 @@
 .responsive-menu {
   display: none;
   svg {
-    margin: 0 0 2rem 1.6rem;
+    margin: 0 0 2rem 0;
   }
 
   .nav-link-wrap {
@@ -166,17 +166,39 @@
   .navbar {
     width: 100%;
     padding: 0.7rem 1rem;
+    position: relative;
   }
 
   .nav-link-wrap {
     display: none;
   }
 
+  .nav-wrap {
+    position: relative;
+    top: 60px;
+    right: 290px;
+  }
+
   .responsive-menu {
     display: block;
+
+    svg {
+      position: absolute;
+      top: 30px;
+      right: 350px;
+    }
+  }
+
+  .navbar-logo {
+    position: absolute;
+    top: 30px;
   }
 
   .nav-session {
+    position: absolute;
+    top: 30px;
+    left: 670px;
+
     span {
       display: none;
     }

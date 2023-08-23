@@ -5,9 +5,10 @@ type SvgIconComponentProps = {
     width: number;
     height: number;
     className?: string;
+    onClick?: React.MouseEventHandler<SVGElement>;
 }
 
-const SvgIconComponent = ({width, height, svgPath, className}: SvgIconComponentProps) => {
+const SvgIconComponent = ({width, height, svgPath, className, onClick}: SvgIconComponentProps) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -16,6 +17,7 @@ const SvgIconComponent = ({width, height, svgPath, className}: SvgIconComponentP
             width={width}
             height={height}
             className={className}
+            onClick={onClick}
             strokeWidth="1.5"
             stroke="currentColor"
         >

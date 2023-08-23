@@ -26,7 +26,6 @@ const GlobalNavbarComponent = () => {
     /* 함수 실행시 State false -> true */
     const setIsUserModalClicked = () => setMenuClicked(!isMenClicked);
 
-
     /* 사용자가 로그인하거나 로그아웃할 때마다 setGlbMenuItems 업데이트 */
     useEffect(() => {
         /* [Test] 로그인시 네비게이션 메뉴 Dashboard 탭 라우팅 : /user/${session.user._id} */
@@ -76,6 +75,14 @@ const GlobalNavbarComponent = () => {
         setGlbMenuItems(newGlbMenuItems);
     }, [session]);
 
+    /* [State] 반응형 (모바일 768) */
+    const [isResponsiveOpen, setIsResponsiveOpen] = useState<boolean>(false);
+
+    const isOnClickNavbar = (e: React.MouseEvent<SVGElement, MouseEvent>) => {
+        e.preventDefault();
+        setIsResponsiveOpen(isResponsiveOpen => !isResponsiveOpen);
+        console.log(isResponsiveOpen)
+    }
 
     return (
         <header className={styles.header}>
@@ -86,8 +93,14 @@ const GlobalNavbarComponent = () => {
                     </Link>
                 </div>
                 <div className={styles['responsive-menu']}>
-                    <SvgIconComponent width={25} height={25} svgPath={'M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5'}/>
-                    <GlobalNavItems gblMenuItems={gblMenuItems}/>
+                    {!isResponsiveOpen ? (
+                        <SvgIconComponent width={25} height={25} svgPath={'M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5'} onClick={isOnClickNavbar}/>
+                    ) : (
+                        <SvgIconComponent width={25} height={25} svgPath={'M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5'} onClick={isOnClickNavbar}/>
+                    )}
+                    {isResponsiveOpen &&
+                        <GlobalNavItems gblMenuItems={gblMenuItems}/>
+                    }
                 </div>
                 <GlobalNavItems gblMenuItems={gblMenuItems}/>
                 <NavbarUserSession session={session} isMenClicked={isMenClicked} setIsUserModalClicked={setIsUserModalClicked}/>
