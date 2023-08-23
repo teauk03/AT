@@ -76,11 +76,11 @@
 
 /* [Nav] 메가 메뉴 */
 .mega-menu {
-  width: 100%;
+  width: 100px;
   padding: .5rem 0 .5rem 0;
   position: absolute;
   top: 100%;
-  left: 0;
+  left: -20px;
   border: 1px solid #ccc;
   background: #fff;
   transition: all 0.3s ease;
@@ -102,6 +102,9 @@
       text-align: center;
     }
   }
+}
+.mega-menu:nth-child(2) {
+  left: -14px;
 }
 
 .nav-link:hover .mega-menu {
