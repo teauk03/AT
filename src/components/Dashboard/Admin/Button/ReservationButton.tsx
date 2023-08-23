@@ -3,15 +3,13 @@ import React from 'react';
 import styles from "@/components/Dashboard/Admin/Admin.module.scss";
 import useRequest from "@/hooks/Fetch/useRequest";
 import {useRouter} from "next/navigation";
-import {ObjectId} from "mongodb";
 
 type ReservationButtonProps = {
     reservationId: any;
     reservationStatus?: string;
-    onStatusChange?: () => void; // 콜백 함수
 }
 
-const ReservationButton = ({reservationId, reservationStatus, onStatusChange}: ReservationButtonProps) => {
+const ReservationButton = ({reservationId, reservationStatus}: ReservationButtonProps) => {
     const router = useRouter();
     const handleReject = useRequest({
         url: '/api/reservation/edit',
