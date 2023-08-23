@@ -6,7 +6,7 @@
   .input-item {
     font-size: 15px;
     color: #222222;
-    width: 18.75rem;
+    width: 19.75rem;
     border: none;
     border-bottom: solid #aaa 1px;
     padding-bottom: 10px;
@@ -50,6 +50,6 @@
 
   .input-item:focus ~ .input-bottom,
   .input-item:valid ~ .input-bottom {
-    width: 100%;
+    width: 105%;
   }
 }

@@ -64,6 +64,7 @@ export interface DYNAMIC_BUTTON_PROPS {
 export interface PRIMARY_BUTTON_PROPS {
     disabled: boolean;
     label: string;
+    icon?: ReactNode;
     onClick?: () => void;
 }
 

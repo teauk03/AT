@@ -11,49 +11,51 @@
 
   .container {
     width: 31.25rem;
+    min-width: 100vh;
     margin: 0 auto;
-    padding: 2.5rem 0 1.875rem 0;
+    padding: 10.5rem 0 1.875rem 0;
+  }
+}
 
-    .login {
-      max-width: 23.125rem;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
+.login {
+  max-width: 23.125rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 
-      .login-logo {
-        font-size: 2.5rem;
-        margin-bottom: 0.625rem;
-      }
+  .login-logo {
+    font-size: 2.5rem;
+    margin-bottom: 0.625rem;
+  }
+}
 
-      // login form
-      .form {
-        display: flex;
-        flex-direction: column;
-        gap: .188rem;
+// login form
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: .188rem;
 
-        .input-error {
-          margin-right: auto;
+  .input-error {
+    margin-right: auto;
 
-          .error-text {
-            font-size: .75rem;
-            color: red;
-          }
-        }
-      }
-
-      // Create & Find Account
-      .create-account,
-      .find-account {
-        width: 19.999rem;
-        font-size: 12px;
-        //margin-right: auto;
-
-        .link {
-          font-weight: 600;
-        }
-      }
+    .error-text {
+      font-size: .75rem;
+      color: red;
     }
+  }
+}
+
+/* 회원가입 & 아이디 비밀번호 찾기 */
+.create-account {
+  width: 19.999rem;
+  margin: .5rem 0;
+  display: flex;
+  justify-content: space-around;
+  font-size: .85rem;
+
+  .link {
+    font-weight: 600;
   }
 }
