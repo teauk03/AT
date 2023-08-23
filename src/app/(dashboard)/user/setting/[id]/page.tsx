@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "@/components/Dashboard/User/Account.module.scss";
 import {getServerSession} from "next-auth";
-import SideNavigationMenu from "@/components/UI/Nav/MenuNavigation/MenuNavbar";
 import AccountContainer from "@/components/Dashboard/User/AccountContainer"
 import {authOptions} from "@/pages/api/auth/[...nextauth]";
 import USER_ACCOUNT from "@/data/Account/data-user-setting.json";
+import SideNavigationMenu from "@/components/Dashboard/User/Setting/AsideNavbar";
 
 
 const Setting = async () => {
@@ -25,7 +25,6 @@ const Setting = async () => {
         <div className={styles['profile-container']}>
             {/* Side Navbar */}
             <SideNavigationMenu/>
-
             <main className={styles['profile-wrapper']}>
                 <form className={styles['profile-form']} >
 

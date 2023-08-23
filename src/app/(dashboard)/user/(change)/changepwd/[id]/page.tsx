@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from "@/components/Dashboard/User/Account.module.scss";
-import SideNavigationMenu from "@/components/UI/Nav/MenuNavigation/MenuNavbar";
 import UserPasswordUpdateButton from "@/components/Dashboard/User/Setting/Button/UserPasswordUpdateButton";
 import {authOptions} from "@/pages/api/auth/[...nextauth]";
 import {getServerSession} from "next-auth";
+import SideNavigationMenu from "@/components/Dashboard/User/Setting/AsideNavbar";
 
 
 const ChangePassword = async () => {
@@ -24,7 +24,6 @@ const ChangePassword = async () => {
         <div className={styles['profile-container']}>
             {/* Side Navbar */}
             <SideNavigationMenu/>
-
             <main className={styles['profile-wrapper']}>
                 <form className={styles['profile-form']}>
                     {/* MyPage Title */}

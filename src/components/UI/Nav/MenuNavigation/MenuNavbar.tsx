@@ -12,9 +12,11 @@ type MenuNavbarProps = {
 
 const MenuNavbar = ({props}: MenuNavbarProps) => {
     /* 버튼 토글 상태 */
-    const initialActiveState = new Array(props.length).fill(false);
+    const length = props?.length ?? 0;  // props가 정의되지 않았을 경우 대비해 기본값을 설정
+    const initialActiveState = new Array(length).fill(false);
     initialActiveState[0] = true;
     const [activeButton, setActiveButton] = useState<boolean[]>(initialActiveState);
+    console.log(props)
 
     const handleButtonToggle = (index: number) => {
         const newActiveButton = activeButton.map((_, i) => i === index);
@@ -24,7 +26,7 @@ const MenuNavbar = ({props}: MenuNavbarProps) => {
     /* 클라이언트 컴포넌트 렌더링 */
     return (
         <div className={styles['timeline-menu']}>
-            {props.map((item, index) => (
+            {props?.map((item, index) => (
                 <button key={index} className={activeButton[index] ? styles['active-btn'] : styles['timeline-item']} onClick={() => handleButtonToggle(index)}>
                     {item.label}
                 </button>
