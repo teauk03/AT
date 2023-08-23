@@ -31,11 +31,8 @@ const AuthInputField = ({
             </div>
         </label>
         {name && (
-            <div style={{
-                marginTop: '.2rem',
-                color: isInputValidation ? '#00FF00' : '#FF0000',
-                fontSize: '12px'
-            }}> {isInputValidation ? validInputResult : invalidInputResult}
+            <div style={{marginTop: '.2rem', color: isInputValidation ? '#00FF00' : '#FF0000', fontSize: '12px'}}>
+                {isInputValidation ? validInputResult : invalidInputResult}
             </div>
         )}
     </fieldset>

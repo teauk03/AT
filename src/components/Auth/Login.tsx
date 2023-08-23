@@ -36,7 +36,7 @@ const LoginComponent = (): JSX.Element => {
             <div className={styles.container}>
                 <div className={styles.login}>
                     {/* Logo */}
-                    <Link className={styles['navbar-logo']} href={'/'}>
+                    <Link className={styles['login-logo']} href={'/'}>
                         <Image
                             src={NavigationLogo}
                             width={200.79}
@@ -73,6 +73,7 @@ const LoginComponent = (): JSX.Element => {
                         <DivisionLine text={'소셜 로그인'}/>
 
                         {/* Social Login */}
+                        {/* TODO - 프로바이더 네이버 & 트위터로 변경 */}
                         <div className={styles['login-social']}>
                             <SocialLoginButton provider='github' src={github} alt='Login for Github'/>
                             <SocialLoginButton provider='google' src={google} alt='Login for Google'/>

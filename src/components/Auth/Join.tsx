@@ -1,26 +1,18 @@
 'use client'
-import React, {FC, useCallback, useEffect, useState} from 'react';
+import React, {FC} from 'react';
 import styles from './Join.module.scss';
-import github from "/public/github.svg"
-import google from "/public/google.svg"
 
 import {useSignUp} from '@/hooks/Auth/useSignUp';
-import {
-    isValidEmailFormat,
-    hasValidName,
-    hasValidPasswordLength,
-    hasBirthValid,
-    hasValidNickName, hasValidPhone
-} from "@/utils/validation/validation";
+import {isValidEmailFormat, hasValidName, hasValidPasswordLength, hasBirthValid, hasValidNickName, hasValidPhone} from "@/utils/validation/validation";
 
 import AuthInputField from "@/components/Auth/Input/AuthInputField";
 import PrimaryButton from "@/components/UI/Button/PrimaryButton";
 import useValueField from "@/hooks/Validation/useSignUpValueField";
-import VerificationButton from "@/components/Auth/VerificationButton";
-import {UI_JOIN_INPUT_FIELD} from "@/types/UI";
 import AppLink from "@/components/UI/Link/AppLink";
-import DivisionLine from "@/components/Auth/DivisionLine/DivisionLine";
-import SocialLoginButton from "@/components/UI/Button/SocialLogin/SocialLoginButtons";
+import {UI_JOIN_INPUT_FIELD} from "@/types/UI";
+import Link from "next/link";
+import Image from "next/image";
+import NavigationLogo from "../../../public/img/home-bg-Transparent.png";
 
 /**
  * JoinComponent 는 사용자의 회원 가입을 제공하는 컴포넌트입니다.
@@ -67,58 +59,7 @@ const JoinComponent: FC = (): JSX.Element => {
         handleChange: handlePhoneChange
     } = useValueField("", hasValidPhone);
 
-    /* 현재 단계를 관리하는 state */
-    const [
-        step,
-        setStep
-    ] = useState(0);
-
-    const [isEmailDuplicated, setEmailDuplicated] = useState(false);
-    const [isNicknameDuplicated, setNicknameDuplicated] = useState(false);
-
-    const handleVerification = useCallback(async () => {
-        try {
-            const response = await fetch("/api/check-duplicate", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ nickname, email }),
-            });
-
-            const result = await response.json();
-
-            if (result.message === '이미 존재하는 닉네임입니다.') {
-                setNicknameDuplicated(true);
-            } else {
-                setNicknameDuplicated(false);
-            }
-
-            if (result.message === '이미 존재하는 이메일입니다.') {
-                setEmailDuplicated(true);
-            } else {
-                setEmailDuplicated(false);
-            }
-        } catch (error) {
-            console.error("오류가 발생했습니다:", error);
-        }
-    }, [nickname, email]);
-
-    useEffect(() => {
-        if (isEmailValid) {
-            handleVerification();
-        }
-    }, [email, isEmailValid, handleVerification]);
-
-    useEffect(() => {
-        if (isNickNameValid) {
-            handleVerification();
-        }
-    }, [nickname, isNickNameValid, handleVerification]);
-
-    const handlePhoneVerification = () => {
-        // 휴대폰 인증 로직
-    };
-
-    /* 이름, 생년월일, 휴대폰번호 필드 */
+    /* 이름, 생년월일, 휴대폰번호, 이메일, 비밀번호, 닉네임 필드 */
     const FIRST_INPUT_FIELDS: UI_JOIN_INPUT_FIELD[] = [
         {
             label: '이름',
@@ -146,11 +87,7 @@ const JoinComponent: FC = (): JSX.Element => {
             validation: isPhoneValid,
             handleChange: handlePhoneChange,
             validInputResult: '사용 가능한 전화번호 입니다.',
-            VerificationButton: { label: '인증', onClick: handlePhoneVerification }
-        }
-    ];
-    /* 이메일, 비밀번호, 닉네임 필드 */
-    const SECOND_INPUT_FIELDS: UI_JOIN_INPUT_FIELD[] = [
+        },
         {
             label: '이메일',
             type: 'email',
@@ -182,12 +119,8 @@ const JoinComponent: FC = (): JSX.Element => {
 
     const handleSubmitStep = async (e: any): Promise<void> => {
         e.preventDefault();
-        if (step === 0) {
-            setStep(1); // 첫번째 단계를 완료하면 두번째 단계로 이동
-        } else {
-            const data = { name, email, password, nickname, phone, birth };
-            await signup(data); // 두번째 단계를 완료하면 회원가입 실행
-        }
+        const data = { name, email, password, nickname, phone, birth };
+        await signup(data);
     };
 
     return (
@@ -195,6 +128,18 @@ const JoinComponent: FC = (): JSX.Element => {
             <div className={styles.contents}>
                 <div className={styles.join}>
                     <section className={styles['title-wrapper']}>
+                        {/* Logo */}
+                        <div className={styles.logo}>
+                            <Link href={'/'}>
+                                <Image
+                                    className={styles['home-logo']}
+                                    src={NavigationLogo}
+                                    width={200.79}
+                                    height={17}
+                                    alt="어택 로고 이미지"
+                                />
+                            </Link>
+                        </div>
                         <div className={styles['link-wrapper']}>
                             <span className={styles['sub-text']}>
                                 {'계정이 이미 있으신가요?'}{' '}
@@ -203,7 +148,7 @@ const JoinComponent: FC = (): JSX.Element => {
                         </div>
                     </section>
                     <form className={styles.form} onSubmit={handleSubmitStep} noValidate>
-                        {(step === 0 ? FIRST_INPUT_FIELDS : SECOND_INPUT_FIELDS).map((field, index) => (
+                        {FIRST_INPUT_FIELDS.map((field, index) => (
                             <div className={styles['info-input-wrapper']} key={index}>
                                 <AuthInputField
                                     label={field.label}
@@ -218,16 +163,9 @@ const JoinComponent: FC = (): JSX.Element => {
                                     validInputResult={field.validInputResult}
                                     invalidInputResult={error ? `${field.placeholder} : ${error}` : ""}
                                 />
-                                {field.VerificationButton && (
-                                    <VerificationButton
-                                        label={field.VerificationButton.label}
-                                        disabled={true}
-                                        onClick={field.VerificationButton.onClick}
-                                    />
-                                )}
                             </div>
                         ))}
-                        <PrimaryButton disabled={isLoading} label={step === 0 ? '다음' : '회원가입'}/>
+                        <PrimaryButton disabled={isLoading} label={'회원가입'}/>
                     </form>
                 </div>
             </div>
