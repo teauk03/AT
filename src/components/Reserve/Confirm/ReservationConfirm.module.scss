@@ -1,3 +1,5 @@
+@use '@/styles/variables';
+
 .container {
   height: 50rem;
 }
@@ -9,13 +11,6 @@
   &-contents {
     max-width: 360px;
     margin: 0 auto;
-  }
-
-  &-info {
-
-    &-id {
-
-    }
   }
 
   &-link {
@@ -51,17 +46,42 @@
     margin: 0 auto;
   }
 
-  &-item {
+  &-menu {
+    padding: 1rem 5rem;
+    border: variables.$border-default-1px;
+    border-radius: 8px;
+  }
 
-    &-link {
+  &-item:first-child {
+    padding: 0 0 .3rem 0;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+  }
 
+  &-check {
+    svg {
+      margin-right: .3rem;
     }
   }
 
+  &-days {
+    padding: .1rem .5rem;
+    font-weight: 600;
+    background: #3dd28d;
+    border-radius: 8px;
+  }
+
+  &-link {
+    font-weight: 700;
+    font-weight: 700;
+  }
+
   &-icon {
+    margin-top: .5rem;
 
-    &-item {
-
+    a:first-child {
+      margin-right: .5rem;
     }
   }
 }
