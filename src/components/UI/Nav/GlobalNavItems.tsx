@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import styles from "./Navbar.module.scss";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { MenuItemProps, MenuItem } from '@/types/Navigation';
 import { useSession } from "next-auth/react";
+import { MenuItemProps, MenuItem } from '@/types/Navigation';
 
 const GlobalNavItems = ({ gblMenuItems }: MenuItemProps) => {
     const { data: session } = useSession();

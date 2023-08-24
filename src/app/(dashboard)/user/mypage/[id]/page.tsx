@@ -44,11 +44,11 @@ const DynamicAccount = async () => {
                     <Image src={DefaultIMAGE} alt='유저 프로필 이미지' width={100} height={100}/>
                     <div className={styles['profile-info']}>
                         <div>
-                            닉네임 : <span>{user.name}</span><br/>
-                            즐겨하는 게임 : <span>{user.skills}</span><br/>
+                            <span>닉네임</span> : {user.name}<br/>
+                            <span>게임</span> : {user.skills}<br/>
                         </div>
                         <div>
-                            소개 ( 수정 가능하도록 설계 예정 )
+                            <span>소개</span> : {user.summary}
                         </div>
                     </div>
                 </section>

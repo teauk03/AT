@@ -2,11 +2,11 @@ import React from "react";
 import styles from './page.module.scss';
 import GlobalNavbarComponent from "@/components/UI/Nav/GlobalNavbarComponent";
 import FooterClientComponent from "@/components/UI/Footer/Footer";
-import MAIN_PAGE from "@/data/data-index-page.json";
-import GAME_CARD from '@/data/Game/data-game-card.json';
+import ToggleMenubar from "@/components/UI/Nav/MenuNavigation/ToggleMenubar";
 import Link from "next/link";
 import Image from "next/image";
-import ToggleMenubar from "@/components/UI/Nav/MenuNavigation/ToggleMenubar";
+import MAIN_PAGE from "@/data/data-index-page.json";
+import GAME_CARD from '@/data/Game/data-game-card.json';
 
 const Home = (): JSX.Element => {
     const MenuNavbarProps = [

@@ -12,7 +12,7 @@
   .nav {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 1rem 2rem;
+    padding: 0 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -74,6 +74,13 @@
   }
 }
 
+/* 네비게이션 메뉴 */
+.nav-link-wrap {
+  .nav-wrap {
+    padding-bottom: 1rem;
+  }
+}
+
 /* [Nav] 메가 메뉴 */
 .mega-menu {
   width: 100px;
@@ -116,18 +123,13 @@
  * 로그인, 로그아웃 버튼 */
 .create-btn {
   margin: .5rem 0;
-  padding: 0.713rem 1.875rem;
+  padding: .713rem .875rem;
   background: transparent;
   border: none;
   color: #5D7D7D;
   font-style: normal;
   font-weight: 500;
-  font-size: 12px;
-
-  &.selected-btn {
-    border: 1px solid #5D7D7D;
-    border-radius: 10px;
-  }
+  font-size: 14px;
 }
 
 /* [Navigation User Session Wrap]

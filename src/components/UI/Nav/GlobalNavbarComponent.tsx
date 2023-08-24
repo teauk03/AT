@@ -4,14 +4,14 @@ import styles from './Navbar.module.scss';
 
 import GlobalNavItems from "@/components/UI/Nav/GlobalNavItems";
 import {useSession} from "next-auth/react";
-import {MenuItem} from '@/types/Navigation';
 import Link from "next/link";
 import Image from "next/image";
-import NavigationLogo from "../../../../public/img/home-bg-Transparent.png";
 import SvgIconComponent from "@/components/SvgIconComponent";
-import NavbarLink from "@/components/UI/Nav/NavbarLink";
 import IsUserStatusModalMenu from "@/components/UI/Nav/IsUserStatusModalMenu/IsUserStatusModalMenu";
+import AppLink from "@/components/UI/Link/AppLink";
+import NavigationLogo from "../../../../public/img/home-bg-Transparent.png";
 import GLOBAL_NAV from "@/data/data-global-nav.json";
+import {MenuItem} from '@/types/Navigation';
 
 
 const GlobalNavbarComponent = () => {
@@ -97,33 +97,18 @@ const GlobalNavbarComponent = () => {
                     </Link>
                 </div>
 
-                {/* 모바일 반응형 메뉴 */}
-                <div className={styles['responsive-menu']}>
-                    {!isResponsiveOpen ? (
-                        <SvgIconComponent width={25} height={25} svgPath={'M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5'} onClick={isOnClickNavbar}/>
-                    ) : (
-                        <SvgIconComponent width={25} height={25} svgPath={'M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5'} onClick={isOnClickNavbar}/>
-                    )}
-                    {isResponsiveOpen &&
-                        <GlobalNavItems gblMenuItems={gblMenuItems}/>
-                    }
-                </div>
-
-                {/* 데스크탑 네비게이션 메뉴 */}
-                <GlobalNavItems gblMenuItems={gblMenuItems}/>
-
                 {/* 세션 관련 드롭다운 메뉴 */}
                 <div className={styles['nav-session']}>
                     <>
                         {/* 로그인, 회원가입 링크 */}
                         {!session &&
                             <>
-                                <NavbarLink
-                                    className={`${styles['create-btn']} ${styles['selected-btn']}`}
+                                <AppLink
+                                    className={`${styles['create-btn']}`}
                                     href={`/join/`}
                                     label={'회원가입'}
                                 />
-                                <NavbarLink
+                                <AppLink
                                     className={styles['create-btn']}
                                     href={'/login/'}
                                     label={'로그인'}
@@ -144,6 +129,20 @@ const GlobalNavbarComponent = () => {
                     </>
                 </div>
             </nav>
+            {/* 모바일 반응형 메뉴 */}
+            <div className={styles['responsive-menu']}>
+                {!isResponsiveOpen ? (
+                    <SvgIconComponent width={25} height={25} svgPath={'M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5'} onClick={isOnClickNavbar}/>
+                ) : (
+                    <SvgIconComponent width={25} height={25} svgPath={'M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5'} onClick={isOnClickNavbar}/>
+                )}
+                {isResponsiveOpen &&
+                    <GlobalNavItems gblMenuItems={gblMenuItems}/>
+                }
+            </div>
+
+            {/* 데스크탑 네비게이션 메뉴 */}
+            <GlobalNavItems gblMenuItems={gblMenuItems}/>
         </header>
     );
 }
