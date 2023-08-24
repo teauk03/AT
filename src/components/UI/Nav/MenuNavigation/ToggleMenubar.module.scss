@@ -24,6 +24,7 @@
   }
 
   .active-btn {
+    transition: all .5s linear;
     font-weight: bold;
   }
 }

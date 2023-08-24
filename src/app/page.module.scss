@@ -41,7 +41,7 @@
 /* 게임 타이틀 */
 .games {
   padding: 5rem 0;
-  background: #f9f9f9;
+  background: transparent;
 
   &-wrapper {
     max-width: 1200px;
@@ -115,7 +115,7 @@
 .community-section {
   width: 100%;
   padding: 5rem 0;
-  background-color: #f0f0f0;
+  background: transparent;
 
   .community-wrap {
     max-width: 1200px;

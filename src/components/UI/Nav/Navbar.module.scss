@@ -32,12 +32,11 @@
 }
 
 /* Navigation Home */
-.navbar-wrapper {
-  display: flex;
-  align-items: center;
-
+.logo-wrapper {
   .navbar-logo {
     height: 100%;
+    position: relative;
+    top: 18px;
   }
 }
 

@@ -9,7 +9,7 @@ Error: Invalid CSS after "  color: variables": expected ";", was ".$base-font-co
 9:   flex-direction: column;
 10:   color: variables.$base-font-color-dark;
 11:   background: variables.$base-background-main;
-12:   border-top: variables.$border-default-2px;
+12:   border-top: variables.$border-default-1px;
 13: }
 14: 
 15: /* Footer *\/
@@ -45,4 +45,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"  color: variables\": expected \";\", was \".$base-font-col...\"\A         on line 10 of Footer.module.scss\A \A 5: .footer {\A 6:   width: 100%;\A 7:   margin: 0 auto;\A 8:   display: flex;\A 9:   flex-direction: column;\A 10:   color: variables.$base-font-color-dark;\A 11:   background: variables.$base-background-main;\A 12:   border-top: variables.$border-default-2px;\A 13: }\A 14: \A 15: /* Footer */"; }
+  content: "Error: Invalid CSS after \"  color: variables\": expected \";\", was \".$base-font-col...\"\A         on line 10 of Footer.module.scss\A \A 5: .footer {\A 6:   width: 100%;\A 7:   margin: 0 auto;\A 8:   display: flex;\A 9:   flex-direction: column;\A 10:   color: variables.$base-font-color-dark;\A 11:   background: variables.$base-background-main;\A 12:   border-top: variables.$border-default-1px;\A 13: }\A 14: \A 15: /* Footer */"; }

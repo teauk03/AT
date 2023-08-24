@@ -91,9 +91,9 @@ const GlobalNavbarComponent = () => {
         <header className={styles.header}>
             <nav className={styles.nav} ref={modalRef}>
                 {/* 네비게이션 로고 */}
-                <div className={styles['navbar-wrapper']}>
+                <div className={styles['logo-wrapper']}>
                     <Link className={styles['navbar-logo']} href={'/'}>
-                        <Image src={NavigationLogo} width={120.79} height={17} alt="어택 로고 이미지"/>
+                        <Image src={NavigationLogo} width={220.79} height={17} alt="어택 로고 이미지"/>
                     </Link>
                 </div>
 
