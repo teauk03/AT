@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from '@/components/Dashboard/User/MyPage/MyPage.module.scss';
-import MyPageAside from "@/components/Dashboard/User/MyPage/UserAsideNavbar/MyPageAside";
 import {getServerSession} from "next-auth";
 import {authOptions} from "@/pages/api/auth/[...nextauth]";
 import Image from "next/image";
@@ -10,7 +9,7 @@ import getConnectServerDb from "@/utils/DB/getConnectServerDb";
 import LoadingForum from "@/components/UI/Loading/LoadingForum";
 import formatDate from "@/utils/formatDate";
 import calculateDuration from "@/utils/calculateDuration";
-import MenuNavbar from "@/components/UI/Nav/MenuNavigation/MenuNavbar";
+import ToggleMenubar from "@/components/UI/Nav/MenuNavigation/ToggleMenubar";
 
 const DynamicAccount = async () => {
     /* 세션 검증 */
@@ -54,7 +53,7 @@ const DynamicAccount = async () => {
                     </div>
                 </section>
                 <section className={styles.timeline}>
-                    <MenuNavbar props={MenuNavbarProps}/>
+                    <ToggleMenubar props={MenuNavbarProps}/>
                     <div className={styles['timeline-container']}>
                         {results.map((item, index) => {
                             return (

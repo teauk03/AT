@@ -1,21 +1,21 @@
 /*
 Error: Invalid CSS after "...ttom: variables": expected ";", was ".$border-defaul..."
-        on line 56 of MyPage.module.scss
+        on line 6 of ToggleMenubar.module.scss
 
-51:   gap: 1rem;
-52: 
-53:   &-menu {
-54:     display: flex;
-55:     justify-content: space-around;
-56:     border-bottom: variables.$border-default-1px;
-57:   }
-58: 
-59:   .active-btn,
-60:   &-item {
-61:     margin-bottom: 1rem;
+1: @use '@/styles/variables';
+2: 
+3: .timeline-menu {
+4:   display: flex;
+5:   justify-content: space-around;
+6:   border-bottom: variables.$border-default-1px;
+7: 
+8:   button {
+9:     background: none;
+10:     border: none;
+11:   }
 
 Backtrace:
-MyPage.module.scss:56
+ToggleMenubar.module.scss:6
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
@@ -23,10 +23,6 @@ C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:815:in
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1284:in `rethrow'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:820:in `try_declaration'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:743:in `declaration_or_ruleset'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:758:in `declaration_or_ruleset'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
@@ -49,4 +45,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"...ttom: variables\": expected \";\", was \".$border-defaul...\"\A         on line 56 of MyPage.module.scss\A \A 51:   gap: 1rem;\A 52: \A 53:   &-menu {\A 54:     display: flex;\A 55:     justify-content: space-around;\A 56:     border-bottom: variables.$border-default-1px;\A 57:   }\A 58: \A 59:   .active-btn,\A 60:   &-item {\A 61:     margin-bottom: 1rem;"; }
+  content: "Error: Invalid CSS after \"...ttom: variables\": expected \";\", was \".$border-defaul...\"\A         on line 6 of ToggleMenubar.module.scss\A \A 1: @use '@/styles/variables';\A 2: \A 3: .timeline-menu {\A 4:   display: flex;\A 5:   justify-content: space-around;\A 6:   border-bottom: variables.$border-default-1px;\A 7: \A 8:   button {\A 9:     background: none;\A 10:     border: none;\A 11:   }"; }

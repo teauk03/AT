@@ -1,6 +1,6 @@
 'use client'
 import React, {useState} from 'react';
-import styles from "@/components/Dashboard/User/MyPage/MyPage.module.scss";
+import styles from "./ToggleMenubar.module.scss";
 
 type DynamicAccount = {
     label: string;
@@ -10,13 +10,12 @@ type MenuNavbarProps = {
     props: DynamicAccount[];
 }
 
-const MenuNavbar = ({props}: MenuNavbarProps) => {
+const ToggleMenubar = ({props}: MenuNavbarProps) => {
     /* 버튼 토글 상태 */
     const length = props?.length ?? 0;  // props가 정의되지 않았을 경우 대비해 기본값을 설정
     const initialActiveState = new Array(length).fill(false);
     initialActiveState[0] = true;
     const [activeButton, setActiveButton] = useState<boolean[]>(initialActiveState);
-    console.log(props)
 
     const handleButtonToggle = (index: number) => {
         const newActiveButton = activeButton.map((_, i) => i === index);
@@ -35,4 +34,4 @@ const MenuNavbar = ({props}: MenuNavbarProps) => {
     );
 };
 
-export default MenuNavbar;
+export default ToggleMenubar;

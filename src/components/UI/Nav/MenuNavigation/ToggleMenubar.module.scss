@@ -1,0 +1,29 @@
+@use '@/styles/variables';
+
+.timeline-menu {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: variables.$border-default-1px;
+
+  button {
+    background: none;
+    border: none;
+  }
+
+  .active-btn,
+  &-item {
+    margin-bottom: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+
+    &:hover {
+      font-weight: bold;
+    }
+  }
+
+  .active-btn {
+    font-weight: bold;
+  }
+}

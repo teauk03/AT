@@ -3,28 +3,21 @@ import React, {useEffect, useRef, useState} from "react";
 import styles from './Navbar.module.scss';
 
 import GlobalNavItems from "@/components/UI/Nav/GlobalNavItems";
-import NavbarUserSession from "@/components/UI/Nav/NavbarSession";
-
 import {useSession} from "next-auth/react";
-import GLOBAL_NAV from "@/data/data-global-nav.json";
 import {MenuItem} from '@/types/Navigation';
 import Link from "next/link";
 import Image from "next/image";
 import NavigationLogo from "../../../../public/img/home-bg-Transparent.png";
 import SvgIconComponent from "@/components/SvgIconComponent";
+import NavbarLink from "@/components/UI/Nav/NavbarLink";
+import IsUserStatusModalMenu from "@/components/UI/Nav/IsUserStatusModalMenu/IsUserStatusModalMenu";
+import GLOBAL_NAV from "@/data/data-global-nav.json";
 
 
 const GlobalNavbarComponent = () => {
     /* [Client] 유저 세션 사용 */
     const {data: session} = useSession();
     const [gblMenuItems, setGlbMenuItems] = useState<MenuItem[]>(GLOBAL_NAV.ITEMS);
-
-    /* [State] 모달 클릭 여부 */
-    const [isMenClicked, setMenuClicked] = useState(false);
-    const modalRef = useRef<HTMLElement | null>(null);
-
-    /* 함수 실행시 State false -> true */
-    const setIsUserModalClicked = () => setMenuClicked(!isMenClicked);
 
     /* 사용자가 로그인하거나 로그아웃할 때마다 setGlbMenuItems 업데이트 */
     useEffect(() => {
@@ -48,6 +41,14 @@ const GlobalNavbarComponent = () => {
     }, [session]);
 
 
+    /* [State] 모달 클릭 여부 */
+    const [isMenClicked, setMenuClicked] = useState(false);
+    const modalRef = useRef<HTMLElement | null>(null);
+
+    /* 함수 실행시 State false -> true */
+    const setIsUserModalClicked = () => setMenuClicked(!isMenClicked);
+
+    /*  클릭 이벤트를 감지하여 모달을 닫음 */
     useEffect(() => {
         const handleClickOutside = (e: MouseEvent) => {
             if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
@@ -75,23 +76,28 @@ const GlobalNavbarComponent = () => {
         setGlbMenuItems(newGlbMenuItems);
     }, [session]);
 
+
     /* [State] 반응형 (모바일 768) */
     const [isResponsiveOpen, setIsResponsiveOpen] = useState<boolean>(false);
-
+    /* Navbar 아이콘 클릭시 반응형 메뉴 열고 닫기 */
     const isOnClickNavbar = (e: React.MouseEvent<SVGElement, MouseEvent>) => {
         e.preventDefault();
         setIsResponsiveOpen(isResponsiveOpen => !isResponsiveOpen);
         console.log(isResponsiveOpen)
     }
 
+    /* 렌더링 */
     return (
         <header className={styles.header}>
             <nav className={styles.nav} ref={modalRef}>
+                {/* 네비게이션 로고 */}
                 <div className={styles['navbar-wrapper']}>
                     <Link className={styles['navbar-logo']} href={'/'}>
                         <Image src={NavigationLogo} width={120.79} height={17} alt="어택 로고 이미지"/>
                     </Link>
                 </div>
+
+                {/* 모바일 반응형 메뉴 */}
                 <div className={styles['responsive-menu']}>
                     {!isResponsiveOpen ? (
                         <SvgIconComponent width={25} height={25} svgPath={'M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5'} onClick={isOnClickNavbar}/>
@@ -102,8 +108,41 @@ const GlobalNavbarComponent = () => {
                         <GlobalNavItems gblMenuItems={gblMenuItems}/>
                     }
                 </div>
+
+                {/* 데스크탑 네비게이션 메뉴 */}
                 <GlobalNavItems gblMenuItems={gblMenuItems}/>
-                <NavbarUserSession session={session} isMenClicked={isMenClicked} setIsUserModalClicked={setIsUserModalClicked}/>
+
+                {/* 세션 관련 드롭다운 메뉴 */}
+                <div className={styles['nav-session']}>
+                    <>
+                        {/* 로그인, 회원가입 링크 */}
+                        {!session &&
+                            <>
+                                <NavbarLink
+                                    className={`${styles['create-btn']} ${styles['selected-btn']}`}
+                                    href={`/join/`}
+                                    label={'회원가입'}
+                                />
+                                <NavbarLink
+                                    className={styles['create-btn']}
+                                    href={'/login/'}
+                                    label={'로그인'}
+                                />
+                            </>
+                        }
+
+                        {/* 로그인 상태에서 세션 관련 요소 */}
+                        {session?.user &&
+                            <div className={styles['user-session-wrap']} onClick={setIsUserModalClicked}>
+                                <SvgIconComponent width={25} height={25} svgPath={'M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0'}/>
+                                <SvgIconComponent width={25} height={25} svgPath={'M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z'}/>
+
+                                {/* 클릭시 DropdownMenu 노출 */}
+                                {isMenClicked && <IsUserStatusModalMenu session={session}/>}
+                            </div>
+                        }
+                    </>
+                </div>
             </nav>
         </header>
     );
