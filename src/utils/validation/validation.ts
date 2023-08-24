@@ -1,4 +1,14 @@
-// Email Validation
+/* 이름, 닉네임, 휴대폰 번호, 비밀번호의 길이를 검사 */
+const hasMinLength = (value: string, minLength: number): boolean => {
+    return value.length >= minLength;
+};
+
+/* 이름, 닉네임, 휴대폰 번호, 비밀번호의 공백을 검사 */
+const isFieldNotEmpty = (field: string): boolean => {
+    return field.trim() !== "";
+};
+
+/* Email Validation */
 const isValidEmailFormat = (email: string): boolean => {
     //const emailRegex: RegExp = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
     const emailRegex: RegExp = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.?[A-Za-z]*$/;
@@ -53,6 +63,8 @@ const handleException = (err: any) => {
 
 export {
     /* Validation */
+    hasMinLength,
+    isFieldNotEmpty,
     isValidEmailFormat,
     isEmailNotEmpty,
     hasValidPasswordLength,

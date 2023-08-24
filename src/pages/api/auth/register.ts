@@ -5,8 +5,7 @@ import {
     hasValidPasswordLength,
     isValidEmailFormat,
     hasValidName,
-    hasBirthValid,
-    hasValidNickName, hasValidPhone
+    isFieldNotEmpty, hasMinLength
 } from '@/utils/validation/validation';
 
 
@@ -14,9 +13,30 @@ const handlerRegister = async (request: NextApiRequest, response: NextApiRespons
     /* POST 요청 처리 */
     if (request.method === 'POST') {
         const {email, password, name, nickname, birth, phone} = request.body;
+        console.log(request.body)
 
         try {
             let db = (await connectDB).db('forum');
+            /* 닉네임 중복 검사 */
+            const existingNickname = await db.collection('user_card').findOne({ nickname });
+            if (existingNickname) {
+                response.status(400).json({ message: '이미 존재하는 닉네임입니다.' });
+                return;
+            }
+
+            /* 이메일 중복 검사 */
+            const existingEmail = await db.collection('user_card').findOne({ email });
+            if (existingEmail) {
+                response.status(400).json({ message: '이미 존재하는 이메일입니다.' });
+                return;
+            }
+
+            /* 이름, 닉네임, 휴대폰 번호, 비밀번호의 공백을 검사 */
+            if (!isFieldNotEmpty(email) || !isFieldNotEmpty(password) || !isFieldNotEmpty(name) || !isFieldNotEmpty(nickname) || !isFieldNotEmpty(phone)) {
+                response.status(400).json({ message: '필수 입력사항입니다.' });
+                return;
+            }
+
             /* 이메일 유효성 검사 */
             if (!isValidEmailFormat(email)) {
                 response.status(400).json({message: '사용할 수 없는 이메일입니다.'});
@@ -32,43 +52,11 @@ const handlerRegister = async (request: NextApiRequest, response: NextApiRespons
 
 
             /* 닉네임 유효성 검사 */
-            if (!hasValidName(name)) {
-                response.status(400).json({message: '사용할 수 없는 닉네임입니다.'});
+            if (!hasMinLength(name, 2)) {
+                response.status(400).json({message: '이름은 최소 2글자 이상 작성해야합니다.'});
                 return;
             }
 
-
-            /* 생년월일 유효성 검사 */
-            if (!hasBirthValid(birth)) {
-                response.status(400).json({message: `${birth} : 필수 입력사항입니다.`});
-                return;
-            }
-
-            /* 닉네임 유효성 검사 */
-            if (!hasValidNickName(nickname)) {
-                response.status(400).json({message: '닉네임 : 필수 입력사항입니다.'});
-                return;
-            }
-
-            /* 휴대전화번호 유효성 검사 */
-            if (!hasValidPhone(phone)) {
-                response.status(400).json({message: '휴대전화번호 : 필수 입력사항입니다.'});
-                return;
-            }
-
-            /* 닉네임 중복 검사 */
-            const existingNickname = await db.collection('user_card').findOne({ nickname });
-            if (existingNickname) {
-                response.status(400).json({ message: '이미 존재하는 닉네임입니다.' });
-                return;
-            }
-
-            /* 이메일 중복 검사 */
-            const existingEmail = await db.collection('user_card').findOne({ email });
-            if (existingEmail) {
-                response.status(400).json({ message: '이미 존재하는 이메일입니다.' });
-                return;
-            }
 
 
             /* 비밀번호 해시값으로 변경 & DB 추가 */

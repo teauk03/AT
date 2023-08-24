@@ -1,18 +1,25 @@
 'use client'
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import styles from './Join.module.scss';
 
-import {useSignUp} from '@/hooks/Auth/useSignUp';
-import {isValidEmailFormat, hasValidName, hasValidPasswordLength, hasBirthValid, hasValidNickName, hasValidPhone} from "@/utils/validation/validation";
+import {
+    isValidEmailFormat,
+    hasValidName,
+    hasBirthValid,
+    hasValidNickName,
+    hasValidPhone,
+    hasMinLength
+} from "@/utils/validation/validation";
 
-import AuthInputField from "@/components/Auth/Input/AuthInputField";
 import PrimaryButton from "@/components/UI/Button/PrimaryButton";
 import useValueField from "@/hooks/Validation/useSignUpValueField";
 import AppLink from "@/components/UI/Link/AppLink";
-import {UI_JOIN_INPUT_FIELD} from "@/types/UI";
 import Link from "next/link";
 import Image from "next/image";
 import NavigationLogo from "../../../public/img/home-bg-Transparent.png";
+import useRequest from "@/hooks/Fetch/useRequest";
+import {useRouter} from "next/navigation";
+import {UI_JOIN_INPUT_FIELD} from "@/types/UI";
 
 /**
  * JoinComponent 는 사용자의 회원 가입을 제공하는 컴포넌트입니다.
@@ -25,39 +32,36 @@ import NavigationLogo from "../../../public/img/home-bg-Transparent.png";
  */
 const JoinComponent: FC = (): JSX.Element => {
     const {
-        signupFetching, isLoading, error, signedUp
-    } = useSignUp();
-    console.log('JoinComponent : ', error)
-    const {
         value: email,
         isValueValid: isEmailValid,
         handleChange: handleEmailChange
-    } = useValueField("", isValidEmailFormat);
+    } = useValueField("", isValidEmailFormat, "이메일은 at@at.com 형식입니다.");
     const {
         value: password,
         isValueValid: isPasswordValid,
         handleChange: handlePasswordChange
-    } = useValueField("", hasValidPasswordLength);
+    } = useValueField("", (password: string) => hasMinLength(password, 2), "비밀번호는 최소 2자 이상이어야 합니다.");
     const {
         value: name,
         isValueValid: isNameValid,
         handleChange: handleNameChange
-    } = useValueField("", hasValidName);
+    } = useValueField("", hasValidName, "이름은 최소 2자 이상이어야 합니다.");
     const {
         value: birth,
         isValueValid: isBirthValid,
         handleChange: handleBirthChange
-    } = useValueField("", hasBirthValid);
+    } = useValueField("", hasBirthValid, "생년월일은 숫자만 입력 가능합니다.");
     const {
         value: nickname,
         isValueValid: isNickNameValid,
         handleChange: handleNickNameChange
-    } = useValueField("", hasValidNickName);
+    } = useValueField("", hasValidNickName, "닉네임은 최소 2자 이상이어야 합니다.");
     const {
         value: phone,
         isValueValid: isPhoneValid,
         handleChange: handlePhoneChange
-    } = useValueField("", hasValidPhone);
+    } = useValueField("", hasValidPhone, "휴대폰 번호는 최소 2자 이상이어야 합니다.");
+
 
     /* 이름, 생년월일, 휴대폰번호, 이메일, 비밀번호, 닉네임 필드 */
     const FIRST_INPUT_FIELDS: UI_JOIN_INPUT_FIELD[] = [
@@ -117,12 +121,23 @@ const JoinComponent: FC = (): JSX.Element => {
         }
     ];
 
+    /* 서버와 통신 */
+    const [error, setError] = useState<string | null>(null);
+    const router = useRouter();
+    const signupFetching = useRequest({
+        url: '/api/auth/register',
+        method: 'POST',
+        body: { name, email, password, nickname, phone, birth },
+        onSuccess: (data, e) => {
+            alert('회원가입이 완료되었습니다.')
+            router.push('/');
+        },
+        onFailure: (error) => setError(error.message || '회원 가입에 실패했습니다.')
+    });
+
     const handleSubmitStep = async (e: any): Promise<void> => {
         e.preventDefault();
-        const data = {
-            name, email, password, nickname, phone, birth
-        };
-        await signupFetching(data);
+        await signupFetching(e);
     };
 
     return (
@@ -152,22 +167,30 @@ const JoinComponent: FC = (): JSX.Element => {
                     <form className={styles.form} onSubmit={handleSubmitStep} noValidate>
                         {FIRST_INPUT_FIELDS.map((field, index) => (
                             <div className={styles['info-input-wrapper']} key={index}>
-                                <AuthInputField
-                                    label={field.label}
-                                    htmlFor={`${field.label}Form`}
-                                    name={field.label.toLowerCase()}
-                                    value={field.value}
-                                    type={field.type}
-                                    placeholder={field.placeholder}
-                                    autoComplete={'on'}
-                                    onChange={field.handleChange}
-                                    isInputValidation={field.validation}
-                                    validInputResult={field.validInputResult}
-                                    invalidInputResult={error ? `${field.placeholder} : ${error}` : ""}
-                                />
+                                <fieldset className={styles['form-fieldset']}>
+                                    <label htmlFor={`${field.label}Form`} className={styles['input-label']}>
+                                        {field.label}
+                                        <div className={styles['input-item']}>
+                                            <input
+                                                className={styles['input-box']}
+                                                name={field.label.toLowerCase()}
+                                                value={field.value}
+                                                type={field.type}
+                                                placeholder={field.placeholder}
+                                                autoComplete={'on'}
+                                                onChange={field.handleChange}
+                                            />
+                                        </div>
+                                    </label>
+                                    {field.label.toLowerCase() && (
+                                        <div style={{marginTop: '.2rem', color: field.validation ? '#4FC3F7' : '#FF0000', fontSize: '12px'}}>
+                                            {field.validation ? field.validInputResult : error ? `${field.placeholder} : ${error.replace(/\"/g, "")}` : ""}
+                                        </div>
+                                    )}
+                                </fieldset>
                             </div>
                         ))}
-                        <PrimaryButton disabled={isLoading} label={'회원가입'}/>
+                        <PrimaryButton label={'회원가입'}/>
                     </form>
                 </div>
             </div>
