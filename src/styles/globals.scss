@@ -1,6 +1,6 @@
 @charset "utf-8";
-@use 'variables';
-@use 'Breakpoints';
+@use './variables';
+@use './Breakpoints';
 
 /* 테두리를 기준 크기를 정합니다. */
 *,

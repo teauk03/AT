@@ -1,17 +1,29 @@
-/* Error: Can't find stylesheet to import.
- *   ,
- * 1 | @use '@/styles/variables';
- *   | ^^^^^^^^^^^^^^^^^^^^^^^^^
- *   '
- *   SearchBox.module.scss 1:1  root stylesheet */
+@charset "UTF-8";
+@use '@/styles/variables';
+/* 커뮤니티 검색 */
+.search-box {
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: center; }
+  .search-box .forum-footer-select {
+    width: 5.375rem;
+    height: 43px;
+    text-align: center;
+    border: 1px solid #D1D1D6; }
+  .search-box .forum-footer-input {
+    width: 20.063rem;
+    height: 43px;
+    padding: 0 1rem;
+    line-height: 2.75rem;
+    border: 1px solid #D1D1D6; }
+  .search-box .forum-footer-input:focus {
+    outline: none; }
+  .search-box .forum-search-button {
+    border: 1px solid #D1D1D6;
+    background: none; }
+    .search-box .forum-search-button svg {
+      width: 100%;
+      height: 100%;
+      padding: 0 .8rem; }
 
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @use '@/styles/variables';\a   \2502  ^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   SearchBox.module.scss 1:1  root stylesheet";
-}
+/*# sourceMappingURL=SearchBox.module.css.map */

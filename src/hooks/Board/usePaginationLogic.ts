@@ -1,4 +1,4 @@
-import useFetchPosts from '@/hooks/Board/useFetchPosts';
+import useFetchPosts from '@/hooks/Fetch/useFetchPosts';
 import { Post } from '@/types/Borad';
 
 /**
