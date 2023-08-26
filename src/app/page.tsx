@@ -19,7 +19,6 @@ const Home = (): JSX.Element => {
         <>
             <GlobalNavbarComponent/>
             <main className={styles.main}>
-                <section className={styles['full-page-scroll']}/>
                 <div className={styles.contents}>
                     {/* 게임 카드 (대표게임, 인기게임, 새로운게임) */}
                     <section className={styles.games}>

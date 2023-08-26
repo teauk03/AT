@@ -23,26 +23,27 @@
   }
 }
 
-/* SingIn SingUp Wrap */
-.nav-session {
-  display: flex;
-  align-items: center;
-  align-content: center;
-  gap: .5rem;
-}
-
 /* Navigation Home */
-.logo-wrapper {
-  .navbar-logo {
-    height: 100%;
-    position: relative;
-    top: 18px;
-  }
+.logo-wrapper .navbar-logo {
+  height: 100%;
+  position: relative;
+  top: 18px;
 }
 
 /* [Navigation] Link Wrap */
+.navLinkWrap {
+  display: flex;
+  align-items: center;
+  gap: 12vw;
+}
+
+.navSession {
+  padding-top: 2rem;
+}
+
 .nav-wrap {
-  margin: 0 auto 0 3rem;
+  margin: 0 auto;
+  padding-top: 2rem;
   display: flex;
   align-items: center;
   align-content: center;
@@ -70,13 +71,6 @@
       -webkit-text-fill-color: transparent;
       border-bottom: 1.5px solid #9B51E0;
     }
-  }
-}
-
-/* 네비게이션 메뉴 */
-.nav-link-wrap {
-  .nav-wrap {
-    padding-bottom: 1rem;
   }
 }
 
@@ -154,7 +148,7 @@
     margin: 0 0 2rem 0;
   }
 
-  .nav-link-wrap {
+  .navLinkWrap {
     display: block;
   }
 
@@ -173,7 +167,7 @@
     position: relative;
   }
 
-  .nav-link-wrap {
+  .navLinkWrap {
     display: none;
   }
 
@@ -198,7 +192,7 @@
     top: 30px;
   }
 
-  .nav-session {
+  .navSession {
     position: absolute;
     top: 30px;
     left: 670px;
