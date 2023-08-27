@@ -1,0 +1,54 @@
+@import "/src/styles/variables";
+
+.checkboxWrapper {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  .check-label {
+    font-size: 14px;
+  }
+
+  &:focus {
+    border-color: $base-color-white;
+  }
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  input[type="checkbox"] + label {
+    cursor: pointer;
+    position: relative;
+    padding-left: 25px;
+    font-size: 14px;
+    color: #9fa1a7;
+  }
+
+  input[type="checkbox"] + label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    border: 1px solid #333;
+    border-radius: 50%;
+    transition: all .3s ease;
+  }
+
+  input[type="checkbox"]:checked + label:after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 40%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 5px;
+    height: 10px;
+    border: 2px solid #333;
+    border-top: none;
+    border-left: none;
+  }
+}

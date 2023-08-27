@@ -4,7 +4,7 @@ Error: File to import not found or unreadable: /src/styles/variables.
 
 1: @import "/src/styles/variables";
 2: 
-3: .checkbox-wrapper {
+3: .checkboxWrapper {
 4:   margin: 1rem 0;
 5:   display: flex;
 6:   align-items: center;
@@ -48,4 +48,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: /src/styles/variables.\A         on line 1 of PrimaryCheckBox.module.scss\A \A 1: @import \"/src/styles/variables\";\A 2: \A 3: .checkbox-wrapper {\A 4:   margin: 1rem 0;\A 5:   display: flex;\A 6:   align-items: center;"; }
+  content: "Error: File to import not found or unreadable: /src/styles/variables.\A         on line 1 of PrimaryCheckBox.module.scss\A \A 1: @import \"/src/styles/variables\";\A 2: \A 3: .checkboxWrapper {\A 4:   margin: 1rem 0;\A 5:   display: flex;\A 6:   align-items: center;"; }

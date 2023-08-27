@@ -1,21 +1,21 @@
 /*
 Error: Invalid CSS after "...solid variables": expected ";", was ".$brand-represe..."
-        on line 15 of PrimaryButton.module.scss
+        on line 16 of PrimaryButton.module.scss
 
-10:   justify-content: center;
-11:   font-size: 1rem;
-12:   font-weight: 600;
-13:   line-height: 1em;
-14:   color: #4FC3F7;
-15:   border: 2px solid variables.$brand-representative-color;
-16:   background: none;
-17: 
-18:   &:hover {
-19:     color: variables.$base-color-white;
-20:     background: variables.$brand-representative-color;
+11:   justify-content: center;
+12:   font-size: 1rem;
+13:   font-weight: 600;
+14:   line-height: 1em;
+15:   color: #4FC3F7;
+16:   border: 2px solid variables.$brand-representative-color;
+17:   background: none;
+18: 
+19:   &:hover {
+20:     color: variables.$base-color-white;
+21:   }
 
 Backtrace:
-PrimaryButton.module.scss:15
+PrimaryButton.module.scss:16
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
@@ -45,4 +45,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"...solid variables\": expected \";\", was \".$brand-represe...\"\A         on line 15 of PrimaryButton.module.scss\A \A 10:   justify-content: center;\A 11:   font-size: 1rem;\A 12:   font-weight: 600;\A 13:   line-height: 1em;\A 14:   color: #4FC3F7;\A 15:   border: 2px solid variables.$brand-representative-color;\A 16:   background: none;\A 17: \A 18:   &:hover {\A 19:     color: variables.$base-color-white;\A 20:     background: variables.$brand-representative-color;"; }
+  content: "Error: Invalid CSS after \"...solid variables\": expected \";\", was \".$brand-represe...\"\A         on line 16 of PrimaryButton.module.scss\A \A 11:   justify-content: center;\A 12:   font-size: 1rem;\A 13:   font-weight: 600;\A 14:   line-height: 1em;\A 15:   color: #4FC3F7;\A 16:   border: 2px solid variables.$brand-representative-color;\A 17:   background: none;\A 18: \A 19:   &:hover {\A 20:     color: variables.$base-color-white;\A 21:   }"; }

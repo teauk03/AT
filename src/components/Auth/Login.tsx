@@ -1,5 +1,5 @@
 'use client'
-import React from "react";
+import React, {useState} from "react";
 import styles from "./Login.module.scss";
 
 import Link from "next/link";
@@ -9,13 +9,15 @@ import google from "/public/google.svg"
 
 import {useLogin} from "@/hooks/Auth/useSignIn";
 import SocialLoginButton from "@/components/UI/Button/SocialLogin/SocialLoginButtons";
-import PrimaryButton from "@/components/UI/Button/PrimaryButton";
-import PrimaryCheckBox from "@/components/UI/CheckBox/PrimaryCheckBox";
+import AuthButton from "@/components/UI/Button/AuthButton";
+import PrimaryCheckBox from "@/components/UI/Input/CheckBox/PrimaryCheckBox";
 import InputBox from "@/components/UI/Input/InputBox";
 import DivisionLine from "@/components/Auth/DivisionLine/DivisionLine";
 import NavigationLogo from "../../../public/img/home-bg-Transparent.png";
-import SvgIconComponent from "@/components/SvgIconComponent";
-import useRequest from "@/hooks/Fetch/useRequest";
+
+interface MouseHoverEventProps {
+    type: string;
+}
 
 const LoginComponent = (): JSX.Element => {
     const {login, error, isLoading} = useLogin();
@@ -28,6 +30,16 @@ const LoginComponent = (): JSX.Element => {
         const email = target.email.value;
         const password = target.password.value;
         await login(email, password);
+    }
+
+    /* 잠금, 오픈 아이콘 상태관리 */
+    const [isHoverButton, setIsHoverButton] = useState(false)
+    const handleMouseHover = (event: React.MouseEvent<HTMLElement>) => {
+        if (event.type === 'mouseenter') {
+            setIsHoverButton(true);
+        } else if (event.type === 'mouseleave') {
+            setIsHoverButton(false);
+        }
     }
 
     return (
@@ -59,13 +71,16 @@ const LoginComponent = (): JSX.Element => {
                         }
 
                         {/* Remember Password & Check bok */}
-                        <PrimaryCheckBox/>
+                        <PrimaryCheckBox label={`간편 로그인 정보 저장`}/>
 
                         {/* Login Button */}
-                        <PrimaryButton
+                        <AuthButton
+                            isHoverButton={isHoverButton}
+                            handleMouseHover={handleMouseHover}
                             disabled={isLoading}
                             label={'로그인'}
-                            icon={<SvgIconComponent width={20} height={20} svgPath={'M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z'}/>}
+                            isHoverable={true}
+                            showIcon={true}
                         />
 
                         {/* New Account */}

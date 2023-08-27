@@ -11,7 +11,7 @@ import {
     hasMinLength
 } from "@/utils/validation/validation";
 
-import PrimaryButton from "@/components/UI/Button/PrimaryButton";
+import AuthButton from "@/components/UI/Button/AuthButton";
 import useValueField from "@/hooks/Validation/useSignUpValueField";
 import AppLink from "@/components/UI/Link/AppLink";
 import Link from "next/link";
@@ -219,7 +219,7 @@ const JoinComponent: FC = (): JSX.Element => {
                                 </div>
                             ))}
                         </fieldset>
-                        <PrimaryButton label={'회원가입'}/>
+                        <AuthButton label={'회원가입'}/>
                     </form>
                 </div>
             </div>

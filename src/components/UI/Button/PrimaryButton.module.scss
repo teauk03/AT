@@ -5,6 +5,7 @@
   width: 100%;
   height: 48px;
   margin-bottom: .5rem;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,6 +18,26 @@
 
   &:hover {
     color: variables.$base-color-white;
+  }
+
+  &:after {
+    width: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: "";
+    transition: all .3s linear;
+
     background: variables.$brand-representative-color;
+  }
+
+  &:hover:after {
+    width: 100%;
+    left: 0;
+  }
+
+  svg, span {
+    z-index: 1;
   }
 }
