@@ -38,6 +38,7 @@ export interface UI_JOIN_INPUT_FIELD {
     label: string;
     type: string;
     placeholder: string;
+    icon?: any;
     value: string;
     validation: boolean;
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;

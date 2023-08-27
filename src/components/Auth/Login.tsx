@@ -52,7 +52,9 @@ const LoginComponent = (): JSX.Element => {
                         {/* Error */}
                         {error &&
                             <div className={styles['input-error']}>
-                                <span className={styles['error-text']}>{error}</span>
+                                <span className={styles['error-text']}>
+                                    {error}
+                                </span>
                             </div>
                         }
 
@@ -60,13 +62,23 @@ const LoginComponent = (): JSX.Element => {
                         <PrimaryCheckBox/>
 
                         {/* Login Button */}
-                        <PrimaryButton disabled={isLoading} label={'로그인'} icon={<SvgIconComponent width={20} height={20} svgPath={'M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z'}/>}/>
+                        <PrimaryButton
+                            disabled={isLoading}
+                            label={'로그인'}
+                            icon={<SvgIconComponent width={20} height={20} svgPath={'M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z'}/>}
+                        />
 
                         {/* New Account */}
                         <div className={styles['create-account']}>
-                            <span className={styles.link}><Link href={'/join'}>회원가입</Link></span>
-                            <span className={styles.link}><Link href={'/id'}>아이디 찾기</Link></span>
-                            <span className={styles.link}><Link href={'/pwd'}>비밀번호 변경</Link></span>
+                            <Link href={'/join'}>
+                                <span className={styles.link}>회원가입</span>
+                            </Link>
+                            <Link href={'/id'}>
+                                <span className={styles.link}>아이디 찾기</span>
+                            </Link>
+                            <Link href={'/pwd'}>
+                                <span className={styles.link}>비밀번호 변경</span>
+                            </Link>
                         </div>
 
                         {/* Division Line */}
@@ -75,8 +87,16 @@ const LoginComponent = (): JSX.Element => {
                         {/* Social Login */}
                         {/* TODO - 프로바이더 네이버 & 트위터로 변경 */}
                         <div className={styles['login-social']}>
-                            <SocialLoginButton provider='github' src={github} alt='Login for Github'/>
-                            <SocialLoginButton provider='google' src={google} alt='Login for Google'/>
+                            <SocialLoginButton
+                                provider='github'
+                                src={github}
+                                alt='Login for Github'
+                            />
+                            <SocialLoginButton
+                                provider='google'
+                                src={google}
+                                alt='Login for Google'
+                            />
                         </div>
                     </form>
                 </div>

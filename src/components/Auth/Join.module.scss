@@ -19,7 +19,7 @@
 
 /* 회원가임 콘텐츠 */
 .join {
-  max-width: 23.125rem;
+  max-width: 33.125rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -27,29 +27,14 @@
   gap: 10px;
 
   /* Section (Header) */
-  .title-wrapper {
+  .logoSection {
     width: 100%;
     margin-bottom: 1em;
 
     .logo {
-      .home-logo {
-        margin: 0 5rem;
-      }
-    }
-
-
-    .link-wrapper {
-      margin-left: auto;
-      font-size: .75rem;
-
-      .sub-text {
-        margin-left: 1.875rem;
-      }
-
-      a {
-        font-size: .938rem;
-        font-weight: 600;
-      }
+      width: 300px;
+      margin: 0 auto;
+      text-align: center;
     }
   }
 
@@ -62,77 +47,38 @@
 
 /* Form (Sign-Up) */
 .form {
-  width: 20rem;
+  width: 30rem;
   display: flex;
   flex-direction: column;
 
-  &-fieldset {
+  .formFieldset {
+
+  }
+
+  .inputInner {
+    width: 100%;
+    margin-bottom: 1rem;
+
+  }
+
+  .inputItem {
+    width: 100%;
+    border: 1px solid #9fa1a7;
+    -webkit-text-size-adjust: none;
+    touch-action: manipulation;
+  }
+
+  .inputLabel {
+    margin: 0 20px;
+  }
+
+  .inputText {
+    width: 85%;
+    padding: .8rem;
     border: none;
-    margin: 0 0 1.5625rem;
-    padding: 0;
 
-    .input-label {
-      margin-bottom: 0.5em;
-      position: relative;
-      font-weight: bold;
-      line-height: .813rem;
-      letter-spacing: 0.02rem;
-
-      .input-item {
-        display: flex;
-        flex-direction: column;
-        margin-top: 0.5rem;
-        width: 20rem;
-
-        .input-box {
-          height: 2.5rem;
-          padding-left: 0.7rem;
-          outline: none;
-          border: variables.$border-default-1px;
-          border-radius: 5px;
-          transition: border-color 150ms ease-in-out 0s, box-shadow;
-
-          &:focus {
-            border: 2px solid #798FDE;
-          }
-        }
-      }
+    &:focus {
+      outline: none;
     }
-
-    /* Day of Birth (DropDown) */
-    .date-input {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-
-      .select-box {
-        width: 6.25rem;
-        padding: 0.5rem;
-        border: 1px solid #ccc;
-      }
-    }
-  }
-}
-
-/* 조건부 렌더링 (인증 버튼) */
-.info-input-wrapper {
-  display: flex;
-  align-items: center;
-
-  .form-fieldset {
-    flex: 1;
-
-    .input-label {
-      .input-item:nth-child(1) {
-        width: 100%;
-      }
-    }
-  }
-
-  .verification-btn {
-    width: 22%;
-    height: 2.5rem;
-    margin: .2rem  0 0 8px;
-    background: none;
   }
 }

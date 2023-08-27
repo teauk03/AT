@@ -20,6 +20,10 @@ import NavigationLogo from "../../../public/img/home-bg-Transparent.png";
 import useRequest from "@/hooks/Fetch/useRequest";
 import {useRouter} from "next/navigation";
 import {UI_JOIN_INPUT_FIELD} from "@/types/UI";
+import {FaBirthdayCake, FaKey} from "react-icons/fa";
+import {BiSolidUser} from "react-icons/bi";
+import {AiOutlineMail} from "react-icons/ai";
+import {BsPhoneFill} from "react-icons/bs";
 
 /**
  * JoinComponent 는 사용자의 회원 가입을 제공하는 컴포넌트입니다.
@@ -69,6 +73,7 @@ const JoinComponent: FC = (): JSX.Element => {
             label: '이메일',
             type: 'email',
             placeholder: '이메일 (Email)',
+            icon: <AiOutlineMail/>,
             value: email,
             validation: isEmailValid,
             handleChange: handleEmailChange,
@@ -78,6 +83,7 @@ const JoinComponent: FC = (): JSX.Element => {
             label: '비밀번호',
             type: 'password',
             placeholder: '비밀번호',
+            icon: <FaKey/>,
             value: password,
             validation: isPasswordValid,
             handleChange: handlePasswordChange,
@@ -87,6 +93,7 @@ const JoinComponent: FC = (): JSX.Element => {
             label: '닉네임',
             type: 'text',
             placeholder: '닉네임',
+            icon: <BiSolidUser/>,
             value: nickname,
             validation: isNickNameValid,
             handleChange: handleNickNameChange,
@@ -96,6 +103,7 @@ const JoinComponent: FC = (): JSX.Element => {
             label: '이름',
             type: 'text',
             placeholder: '이름',
+            icon: <BiSolidUser/>,
             value: name,
             validation: isNameValid,
             handleChange: handleNameChange,
@@ -105,6 +113,7 @@ const JoinComponent: FC = (): JSX.Element => {
             label: '생년월일',
             type: 'text',
             placeholder: '생년월일',
+            icon: <FaBirthdayCake/>,
             value: birth,
             validation: isBirthValid,
             handleChange: handleBirthChange,
@@ -114,6 +123,7 @@ const JoinComponent: FC = (): JSX.Element => {
             label: '휴대폰번호',
             type: 'number',
             placeholder: '전화번호',
+            icon: <BsPhoneFill/>,
             value: phone,
             validation: isPhoneValid,
             handleChange: handlePhoneChange,
@@ -127,7 +137,7 @@ const JoinComponent: FC = (): JSX.Element => {
     const signupFetching = useRequest({
         url: '/api/auth/register',
         method: 'POST',
-        body: { name, email, password, nickname, phone, birth },
+        body: {name, email, password, nickname, phone, birth},
         onSuccess: (data, e) => {
             alert('회원가입이 완료되었습니다.')
             router.push('/');
@@ -140,16 +150,28 @@ const JoinComponent: FC = (): JSX.Element => {
         await signupFetching(e);
     };
 
+    /* 인풋박스 포커스시 테두리 상태관리 */
+    const [
+        isFocusInput,
+        setIsFocusInput
+    ] = useState<Record<string, boolean>>({}); // 초기 상태를 빈 객체로 설정
+    const handleInputFocus = (event: React.FocusEvent<HTMLInputElement>, inputName: string) => {
+        const isFocused = event.type === 'focus';
+        setIsFocusInput({
+            ...isFocusInput,
+            [inputName]: isFocused
+        });
+    }
+
     return (
         <main className={styles.container}>
             <div className={styles.contents}>
                 <div className={styles.join}>
-                    <section className={styles['title-wrapper']}>
+                    <section className={styles.logoSection}>
                         {/* Logo */}
                         <div className={styles.logo}>
                             <Link href={'/'}>
                                 <Image
-                                    className={styles['home-logo']}
                                     src={NavigationLogo}
                                     width={200.79}
                                     height={17}
@@ -157,39 +179,46 @@ const JoinComponent: FC = (): JSX.Element => {
                                 />
                             </Link>
                         </div>
-                        <div className={styles['link-wrapper']}>
-                            <span className={styles['sub-text']}>
-                                {'계정이 이미 있으신가요?'}{' '}
-                            </span>
-                            <AppLink href={'/login'} label={'로그인'}/>
-                        </div>
                     </section>
+
                     <form className={styles.form} onSubmit={handleSubmitStep} noValidate>
-                        {FIRST_INPUT_FIELDS.map((field, index) => (
-                            <div className={styles['info-input-wrapper']} key={index}>
-                                <fieldset className={styles['form-fieldset']}>
-                                    <label htmlFor={`${field.label}Form`} className={styles['input-label']}>
-                                        {field.label}
-                                        <div className={styles['input-item']}>
-                                            <input
-                                                className={styles['input-box']}
-                                                name={field.label.toLowerCase()}
-                                                value={field.value}
-                                                type={field.type}
-                                                placeholder={field.placeholder}
-                                                autoComplete={'on'}
-                                                onChange={field.handleChange}
-                                            />
-                                        </div>
-                                    </label>
+                        <fieldset className={styles.formFieldset}>
+                            {FIRST_INPUT_FIELDS.map((field, index) => (
+                                <div className={styles.inputInner} key={index}>
+                                    {/* 정보 입력 필드 */}
+                                    <div
+                                        className={styles.inputItem}
+                                        style={{borderColor: isFocusInput[field.label.toLowerCase()] ? '#0077ff' : '#9fa1a7'}}
+                                    >
+                                        <label htmlFor={`${field.label}Form`} className={styles.inputLabel}>
+                                            {field.icon}
+                                        </label>
+                                        <input
+                                            className={styles.inputText}
+                                            name={field.label.toLowerCase()}
+                                            value={field.value}
+                                            type={field.type}
+                                            placeholder={field.placeholder}
+                                            autoComplete={'on'}
+                                            onChange={field.handleChange}
+                                            onFocus={(e) => handleInputFocus(e, field.label.toLowerCase())}
+                                            onBlur={(e) => handleInputFocus(e, field.label.toLowerCase())}
+                                        />
+                                    </div>
+
+                                    {/* 에러 메시지 출력 */}
                                     {field.label.toLowerCase() && (
-                                        <div style={{marginTop: '.2rem', color: field.validation ? '#4FC3F7' : '#FF0000', fontSize: '12px'}}>
+                                        <div style={{
+                                            marginTop: '.2rem',
+                                            color: field.validation ? '#4FC3F7' : '#FF0000',
+                                            fontSize: '12px'
+                                        }}>
                                             {field.validation ? field.validInputResult : error ? `${field.placeholder} : ${error.replace(/\"/g, "")}` : ""}
                                         </div>
                                     )}
-                                </fieldset>
-                            </div>
-                        ))}
+                                </div>
+                            ))}
+                        </fieldset>
                         <PrimaryButton label={'회원가입'}/>
                     </form>
                 </div>
