@@ -22,8 +22,8 @@ const Home = (): JSX.Element => {
                 <div className={styles.contents}>
                     {/* 게임 카드 (대표게임, 인기게임, 새로운게임) */}
                     <section className={styles.games}>
-                        <div className={styles['games-wrapper']}>
-                            <ul className={styles['swiper-wrapper']}>
+                        <div className={styles.gamesWrapper}>
+                            <ul className={styles.swiperWrapper}>
                                 <ToggleMenubar props={MenuNavbarProps}/>
                             </ul>
                             <div className={styles.gamesCard}>

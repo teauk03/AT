@@ -34,7 +34,7 @@
   padding: 5rem 0;
   background: transparent;
 
-  &-wrapper {
+  .gamesWrapper {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
@@ -87,7 +87,7 @@
 }
 
 /* 게임 타이틀 네비게이션 */
-.swiper-wrapper {
+.swiperWrapper {
   padding-bottom: 2.5vw;
   display: flex;
   justify-content: center;

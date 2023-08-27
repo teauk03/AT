@@ -2,7 +2,7 @@
 Error: Invalid CSS after "...solid variables": expected ";", was ".$brand-represe..."
         on line 16 of PrimaryButton.module.scss
 
-11:   justify-content: center;
+11:   align-items: center;
 12:   font-size: 1rem;
 13:   font-weight: 600;
 14:   line-height: 1em;
@@ -45,4 +45,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"...solid variables\": expected \";\", was \".$brand-represe...\"\A         on line 16 of PrimaryButton.module.scss\A \A 11:   justify-content: center;\A 12:   font-size: 1rem;\A 13:   font-weight: 600;\A 14:   line-height: 1em;\A 15:   color: #4FC3F7;\A 16:   border: 2px solid variables.$brand-representative-color;\A 17:   background: none;\A 18: \A 19:   &:hover {\A 20:     color: variables.$base-color-white;\A 21:   }"; }
+  content: "Error: Invalid CSS after \"...solid variables\": expected \";\", was \".$brand-represe...\"\A         on line 16 of PrimaryButton.module.scss\A \A 11:   align-items: center;\A 12:   font-size: 1rem;\A 13:   font-weight: 600;\A 14:   line-height: 1em;\A 15:   color: #4FC3F7;\A 16:   border: 2px solid variables.$brand-representative-color;\A 17:   background: none;\A 18: \A 19:   &:hover {\A 20:     color: variables.$base-color-white;\A 21:   }"; }

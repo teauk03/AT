@@ -24,9 +24,9 @@ const ToggleMenubar = ({props}: MenuNavbarProps) => {
 
     /* 클라이언트 컴포넌트 렌더링 */
     return (
-        <div className={styles['timeline-menu']}>
+        <div className={styles.timelineMenu}>
             {props?.map((item, index) => (
-                <button key={index} className={activeButton[index] ? styles['active-btn'] : styles['timeline-item']} onClick={() => handleButtonToggle(index)}>
+                <button key={index} className={activeButton[index] ? styles['active-btn'] : styles.timelineItem} onClick={() => handleButtonToggle(index)}>
                     {item.label}
                 </button>
             ))}

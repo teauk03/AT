@@ -1,6 +1,6 @@
 @use '@/styles/variables';
 
-.timeline-menu {
+.timelineMenu {
   display: flex;
   justify-content: space-around;
   border-bottom: variables.$border-default-1px;
@@ -11,11 +11,11 @@
   }
 
   .active-btn,
-  &-item {
+  .timelineItem {
     margin-bottom: 1rem;
     background: none;
     border: none;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 500;
 
     &:hover {
@@ -24,7 +24,6 @@
   }
 
   .active-btn {
-    transition: all .5s linear;
-    font-weight: bold;
+    font-weight: 600;
   }
 }

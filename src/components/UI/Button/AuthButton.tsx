@@ -6,7 +6,7 @@ import {PRIMARY_BUTTON_PROPS} from "@/types/UI";
 
 const AuthButton = ({isHoverButton, handleMouseHover, disabled, label, isHoverable, showIcon}: PRIMARY_BUTTON_PROPS) => (
     <button
-        className={styles['submit-btn']}
+        className={styles.submitBtn}
         disabled={disabled}
         type="submit"
         onMouseEnter={isHoverable ? handleMouseHover : undefined}

@@ -4,7 +4,7 @@ Error: Invalid CSS after "...ttom: variables": expected ";", was ".$border-defau
 
 1: @use '@/styles/variables';
 2: 
-3: .timeline-menu {
+3: .timelineMenu {
 4:   display: flex;
 5:   justify-content: space-around;
 6:   border-bottom: variables.$border-default-1px;
@@ -45,4 +45,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"...ttom: variables\": expected \";\", was \".$border-defaul...\"\A         on line 6 of ToggleMenubar.module.scss\A \A 1: @use '@/styles/variables';\A 2: \A 3: .timeline-menu {\A 4:   display: flex;\A 5:   justify-content: space-around;\A 6:   border-bottom: variables.$border-default-1px;\A 7: \A 8:   button {\A 9:     background: none;\A 10:     border: none;\A 11:   }"; }
+  content: "Error: Invalid CSS after \"...ttom: variables\": expected \";\", was \".$border-defaul...\"\A         on line 6 of ToggleMenubar.module.scss\A \A 1: @use '@/styles/variables';\A 2: \A 3: .timelineMenu {\A 4:   display: flex;\A 5:   justify-content: space-around;\A 6:   border-bottom: variables.$border-default-1px;\A 7: \A 8:   button {\A 9:     background: none;\A 10:     border: none;\A 11:   }"; }
