@@ -1,25 +1,35 @@
 /*
-Error: Invalid CSS after "...ude Breakpoints": expected "}", was ".threeColumnGri..."
-        on line 92 of page.module.scss
+Error: Invalid CSS after "...rder: variables": expected ";", was ".$border-defaul..."
+        on line 122 of page.module.scss
 
-87:     color: #777;
-88:     margin: 10px 0;
-89:   }
-90: }
-91: .games-card {
-92:   @include Breakpoints.threeColumnGrid(3, 2fr);
-93: }
-94: 
-95: /* 게임 타이틀 네비게이션 *\/
-96: .swiper-wrapper {
-97:   padding-bottom: 2.5vw;
+117:     padding: 0 20px;
+118:   }
+119: 
+120:   .comunity {
+121:     padding: 1.5rem;
+122:     border: variables.$border-default-1px;
+123:     border-radius: 8px;
+124:     text-align: left;
+125: 
+126:     &:hover {
+127:       font-weight: bold;
 
 Backtrace:
-page.module.scss:92
+page.module.scss:122
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:690:in `block'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:815:in `block in try_declaration'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1284:in `rethrow'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:820:in `try_declaration'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:743:in `declaration_or_ruleset'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:758:in `declaration_or_ruleset'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:681:in `ruleset'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:707:in `block_child'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
@@ -39,4 +49,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"...ude Breakpoints\": expected \"}\", was \".threeColumnGri...\"\A         on line 92 of page.module.scss\A \A 87:     color: #777;\A 88:     margin: 10px 0;\A 89:   }\A 90: }\A 91: .games-card {\A 92:   @include Breakpoints.threeColumnGrid(3, 2fr);\A 93: }\A 94: \A 95: /* 게임 타이틀 네비게이션 */\A 96: .swiper-wrapper {\A 97:   padding-bottom: 2.5vw;"; }
+  content: "Error: Invalid CSS after \"...rder: variables\": expected \";\", was \".$border-defaul...\"\A         on line 122 of page.module.scss\A \A 117:     padding: 0 20px;\A 118:   }\A 119: \A 120:   .comunity {\A 121:     padding: 1.5rem;\A 122:     border: variables.$border-default-1px;\A 123:     border-radius: 8px;\A 124:     text-align: left;\A 125: \A 126:     &:hover {\A 127:       font-weight: bold;"; }

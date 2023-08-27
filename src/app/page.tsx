@@ -26,10 +26,10 @@ const Home = (): JSX.Element => {
                             <ul className={styles['swiper-wrapper']}>
                                 <ToggleMenubar props={MenuNavbarProps}/>
                             </ul>
-                            <div className={styles['games-card']}>
+                            <div className={styles.gamesCard}>
                                 {/* 3x3 그리드 게임 카드 */}
                                 {GAME_CARD.ITEMS.slice(0,6).map((item, index) => (
-                                    <div className={styles['games-item']} key={index}>
+                                    <div className={styles.gamesItem} key={index}>
                                         <Image className={styles.gameImage} src={item.image} width={200} height={30} alt="게임 이미지"  />
                                         <p className={styles.gameTitle}>{item.title}{index + 1}</p>
                                         <Link href={`/game-detail/${index}`}>자세히 보기</Link>

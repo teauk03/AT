@@ -14,15 +14,6 @@
   }
 }
 
-/* 타이틀 이미지 */
-.full-page-scroll {
-  height: 100vh;
-  background-image: url('https://i.namu.wiki/i/qfl75H4AeEd5GkRkHXFr-NbUgyG9NLdFR1X6jJilV-RNA4jwZqNroHBYzOQU0pY3icII8oKdlPPv8JoK7s8X4_x1XQSzm66JyT5Q6EKBPbP3zdmzx32PZaqp2VqOGnY_wmW96-F24X1JmM-v-XW7Hg.webp');
-  background-size: cover;
-  background-position: center;
-  //overflow-y: scroll;
-}
-
 .communityLink {
   text-align: center;
   padding: 20px 0;
@@ -55,24 +46,30 @@
     margin-bottom: 20px;
   }
 
-  .games-card {
+  .gamesCard {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
   }
 
-  &-item {
-    width: 25%;
+  .gamesItem {
+    width: 28%;
     padding: 20px;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    &:hover  {
+      box-shadow: 8px 7px 10px 2px #e5e5e5;
+      transform: scale(1.1) translateZ(0);
+      transition: transform .3s ease-in-out;
+    }
   }
 
   .gameImage {
-    width: 100%;
-    height: auto;
+    width: 300px;
+    height: 200px;
     border-radius: 10px;
     margin-bottom: 10px;
   }
@@ -87,9 +84,6 @@
     color: #777;
     margin: 10px 0;
   }
-}
-.games-card {
-  @include Breakpoints.threeColumnGrid(3, 2fr);
 }
 
 /* 게임 타이틀 네비게이션 */
