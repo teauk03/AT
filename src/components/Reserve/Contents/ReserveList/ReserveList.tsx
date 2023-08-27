@@ -10,7 +10,7 @@ const ReserveList = () => {
     const RESERVE_GAME_LIST = () => (
         <>
             {GAME_CARDS.ITEMS.map((game: GameCards, index: number) => (
-                <div key={index} className={styles['game-card']}>
+                <div key={index} className={styles.gameCard}>
                     {/* 게임카드 헤더 */}
                     <div className={styles['game-card-header']}>
                         <Image  src={game.image} width={500} height={200} alt="게임 타이틀 이미지"/>

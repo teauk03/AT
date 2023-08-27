@@ -30,9 +30,11 @@ const Home = (): JSX.Element => {
                                 {/* 3x3 그리드 게임 카드 */}
                                 {GAME_CARD.ITEMS.slice(0,6).map((item, index) => (
                                     <div className={styles.gamesItem} key={index}>
-                                        <Image className={styles.gameImage} src={item.image} width={200} height={30} alt="게임 이미지"  />
-                                        <p className={styles.gameTitle}>{item.title}{index + 1}</p>
-                                        <Link href={`/game-detail/${index}`}>자세히 보기</Link>
+                                        <Link href={`/game-detail/${index}`}>
+                                            <Image className={styles.gameImage} src={item.image} width={300} height={200} alt="게임 이미지"  />
+                                            <p className={styles.gameTitle}>{item.title}</p>
+                                            <span>자세히 보기</span>
+                                        </Link>
                                     </div>
                                 ))}
                             </div>

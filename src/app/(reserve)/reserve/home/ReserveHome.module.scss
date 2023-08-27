@@ -189,12 +189,18 @@
     }
 
     /* 게임 카드 목록 */
-    .game-card {
+    .gameCard {
       padding: 20px 16px;
       background-color: variables.$bg-color-white;
       border-radius: 8px;
       cursor: pointer;
       transition: .2s;
+
+      img {
+        width: 300px;
+        height: 200px;
+        margin-bottom: .5rem;
+      }
 
       &:hover {
         transform: scale(1.02);
