@@ -1,21 +1,21 @@
 /*
 Error: Invalid CSS after "...x 6px variables": expected ";", was ".$color-box-sha..."
-        on line 17 of Comment.module.scss
+        on line 18 of Comment.module.scss
 
-12:     padding: 1rem;
-13:     display: flex;
-14:     justify-content: center;
-15:     gap: 10px;
-16:     border-radius: 10px;
-17:     box-shadow: 0 3px 6px variables.$color-box-shadow;
-18: 
-19:     .text-box {
-20:       resize: none;
-21:       width: 90%;
-22:       height: 40px;
+13:     padding: 1rem;
+14:     display: flex;
+15:     justify-content: center;
+16:     gap: 10px;
+17:     border-radius: 10px;
+18:     box-shadow: 0 3px 6px variables.$color-box-shadow;
+19: 
+20:     .text-box {
+21:       resize: none;
+22:       width: 90%;
+23:       height: 40px;
 
 Backtrace:
-Comment.module.scss:17
+Comment.module.scss:18
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
@@ -49,4 +49,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"...x 6px variables\": expected \";\", was \".$color-box-sha...\"\A         on line 17 of Comment.module.scss\A \A 12:     padding: 1rem;\A 13:     display: flex;\A 14:     justify-content: center;\A 15:     gap: 10px;\A 16:     border-radius: 10px;\A 17:     box-shadow: 0 3px 6px variables.$color-box-shadow;\A 18: \A 19:     .text-box {\A 20:       resize: none;\A 21:       width: 90%;\A 22:       height: 40px;"; }
+  content: "Error: Invalid CSS after \"...x 6px variables\": expected \";\", was \".$color-box-sha...\"\A         on line 18 of Comment.module.scss\A \A 13:     padding: 1rem;\A 14:     display: flex;\A 15:     justify-content: center;\A 16:     gap: 10px;\A 17:     border-radius: 10px;\A 18:     box-shadow: 0 3px 6px variables.$color-box-shadow;\A 19: \A 20:     .text-box {\A 21:       resize: none;\A 22:       width: 90%;\A 23:       height: 40px;"; }

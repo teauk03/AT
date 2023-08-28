@@ -1,11 +1,11 @@
 'use client'
 import {useState} from "react";
 import styles from './Comment.module.scss';
-import {CommentInputObjectId} from '@/types/Comment';
 import {useCommentAPI} from '@/hooks/Board/Comment/useCommentAPI';
 import GetCommentButton from "@/components/Board/Comment/CommentButton";
 import CommentSection from "@/components/Board/Comment/CommentSection";
 import {useSession} from "next-auth/react";
+import {CommentInputObjectId} from '@/types/Comment';
 
 const Comment = (props: CommentInputObjectId): JSX.Element => {
     const {data: session } = useSession();
@@ -15,7 +15,7 @@ const Comment = (props: CommentInputObjectId): JSX.Element => {
 
     return (
         <div className={styles.container}>
-            <h3 className={styles.title}>댓글 작성</h3>
+            <h1 className={styles.title}>댓글 작성</h1>
             <div className={styles['text-wrapper']}>
                 {/* Comment TextArea */}
                 <textarea

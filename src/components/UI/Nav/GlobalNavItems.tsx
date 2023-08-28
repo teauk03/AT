@@ -4,7 +4,7 @@ import styles from "./Navbar.module.scss";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 import {useSession} from "next-auth/react";
-import {MenuItemProps, MenuItem} from '@/types/Navigation';
+import {MenuItemProps} from '@/types/Navigation';
 
 const GlobalNavItems = ({gblMenuItems}: MenuItemProps) => {
     const {data: session} = useSession();
@@ -15,27 +15,29 @@ const GlobalNavItems = ({gblMenuItems}: MenuItemProps) => {
     const handleMouseLeave = () => setShowSubMenu(false);
 
     return (
-        <ul className={styles['nav-wrap']} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <ul className={styles.navMenu} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             {/* Global Navigation : 메인 네비게이션 아이템 렌더링 */}
             {gblMenuItems.map((item) => {
                 const isActive = currentRoute === item.route || (item.subMenu && item.subMenu.some(subItem => currentRoute === subItem.route));
                 const myPageLink = session?.user?._id ? `/user/mypage/${session.user.name}` : '/login';
 
                 return (
-                    <li className={styles['nav-link']} key={item.route}>
-                        <Link href={item.title === "마이페이지" ? myPageLink : item.route}
-                              className={`${styles['nav-item']} ${isActive ? styles['active-link'] : styles['non-active-link']}`}>
+                    <li className={styles.navItem} key={item.route}>
+                        <Link
+                            href={item.title === "마이페이지" ? myPageLink : item.route}
+                            className={`${styles.navLink} ${isActive ? styles.activeLink : styles.nonActiveLink}`}
+                        >
                             {item.title}
                         </Link>
 
                         {/* Mega Navigation Menu */}
                         {showSubMenu && item.subMenu && item.subMenu.length > 0 && (
-                            <div className={styles['mega-menu']}>
-                                <ul className={styles['sub-menu']}>
+                            <div className={styles.navMegaMenu}>
+                                <ul className={styles.subMenu}>
                                     {item.subMenu.map((subItem) => (
-                                        <li key={subItem.route} className={styles['sub-nav-link']}>
+                                        <li key={subItem.route} className={styles.subNavIink}>
                                             <Link href={subItem.title === "마이페이지" ? myPageLink : subItem.route}
-                                                  className={styles['sub-nav-item']}>
+                                                  className={styles.subNavLink}>
                                                 {subItem.title}
                                             </Link>
                                         </li>
