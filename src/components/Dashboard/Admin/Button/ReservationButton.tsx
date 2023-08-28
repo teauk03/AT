@@ -6,7 +6,7 @@ import {useRouter} from "next/navigation";
 import {ObjectId} from "mongodb";
 
 type ReservationButtonProps = {
-    reservationId: ObjectId;
+    reservationId: string;
     reservationStatus?: string;
 }
 

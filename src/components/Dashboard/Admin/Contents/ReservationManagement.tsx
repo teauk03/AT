@@ -57,7 +57,7 @@ const ReservationContainer = ({title, results}: RESERVATION_PROPS_TYPE) => {
                                         <span>{item.time}</span>
                                     </div>
                                     <ReservationButton
-                                        reservationId={item._id}
+                                        reservationId={item._id.toString()}
                                         reservationStatus={item.rent_status}
                                     />
                                 </div>

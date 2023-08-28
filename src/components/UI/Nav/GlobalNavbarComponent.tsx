@@ -83,7 +83,7 @@ const GlobalNavbarComponent = () => {
     const isOnClickNavbar = (e: React.MouseEvent<SVGElement, MouseEvent>) => {
         e.preventDefault();
         setIsResponsiveOpen(isResponsiveOpen => !isResponsiveOpen);
-        console.log(isResponsiveOpen)
+        console.log('[State] 반응형 (모바일 768) : ', isResponsiveOpen)
     }
 
     /* 렌더링 */

@@ -39,7 +39,16 @@
       - utils
       - middleware.ts
 
-3. Feature
-   - Navigation
-     - Home (Link)
-     - Login
+3. Pages
+   - [ ] Home (Link)
+   - [x] Login
+   - [x] Register
+
+4. Components
+   - [ ] Navigation
+   - [x] Footer
+   - [x] Loading
+   - [ ] Modal
+   - [x] Input Text (Login)
+   - [x] Input Text (Register)
+   - [x] Auth Button (Register, Login)

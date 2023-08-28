@@ -2,9 +2,8 @@ import React from 'react';
 import styles from '@/components/Board/Forum/DetailPage/DetailsPage.module.scss';
 import Link from "next/link";
 import SvgIconComponent from "@/components/SvgIconComponent";
-import {ContentButtonsProps} from "@/types/Forum";
 
-const DetailsContentButtons = ({ isMenuVisible, setMenuVisible, result, USER_SESSION, handleDelete }: ContentButtonsProps) => (
+const DetailsContentButtons = ({ isMenuVisible, setMenuVisible, result, USER_SESSION, handleDelete }: any) => (
     <div className={styles['details-item']}>
         {/* Bookmark Button */}
         <button className={styles.save}>

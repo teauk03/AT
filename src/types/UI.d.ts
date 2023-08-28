@@ -66,6 +66,11 @@ export interface PRIMARY_BUTTON_PROPS {
     disabled?: boolean;
     label: string;
     onClick?: () => void;
+
+    isHoverButton?: any;
+    handleMouseHover?: any;
+    isHoverable?: any;
+    showIcon?: any;
 }
 
 /* [Components - button] Social Login Button */
