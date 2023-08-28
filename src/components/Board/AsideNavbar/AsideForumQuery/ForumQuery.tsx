@@ -6,10 +6,10 @@ import {ObjectId} from "mongodb";
 import Link from "next/link";
 import {usePathname, useSearchParams} from "next/navigation";
 import ForumHeader from "@/components/Board/Forum/ForumHeader/ForumHeader";
-import IsForumRoute from "@/components/Board/AsideNavbar/isForumRoute";
+import ForumRouteLNB from "@/components/Board/AsideNavbar/ForumRouteLNB";
 import SvgIconComponent from "@/components/SvgIconComponent";
 import PaginationForum from "@/components/UI/Pagination/PaginationForum";
-import SearchForum from "@/components/UI/SearchBox/SearchForum";
+import SearchForum from "@/components/UI/Input/SearchBox/SearchForum";
 
 type ForumPostPage = {
     _id: ObjectId;
@@ -43,7 +43,7 @@ const ForumPage = ({path}: {path: string}) => {
     const renderForumContent = () => (
         <div className={styles['article-list']}>
             {/* 커뮤니티 네비게이션 */}
-            <IsForumRoute/>
+            <ForumRouteLNB/>
 
             <ul className={styles['forum-item-container']}>
                 {posts.map((post, index) => (

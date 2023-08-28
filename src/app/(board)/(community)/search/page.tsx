@@ -1,6 +1,6 @@
 import React from 'react';
 import {connectDB} from "@/utils/mongoDb";
-import SearchResult from "@/components/UI/SearchBox/SearcgResult";
+import SearchResult from "@/components/UI/Input/SearchBox/SearcgResult";
 
 /**
  * 검색을 위한 쿼리 파라미터 타입.

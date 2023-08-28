@@ -28,27 +28,25 @@ const ForumItem = ({ path, href }: pathTypeProps) => {
     const { posts} = result;
 
     return (
-        <ul className={styles['forum-item-container']}>
-            {posts.map((notice, index) => {
-                return (
-                    <li className={styles['forum-list']} key={index}>
-                        {/* User Title */}
-                        <div className={styles['author-wrap']}>
-                            <AiOutlineUser/>
-                            <div className={styles['post-author']}>
-                                {notice.userName}
-                            </div>
+        <ul className={styles.forumItemContainer}>
+            {posts.map((notice, index) => (
+                <li className={styles.forumList} key={index}>
+                    {/* User Title */}
+                    <div className={styles.authorWrap}>
+                        <AiOutlineUser/>
+                        <div className={styles.postAuthor}>
+                            {notice.userName}
                         </div>
+                    </div>
 
-                        {/* 제목 */}
-                        <Link className={styles['title-link']} href={`/${href}/${notice._id}`}>
-                            <h3 className={styles['title-text']}>
-                                {notice.title}
-                            </h3>
-                        </Link>
-                    </li>
-                );
-            })}
+                    {/* 제목 */}
+                    <Link className={styles.titleLink} href={`/${href}/${notice._id}`}>
+                        <h3 className={styles.titleText}>
+                            {notice.title}
+                        </h3>
+                    </Link>
+                </li>
+            ))}
         </ul>
     );
 }

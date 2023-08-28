@@ -6,7 +6,7 @@ const ForumLayout = ({children}: { children: React.ReactNode }) => {
     return (
         <>
             <GlobalNavbarComponent/>
-            {children}
+                {children}
             <FooterClientComponent/>
         </>
     );

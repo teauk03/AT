@@ -2,7 +2,7 @@ import React from 'react';
 import styles from "@/components/Board/Notice/NoticeComponent.module.scss";
 import PaginationForum from "@/components/UI/Pagination/PaginationForum";
 import ForumItem from "@/components/Board/Forum/FormBody/ForumItem";
-import SearchForum from "@/components/UI/SearchBox/SearchForum";
+import SearchForum from "@/components/UI/Input/SearchBox/SearchForum";
 import NoticeHeader from "@/components/Board/Notice/Header/NoticeHeader";
 
 

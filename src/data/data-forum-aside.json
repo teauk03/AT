@@ -1,7 +1,35 @@
 {
+  "FORUM": [
+    {
+      "title": "매장소식",
+      "items": [
+        {
+          "title": "공지사항",
+          "route": "/forum"
+        },
+        {
+          "title": "이벤트",
+          "route": "/forum"
+        }
+      ]
+    },
+    {
+      "title": "커뮤니티",
+      "items": [
+        {
+          "title": "자유게시판",
+          "route": "/announcement"
+        },
+        {
+          "title": "질문게시판",
+          "route": "/event"
+        }
+      ]
+    }
+  ],
   "ITEMS": [
     {
-      "title": "Konami",
+      "title": "코나미",
       "items": [
         {
           "title": "SOUND VOLTEX",
@@ -30,7 +58,7 @@
       ]
     },
     {
-      "title": "Namco",
+      "title": "남코",
       "items": [
         {
           "title": "MaiMai",
@@ -43,7 +71,7 @@
       ]
     },
     {
-      "title": "ETC",
+      "title": "기타게임",
       "items": [
         {
           "title": "EZ2AC",

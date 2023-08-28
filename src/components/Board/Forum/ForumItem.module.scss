@@ -1,21 +1,30 @@
 @use '@/styles/variables';
 
 /* [main] Forum Container */
-.container {
+.main {
   width: 100%;
   min-height: 100%;
-  padding: 0 7.5rem;
   display: flex;
   flex-direction: column;
+
+  /* 커뮤니티 네비게이션, 작설글 리스트 */
+  .container {
+    width: 100%;
+    display: flex;
+  }
+
+  .contents {
+    margin: 0 3rem 0 1rem;
+  }
 }
 
 /* Forum Header */
-.forum-header {
-  margin-top: 3rem;
+.forumHeader {
+  margin: 3rem 0 auto 3rem;
   display: flex;
   border-bottom: variables.$border-default-2px;
 
-  &-title {
+  .headerTitle {
     margin: 0;
     padding: 1rem 1rem 1rem 2rem;
     font-size: 1.5rem;
@@ -41,48 +50,43 @@
   }
 }
 
-/* 커뮤니티 네비게이션, 작설글 리스트 */
-.article-list {
-  display: flex;
-}
+
 
 /* [ForumItem] Post Container */
-.forum-item-container {
+.forumItemContainer {
   width: 95%;
   margin: 0 0 0 3rem;
   padding: 2rem 0;
   display: flex;
   flex-direction: column;
-  gap: .25rem;
   overflow: hidden;
 
-  .forum-list {
+  .forumList {
     max-width: 100%;
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    border: variables.$border-default-1px;
-    border-radius: 5px;
+    border-bottom: 1px solid #e5e5e5;
     overflow: hidden;
 
     /* [Author]User Name */
-    .author-wrap {
+    .authorWrap {
       display: flex;
       align-items: center;
       gap: 3px;
 
-      .post-author {
+      .postAuthor {
         line-height: 1;
         padding-top: .2rem;
       }
     }
 
     /* Title */
-    .title-link {
+    .titleLink {
       color: #333;
       white-space: normal;
 
-      .title-text {
+      .titleText {
         margin: 0;
         padding: .3rem 0 0 0;
         font-size: 1.125em;
@@ -93,25 +97,19 @@
 }
 
 /* [Aside] Side Navbar */
-.aside-slb {
+.snb {
   min-width: 20%;
   height: 50%;
-  margin: 2rem 0;
+  margin: 2rem 0 0 1rem;
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  background: #f1f1f1;
-  border: variables.$border-default-2px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-
-  &:hover {
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-  }
 
   /* Title */
   &-title {
     margin-bottom: 1.5rem;
+    font-size: 15px;
   }
 
   &-link {
@@ -148,30 +146,30 @@
 }
 
 /* [Aside Forum] Sub Title */
-.aside-menu {
+.snbMenu {
   margin-top: 0;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 
-  .aside-item-list {
+  .snbList {
     display: flex;
     flex-direction: column;
     gap: .2rem;
     font-size: .9rem;
 
-    .aside-item-title {
+    .snbTitle {
       margin: .5rem 0;
       font-size: .9rem;
       font-weight: 600;
       color: variables.$color-slate-gray;
     }
 
-    .aside-item-title:first-child {
+    .snbTitle:first-child {
       margin-top: .5rem;
     }
 
-    .item-link-wrapper {
+    .linkWrapper {
       margin-right: .5rem;
       padding: 0 .5rem;
 
@@ -180,7 +178,7 @@
       }
     }
 
-    .item-link-wrapper:hover {
+    .linkWrapper:hover {
       font-weight: bold;
     }
   }

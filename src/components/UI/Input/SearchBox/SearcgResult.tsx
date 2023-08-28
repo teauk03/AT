@@ -4,8 +4,8 @@ import SvgIconComponent from "@/components/SvgIconComponent";
 import Link from "next/link";
 import {MongoPost} from "@/types/Borad";
 import ForumHeader from "@/components/Board/Forum/ForumHeader/ForumHeader";
-import IsForumRoute from "@/components/Board/AsideNavbar/isForumRoute";
-import SearchForum from "@/components/UI/SearchBox/SearchForum";
+import ForumRouteLNB from "@/components/Board/AsideNavbar/ForumRouteLNB";
+import SearchForum from "@/components/UI/Input/SearchBox/SearchForum";
 import PaginationForum from "@/components/UI/Pagination/PaginationForum";
 
 /**
@@ -26,7 +26,7 @@ const SearchResult = ({posts, searchQuery, searchType}: { posts?: Array<MongoPos
 
             {/* 커뮤니티 네비게이션, 작성글 리스트 */}
             <div className={styles['article-list']}>
-                <IsForumRoute />
+                <ForumRouteLNB />
 
                 {/* 검색 결과 */}
                 <ul className={styles['forum-item-container']}>
