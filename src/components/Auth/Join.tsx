@@ -13,7 +13,6 @@ import {
 
 import AuthButton from "@/components/UI/Button/AuthButton";
 import useValueField from "@/hooks/Validation/useSignUpValueField";
-import AppLink from "@/components/UI/Link/AppLink";
 import Link from "next/link";
 import Image from "next/image";
 import NavigationLogo from "../../../public/img/home-bg-Transparent.png";

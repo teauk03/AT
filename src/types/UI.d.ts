@@ -63,8 +63,12 @@ export interface DYNAMIC_BUTTON_PROPS {
 
 /* [Components - button] Primary Button */
 export interface PRIMARY_BUTTON_PROPS {
+    isHoverButton?: boolean;
+    handleMouseHover?: (event: React.MouseEvent) => void;
     disabled?: boolean;
     label: string;
+    isHoverable?: boolean;
+    showIcon?: boolean;
     onClick?: () => void;
 
     isHoverButton?: any;
