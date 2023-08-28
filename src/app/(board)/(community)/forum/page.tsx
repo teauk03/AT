@@ -1,7 +1,4 @@
 import React from "react";
-import styles from "@/components/Board/Forum/ForumItem.module.scss";
-import ForumHeader from "@/components/Board/Forum/ForumHeader/ForumHeader";
-import ForumRouteLNB from "@/components/Board/AsideNavbar/ForumRouteLNB";
 import ForumItem from "@/components/Board/Forum/FormBody/ForumItem";
 import PaginationForum from "@/components/UI/Pagination/PaginationForum";
 import SearchForum from "@/components/UI/Input/SearchBox/SearchForum";
@@ -24,21 +21,13 @@ const Forum = async () => {
     const HREF = 'forum';
 
     return (
-        <main className={styles.main}>
-            <div className={styles.container}>
-                {/* 커뮤니티 네비게이션 */}
-                <ForumRouteLNB/>
-                {/* 게시글 렌더링 */}
-                <div className={styles.contents}>
-                    <ForumHeader/>
-                    <ForumItem path={PATH} href={HREF}/>
-                    {/* [Footer] 페이지 네이션 */}
-                    <PaginationForum path={PATH}/>
-                    {/* [Footer] 커뮤니티 검색 */}
-                    <SearchForum/>
-                </div>
-            </div>
-        </main>
+        <>
+            <ForumItem path={PATH} href={HREF}/>
+            {/* [Footer] 페이지 네이션 */}
+            <PaginationForum path={PATH}/>
+            {/* [Footer] 커뮤니티 검색 */}
+            <SearchForum/>
+        </>
     );
 };
 
