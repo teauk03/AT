@@ -10,15 +10,8 @@ import {useSession} from "next-auth/react";
 const Comment = (props: CommentInputObjectId): JSX.Element => {
     const {data: session } = useSession();
 
-    const [
-        comment,
-        setComment
-    ] = useState<string>('');
-
-    const [
-        saveCommentData,
-        postComment
-    ] = useCommentAPI(props._id);
+    const [comment, setComment] = useState<string>('');
+    const [saveCommentData, postComment] = useCommentAPI(props._id);
 
     return (
         <div className={styles.container}>
@@ -41,7 +34,6 @@ const Comment = (props: CommentInputObjectId): JSX.Element => {
 
             {/* Comment - (T : Add Comment , F: 등록된 댓글이 없습니다.) */}
             <div className={styles['comment-wrapper']}>
-                <h3 className={styles['comment-title']}>댓글</h3>
                 <CommentSection
                     saveCommentData={saveCommentData}
                     user={session?.user}

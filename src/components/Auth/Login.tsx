@@ -15,9 +15,6 @@ import InputBox from "@/components/UI/Input/InputBox";
 import DivisionLine from "@/components/Auth/DivisionLine/DivisionLine";
 import NavigationLogo from "../../../public/img/home-bg-Transparent.png";
 
-interface MouseHoverEventProps {
-    type: string;
-}
 
 const LoginComponent = (): JSX.Element => {
     const {login, error, isLoading} = useLogin();
