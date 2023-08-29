@@ -3,7 +3,7 @@ import styles from '@/components/Board/Forum/ForumItem.module.scss';
 import Link from "next/link";
 import {MongoPost} from "@/types/Borad";
 import ForumHeader from "@/components/Board/Forum/ForumHeader/ForumHeader";
-import ForumRouteLNB from "@/components/Board/AsideNavbar/ForumRouteLNB";
+import LeftNavBar from "@/components/UI/Nav/LeftNavBar/LeftNavBar";
 import SearchForum from "@/components/UI/Input/SearchBox/SearchForum";
 import PaginationForum from "@/components/UI/Pagination/PaginationForum";
 import {AiOutlineUser} from "react-icons/ai";

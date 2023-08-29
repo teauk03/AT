@@ -1,11 +1,11 @@
 'use client'
 import React from 'react';
-import styles from "@/components/Board/Forum/ForumItem.module.scss";
+import styles from "./LeftNavBar.module.scss";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 import ASIDE_FORUM from "@/data/data-forum-aside.json";
 
-const ForumRouteLNB = () => {
+const LeftNavBar = () => {
     /* usePathname : 현재 URL 경로(값)를 가져옴 */
     const pathname  = usePathname();
     const isForumRoute = pathname === '/announcement' && '/event';
@@ -35,4 +35,4 @@ const ForumRouteLNB = () => {
     );
 };
 
-export default ForumRouteLNB;
+export default LeftNavBar;

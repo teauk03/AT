@@ -4,6 +4,7 @@ import PaginationForum from "@/components/UI/Pagination/PaginationForum";
 import ForumItem from "@/components/Board/Forum/FormBody/ForumItem";
 import SearchForum from "@/components/UI/Input/SearchBox/SearchForum";
 import NoticeHeader from "@/components/Board/Notice/Header/NoticeHeader";
+import GlobalNavbarComponent from "@/components/UI/Nav/GlobalNavbarComponent";
 
 
 /**
@@ -37,6 +38,7 @@ const NoticeContainer = () => {
 
     return (
         <>
+            <GlobalNavbarComponent/>
             {renderAnnouncementHeader()}
             <main className={styles.container}>
                 {renderAnnouncementContent()}

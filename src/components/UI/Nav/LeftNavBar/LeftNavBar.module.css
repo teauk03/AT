@@ -1,21 +1,21 @@
 /*
-Error: Invalid CSS after "...ttom: variables": expected ";", was ".$border-defaul..."
-        on line 25 of ForumItem.module.scss
+Error: Invalid CSS after "...solid variables": expected ";", was ".$border-defaul..."
+        on line 30 of LeftNavBar.module.scss
 
-20: 
-21: /* Forum Header *\/
-22: .forumHeader {
-23:   margin: 1rem 0 auto 1rem;
-24:   display: flex;
-25:   border-bottom: variables.$border-default-2px;
-26: 
-27:   .headerTitle {
-28:     margin: 0;
-29:     padding: 1rem 1rem 1rem 2rem;
-30:     font-size: 1.5rem;
+25:     align-content: center;
+26:     gap: .5rem;
+27:     color: #475569;
+28:     font-size: 16px;
+29:     font-weight: 500;
+30:     border: 1px solid variables.$border-default-1px;
+31:     border-radius: 10px;
+32:   }
+33: 
+34:   &-link:hover {
+35:     background: #F2F2F0;
 
 Backtrace:
-ForumItem.module.scss:25
+LeftNavBar.module.scss:30
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
@@ -23,6 +23,10 @@ C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:815:in
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1284:in `rethrow'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:820:in `try_declaration'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:743:in `declaration_or_ruleset'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:758:in `declaration_or_ruleset'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
@@ -45,4 +49,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"...ttom: variables\": expected \";\", was \".$border-defaul...\"\A         on line 25 of ForumItem.module.scss\A \A 20: \A 21: /* Forum Header */\A 22: .forumHeader {\A 23:   margin: 1rem 0 auto 1rem;\A 24:   display: flex;\A 25:   border-bottom: variables.$border-default-2px;\A 26: \A 27:   .headerTitle {\A 28:     margin: 0;\A 29:     padding: 1rem 1rem 1rem 2rem;\A 30:     font-size: 1.5rem;"; }
+  content: "Error: Invalid CSS after \"...solid variables\": expected \";\", was \".$border-defaul...\"\A         on line 30 of LeftNavBar.module.scss\A \A 25:     align-content: center;\A 26:     gap: .5rem;\A 27:     color: #475569;\A 28:     font-size: 16px;\A 29:     font-weight: 500;\A 30:     border: 1px solid variables.$border-default-1px;\A 31:     border-radius: 10px;\A 32:   }\A 33: \A 34:   &-link:hover {\A 35:     background: #F2F2F0;"; }
