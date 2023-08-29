@@ -5,6 +5,7 @@
 .header {
   width: 100%;
   height: auto;
+  margin-top: 1rem;
   margin-bottom: 2rem;
   z-index: 100;
   background: variables.$base-background-main;
@@ -18,17 +19,7 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    //position: sticky;
-    //top: 0;
-    //z-index: 1;
   }
-}
-
-/* Navigation Home */
-.logo-wrapper .navbar-logo {
-  height: 100%;
-  position: relative;
-  top: 18px;
 }
 
 /* [Navigation] Link Wrap */
@@ -38,13 +29,8 @@
   gap: 12vw;
 }
 
-.navSession {
-  padding-top: 2rem;
-}
-
 .navMenu {
   margin: 0 auto;
-  padding-top: 2rem;
   display: flex;
   align-items: center;
   align-content: center;
@@ -53,7 +39,6 @@
 
   .navItem {
     position: relative;
-    display: flex;
     font-style: normal;
     font-weight: 600;
     font-size: .9rem;
@@ -75,44 +60,6 @@
   }
 }
 
-/* [Nav] 메가 메뉴 */
-.navMegaMenu {
-  width: 100px;
-  padding: .5rem 0 .5rem 0;
-  position: absolute;
-  top: 100%;
-  left: -20px;
-  border: 1px solid #ccc;
-  background: #fff;
-  transition: all 0.3s ease;
-  display: none;
-
-  .subMenu {
-    margin: 0;
-    text-align: center;
-
-    li {
-      padding: 10px 0;
-    }
-
-    li:hover {
-      border-bottom: #333;
-    }
-
-    .subNavLink {
-      text-align: center;
-    }
-  }
-}
-.navMegaMenu:nth-child(2) {
-  left: -14px;
-}
-
-.navItem:hover .navMegaMenu {
-  display: block; // 메뉴 아이템에 호버하면 메가 메뉴 출력
-  z-index: 1;
-}
-
 /* [Navigation User Session Wrap - Button]
  * 로그인, 로그아웃 버튼 */
 .create-btn {
@@ -128,7 +75,7 @@
 
 /* [Navigation User Session Wrap]
  * 로그인시 노출 */
-.user-session-wrap {
+.userSessionWrap {
   display: flex;
   align-items: center;
   align-content: center;

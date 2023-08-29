@@ -140,7 +140,7 @@ const GlobalNavbarComponent = () => {
 
                             {/* 로그인 상태에서 세션 관련 요소 */}
                             {session?.user &&
-                                <div className={styles['user-session-wrap']} onClick={setIsUserModalClicked}>
+                                <div className={styles.userSessionWrap} onClick={setIsUserModalClicked}>
                                     <BsBell/>
                                     <FaRegCircleUser/>
                                     {/* 클릭시 DropdownMenu 노출 */}

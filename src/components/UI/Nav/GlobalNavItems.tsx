@@ -29,22 +29,6 @@ const GlobalNavItems = ({gblMenuItems}: MenuItemProps) => {
                         >
                             {item.title}
                         </Link>
-
-                        {/* Mega Navigation Menu */}
-                        {showSubMenu && item.subMenu && item.subMenu.length > 0 && (
-                            <div className={styles.navMegaMenu}>
-                                <ul className={styles.subMenu}>
-                                    {item.subMenu.map((subItem) => (
-                                        <li key={subItem.route} className={styles.subNavIink}>
-                                            <Link href={subItem.title === "마이페이지" ? myPageLink : subItem.route}
-                                                  className={styles.subNavLink}>
-                                                {subItem.title}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        )}
                     </li>
                 );
             })}

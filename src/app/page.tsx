@@ -7,7 +7,6 @@ import Link from "next/link";
 import Image from "next/image";
 import MAIN_PAGE from "@/data/data-index-page.json";
 import GAME_CARD from '@/data/Game/data-game-card.json';
-import LocalNavBar from "@/components/UI/Nav/LocalNavbar/LocalNavBar";
 
 const Home = (): JSX.Element => {
     const MenuNavbarProps = [
@@ -19,7 +18,6 @@ const Home = (): JSX.Element => {
     return (
         <>
             <GlobalNavbarComponent/>
-            <LocalNavBar/>
             <main className={styles.main}>
                 <div className={styles.contents}>
                     {/* 게임 카드 (대표게임, 인기게임, 새로운게임) */}
