@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "@/components/Board/Notice/NoticeComponent.module.scss";
 import PaginationForum from "@/components/UI/Pagination/PaginationForum";
-import ForumItem from "@/components/Board/Forum/FormBody/ForumItem";
+import ForumBody from "@/components/Board/Forum/FormBody/ForumBody";
 import SearchForum from "@/components/UI/Input/SearchBox/SearchForum";
 import NoticeHeader from "@/components/Board/Notice/Header/NoticeHeader";
 import GlobalNavbarComponent from "@/components/UI/Nav/GlobalNavbarComponent";
@@ -23,7 +23,7 @@ const NoticeContainer = () => {
     const renderAnnouncementContent = () => (
         <div className={styles['article-list']}>
             {/* 게시글 렌더링 */}
-            <ForumItem path={PATH} href={HREF}/>
+            <ForumBody path={PATH} href={HREF}/>
         </div>
     );
 

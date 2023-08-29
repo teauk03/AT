@@ -199,10 +199,6 @@ ul, li, ol {
   list-style: none;
 }
 
-ul, ol, dl, pre, address, fieldset, figure {
-  margin: 0 0 20px 0;
-}
-
 /* 인접한 요소 인 경우 여백 추가 */
 * + ul,
 * + ol,
@@ -215,7 +211,6 @@ ul, ol, dl, pre, address, fieldset, figure {
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  margin: 0 0 20px 0;
   font-weight: normal;
   color: #333;
   text-transform: none;

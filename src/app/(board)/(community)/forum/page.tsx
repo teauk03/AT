@@ -1,7 +1,10 @@
+
 import React from "react";
-import ForumItem from "@/components/Board/Forum/FormBody/ForumItem";
+import ForumBody from "@/components/Board/Forum/FormBody/ForumBody";
 import PaginationForum from "@/components/UI/Pagination/PaginationForum";
 import SearchForum from "@/components/UI/Input/SearchBox/SearchForum";
+import styles from "@/components/Board/Forum/Forum.module.scss";
+import Link from "next/link";
 
 export const dynamic: 'force-dynamic' = 'force-dynamic';
 
@@ -22,11 +25,11 @@ const Forum = async () => {
 
     return (
         <>
-            <ForumItem path={PATH} href={HREF}/>
-            {/* [Footer] 페이지 네이션 */}
-            <PaginationForum path={PATH}/>
+            <ForumBody path={PATH} href={HREF}/>
             {/* [Footer] 커뮤니티 검색 */}
             <SearchForum/>
+            {/* [Footer] 페이지 네이션 */}
+            <PaginationForum path={PATH}/>
         </>
     );
 };

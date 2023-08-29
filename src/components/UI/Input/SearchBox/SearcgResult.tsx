@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '@/components/Board/Forum/ForumItem.module.scss';
+import styles from '@/components/Board/Forum/Forum.module.scss';
 import Link from "next/link";
 import {MongoPost} from "@/types/Borad";
 import ForumHeader from "@/components/Board/Forum/ForumHeader/ForumHeader";

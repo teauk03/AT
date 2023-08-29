@@ -1,19 +1,6 @@
 {
   "ITEMS": [
     {
-      "title": "매장소식",
-      "items": [
-        {
-          "title": "공지사항",
-          "route": "/forum"
-        },
-        {
-          "title": "이벤트",
-          "route": "/forum"
-        }
-      ]
-    },
-    {
       "title": "코나미",
       "items": [
         {

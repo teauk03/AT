@@ -1,7 +1,7 @@
 'use client'
 import axios from "axios";
 import React, {useEffect, useState} from 'react';
-import styles from "@/components/Board/Forum/ForumItem.module.scss";
+import styles from "@/components/Board/Forum/Forum.module.scss";
 import {ObjectId} from "mongodb";
 import Link from "next/link";
 import {usePathname, useSearchParams} from "next/navigation";
