@@ -159,7 +159,22 @@ const GlobalNavbar = () => {
 
                             {session?.user &&
                                 <div className={styles.pageSidebar}>
-                                    dd
+                                    <div>
+                                        <button></button>
+                                        <button></button>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <Link href={'/'}>링크1</Link>
+                                            <Link href={'/'}>링크2</Link>
+                                            <Link href={'/'}>링크3</Link>
+                                            <Link href={'/'}>링크4</Link>
+                                            <Link href={'/'}>링크5</Link>
+                                        </div>
+                                        <div>
+                                            <button></button>
+                                        </div>
+                                    </div>
                                 </div>
                             }
                         </div>
