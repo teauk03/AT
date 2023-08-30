@@ -95,7 +95,7 @@
   }
 }
 
-.responsiveMenu {
+.pageSidebar_wrapper {
   display: none;
 }
 
@@ -110,16 +110,44 @@
     display: none;
   }
 
-  .responsiveMenu {
+  /* 사이드 메뉴 */
+  .pageSidebar_wrapper {
     display: block;
     position: absolute;
     top: 14px;
     right: 25px;
   }
 
-  .pageSidebar {
-    width: 300px;
-    background: #D1D1D6;
-    transition: all 1s linear;
+  .pageSidebar_header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    z-index: 50;
+  }
+
+  .pageSideBar_body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
+    overflow: hidden;
+  }
+
+  .pageSideBar_menu_list {
+    padding: 38px 16px;
+    flex: 1 1;
+    overflow: hidden auto;
+  }
+
+  .pageSidebar_footer {
+    flex-shrink: 0;
+    margin: 0 16px;
+    padding: 12px 0 38px;
+    border-top: 1px solid rgba(0,0,0,.3);
+  }
+
+  .pageSidebar_wrapper.pageSidebar_open {
+    transform: translateX(100%);
   }
 }
