@@ -1,8 +1,14 @@
 {
   "ITEMS": [
     {
-      "title": "커뮤니티(임시)",
-      "route": "/community/main"
+      "title": "공지",
+      "route": "/announcement",
+      "subMenu": [
+        {
+          "title": "Sound Vortex",
+          "route": "/forum"
+        }
+      ]
     },
     {
       "title": "커뮤니티",

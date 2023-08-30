@@ -24,6 +24,9 @@ const NoticeHeader = () => {
             <nav className={styles['navigation']}>
                 <ul className={styles['navigation-menu']}>
                     <li className={styles['navigation-menu-item']}>
+                        <Link href={'/forum'}>커뮤니티</Link>
+                    </li>
+                    <li className={styles['navigation-menu-item']}>
                         <Link href={'/announcement'}>공지사항</Link>
                     </li>
                     <li className={styles['navigation-menu-item']}>

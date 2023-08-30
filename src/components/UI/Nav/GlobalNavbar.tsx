@@ -1,14 +1,13 @@
 'use client'
 import React, {useEffect, useRef, useState} from "react";
 import styles from './Navbar.module.scss';
-
-import GlobalNavItems from "@/components/UI/Nav/GlobalNavItems";
 import {useSession} from "next-auth/react";
-import Link from "next/link";
-import Image from "next/image";
+import GlobalNavItems from "@/components/UI/Nav/GlobalNavItems";
 import SvgIconComponent from "@/components/SvgIconComponent";
 import IsUserStatusModalMenu from "@/components/UI/Nav/IsUserStatusModalMenu/IsUserStatusModalMenu";
 import AppLink from "@/components/UI/Link/AppLink";
+import Link from "next/link";
+import Image from "next/image";
 import NavigationLogo from "../../../../public/img/home-bg-Transparent.png";
 import {FaRegCircleUser} from "react-icons/fa6";
 import {BsBell} from "react-icons/bs";
@@ -93,7 +92,7 @@ const GlobalNavbar = () => {
         <header className={styles.header}>
             <nav className={styles.nav} ref={modalRef}>
                 {/* 네비게이션 로고 */}
-                <div className={styles['logo-wrapper']}>
+                <div className={styles.logo}>
                     <Link className={styles['navbar-logo']} href={'/'}>
                         <Image src={NavigationLogo} width={220.79} height={17} alt="어택 로고 이미지"/>
                     </Link>

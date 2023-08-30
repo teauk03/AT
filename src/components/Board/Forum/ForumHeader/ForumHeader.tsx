@@ -1,4 +1,3 @@
-'use client'
 import React from 'react';
 import styles from "@/components/Board/Forum/Forum.module.scss";
 import Link from "next/link";

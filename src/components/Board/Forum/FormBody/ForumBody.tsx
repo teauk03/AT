@@ -2,9 +2,9 @@
 import React, {useEffect} from "react";
 import styles from '@/components/Board/Forum/Forum.module.scss';
 import Link from "next/link";
-import {pathTypeProps, Post} from "@/types/Borad";
 import LoadingForum from "@/components/UI/Loading/LoadingForum";
 import {AiOutlineUser} from "react-icons/ai";
+import {pathTypeProps, Post} from "@/types/Borad";
 
 type Result = {
     posts: Post[];

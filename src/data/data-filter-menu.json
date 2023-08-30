@@ -1,0 +1,56 @@
+{
+  "MENU": [
+    {
+      "title": "전체",
+      "route": "/forum"
+    },
+    {
+      "title": "사운드볼텍스",
+      "route": "/forum"
+    },
+    {
+      "title": "비트매니아",
+      "route": "/forum"
+    },
+    {
+      "title": "기타도라",
+      "route": "/forum"
+    },
+    {
+      "title": "유비트",
+      "route": "/forum"
+    },
+    {
+      "title": "DDR",
+      "route": "/forum"
+    },
+    {
+      "title": "댄스러쉬",
+      "route": "/forum"
+    },
+    {
+      "title": "마이마이",
+      "route": "/forum"
+    },
+    {
+      "title": "츄니즘",
+      "route": "/forum"
+    },
+    {
+      "title": "펌프 잇 업",
+      "route": "/forum"
+    },
+    {
+      "title": "EZ2AC",
+      "route": "/forum"
+    },
+    {
+      "title": "노스텔지어",
+      "route": "/forum"
+    },
+    {
+      "title": "팝픈",
+      "route": "/forum"
+    }
+  ]
+}

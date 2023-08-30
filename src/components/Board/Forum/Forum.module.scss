@@ -4,14 +4,6 @@
 .main {
   width: 100%;
   min-height: 100%;
-  display: flex;
-  flex-direction: column;
-
-  /* 커뮤니티 네비게이션, 작설글 리스트 */
-  .container {
-    margin-right: 3rem;
-    display: flex;
-  }
 }
 
 /* Header */
