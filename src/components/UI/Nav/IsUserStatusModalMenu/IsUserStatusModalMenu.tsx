@@ -45,20 +45,6 @@ const IsUserStatusModalMenu = ({session}: { session: Session | null }) => {
         </li>
     )
 
-    /* Support */
-    const NAVBAR_MENU_SUPPORT = () => (
-        <li className={styles['dropdown-section-menu']}>
-            <div className={styles['dropdown-section-img']}>
-                <BsQuestionCircle/>
-            </div>
-            <NavbarLink
-                className={styles.item}
-                href={'/support/'}
-                label={'고객센터'}
-            />
-        </li>
-    )
-
     /* Logout */
     const NAVBAR_MENU_LOGOUT = () => (
         <li className={styles['dropdown-section-menu']}>
@@ -81,7 +67,6 @@ const IsUserStatusModalMenu = ({session}: { session: Session | null }) => {
                 <ul className={styles['dropdown-section-user']}>
                     {NAVBAR_MENU_ACCOUNT()}
                     {NAVBAR_MENU_SETTING()}
-                    {NAVBAR_MENU_SUPPORT()}
                     {NAVBAR_MENU_LOGOUT()}
                 </ul>
             </div>

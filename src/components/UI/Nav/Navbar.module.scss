@@ -9,8 +9,6 @@
   z-index: 100;
   background: variables.$base-background-main;
   transition: background 0.5s;
-  position: sticky;
-  top: 0;
 
   .nav {
     max-width: 1440px;
@@ -20,6 +18,7 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    position: relative;
   }
 }
 
@@ -79,10 +78,16 @@
 .userSessionWrap {
   display: flex;
   align-items: center;
-  align-content: center;
-  color: variables.$color-dark-gray;
-  cursor: pointer;
   gap: 20px;
+
+  .alarm, .userInfo {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    gap: 20px;
+    color: variables.$color-dark-gray;
+    cursor: pointer;
+  }
 
   .user-session-info {
     padding: .4rem .3rem .3rem;
@@ -90,64 +95,31 @@
   }
 }
 
-/* 반응형 메뉴 */
-.responsive-menu {
+.responsiveMenu {
   display: none;
-  svg {
-    margin: 0 0 2rem 0;
-  }
-
-  .navLinkWrap {
-    display: block;
-  }
-
-  .navMenu {
-    margin: 0 auto;
-    flex-direction: column;
-  }
 }
 
 /* TODO : Responsive Design */
 /* [Responsive Mobile] 768px */
-@include Breakpoints.respond-to('mobile') {
-  .navbar {
-    width: 100%;
-    padding: 0.7rem 1rem;
-    position: relative;
-  }
+@media screen and (max-width: 768px) {
 
-  .navLinkWrap {
+}
+
+@media screen and (max-width: 991px) {
+  .navMenu, .userSessionWrap {
     display: none;
   }
 
-  .navMenu {
-    position: relative;
-    top: 60px;
-    right: 290px;
-  }
-
-  .responsive-menu {
+  .responsiveMenu {
     display: block;
-
-    svg {
-      position: absolute;
-      top: 30px;
-      right: 350px;
-    }
+    position: absolute;
+    top: 14px;
+    right: 25px;
   }
 
-  .navbar-logo {
-    position: absolute;
-    top: 30px;
-  }
-
-  .navSession {
-    position: absolute;
-    top: 30px;
-    left: 670px;
-
-    span {
-      display: none;
-    }
+  .pageSidebar {
+    width: 300px;
+    background: #D1D1D6;
+    transition: all 1s linear;
   }
 }

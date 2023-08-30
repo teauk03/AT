@@ -3,7 +3,6 @@ import React, {useEffect, useRef, useState} from "react";
 import styles from './Navbar.module.scss';
 import {useSession} from "next-auth/react";
 import GlobalNavItems from "@/components/UI/Nav/GlobalNavItems";
-import SvgIconComponent from "@/components/SvgIconComponent";
 import IsUserStatusModalMenu from "@/components/UI/Nav/IsUserStatusModalMenu/IsUserStatusModalMenu";
 import AppLink from "@/components/UI/Link/AppLink";
 import Link from "next/link";
@@ -13,6 +12,8 @@ import {FaRegCircleUser} from "react-icons/fa6";
 import {BsBell} from "react-icons/bs";
 import GLOBAL_NAV from "@/data/data-global-nav.json";
 import {MenuItem} from '@/types/Navigation';
+import {GiHamburgerMenu} from "react-icons/gi";
+import {MdOutlineCancel} from "react-icons/md";
 
 
 const GlobalNavbar = () => {
@@ -41,19 +42,18 @@ const GlobalNavbar = () => {
         }
     }, [session]);
 
-
     /* [State] 모달 클릭 여부 */
-    const [isMenClicked, setMenuClicked] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const modalRef = useRef<HTMLElement | null>(null);
 
     /* 함수 실행시 State false -> true */
-    const setIsUserModalClicked = () => setMenuClicked(!isMenClicked);
+    const setIsUserModalClicked = () => setIsModalOpen(!isModalOpen);
 
     /*  클릭 이벤트를 감지하여 모달을 닫음 */
     useEffect(() => {
         const handleClickOutside = (e: MouseEvent) => {
             if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
-                setMenuClicked(false);
+                setIsModalOpen(false);
             }
         };
 
@@ -63,7 +63,6 @@ const GlobalNavbar = () => {
         /* cleanup function: 컴포넌트 unmount -> 이벤트 리스너 제거 */
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
-
 
     /* 관리자 페이지 렌더링 훅(useEffect) */
     useEffect(() => {
@@ -81,7 +80,7 @@ const GlobalNavbar = () => {
     /* [State] 반응형 (모바일 768) */
     const [isResponsiveOpen, setIsResponsiveOpen] = useState<boolean>(false);
     /* Navbar 아이콘 클릭시 반응형 메뉴 열고 닫기 */
-    const isOnClickNavbar = (e: React.MouseEvent<SVGElement, MouseEvent>) => {
+    const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         e.preventDefault();
         setIsResponsiveOpen(isResponsiveOpen => !isResponsiveOpen);
         console.log('[State] 반응형 (모바일 768) : ', isResponsiveOpen)
@@ -99,22 +98,6 @@ const GlobalNavbar = () => {
                 </div>
 
                 <div className={styles.navLinkWrap}>
-                    {/* 모바일 반응형 메뉴 */}
-                    <div className={styles['responsive-menu']}>
-                        {!isResponsiveOpen ? (
-                            <SvgIconComponent width={25} height={25}
-                                              svgPath={'M19.5 5.25l-7.5 7.5-7.5-7.5m15 6l-7.5 7.5-7.5-7.5'}
-                                              onClick={isOnClickNavbar}/>
-                        ) : (
-                            <SvgIconComponent width={25} height={25}
-                                              svgPath={'M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5'}
-                                              onClick={isOnClickNavbar}/>
-                        )}
-                        {isResponsiveOpen &&
-                            <GlobalNavItems gblMenuItems={gblMenuItems}/>
-                        }
-                    </div>
-
                     {/* 데스크탑 네비게이션 메뉴 */}
                     <GlobalNavItems gblMenuItems={gblMenuItems}/>
 
@@ -139,15 +122,48 @@ const GlobalNavbar = () => {
 
                             {/* 로그인 상태에서 세션 관련 요소 */}
                             {session?.user &&
-                                <div className={styles.userSessionWrap} onClick={setIsUserModalClicked}>
-                                    <BsBell/>
-                                    <FaRegCircleUser/>
-                                    {/* 클릭시 DropdownMenu 노출 */}
-                                    {isMenClicked && <IsUserStatusModalMenu session={session}/>}
+                                <div className={styles.userSessionWrap}>
+                                    <div className={styles.alarm}>
+                                        <BsBell/>
+                                    </div>
+                                    <div className={styles.userInfo} onClick={setIsUserModalClicked}>
+                                        <FaRegCircleUser/>
+                                        {/* 클릭시 DropdownMenu 노출 */}
+                                        {isModalOpen && <IsUserStatusModalMenu session={session}/>}
+                                    </div>
                                 </div>
                             }
                         </>
                     </div>
+                </div>
+
+                {/* 모바일 반응형 메뉴 */}
+                <div className={styles.responsiveMenu} onClick={handleClick}>
+                    {!isResponsiveOpen ? (<GiHamburgerMenu/>) : (<MdOutlineCancel/>)}
+                    {isResponsiveOpen && (
+                        <div className={styles.isMenuOpen}>
+                            {!session &&
+                                <div className={styles.pageSidebar}>
+                                    <AppLink
+                                        className={`${styles['create-btn']}`}
+                                        href={`/join/`}
+                                        label={'회원가입'}
+                                    />
+                                    <AppLink
+                                        className={styles['create-btn']}
+                                        href={'/login/'}
+                                        label={'로그인'}
+                                    />
+                                </div>
+                            }
+
+                            {session?.user &&
+                                <div className={styles.pageSidebar}>
+                                    dd
+                                </div>
+                            }
+                        </div>
+                    )}
                 </div>
             </nav>
         </header>
