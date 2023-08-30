@@ -14,6 +14,21 @@ const LeftNavBar = () => {
         <>
             {!isForumRoute && (
                 <aside className={styles.snb} role="sub-navigation">
+                    <ul className={styles.snbMenu}>
+                        <li className={styles.snbList}>
+                            <h2 className={styles.snbTitle}>매장소식</h2>
+                            <div className={styles.linkWrapper}>
+                                <Link href={`/announcement`}>
+                                    공지사항
+                                </Link>
+                            </div>
+                            <div className={styles.linkWrapper}>
+                                <Link href={`/event`}>
+                                    이벤트
+                                </Link>
+                            </div>
+                        </li>
+                    </ul>
                     {/* Sub Menu */}
                     <ul className={styles.snbMenu}>
                         {ASIDE_FORUM.ITEMS.map((group, index) => (

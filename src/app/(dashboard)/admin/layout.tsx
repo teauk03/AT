@@ -3,12 +3,12 @@ import styles from "@/components/Dashboard/Admin/Admin.module.scss";
 import AdminSvgItems from "@/components/Dashboard/Admin/AdminSvgItems";
 import AdminAside from "@/components/Dashboard/Admin/AsideAdmin/AdminAside";
 import AdminSearchBar from "@/components/Dashboard/Admin/SearchAdmin/AdminSearchBar";
-import GlobalNavbarComponent from "@/components/UI/Nav/GlobalNavbarComponent";
+import GlobalNavbar from "@/components/UI/Nav/GlobalNavbar";
 
 const AdminLayout = async ({children}: { children: React.ReactNode }): Promise<JSX.Element> => {
     return (
         <>
-            <GlobalNavbarComponent/>
+            <GlobalNavbar/>
             <main className={styles.container}>
                 <svg style={{display: 'none'}}>
                     <AdminSvgItems/>

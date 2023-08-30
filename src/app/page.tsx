@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './page.module.scss';
-import GlobalNavbarComponent from "@/components/UI/Nav/GlobalNavbarComponent";
-import FooterClientComponent from "@/components/UI/Footer/Footer";
+import GlobalNavbar from "@/components/UI/Nav/GlobalNavbar";
+import Footer from "@/components/UI/Footer/Footer";
 import ToggleMenubar from "@/components/UI/Nav/MenuNavigation/ToggleMenubar";
 import Link from "next/link";
 import Image from "next/image";
@@ -17,7 +17,7 @@ const Home = (): JSX.Element => {
 
     return (
         <>
-            <GlobalNavbarComponent/>
+            <GlobalNavbar/>
             <main className={styles.main}>
                 <div className={styles.contents}>
                     {/* 게임 카드 (대표게임, 인기게임, 새로운게임) */}
@@ -55,7 +55,7 @@ const Home = (): JSX.Element => {
                     </section>
                 </div>
             </main>
-            <FooterClientComponent/>
+            <Footer/>
         </>
     )
 }

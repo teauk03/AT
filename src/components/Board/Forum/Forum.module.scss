@@ -9,13 +9,14 @@
 
   /* 커뮤니티 네비게이션, 작설글 리스트 */
   .container {
-    margin: 0 3rem;
+    margin-right: 3rem;
+    display: flex;
   }
 }
 
 /* Header */
 .forumHeader {
-  margin: 2rem 1rem;
+  margin: 2rem 1rem 0;
   display: flex;
   justify-content: flex-end;
   border-bottom: variables.$border-default-2px;
@@ -49,6 +50,10 @@
     flex-direction: column;
     border-bottom: 1px solid #e5e5e5;
     overflow: hidden;
+
+    &:hover {
+      background: beige;
+    }
 
     /* [Author]User Name */
     .authorWrap {

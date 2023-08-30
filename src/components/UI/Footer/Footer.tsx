@@ -6,7 +6,7 @@ import Link from "next/link";
 import DATA from '@/data/data-footer-items.json';
 
 
-const FooterClientComponent = () => {
+const Footer = () => {
     return (
         <footer className={styles.footer}>
             <section className={styles['ftr-sec']}>
@@ -49,4 +49,4 @@ const FooterClientComponent = () => {
     );
 }
 
-export default FooterClientComponent;
+export default Footer;

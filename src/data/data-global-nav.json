@@ -1,6 +1,10 @@
 {
   "ITEMS": [
     {
+      "title": "커뮤니티(임시)",
+      "route": "/community/main"
+    },
+    {
       "title": "커뮤니티",
       "route": "/forum",
       "subMenu": [
@@ -73,26 +77,8 @@
       ]
     },
     {
-      "title": "매장소식",
-      "route": "/announcement",
-      "subMenu": [
-        {
-          "title": "공지사항",
-          "route": "/announcement"
-        },
-        {
-          "title": "이벤트",
-          "route": "/event"
-        }
-      ]
-    },
-    {
       "title": "기기대여",
-      "route": "/reserve/home"
-    },
-    {
-      "title": "마이페이지",
-      "route": "/user/mypage",
+      "route": "/reserve/home",
       "subMenu": [
         {
           "title": "예약확인",

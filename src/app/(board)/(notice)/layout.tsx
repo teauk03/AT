@@ -5,10 +5,9 @@ import Footer from "@/components/UI/Footer/Footer";
 import LeftNavBar from "@/components/UI/Nav/LeftNavBar/LeftNavBar";
 import ForumHeader from "@/components/Board/Forum/ForumHeader/ForumHeader";
 
-const ForumLayout = ({children}: { children: React.ReactNode }) => {
+const NoticeLayout = ({children}: { children: React.ReactNode }) => {
     return (
         <>
-            <GlobalNavbar/>
             <main className={styles.main}>
                 <div className={styles.container}>
                     <LeftNavBar/>
@@ -23,4 +22,4 @@ const ForumLayout = ({children}: { children: React.ReactNode }) => {
     );
 };
 
-export default ForumLayout;
+export default NoticeLayout;

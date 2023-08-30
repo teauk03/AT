@@ -1,10 +1,8 @@
-
 import React from "react";
 import ForumBody from "@/components/Board/Forum/FormBody/ForumBody";
 import PaginationForum from "@/components/UI/Pagination/PaginationForum";
 import SearchForum from "@/components/UI/Input/SearchBox/SearchForum";
-import styles from "@/components/Board/Forum/Forum.module.scss";
-import Link from "next/link";
+
 
 export const dynamic: 'force-dynamic' = 'force-dynamic';
 

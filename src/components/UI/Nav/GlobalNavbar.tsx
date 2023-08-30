@@ -16,7 +16,7 @@ import GLOBAL_NAV from "@/data/data-global-nav.json";
 import {MenuItem} from '@/types/Navigation';
 
 
-const GlobalNavbarComponent = () => {
+const GlobalNavbar = () => {
     /* [Client] 유저 세션 사용 */
     const {data: session} = useSession();
     const [gblMenuItems, setGlbMenuItems] = useState<MenuItem[]>(GLOBAL_NAV.ITEMS);
@@ -155,4 +155,4 @@ const GlobalNavbarComponent = () => {
     );
 }
 
-export default GlobalNavbarComponent;
+export default GlobalNavbar;

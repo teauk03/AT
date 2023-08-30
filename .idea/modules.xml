@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Front_End/.idea/Front_End.iml" filepath="$PROJECT_DIR$/../Front_End/.idea/Front_End.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/attack-web.iml" filepath="$PROJECT_DIR$/.idea/attack-web.iml" />
     </modules>
   </component>

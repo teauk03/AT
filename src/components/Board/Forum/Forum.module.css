@@ -1,21 +1,21 @@
 /*
 Error: Invalid CSS after "...ttom: variables": expected ";", was ".$border-defaul..."
-        on line 21 of Forum.module.scss
+        on line 22 of Forum.module.scss
 
-16: /* Header *\/
-17: .forumHeader {
-18:   margin: 2rem 1rem;
-19:   display: flex;
-20:   justify-content: flex-end;
-21:   border-bottom: variables.$border-default-2px;
-22: 
-23:   .headerTitle {
-24:     margin-right: auto;
-25:     padding: 1rem 1rem 1rem 2rem;
-26:     font-size: 1.5rem;
+17: /* Header *\/
+18: .forumHeader {
+19:   margin: 2rem 1rem 0;
+20:   display: flex;
+21:   justify-content: flex-end;
+22:   border-bottom: variables.$border-default-2px;
+23: 
+24:   .headerTitle {
+25:     margin-right: auto;
+26:     padding: 1rem 1rem 1rem 2rem;
+27:     font-size: 1.5rem;
 
 Backtrace:
-Forum.module.scss:21
+Forum.module.scss:22
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
@@ -45,4 +45,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"...ttom: variables\": expected \";\", was \".$border-defaul...\"\A         on line 21 of Forum.module.scss\A \A 16: /* Header */\A 17: .forumHeader {\A 18:   margin: 2rem 1rem;\A 19:   display: flex;\A 20:   justify-content: flex-end;\A 21:   border-bottom: variables.$border-default-2px;\A 22: \A 23:   .headerTitle {\A 24:     margin-right: auto;\A 25:     padding: 1rem 1rem 1rem 2rem;\A 26:     font-size: 1.5rem;"; }
+  content: "Error: Invalid CSS after \"...ttom: variables\": expected \";\", was \".$border-defaul...\"\A         on line 22 of Forum.module.scss\A \A 17: /* Header */\A 18: .forumHeader {\A 19:   margin: 2rem 1rem 0;\A 20:   display: flex;\A 21:   justify-content: flex-end;\A 22:   border-bottom: variables.$border-default-2px;\A 23: \A 24:   .headerTitle {\A 25:     margin-right: auto;\A 26:     padding: 1rem 1rem 1rem 2rem;\A 27:     font-size: 1.5rem;"; }
