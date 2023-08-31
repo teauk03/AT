@@ -2,12 +2,15 @@
 import React from 'react';
 import styles from "@/components/SearchBar/Reserve/ReserveSearchBar.module.scss";
 import {BsSearch} from "react-icons/bs";
+import useCustomRouter from "@/hooks/useCustomRouter";
 
 // type ReserveSearchProp = {
 //
 // }
 
-const ReserveSearchbarBody = ({onChange}) => {
+const ReserveSearchbarBody = ({onChange, inputSearch}) => {
+    const { pathname, push, query } = useCustomRouter();
+    console.log(inputSearch)
     return (
         <div className={styles['search-bar']}>
             <input
@@ -17,7 +20,17 @@ const ReserveSearchbarBody = ({onChange}) => {
                 autoFocus
                 onChange={onChange}
             />
-            <button className={styles['search-button']}>
+            <button
+                className={styles['search-button']}
+                onClick={()=>{
+                    push({
+                        pathname,
+                        query: {
+                            title: inputSearch
+                        },
+                    })
+                }}
+            >
                 <BsSearch/>
             </button>
         </div>

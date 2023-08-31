@@ -2,7 +2,6 @@
 import React, {useState} from 'react';
 //import styles from "@/app/(reserve)/reserve/home/ReserveHome.module.scss";
 import ReserveSearchbarBody from "@/components/SearchBar/Reserve/ReserveBody/ReserveSearchbarBody";
-import {useSearchParams} from "next/navigation";
 
 const ReserveSearchBar = () => {
     const [inputSearch, setInputSearch] = useState('');
@@ -12,7 +11,10 @@ const ReserveSearchBar = () => {
     }
 
     return (
-        <ReserveSearchbarBody onChange={handleInputChange}/>
+        <ReserveSearchbarBody
+            inputSearch={inputSearch}
+            onChange={handleInputChange}
+        />
     );
 }
 
