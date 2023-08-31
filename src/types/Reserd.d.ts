@@ -1,6 +1,6 @@
 /* [ReserveHome] 사이드 체크 박스 */
 export interface GameNavigation {
-    id: string;
+    id: number;
     label: string;
     count: number;
     checked: boolean;
@@ -9,7 +9,7 @@ export interface GameNavigation {
 
 /* [ReserveHome] 예약 카드 */
 export interface GameCards {
-    game_id: number;
+    game_id: number | string;
     company: string;
     title: string;
     subtitle: string;

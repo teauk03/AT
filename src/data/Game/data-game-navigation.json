@@ -1,28 +1,28 @@
 {
   "GAME_KONAMI": [
     {
-      "id": "1",
+      "id": 1,
       "label": "SOUND VOLTEX",
       "count": 13,
       "checked": true
     },
     {
-      "id": "2",
+      "id": 2,
       "label": "BeatMania IIDX",
       "count": 6
     },
     {
-      "id": "3",
+      "id": 3,
       "label": "GITADORA",
       "count": 6
     },
     {
-      "id": "4",
+      "id": 4,
       "label": "Jubeat",
       "count": 10
     },
     {
-      "id": "5",
+      "id": 5,
       "label": "DDR",
       "count": 4
     },
@@ -34,30 +34,30 @@
   ],
   "GAME_NAMCO": [
     {
-      "id": "7",
+      "id": 7,
       "label": "MAIMAI",
       "count": 4,
       "checked": true
     },
     {
-      "id": "8",
+      "id": 8,
       "label": "CHUNITHM",
       "count": 2
     },
     {
-      "id": "9",
+      "id": 9,
       "label": "NOSTALGIA",
       "count": 2
     }
   ],
   "GAME_ETC": [
     {
-      "id": "10",
+      "id": 10,
       "label": "EZ2AC",
       "count": 3
     },
     {
-      "id": "11",
+      "id": 11,
       "label": "PUMP ITUP",
       "count": 3
     }

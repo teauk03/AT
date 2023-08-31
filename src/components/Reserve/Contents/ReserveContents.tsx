@@ -1,67 +1,48 @@
 'use client'
 import React, {useState} from 'react';
 import styles from "@/app/(reserve)/reserve/home/ReserveHome.module.scss";
-import ReserveLeftNavbar from "@/components/Reserve/Navbar/ReserveLeftNavbar";
-import ReserveHeader from "@/components/Reserve/Contents/ReserveHeader";
 import Image from "next/image";
 import Link from "next/link";
+import ReserveHeader from "@/components/Reserve/Contents/ReserveHeader";
+import CheckboxList from "@/components/Reserve/Home/CheckboxList/CheckboxList";
 import GAME_CARDS from "@/data/Game/data-game-card.json";
 import GAME_NAVIGATION from "@/data/Game/data-game-navigation.json";
-import {GameCards, GameNavigation} from "@/types/Reserd";
+import {GameCards} from "@/types/Reserd";
 
 const ReserveContents = () => {
     const GAME_NAVIGATION_JSON = JSON.stringify(GAME_NAVIGATION);
     const PARSED_GAME_LIST = JSON.parse(GAME_NAVIGATION_JSON);
-    const [checked, setChecked] = useState();
 
+    const [selectGames, setSelectGames] = useState<number[]>([]);
+    const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>, gameType: number) => {
+        if (e.target.checked) {
+            setSelectGames(prevState => [...prevState, gameType]);
+            console.log('handleCheckboxChange: ', selectGames)
+        } else {
+            setSelectGames(prevState => prevState.filter(type => type !== gameType));
+            console.log('!handleCheckboxChange: ', selectGames)
+        }
+    }
 
     return (
         <section className={styles['main-container']}>
             {/* aside - 사이드 메뉴 */}
-            {/*<ReserveLeftNavbar/>*/}
             <aside className={styles['search-type']}>
-                <div className={styles['game-time']}>
-                    <div className={styles['game-time-title']}>Konami</div>
-                    <div className={styles['game-wrapper']}>
-                        {/* 사이드 체크 박스 */}
-                        {PARSED_GAME_LIST.GAME_KONAMI.map((game: GameNavigation, index: number) => (
-                            <div key={index} className={styles['type-container']}>
-                                <input
-                                    className={styles['game-style']}
-                                    type="checkbox"
-                                    id={game.id}
-                                />
-                                <label htmlFor={game.id}>{game.label}</label>
-                                <span className={styles['game-number']}>{game.count}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-                <div className={styles['game-time']}>
-                    <div className={styles['game-time-title']}>Namco</div>
-                    <div className={styles['game-wrapper']}>
-                        {PARSED_GAME_LIST.GAME_NAMCO.map((game: GameNavigation, index: number) => (
-                            <div key={index} className={styles['type-container']}>
-                                <input type="checkbox" id={game.id} className={styles['game-style']}/>
-                                {/*checked={game.checked}*/}
-                                <label htmlFor={game.id}>{game.label}</label>
-                                <span className={styles['game-number']}>{game.count}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-                <div className={styles['game-time']}>
-                    <div className={styles['game-time-title']}>ETC</div>
-                    <div className={styles['game-wrapper']}>
-                        {PARSED_GAME_LIST.GAME_ETC.map((game: GameNavigation, index: number) => (
-                            <div key={index} className={styles['type-container']}>
-                                <input type="checkbox" id={game.id} className={styles['game-style']}/>
-                                <label htmlFor={game.id}>{game.label}</label>
-                                <span className={styles['game-number']}>{game.count}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+                <CheckboxList
+                    gameType={"Konami"}
+                    gameList={PARSED_GAME_LIST.GAME_KONAMI}
+                    onChange={handleCheckboxChange}
+                />
+                <CheckboxList
+                    gameType={"Namco"}
+                    gameList={PARSED_GAME_LIST.GAME_NAMCO}
+                    onChange={handleCheckboxChange}
+                />
+                <CheckboxList
+                    gameType={"ETC"}
+                    gameList={PARSED_GAME_LIST.GAME_ETC}
+                    onChange={handleCheckboxChange}
+                />
             </aside>
             {/* section - 메인 컨텐츠 아이템 섹션 */}
             <section className={styles['searched-games']}>
@@ -69,7 +50,7 @@ const ReserveContents = () => {
                 <ReserveHeader/>
                 {/* article - 예약 리스트 */}
                 <article className={styles['game-cards']}>
-                    {GAME_CARDS.ITEMS.map((game: GameCards, index: number) => (
+                    {GAME_CARDS.ITEMS.filter(game => selectGames.length === 0 || selectGames.includes(game.game_id)).map((game: GameCards, index: number) => (
                         <div key={index} className={styles.gameCard}>
                             {/* 게임카드 헤더 */}
                             <div className={styles['game-card-header']}>
