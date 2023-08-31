@@ -26,7 +26,7 @@ const ReserveSearchbarBody = ({onChange, inputSearch}) => {
                     push({
                         pathname,
                         query: {
-                            title: inputSearch
+                            q: inputSearch
                         },
                     })
                 }}
