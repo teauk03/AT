@@ -138,12 +138,13 @@ const GlobalNavbar = () => {
                 </div>
             </nav>
             {/* 모바일 반응형 메뉴 */}
-            <div className={`${styles.pageSidebar_wrapper} ${styles['pageSidebar_open']}`} onClick={handleClick}>
-                {!isResponsiveOpen ? (<GiHamburgerMenu/>) : (<MdOutlineCancel/>)}
+            <div className={`${styles.side_menu} ${styles.side_menu_open}`} onClick={handleClick}>
+                {/*{!isResponsiveOpen ? (<GiHamburgerMenu/>) : (<MdOutlineCancel/>)}*/}
+                {!isResponsiveOpen && (<GiHamburgerMenu/>)}
                 {isResponsiveOpen && (
                     <>
                         {!session &&
-                            <div className={styles['pageSidebar_footer']}>
+                            <div className={styles.side_menu_footer}>
                                 <AppLink
                                     className={`${styles['create-btn']}`}
                                     href={`/join/`}
@@ -159,7 +160,7 @@ const GlobalNavbar = () => {
 
                         {session?.user &&
                             <>
-                                <div className={styles['pageSidebar_header']}>
+                                <div className={styles.side_menu_header}>
                                     <button>
                                         <Link href={'/'}>
                                             <Image src={NavigationLogo} width={220.79} height={17} alt="어택 로고 이미지"/>
@@ -169,26 +170,26 @@ const GlobalNavbar = () => {
                                         <MdOutlineCancel/>
                                     </button>
                                 </div>
-                                <div className={styles['pageSideBar_body']}>
-                                    <div className={styles['pageSideBar_menu_list']}>
-                                        <Link className={styles['pageSideBar_menu_link']} href={'/'}>
+                                <div className={styles.side_menu_body}>
+                                    <div className={styles.side_menu_list}>
+                                        <Link className={styles.side_menu_link} href={'/'}>
                                             링크1
                                         </Link>
-                                        <Link className={styles['pageSideBar_menu_link']} href={'/'}>
+                                        <Link className={styles.side_menu_link} href={'/'}>
                                             링크2
                                         </Link>
-                                        <Link className={styles['pageSideBar_menu_link']} href={'/'}>
+                                        <Link className={styles.side_menu_link} href={'/'}>
                                             링크3
                                         </Link>
-                                        <Link className={styles['pageSideBar_menu_link']} href={'/'}>
+                                        <Link className={styles.side_menu_link} href={'/'}>
                                             링크4
                                         </Link>
-                                        <Link className={styles['pageSideBar_menu_link']} href={'/'}>
+                                        <Link className={styles.side_menu_link} href={'/'}>
                                             링크5
                                         </Link>
                                     </div>
-                                    <div className={styles['pageSidebar_footer']}>
-                                        <button className={styles['pageSideBar_menu_link']}>
+                                    <div className={styles.side_menu_footer}>
+                                        <button className={styles.side_menu_link}>
                                             로그아웃
                                         </button>
                                     </div>

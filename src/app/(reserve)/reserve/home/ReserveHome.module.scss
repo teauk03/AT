@@ -155,6 +155,11 @@
       font-size: 14px;
       color: variables.$subtitle-color;
 
+      .post-time,
+      .menu-icon {
+        cursor: pointer;
+      }
+
       .post-time {
         font-weight: 600;
         color: variables.$subtitle-color;

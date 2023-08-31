@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import styles from "@/app/(reserve)/reserve/home/ReserveHome.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-import ReserveHeader from "@/components/Reserve/Contents/ReserveHeader";
+import ReserveHeader from "@/components/Reserve/Home/ReserveHeader";
 import CheckboxList from "@/components/Reserve/Home/CheckboxList/CheckboxList";
 import GAME_CARDS from "@/data/Game/data-game-card.json";
 import GAME_NAVIGATION from "@/data/Game/data-game-navigation.json";

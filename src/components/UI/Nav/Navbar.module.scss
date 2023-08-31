@@ -95,7 +95,7 @@
   }
 }
 
-.pageSidebar_wrapper {
+.side_menu_open {
   display: none;
 }
 
@@ -111,43 +111,71 @@
   }
 
   /* 사이드 메뉴 */
-  .pageSidebar_wrapper {
+  .side_menu {
     display: block;
     position: absolute;
     top: 14px;
     right: 25px;
   }
 
-  .pageSidebar_header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+  .side_menu_header {
     display: flex;
-    z-index: 50;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    height: 50px;
   }
 
-  .pageSideBar_body {
+  //.side_menu_header {
+  //  position: fixed;
+  //  top: 0;
+  //  left: 0;
+  //  right: 0;
+  //  display: flex;
+  //  z-index: 50;
+  //}
+
+  .side_menu_body {
     display: flex;
     flex-direction: column;
     flex: 1 1;
     overflow: hidden;
   }
 
-  .pageSideBar_menu_list {
+  .side_menu_list {
     padding: 38px 16px;
     flex: 1 1;
     overflow: hidden auto;
+    z-index: 50;
   }
 
-  .pageSidebar_footer {
+  .side_menu_link {
+    display: block;
+    padding: 12px 0;
+    line-height: 30px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -.2px;
+    color: #000;
+  }
+
+  .side_menu_footer {
     flex-shrink: 0;
     margin: 0 16px;
     padding: 12px 0 38px;
     border-top: 1px solid rgba(0,0,0,.3);
+    z-index: 50;
   }
 
-  .pageSidebar_wrapper.pageSidebar_open {
+  .side_menu {
+    display: flex;
+  }
+
+  .side_menu {
     transform: translateX(100%);
+  }
+
+  .side_menu.pageSidebar_open {
+    transform: translateX(0);
   }
 }

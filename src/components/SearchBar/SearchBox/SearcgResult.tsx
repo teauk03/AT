@@ -2,8 +2,6 @@ import React from 'react';
 import styles from '@/components/Board/Forum/Forum.module.scss';
 import Link from "next/link";
 import {MongoPost} from "@/types/Borad";
-import ForumHeader from "@/components/Board/Forum/ForumHeader/ForumHeader";
-import LeftNavBar from "@/components/UI/Nav/LeftNavBar/LeftNavBar";
 import SearchForum from "@/components/SearchBar/SearchBox/SearchForum";
 import PaginationForum from "@/components/UI/Pagination/PaginationForum";
 import {AiOutlineUser} from "react-icons/ai";

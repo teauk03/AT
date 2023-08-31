@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ReserveHome.module.scss';
-import ReserveContents from "@/components/Reserve/Contents/ReserveContents";
+import ReserveContents from "@/components/Reserve/Home/ReserveContents";
 import ReserveSideNavbar from "@/components/Reserve/ReserveTopNavbar";
 
 /* ReserveHome : 예약페이지 */
