@@ -1,0 +1,29 @@
+@charset "UTF-8";
+@use '@/styles/variables';
+/* 커뮤니티 검색 */
+.search-box {
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: center; }
+  .search-box .forum-footer-select {
+    width: 5.375rem;
+    height: 43px;
+    text-align: center;
+    border: 1px solid #D1D1D6; }
+  .search-box .forum-footer-input {
+    width: 20.063rem;
+    height: 43px;
+    padding: 0 1rem;
+    line-height: 2.75rem;
+    border: 1px solid #D1D1D6; }
+  .search-box .forum-footer-input:focus {
+    outline: none; }
+  .search-box .forum-search-button {
+    border: 1px solid #D1D1D6;
+    background: none; }
+    .search-box .forum-search-button svg {
+      width: 100%;
+      height: 100%;
+      padding: 0 .8rem; }
+
+/*# sourceMappingURL=SearchBox.module.css.map */

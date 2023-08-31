@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import styles from "@/components/UI/Nav/IsUserStatusModalMenu/IsUserStatusModalMenu.module.scss";
+import styles from "@/components/UI/Nav/UserModal/UserModal.module.scss";
 import NavbarLink from "@/components/UI/Nav/NavbarLink";
 import SvgIconComponent from "@/components/SvgIconComponent";
 import {signOut} from "next-auth/react";
@@ -11,7 +11,7 @@ import {FiLogOut} from "react-icons/fi";
 import {BsQuestionCircle} from "react-icons/bs";
 
 /* isUserStatusModalMenu */
-const IsUserStatusModalMenu = ({session}: { session: Session | null }) => {
+const UserModal = ({session}: { session: Session | null }) => {
     const handleSignOut = async (event: any): Promise<void> => {
         event.preventDefault();
         await signOut({callbackUrl: '/login'});
@@ -74,4 +74,4 @@ const IsUserStatusModalMenu = ({session}: { session: Session | null }) => {
     );
 };
 
-export default IsUserStatusModalMenu;
+export default UserModal;

@@ -3,7 +3,7 @@ import React, {useEffect, useRef, useState} from "react";
 import styles from './Navbar.module.scss';
 import {useSession} from "next-auth/react";
 import GlobalNavItems from "@/components/UI/Nav/GlobalNavItems";
-import IsUserStatusModalMenu from "@/components/UI/Nav/IsUserStatusModalMenu/IsUserStatusModalMenu";
+import UserModal from "@/components/UI/Nav/UserModal/UserModal";
 import AppLink from "@/components/UI/Link/AppLink";
 import Link from "next/link";
 import Image from "next/image";
@@ -129,7 +129,7 @@ const GlobalNavbar = () => {
                                     <div className={styles.userInfo} onClick={setIsUserModalClicked}>
                                         <FaRegCircleUser/>
                                         {/* 클릭시 DropdownMenu 노출 */}
-                                        {isModalOpen && <IsUserStatusModalMenu session={session}/>}
+                                        {isModalOpen && <UserModal session={session}/>}
                                     </div>
                                 </div>
                             }

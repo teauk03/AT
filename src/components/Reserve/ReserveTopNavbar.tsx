@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from "@/app/(reserve)/reserve/home/ReserveHome.module.scss";
 import SvgIconComponent from "@/components/SvgIconComponent";
-import ReserveSearch from "@/components/UI/Input/SearchBox/Reserve/ReserveSearch";
+import ReserveSearchBar from "@/components/SearchBar/Reserve/ReserveSearchBar";
 
 const ReserveSideNavbar = () => {
     return (
         <>
             {/* nav - 예약페이지 네비게이션 */}
             <div className={styles['search-menu']}>
-                <ReserveSearch/>
+                <ReserveSearchBar/>
                 {/* 자주(최근?)검색 이력 */}
                 <section className={styles['search-bar']}>
                     <div className={`${styles.item} ${styles.search}`}>beatmania IIDX 30 RESIDENT

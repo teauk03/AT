@@ -8,7 +8,6 @@ import CheckboxList from "@/components/Reserve/Home/CheckboxList/CheckboxList";
 import GAME_CARDS from "@/data/Game/data-game-card.json";
 import GAME_NAVIGATION from "@/data/Game/data-game-navigation.json";
 import {GameCards} from "@/types/Reserd";
-
 const ReserveContents = () => {
     const GAME_NAVIGATION_JSON = JSON.stringify(GAME_NAVIGATION);
     const PARSED_GAME_LIST = JSON.parse(GAME_NAVIGATION_JSON);

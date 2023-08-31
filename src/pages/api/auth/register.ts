@@ -79,7 +79,9 @@ const handlerRegister = async (request: NextApiRequest, response: NextApiRespons
             /* 비밀번호 해시값으로 변경 & DB 추가 */
             let passwordHash: string = await bcrypt.hash(request.body.password, 10)
             await db.collection('user').insertOne({
-                ...request.body, password: passwordHash, role: 'customer'
+                ...request.body,
+                password: passwordHash,
+                role: 'customer'
             });
 
             /* Response */

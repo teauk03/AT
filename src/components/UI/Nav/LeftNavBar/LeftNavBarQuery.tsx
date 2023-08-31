@@ -9,7 +9,7 @@ import ForumHeader from "@/components/Board/Forum/ForumHeader/ForumHeader";
 import LeftNavBar from "@/components/UI/Nav/LeftNavBar/LeftNavBar";
 import SvgIconComponent from "@/components/SvgIconComponent";
 import PaginationForum from "@/components/UI/Pagination/PaginationForum";
-import SearchForum from "@/components/UI/Input/SearchBox/SearchForum";
+import SearchForum from "@/components/SearchBar/SearchBox/SearchForum";
 
 type ForumPostPage = {
     _id: ObjectId;

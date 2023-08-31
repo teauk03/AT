@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import styles from './PrimaryButton.module.scss'
+import styles from '../PrimaryButton.module.scss'
 import {FaLock, FaLockOpen} from "react-icons/fa";
 import {PRIMARY_BUTTON_PROPS} from "@/types/UI";
 

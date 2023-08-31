@@ -52,7 +52,7 @@ export const authOptions: NextAuthOptions = {
             /** 자격증명을 이용한 사용자 인증 ( MongoDb ) */
             async authorize(credentials: any): Promise<any> {
                 /*  main DB 접근 */
-                let db = (await connectDB).db('main');
+                let db = (await connectDB).db('GameScore');
 
                 /* 자격증명이 없는 경우 (credentials: null || undefined 또는 객체에 email, password 속성이 없는 경우) */
                 if (!credentials) throw new Error("No credentials provided");
@@ -68,7 +68,7 @@ export const authOptions: NextAuthOptions = {
 
 
                 /* DB 에서 일반 사용자(customer) 및 비밀번호 조회 or 검증 */
-                let user = await db.collection('user_card')
+                let user = await db.collection('user')
                     .findOne({email: credentials.email});
                 if (!user) throw new Error("User not found");
 
@@ -79,7 +79,7 @@ export const authOptions: NextAuthOptions = {
                 /* [MS2 UserAccount] 로그인 날짜 업데이트 */
                 const lastAccess = new Date().toISOString().slice(0, 10)
                     .replace(/-/g,".");
-                await db.collection('user_card')
+                await db.collection('user')
                     .updateOne({ _id: new ObjectId(user._id)}, { $set: {lastAccess}})
 
                 console.log('User : ', user)

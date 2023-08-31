@@ -1,7 +1,7 @@
 import React from "react";
 import ForumBody from "@/components/Board/Forum/FormBody/ForumBody";
 import PaginationForum from "@/components/UI/Pagination/PaginationForum";
-import SearchForum from "@/components/UI/Input/SearchBox/SearchForum";
+import SearchForum from "@/components/SearchBar/SearchBox/SearchForum";
 import ForumFilter from "@/components/Board/Filter/ForumFilter";
 import ForumHeader from "@/components/Board/Forum/ForumHeader/ForumHeader";
 

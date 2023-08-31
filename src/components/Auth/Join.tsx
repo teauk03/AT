@@ -11,7 +11,7 @@ import {
     hasMinLength
 } from "@/utils/validation/validation";
 
-import AuthButton from "@/components/UI/Button/AuthButton";
+import AuthButton from "@/components/UI/Button/Auth/AuthButton";
 import useValueField from "@/hooks/Validation/useSignUpValueField";
 import Link from "next/link";
 import Image from "next/image";

@@ -9,7 +9,7 @@ import google from "/public/google.svg"
 
 import {useLogin} from "@/hooks/Auth/useSignIn";
 import SocialLoginButton from "@/components/UI/Button/SocialLogin/SocialLoginButtons";
-import AuthButton from "@/components/UI/Button/AuthButton";
+import AuthButton from "@/components/UI/Button/Auth/AuthButton";
 import PrimaryCheckBox from "@/components/UI/Input/CheckBox/PrimaryCheckBox";
 import InputBox from "@/components/UI/Input/InputBox";
 import DivisionLine from "@/components/Auth/DivisionLine/DivisionLine";
