@@ -4,6 +4,7 @@ import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context'
 import type { UrlObject, URLSearchParams } from 'url';
 
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import {ParsedUrlQueryInput} from "querystring";
 
 
 // 커스텀 할 메소드의 타입들을 재 정의
@@ -19,9 +20,13 @@ interface Href extends Pick<UrlObject, 'pathname' | 'query'> {
 type Url = Href | string;
 
 // push, replace 메소드에 두번째 인자 타입 (optional)
-interface NavigateOptions {
+interface PrefetchOptions {
+    kind: string;
+}
+interface NavigateOptions extends PrefetchOptions {
     forceOptimisticNavigation?: boolean;
 }
+
 
 // params에 들어오는 query객체를 쿼리스트링 형태로 변환
 const qs = (params?: Href['query']) => {
@@ -57,7 +62,9 @@ const qs = (params?: Href['query']) => {
 const customRouter = (
     href: Url,
     method: CustomMethod,
-    options?: NavigateOptions,
+    // TODO : options 임시 타입
+    // NavigateOptions | PrefetchOptions | undefined
+    options?: any
 ): void => {
     // ex: push('/order')의 경우 push 그대로 반환
     if (typeof href === 'string') return method(href, options);
@@ -79,9 +86,13 @@ const customRouter = (
 // Custom Hooks
 const useCustomRouter = () => {
     // 현재 URL에 있는 쿼리값을 파싱하기 위한 메소드
-    const { forEach }: URLSearchParams = useSearchParams();
+    const searchParams = useSearchParams();
+    if (!searchParams) throw new Error("searchParams가 null입니다!");
+    const { forEach } = searchParams!;
+
     // pathname도 같이 사용하기 위해서 사용
-    const pathname: string = usePathname();
+    const pathname: string | null = usePathname();
+
     // 원래 useRouter에값을 반환하기 위해 기존의 값은 이름 변경
     const {
         prefetch: navigationPrefetch,

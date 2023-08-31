@@ -1,9 +1,8 @@
 'use client'
 import axios from 'axios';
-import React, {useState} from "react";
+import React, {useCallback, useState} from "react";
 import styles from "@/components/Dashboard/User/Account.module.scss";
 import toCamelCase from '@/utils/stringUtils';
-import useErrorHandler from "@/hooks/useErrorHandler";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCheck, faPen, faXmark} from "@fortawesome/free-solid-svg-icons";
 import {AccountDetail, UserDataProps} from "@/types/Account";
@@ -14,8 +13,11 @@ import {useSession} from "next-auth/react";
  * user : 사용자 정보
  * accountDetails : 사용자 계정 세부 정보  */
 const AccountContainer = ({ user, accountData }: UserDataProps): JSX.Element => {
-    const {handleError} = useErrorHandler();
     const { data: session } = useSession();
+
+    const handleError = useCallback((error: Error) => {
+        console.error("An error occurred:", error);
+    }, []);
 
     /* 활성화된 <input> 요소의 id를 추적하는 State */
     const [editActiveId, setEditActiveId] = useState<number | null>(null);
@@ -70,6 +72,8 @@ const AccountContainer = ({ user, accountData }: UserDataProps): JSX.Element => 
             handleError(error as Error);
         }
     };
+
+
 
     /* 렌더링 */
     return (

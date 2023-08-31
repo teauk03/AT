@@ -6,9 +6,9 @@
   width: 100%;
   height: auto;
   margin-bottom: 2rem;
-  z-index: 100;
   background: variables.$base-background-main;
   transition: background 0.5s;
+  z-index: 100;
 
   .nav {
     max-width: 1440px;
