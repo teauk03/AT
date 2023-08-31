@@ -1,0 +1,17 @@
+@use 'src/styles/variables';
+@use 'src/styles/Breakpoints';
+@use "sass:map";
+
+@mixin center-horizontally {
+  display: inline-block;
+  margin-block-start: auto;
+  margin-inline-end: auto;
+  margin-block-end: auto;
+  margin-inline-start: auto;
+}
+
+@mixin center-vertically {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
