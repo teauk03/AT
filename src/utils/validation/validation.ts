@@ -5,6 +5,10 @@ const hasMinLength = (value: string, minLength: number): boolean => {
 
 /* 이름, 닉네임, 휴대폰 번호, 비밀번호의 공백을 검사 */
 const isFieldNotEmpty = (field: string): boolean => {
+    if (field === undefined || field === null) {
+        return false;
+    }
+
     return field.trim() !== "";
 };
 
