@@ -45,10 +45,10 @@ const ForumPage = ({path}: {path: string}) => {
             {/* 커뮤니티 네비게이션 */}
             <LeftNavBar/>
 
-            <ul className={styles['forum-item-container']}>
+            <ul className={styles['main-item-container']}>
                 {posts.map((post, index) => (
                     /* 게시물 렌더링 */
-                    <li key={index} className={styles['forum-list']}>
+                    <li key={index} className={styles['main-list']}>
                         {/* User Title */}
                         <div className={styles['author-wrap']}>
                             <SvgIconComponent

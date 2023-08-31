@@ -40,7 +40,7 @@ type SearchCondition = {
  * @returns {JSX.Element} 검색 결과.
  */
 const Search = async (query: Query) => {
-    const db = (await connectDB).db("forum");
+    const db = (await connectDB).db("main");
     const searchType = query.searchParams.type;
     const searchQuery = query.searchParams.q;
 

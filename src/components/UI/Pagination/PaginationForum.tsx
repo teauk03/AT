@@ -41,7 +41,7 @@ const PaginationForum = ({path}: pathTypeProps) => {
     };
 
     return (
-        <div className={styles['forum-footer']}>
+        <div className={styles['main-footer']}>
             <button className={styles['move-btn']} onClick={handlePreviousPage} disabled={currentPage === 1}>
                 <SvgIconComponent width={20} height={20} svgPath={'M11.25 9l-3 3m0 0l3 3m-3-3h7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z'} />
             </button>

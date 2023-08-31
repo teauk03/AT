@@ -12,7 +12,7 @@ const WriteButton = () => {
     return (
         <>
             {/* Create Write : Routing(../write) */}
-            <Link className={styles['forum-link-button']} href={'/write'} onClick={handleNewPostOnClick}>
+            <Link className={styles['main-link-button']} href={'/write'} onClick={handleNewPostOnClick}>
                 <IoCreateOutline/>
                 <span>글작성</span>
             </Link>

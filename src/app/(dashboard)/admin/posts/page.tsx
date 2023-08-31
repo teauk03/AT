@@ -9,7 +9,7 @@ const AdminForumManagement =  async () => {
     if (adminCheckResult) return adminCheckResult;
 
     /* DB 쿼리 */
-    const {results} = await getConnectServerDb("forum", "post", 5);
+    const {results} = await getConnectServerDb("main", "post", 5);
     if (!results) return <LoadingForum/>
     return <ForumContainer title={'Posts Management'} results={results}/>
 };

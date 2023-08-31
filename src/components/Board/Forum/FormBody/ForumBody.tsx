@@ -12,7 +12,10 @@ type Result = {
 
 /* 작성글 출력 컴포넌트 */
 const ForumBody = ({ path, href }: pathTypeProps) => {
-    const [result, setResult] = React.useState<Result | null>(null);
+    const [
+        result,
+        setResult
+    ] = React.useState<Result | null>(null);
 
     useEffect(() => {
         const fetchData = async () => {

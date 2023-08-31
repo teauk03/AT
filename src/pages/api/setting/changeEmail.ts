@@ -9,7 +9,7 @@ const handler = async (request: NextApiRequest, response: NextApiResponse) => {
             email: request.body.email
         }
 
-        const db = (await connectDB).db('forum');
+        const db = (await connectDB).db('main');
         const result = await db.collection('user_card')
             .updateOne(
                 {_id: requestBody._id},

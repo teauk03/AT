@@ -9,9 +9,17 @@ import RentModal from "@/components/Reserve/Rent/Modal/RentModal";
 import {UserProfileData} from "@/types/Account";
 
 const RentContainer: React.FC<UserProfileData> = ({ user }) => {
-    const [showModal, setShowModal] = useState<boolean>(false);
-    const [selectedDay, setSelectedDay] = useState<Date | null>(null);
-    const [selectedTime, setSelectedTime] = useState<string | null>(null);
+    const [
+        showModal,
+        setShowModal
+    ] = useState<boolean>(false);
+    const [
+        selectedDay,setSelectedDay
+    ] = useState<Date | null>(null);
+    const [
+        selectedTime,
+        setSelectedTime
+    ] = useState<string | null>(null);
 
     /* 쿼리스트링을 사용해 동적 라우팅 : 게임의 타이틀 */
     const searchParams = useSearchParams();

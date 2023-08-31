@@ -28,7 +28,6 @@
 
     display: flex;
     flex-grow: 1;
-    /*display: none;*/
     animation: slide .6s both;
 
     /* [Section] 상세페이지 아이템 */
@@ -167,6 +166,7 @@
 
     /* 게임 설명 */
     .game-explain {
+      margin-top: 20px;
       background-color: var(--header-bg-color);
       border-radius: 0 0 8px 8px;
 
@@ -213,6 +213,16 @@
           display: flex;
           align-items: center;
           margin-left: auto;
+
+          .toggle_btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+
+            &:last-child {
+              margin-left: .5rem;
+            }
+          }
 
           svg {
             width: 32px;

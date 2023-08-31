@@ -7,7 +7,7 @@ Error: Invalid CSS after "...solid variables": expected ";", was ".$border-color
 13:   .content-title {
 14:     display: flex;
 15:     justify-content: space-between;
-16:     border-bottom: 2px solid variables.$border-color-forum;
+16:     border-bottom: 2px solid variables.$border-color-main;
 17: 
 18:     h2 {
 19:       margin-bottom: .5rem;

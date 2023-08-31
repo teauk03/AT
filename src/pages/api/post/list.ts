@@ -8,14 +8,14 @@ const listPosts = async (req: NextApiRequest, res: NextApiResponse) => {
          * limit : 페이지당 아이템 수 (기본값: 10) */
         const page = Number(req.query.page) || 1;
         const posts = await getAllPostsFromForum({
-            databaseName: 'forum',
+            databaseName: 'main',
             collectionName: 'post',
             page,
         });
 
 
         /* 전체 게시물 수를 계산. */
-        const db = (await connectDB).db("forum");
+        const db = (await connectDB).db("main");
         const totalPosts = await db.collection('post').countDocuments();
         res.status(200).json({posts, totalPosts});
 

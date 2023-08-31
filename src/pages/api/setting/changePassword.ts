@@ -14,7 +14,7 @@ const handler = async (request: NextApiRequest, response: NextApiResponse) => {
         }
 
         // DB 연결 및 사용자 찾기
-        const db = (await connectDB).db('forum');
+        const db = (await connectDB).db('main');
         const user = await db.collection('user_card').findOne({ _id: new ObjectId(_id) });
 
         // 현재 비밀번호 확인

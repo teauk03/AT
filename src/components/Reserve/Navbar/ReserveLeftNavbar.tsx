@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from "@/app/(reserve)/reserve/home/ReserveHome.module.scss";
 import GAME_NAVIGATION from '@/data/Game/data-game-navigation.json';
 import {GameNavigation} from "@/types/Reserd";
 
-const ReserveNavbar = () => {
+const ReserveLeftNavbar = () => {
     const GAME_NAVIGATION_JSON = JSON.stringify(GAME_NAVIGATION);
     const PARSED_GAME_LIST = JSON.parse(GAME_NAVIGATION_JSON);
 
@@ -15,7 +15,11 @@ const ReserveNavbar = () => {
                 {/* 사이드 체크 박스 */}
                 {PARSED_GAME_LIST.GAME_KONAMI.map((game: GameNavigation, index: number) => (
                     <div key={index} className={styles['type-container']}>
-                        <input type="checkbox" id={game.id} className={styles['game-style']}/>
+                        <input
+                            className={styles['game-style']}
+                            type="checkbox"
+                            id={game.id}
+                        />
                         <label htmlFor={game.id}>{game.label}</label>
                         <span className={styles['game-number']}>{game.count}</span>
                     </div>
@@ -67,4 +71,4 @@ const ReserveNavbar = () => {
     );
 };
 
-export default ReserveNavbar;
+export default ReserveLeftNavbar;

@@ -9,7 +9,7 @@ const useDeletePost = () => {
         try {
             const response = await axios.post('/api/post/delete', { _id });
             //console.log('response : ', response)
-            if (response.status === 200) router.push('/forum');
+            if (response.status === 200) router.push('/main');
             else throw new Error(response.data.error);
 
         } catch (error) {

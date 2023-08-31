@@ -30,7 +30,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     try {
-        const db = (await connectDB).db("forum");
+        const db = (await connectDB).db("main");
         /* Insert into the "inquiry" collection */
         await db.collection('inquiry').insertOne({
             user_id: session.user._id,

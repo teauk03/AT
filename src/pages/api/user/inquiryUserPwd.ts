@@ -6,7 +6,7 @@ const handlerInquiryResetPassword = async (request: NextApiRequest, response: Ne
     const { email, name, birth } = request.body;
 
     try {
-        const db = (await connectDB).db('forum');
+        const db = (await connectDB).db('main');
         const userCollection = db.collection('user_card');
 
         const user = await userCollection.findOne({ email, name, birthdate: birth });

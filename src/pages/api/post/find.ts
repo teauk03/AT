@@ -10,14 +10,14 @@ const handlerFindPosts = async (req: NextApiRequest, res: NextApiResponse) => {
         const division = req.query.division as string;
 
         const posts = await getAllPostsFromForum({
-            databaseName: 'forum',
+            databaseName: 'main',
             collectionName: 'post',
             filter: division,
             page,
         });
 
         /* 전체 게시물 수를 계산. */
-        const db = (await connectDB).db("forum");
+        const db = (await connectDB).db("main");
         const result = await db.collection('post').find({ division }).toArray();
         const totalPosts = result.length;
         res.status(200).json({posts, totalPosts});

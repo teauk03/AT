@@ -21,7 +21,7 @@ const handleSearchPostsEndpoint = async (req: NextApiRequest, res: NextApiRespon
                 return;
             }
 
-            const db = (await connectDB).db("forum");
+            const db = (await connectDB).db("main");
 
             /* 검색 쿼리 생성 */
             let query: IQuery = {

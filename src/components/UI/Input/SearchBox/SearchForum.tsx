@@ -47,7 +47,7 @@ const SearchForum = () => {
         <form onSubmit={onSearch} className={styles['search-box']}>
             {/* 검색 유형 선택 */}
             <select
-                className={styles['forum-footer-select']}
+                className={styles['main-footer-select']}
                 name="title"
                 id="title"
                 value={searchType}
@@ -60,14 +60,14 @@ const SearchForum = () => {
 
             {/* 검색 입력 */}
             <input
-                className={styles['forum-footer-input']}
+                className={styles['main-footer-input']}
                 type="text"
                 value={searchQuery || ''}
                 onChange={(e) => setSearchQuery(e.target.value)}
             />
 
             {/* 검색 버튼 */}
-            <button className={styles['forum-search-button']}>
+            <button className={styles['main-search-button']}>
                 <SvgIconComponent width={20} height={20} svgPath={'M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z'}/>
             </button>
         </form>

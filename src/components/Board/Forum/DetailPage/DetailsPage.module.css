@@ -8,7 +8,7 @@ Error: Invalid CSS after "...ound: variables": expected ";", was ".$base-color-w
 47:         display: none;
 48:         position: absolute;
 49:         background: variables.$base-color-white;
-50:         border: 1px solid variables.$border-color-forum;
+50:         border: 1px solid variables.$border-color-main;
 51:         border-radius: .5rem;
 52:         top: 20px;
 53:         right: 0;

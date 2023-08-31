@@ -32,9 +32,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse): Promise<NextA
 
 
         try {
-            const db: Db = (await connectDB).db("forum");
+            const db: Db = (await connectDB).db("main");
             let result = await db.collection('comment').insertOne(saveCommentData)
-            return res.status(200).redirect(302, '/forum')
+            return res.status(200).redirect(302, '/main')
 
 
         } catch (err) {

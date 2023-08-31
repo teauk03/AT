@@ -12,7 +12,7 @@ const handlerUserEditInfo = async (request: NextApiRequest, response: NextApiRes
         const { name, birth } = request.body;
 
         try {
-            let db = (await  connectDB).db('forum');
+            let db = (await  connectDB).db('main');
 
             /* 데이터 베이스에서 유저 고유 ID 조회 */
             const existingUser = await db.collection('user_card').findOne({ _id: new ObjectId(id as string)});

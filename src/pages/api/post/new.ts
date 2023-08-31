@@ -53,7 +53,7 @@ const handler = async (request: NextApiRequest, response: NextApiResponse) => {
     }
 
     try {
-        const db = (await connectDB).db("forum");
+        const db = (await connectDB).db("main");
         await db.collection('post').insertOne({
             userName: session.user.name, title, content, division_title, division
         });

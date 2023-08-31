@@ -13,261 +13,261 @@
   img {
     max-width: 100%;
   }
+}
 
-  /* [div] 예약페이지 컨테이너 */
-  .reserve-container {
+/* [div] 예약페이지 컨테이너 */
+.reserve-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  scroll-behavior: smooth;
+  padding: 30px 40px;
+  overflow: auto;
+
+  /* nav - 검색 네비게이션 */
+  .search-menu {
     width: 100%;
+    height: 56px;
+    margin-bottom: 2rem;
+    padding-left: 20px;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
-    scroll-behavior: smooth;
-    padding: 30px 40px;
-    overflow: auto;
+    flex-shrink: 0;
+    white-space: nowrap;
+    align-items: center;
+    background: variables.$bg-color-white;
+    border-radius: 8px;
 
-    /* nav - 검색 네비게이션 */
-    .search-menu {
-      width: 100%;
-      height: 56px;
-      margin-bottom: 2rem;
-      padding-left: 20px;
-      display: flex;
-      flex-direction: column;
-      flex-shrink: 0;
-      white-space: nowrap;
-      align-items: center;
-      background: variables.$bg-color-white;
-      border-radius: 8px;
-
-      .search-box:focus {
-        outline: none;
-      }
-
-      div:not(:last-of-type) {
-        border-right: 1px solid variables.$search-border-color;
-      }
+    .search-box:focus {
+      outline: none;
     }
 
-    /* [section] 메인 컨텐츠 컨테이너 */
-    .main-container {
-      display: flex;
-      flex-grow: 1;
-      padding-top: 30px;
+    div:not(:last-of-type) {
+      border-right: 1px solid variables.$search-border-color;
+    }
+  }
+}
 
-      /* aside - 사이드 메뉴 */
-      .search-type {
-        width: 270px;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        flex-shrink: 0;
+/* [section] 메인 컨텐츠 컨테이너 */
+.main-container {
+  display: flex;
+  flex-grow: 1;
+  padding-top: 30px;
 
-        /* [게임사] 사이드 체크 박스 */
-        .game-time {
-          padding-top: 20px;
+  /* aside - 사이드 메뉴 */
+  .search-type {
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex-shrink: 0;
 
-          &-title {
-            font-size: 14px;
+    /* [게임사] 사이드 체크 박스 */
+    .game-time {
+      padding-top: 20px;
+
+      &-title {
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      /* 사이드 체크 박스 */
+      .game-wrapper {
+        padding-top: 20px;
+
+        .type-container {
+          display: flex;
+          align-items: center;
+          color: variables.$subtitle-color;
+          font-size: 13px;
+
+          label {
+            margin-left: 2px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+          }
+
+          & + & {
+            margin-top: 10px;
+          }
+
+          .game-number {
+            margin-left: auto;
+            background: variables.$inactive-color;
+            color: variables.$subtitle-color;
+            font-size: 10px;
             font-weight: 500;
+            padding: 5px;
+            border-radius: 4px;
           }
 
           /* 사이드 체크 박스 */
-          .game-wrapper {
-            padding-top: 20px;
-
-            .type-container {
-              display: flex;
-              align-items: center;
-              color: variables.$subtitle-color;
-              font-size: 13px;
-
-              label {
-                margin-left: 2px;
-                display: flex;
-                align-items: center;
-                cursor: pointer;
-              }
-
-              & + & {
-                margin-top: 10px;
-              }
-
-              .game-number {
-                margin-left: auto;
-                background: variables.$inactive-color;
-                color: variables.$subtitle-color;
-                font-size: 10px;
-                font-weight: 500;
-                padding: 5px;
-                border-radius: 4px;
-              }
-
-              /* 사이드 체크 박스 */
-              .game-style {
-                display: none;
-              }
-
-              .game-style + label:before {
-                content: "";
-                margin-right: 10px;
-                width: 16px;
-                height: 16px;
-                border: 1px solid variables.$subtitle-color;
-                border-radius: 4px;
-                cursor: pointer;
-              }
-
-              .game-style:checked + label:before {
-                background-color: variables.$active-color;
-                border-color: variables.$active-color;
-                background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' class='feather feather-check'%3e%3cpath d='M20 6L9 17l-5-5'/%3e%3c/svg%3e");
-                background-position: 50%;
-                background-size: 14px;
-                background-repeat: no-repeat;
-              }
-
-              .game-style:checked + label + span {
-                background-color: variables.$active-light-color;
-                color: variables.$active-color;
-              }
-            }
-          }
-        }
-      }
-
-      /* section - 메인 컨텐츠 아이템 섹션 */
-      .searched {
-        &-bar {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          animation: slideY .6s both
-          //display: none;
-        }
-
-        &-show {
-          font-size: 19px;
-          font-weight: 600;
-        }
-
-        &-sort {
-          font-size: 14px;
-          color: variables.$subtitle-color;
-
-          .post-time {
-            font-weight: 600;
-            color: variables.$subtitle-color;
+          .game-style {
+            display: none;
           }
 
-          .menu-icon {
-            font-size: 9px;
-            color: variables.$placeholder-color;
-            margin-left: 6px;
+          .game-style + label:before {
+            content: "";
+            margin-right: 10px;
+            width: 16px;
+            height: 16px;
+            border: 1px solid variables.$subtitle-color;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+
+          .game-style:checked + label:before {
+            background-color: variables.$active-color;
+            border-color: variables.$active-color;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' class='feather feather-check'%3e%3cpath d='M20 6L9 17l-5-5'/%3e%3c/svg%3e");
+            background-position: 50%;
+            background-size: 14px;
+            background-repeat: no-repeat;
+          }
+
+          .game-style:checked + label + span {
+            background-color: variables.$active-light-color;
+            color: variables.$active-color;
           }
         }
       }
     }
   }
 
-  /* article - 예약 리스트 */
-  .game-cards {
-    padding-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 25px;
-    grid-row-gap: 25px;
-    animation: slideY .6s both;
-    //display: none;
-
-    /* Responsive(max-width: 1212px) - 예약 카드 */
-    @media screen and (max-width: 1212px) {
-      grid-template-columns: repeat(2, 1fr);
+  /* section - 메인 컨텐츠 아이템 섹션 */
+  .searched {
+    &-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      animation: slideY .6s both
+      //display: none;
     }
 
-    /* Responsive(max-width: 930px) - 예약 카드 */
-    @media screen and (max-width: 930px) {
-      grid-template-columns: repeat(1, 1fr);
+    &-show {
+      font-size: 19px;
+      font-weight: 600;
     }
 
-    /* 게임 카드 목록 */
-    .gameCard {
-      padding: 20px 16px;
-      background-color: variables.$bg-color-white;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: .2s;
+    &-sort {
+      font-size: 14px;
+      color: variables.$subtitle-color;
 
-      img {
-        width: 300px;
-        height: 200px;
-        margin-bottom: .5rem;
-      }
-
-      &:hover {
-        transform: scale(1.02);
-      }
-
-      svg {
-        width: 46px;
-        padding: 10px;
-        border-radius: 8px;
-      }
-
-      &-title {
+      .post-time {
         font-weight: 600;
-        margin-top: 16px;
-        font-size: 14px;
-      }
-
-      &-subtitle {
         color: variables.$subtitle-color;
-        font-size: 13px;
-        margin-top: 14px;
-        line-height: 1.6em;
       }
 
-      &-header {
-        display: flex;
-        align-items: flex-start;
-
-        .menu-dot {
-          background: variables.$placeholder-color;
-          box-shadow: -6px 0 0 0 variables.$placeholder-color,
-          6px 0 0 0 variables.$placeholder-color;
-          width: 4px;
-          height: 4px;
-          border: 0;
-          padding: 0;
-          border-radius: 50%;
-          margin-left: auto;
-          margin-right: 8px;
-        }
+      .menu-icon {
+        font-size: 9px;
+        color: variables.$placeholder-color;
+        margin-left: 6px;
       }
+    }
+  }
+}
 
-      /* 상세페이지 이동 링크 박스 */
-      .game-card-buttons {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+/* article - 예약 리스트 */
+.game-cards {
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 25px;
+  grid-row-gap: 25px;
+  animation: slideY .6s both;
+  //display: none;
+
+  /* Responsive(max-width: 1212px) - 예약 카드 */
+  @media screen and (max-width: 1212px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Responsive(max-width: 930px) - 예약 카드 */
+  @media screen and (max-width: 930px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  /* 게임 카드 목록 */
+  .gameCard {
+    padding: 20px 16px;
+    background-color: variables.$bg-color-white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .2s;
+
+    img {
+      width: 300px;
+      height: 200px;
+      margin-bottom: .5rem;
+    }
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    svg {
+      width: 46px;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    &-title {
+      font-weight: 600;
+      margin-top: 16px;
+      font-size: 14px;
+    }
+
+    &-subtitle {
+      color: variables.$subtitle-color;
+      font-size: 13px;
+      margin-top: 14px;
+      line-height: 1.6em;
+    }
+
+    &-header {
+      display: flex;
+      align-items: flex-start;
+
+      .menu-dot {
+        background: variables.$placeholder-color;
+        box-shadow: -6px 0 0 0 variables.$placeholder-color,
+        6px 0 0 0 variables.$placeholder-color;
+        width: 4px;
+        height: 4px;
+        border: 0;
+        padding: 0;
+        border-radius: 50%;
+        margin-left: auto;
+        margin-right: 8px;
+      }
+    }
+
+    /* 상세페이지 이동 링크 박스 */
+    .game-card-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 4px;
+
+      /* Link */
+      .card-buttons,
+      .card-buttons-msg {
+        padding: 10px;
         width: 100%;
-        margin-top: 4px;
+        font-size: 12px;
+        text-align: center;
+        cursor: pointer;
+      }
 
-        /* Link */
-        .card-buttons,
-        .card-buttons-msg {
-          padding: 10px;
-          width: 100%;
-          font-size: 12px;
-          text-align: center;
-          cursor: pointer;
-        }
+      .card-buttons {
+        margin-right: 12px;
 
-        .card-buttons {
-          margin-right: 12px;
-
-          &-msg {
-            background: variables.$inactive-color;
-            color: variables.$subtitle-color;
-          }
+        &-msg {
+          background: variables.$inactive-color;
+          color: variables.$subtitle-color;
         }
       }
     }
@@ -317,8 +317,6 @@
   border: none;
 }
 
-
-
 /* 예약카드 정보 버튼 박스 디자인
  * 상세페이지 이동 링크 박스 디자인 */
 .search-buttons {
@@ -331,7 +329,6 @@
   font-size: 13px;
   font-weight: 600;
 }
-
 .search-button {
   height: 55px;
   margin-left: auto;

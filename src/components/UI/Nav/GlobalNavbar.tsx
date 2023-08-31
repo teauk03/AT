@@ -136,69 +136,68 @@ const GlobalNavbar = () => {
                         </>
                     </div>
                 </div>
-
-                {/* 모바일 반응형 메뉴 */}
-                <div className={`${styles.pageSidebar_wrapper} ${styles['pageSidebar_open']}`} onClick={handleClick}>
-                    {!isResponsiveOpen ? (<GiHamburgerMenu/>) : (<MdOutlineCancel/>)}
-                    {isResponsiveOpen && (
-                        <>
-                            {!session &&
-                                <div className={styles['pageSidebar_footer']}>
-                                    <AppLink
-                                        className={`${styles['create-btn']}`}
-                                        href={`/join/`}
-                                        label={'회원가입'}
-                                    />
-                                    <AppLink
-                                        className={styles['create-btn']}
-                                        href={'/login/'}
-                                        label={'로그인'}
-                                    />
-                                </div>
-                            }
-
-                            {session?.user &&
-                                <>
-                                    <div className={styles['pageSidebar_header']}>
-                                        <button>
-                                            <Link href={'/'}>
-                                                <Image src={NavigationLogo} width={220.79} height={17} alt="어택 로고 이미지"/>
-                                            </Link>
-                                        </button>
-                                        <button>
-                                            <MdOutlineCancel/>
-                                        </button>
-                                    </div>
-                                    <div className={styles['pageSideBar_body']}>
-                                        <div className={styles['pageSideBar_menu_list']}>
-                                            <Link className={styles['pageSideBar_menu_link']} href={'/'}>
-                                                링크1
-                                            </Link>
-                                            <Link className={styles['pageSideBar_menu_link']} href={'/'}>
-                                                링크2
-                                            </Link>
-                                            <Link className={styles['pageSideBar_menu_link']} href={'/'}>
-                                                링크3
-                                            </Link>
-                                            <Link className={styles['pageSideBar_menu_link']} href={'/'}>
-                                                링크4
-                                            </Link>
-                                            <Link className={styles['pageSideBar_menu_link']} href={'/'}>
-                                                링크5
-                                            </Link>
-                                        </div>
-                                        <div className={styles['pageSidebar_footer']}>
-                                            <button className={styles['pageSideBar_menu_link']}>
-                                                로그아웃
-                                            </button>
-                                        </div>
-                                    </div>
-                                </>
-                            }
-                        </>
-                    )}
-                </div>
             </nav>
+            {/* 모바일 반응형 메뉴 */}
+            <div className={`${styles.pageSidebar_wrapper} ${styles['pageSidebar_open']}`} onClick={handleClick}>
+                {!isResponsiveOpen ? (<GiHamburgerMenu/>) : (<MdOutlineCancel/>)}
+                {isResponsiveOpen && (
+                    <>
+                        {!session &&
+                            <div className={styles['pageSidebar_footer']}>
+                                <AppLink
+                                    className={`${styles['create-btn']}`}
+                                    href={`/join/`}
+                                    label={'회원가입'}
+                                />
+                                <AppLink
+                                    className={styles['create-btn']}
+                                    href={'/login/'}
+                                    label={'로그인'}
+                                />
+                            </div>
+                        }
+
+                        {session?.user &&
+                            <>
+                                <div className={styles['pageSidebar_header']}>
+                                    <button>
+                                        <Link href={'/'}>
+                                            <Image src={NavigationLogo} width={220.79} height={17} alt="어택 로고 이미지"/>
+                                        </Link>
+                                    </button>
+                                    <button>
+                                        <MdOutlineCancel/>
+                                    </button>
+                                </div>
+                                <div className={styles['pageSideBar_body']}>
+                                    <div className={styles['pageSideBar_menu_list']}>
+                                        <Link className={styles['pageSideBar_menu_link']} href={'/'}>
+                                            링크1
+                                        </Link>
+                                        <Link className={styles['pageSideBar_menu_link']} href={'/'}>
+                                            링크2
+                                        </Link>
+                                        <Link className={styles['pageSideBar_menu_link']} href={'/'}>
+                                            링크3
+                                        </Link>
+                                        <Link className={styles['pageSideBar_menu_link']} href={'/'}>
+                                            링크4
+                                        </Link>
+                                        <Link className={styles['pageSideBar_menu_link']} href={'/'}>
+                                            링크5
+                                        </Link>
+                                    </div>
+                                    <div className={styles['pageSidebar_footer']}>
+                                        <button className={styles['pageSideBar_menu_link']}>
+                                            로그아웃
+                                        </button>
+                                    </div>
+                                </div>
+                            </>
+                        }
+                    </>
+                )}
+            </div>
         </header>
     );
 }

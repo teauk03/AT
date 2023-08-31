@@ -9,7 +9,7 @@ interface DeleteRequestBody {
 const handler = async (request: NextApiRequest, response: NextApiResponse) => {
     if (request.method === 'DELETE') {
         try {
-            const db = (await connectDB).db('forum');
+            const db = (await connectDB).db('main');
             const requestBody: DeleteRequestBody = request.body;
             console.log(request.body)
             /* 사용자 계정 삭제 로직 */

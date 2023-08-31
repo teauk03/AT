@@ -4,7 +4,7 @@ import {connectDB} from "@/utils/mongoDb";
 const handlerInquiryUserId = async (request: NextApiRequest, response: NextApiResponse) => {
     if (request.method === 'POST') {
         try {
-            let db = (await connectDB).db('forum');
+            let db = (await connectDB).db('main');
             const { birth, name } = request.body;
 
             /* Input 공백 여부 검사 */

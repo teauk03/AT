@@ -21,7 +21,7 @@ const handler = async(request: NextApiRequest, response: NextApiResponse)=> {
         const userInformation = { _id: new ObjectId(userId) };
         const dataToChange = request.body;
 
-        const db = (await connectDB).db('forum');
+        const db = (await connectDB).db('main');
         const result = await db.collection('user_card').updateOne(userInformation, { $set: dataToChange });
 
         /* 업데이트된 사용자 정보 다시 조회 */

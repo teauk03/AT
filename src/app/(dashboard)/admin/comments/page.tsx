@@ -9,7 +9,7 @@ const CommentsManagement = async () => {
     if (adminCheckResult) return adminCheckResult;
 
     /* DB 쿼리 */
-    const {results} = await getConnectServerDb("forum", "comment", 20);
+    const {results} = await getConnectServerDb("main", "comment", 20);
     if (!results) return <LoadingForum/>
     return <CommentsContainer title={'Comments Management'} results={results}/>
 };

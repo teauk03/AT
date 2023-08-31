@@ -16,7 +16,7 @@ const handlerRegister = async (request: NextApiRequest, response: NextApiRespons
         console.log(request.body)
 
         try {
-            let db = (await connectDB).db('forum');
+            let db = (await connectDB).db('main');
             /* 닉네임 중복 검사 */
             const existingNickname = await db.collection('user_card').findOne({ nickname });
             if (existingNickname) {

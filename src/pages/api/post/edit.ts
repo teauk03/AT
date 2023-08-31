@@ -10,14 +10,14 @@ const putPostHandler = async (request: NextApiRequest, response: NextApiResponse
             content : request.body.content
         };
 
-        const db = (await connectDB).db("forum")
+        const db = (await connectDB).db("main")
         let result = await db.collection('post')
             .updateOne(
             {_id: new ObjectId(request.body._id)},
             {$set: editNotice}
         );
 
-        return response.status(200).redirect(302, '/forum');
+        return response.status(200).redirect(302, '/main');
     }
 }
 

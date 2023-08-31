@@ -51,8 +51,8 @@ export const authOptions: NextAuthOptions = {
 
             /** 자격증명을 이용한 사용자 인증 ( MongoDb ) */
             async authorize(credentials: any): Promise<any> {
-                /*  forum DB 접근 */
-                let db = (await connectDB).db('forum');
+                /*  main DB 접근 */
+                let db = (await connectDB).db('main');
 
                 /* 자격증명이 없는 경우 (credentials: null || undefined 또는 객체에 email, password 속성이 없는 경우) */
                 if (!credentials) throw new Error("No credentials provided");

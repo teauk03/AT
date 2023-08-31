@@ -6,7 +6,7 @@ const handlerInquiryUserPwd = async (request: NextApiRequest, response: NextApiR
     const { token, newPassword } = request.body;
 
     try {
-        const db = (await connectDB).db('forum');
+        const db = (await connectDB).db('main');
         const userCollection = db.collection('user_card');
 
         const user = await userCollection.findOne({

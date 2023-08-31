@@ -9,7 +9,7 @@ const UserAccountManagement = async () => {
     if (adminCheckResult) return adminCheckResult;
 
     /* DB 쿼리 */
-    const {results} = await getConnectServerDb("forum", "user_card", 10);
+    const {results} = await getConnectServerDb("main", "user_card", 10);
     if (!results) return <LoadingForum/>
     return <UserAccountContainer title={'UserAccount Management'} results={results}/>
 };

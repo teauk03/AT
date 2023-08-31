@@ -5,7 +5,7 @@ import {ObjectId} from "mongodb";
 const handler = async (request: NextApiRequest, response: NextApiResponse) => {
     if (request.method === 'POST') {
         try {
-            const db = (await connectDB).db('forum');
+            const db = (await connectDB).db('main');
             const body = request.body;
 
             let result = await db.collection('post').deleteOne(

@@ -45,7 +45,7 @@ const EditPostContainer: React.FC<EditPostContainerProps> = ({initialTitle, init
 
     const handleCancelConfirm = () => {
         setIsOpen(false);
-        router.push('/forum')
+        router.push('/main')
     };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -69,8 +69,8 @@ const EditPostContainer: React.FC<EditPostContainerProps> = ({initialTitle, init
             setModalContent('Post successfully edited!');
             setIsOpen(true);
 
-            /*After saving, redirect to the forum or the edited post's page*/
-            router.push('/forum')
+            /*After saving, redirect to the main or the edited post's page*/
+            router.push('/main')
 
         } catch (error) {
             console.error(error);

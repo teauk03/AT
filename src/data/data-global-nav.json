@@ -2,81 +2,81 @@
   "ITEMS": [
     {
       "title": "공지",
-      "route": "/announcement",
+      "route": "/community/announcement",
       "subMenu": [
         {
           "title": "Sound Vortex",
-          "route": "/forum"
+          "route": "/community/main"
         }
       ]
     },
     {
       "title": "커뮤니티",
-      "route": "/forum",
+      "route": "/community/main",
       "subMenu": [
         {
           "title": "Konami",
-          "route": "/forum",
+          "route": "/community/main",
           "subMenu": [
             {
               "title": "Sound Vortex",
-              "route": "/forum"
+              "route": "/community/main"
             },
             {
               "title": "beatmania IIDX",
-              "route": "/forum"
+              "route": "/community/main"
             },
             {
               "title": "GITADORA",
-              "route": "/forum"
+              "route": "/community/main"
             },
             {
               "title": "Jubeat",
-              "route": "/forum"
+              "route": "/community/main"
             },
             {
               "title": "Jubeat",
-              "route": "/forum"
+              "route": "/community/main"
             },
             {
               "title": "DanceDanceRevolution",
-              "route": "/forum"
+              "route": "/community/main"
             }
           ]
         },
         {
           "title": "Namco",
-          "route": "/forum",
+          "route": "/community/main",
           "subMenu": [
             {
               "title": "MAIMAI",
-              "route": "/forum"
+              "route": "/community/main"
             },
             {
               "title": "Namco",
-              "route": "/forum"
+              "route": "/community/main"
             },
             {
               "title": "ETC",
-              "route": "/forum"
+              "route": "/community/main"
             }
           ]
         },
         {
           "title": "ETC",
-          "route": "/forum",
+          "route": "/community/main",
           "subMenu": [
             {
               "title": "EZ2AC",
-              "route": "/forum"
+              "route": "/community/main"
             },
             {
               "title": "Namco",
-              "route": "/forum"
+              "route": "/community/main"
             },
             {
               "title": "ETC",
-              "route": "/forum"
+              "route": "/community/main"
             }
           ]
         }

@@ -52,9 +52,9 @@ const ForumWriteContainer = () => {
             return; // 함수 종료 (리다이렉트 없음)
         }
 
-        // 그 외의 경우 forum 페이지로 리다이렉트
+        // 그 외의 경우 main 페이지로 리다이렉트
         closeModal();
-        router.push('/forum');
+        router.push('/main');
     };
 
     /* [Function] handleModalClose : 취소버튼 클릭 핸들러 */
@@ -66,7 +66,7 @@ const ForumWriteContainer = () => {
     /* [Function] handleCancelConfirm : 취소 확인버튼 클릭 핸들러 */
     const handleCancelConfirm = () => {
         closeModal();
-        router.push('/forum');
+        router.push('/main');
     }
 
     /* [Function] handleModalAbort : 모달 취소버튼 클릭 핸들러 */

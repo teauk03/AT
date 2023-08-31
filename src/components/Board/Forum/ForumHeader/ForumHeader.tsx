@@ -8,7 +8,7 @@ const ForumHeader = () => {
     return (
         <div className={styles.forumHeader}>
             <h2 className={styles.headerTitle}>
-                <Link href={'/forum'}>커뮤니티</Link>
+                <Link href={'/main'}>커뮤니티</Link>
             </h2>
             <p className={styles.history}>
                 <Link href={'/'}><AiOutlineHome/></Link>

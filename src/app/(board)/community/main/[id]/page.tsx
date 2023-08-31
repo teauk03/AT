@@ -7,7 +7,7 @@ import fetchCollectionItem from "@/utils/DB/fetchCollectionItem";
 
 const ForumPost = async (props: any): Promise<JSX.Element> => {
     /* fetchCollectionItem : DB 컬렉션을 조회하고 처리 유틸함수 */
-    const { result, USER_SESSION } = await fetchCollectionItem("forum","post", props.params.id);
+    const { result, USER_SESSION } = await fetchCollectionItem("main","post", props.params.id);
     if (!result) return <LoadingForum/>;
 
     return (
