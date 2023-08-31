@@ -1,4 +1,5 @@
 'use client'
+
 import React, {useState} from 'react';
 import styles from "@/app/(reserve)/reserve/home/ReserveHome.module.scss";
 import Image from "next/image";
@@ -8,21 +9,60 @@ import CheckboxList from "@/components/Reserve/Home/CheckboxList/CheckboxList";
 import GAME_CARDS from "@/data/Game/data-game-card.json";
 import GAME_NAVIGATION from "@/data/Game/data-game-navigation.json";
 import {GameCards} from "@/types/Reserd";
+import useCustomRouter from "@/hooks/useCustomRouter";
+
 const ReserveContents = () => {
+    /* 유저가 선택한 게임 상태 */
+    const [
+        selectGames,
+        setSelectGames
+    ] = useState<number[]>([]);
+    console.log('ReserveContents selectGames :', selectGames);
+
+    /* 쿼리스트링에서 검색값 가져오기 */
+    const { query } = useCustomRouter();
+    const searchTerm = String (query.q || "");
+    console.log('ReserveContents searchTerm :', searchTerm)
+
+    /* 가져온 검색값을 기반으로 게임 목록 필터링 */
+    const filteredGames = GAME_CARDS.ITEMS.filter(game => {
+        // 체크박스 필터링
+        if (selectGames.length > 0 && !selectGames.includes(game.game_id)) {
+            return false;
+        }
+
+        // 검색어 필터링
+        if (searchTerm.trim() !== "" && !game.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+            return false;
+        }
+
+        return true;
+    })
+    console.log('filteredGames :', filteredGames)
+
     const GAME_NAVIGATION_JSON = JSON.stringify(GAME_NAVIGATION);
     const PARSED_GAME_LIST = JSON.parse(GAME_NAVIGATION_JSON);
 
-    const [selectGames, setSelectGames] = useState<number[]>([]);
+
+    /**
+     * 체크박스의 체크 유무에 따라 게임 타입을 selectGames 상태에 추가하거나 제거하는 함수
+     * @param e - 체크박스의 change 이벤트 객체
+     * @param gameType - 체크박스와 연결된 게임 타입의 번호
+     */
     const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>, gameType: number) => {
+        // 체크박스 체크시 : setSelectGames 함수를 사용해 selectGames 상태 업데이트
         if (e.target.checked) {
             setSelectGames(prevState => [...prevState, gameType]);
             console.log('handleCheckboxChange: ', selectGames)
+        // 체크 해제시 : 이전상태(prevState)를 가져와서 filter함수를 사용해 선택한 게임 타입을 제외한 새 배열 반환
         } else {
             setSelectGames(prevState => prevState.filter(type => type !== gameType));
             console.log('!handleCheckboxChange: ', selectGames)
         }
     }
 
+
+    /* 렌더링 */
     return (
         <section className={styles['main-container']}>
             {/* aside - 사이드 메뉴 */}
@@ -49,7 +89,10 @@ const ReserveContents = () => {
                 <ReserveHeader/>
                 {/* article - 예약 리스트 */}
                 <article className={styles['game-cards']}>
+{/*
                     {GAME_CARDS.ITEMS.filter(game => selectGames.length === 0 || selectGames.includes(game.game_id)).map((game: GameCards, index: number) => (
+*/}
+                    {filteredGames.map((game: GameCards, index: number) => (
                         <div key={index} className={styles.gameCard}>
                             {/* 게임카드 헤더 */}
                             <div className={styles['game-card-header']}>
