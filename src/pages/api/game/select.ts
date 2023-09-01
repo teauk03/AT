@@ -22,7 +22,7 @@ const selectData = async (
 
     try {
         // 몽고디비 연결
-        const client = await connectDB;
+        const client = (await connectDB);
         const db = client.db('GameScore');
 
         // 게임 데이터 조회

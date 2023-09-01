@@ -21,3 +21,9 @@ export type Image = {
     backgroundColor: string;
     path: string;
 }
+
+export type GameDataResponse = {
+    game: Game;
+    pricing: Pricing;
+    image: Image;
+};
