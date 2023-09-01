@@ -3,17 +3,15 @@
   padding: 1rem 5rem 0;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-}
-.filterMenu li {
-  width: 145px;
-  height: 36px;
-  margin: 0 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #d7def1;
-  border-radius: 50px;
-}
+  flex-wrap: wrap; }
+  .filterMenu li {
+    width: 145px;
+    height: 36px;
+    margin: 0 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #d7def1;
+    border-radius: 50px; }
 
 /*# sourceMappingURL=ForumFilter.module.css.map */

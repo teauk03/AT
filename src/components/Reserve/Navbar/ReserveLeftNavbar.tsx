@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from "@/app/(reserve)/reserve/home/ReserveHome.module.scss";
 import GAME_NAVIGATION from '@/data/Game/data-game-navigation.json';
 import {GameNavigation} from "@/types/Reserd";
@@ -18,10 +18,14 @@ const ReserveLeftNavbar = () => {
                         <input
                             className={styles['game-style']}
                             type="checkbox"
-                            id={game.id}
+                            id={game.id.toString()}
                         />
-                        <label htmlFor={game.id}>{game.label}</label>
-                        <span className={styles['game-number']}>{game.count}</span>
+                        <label htmlFor={game.id.toString()}>
+                            {game.label}
+                        </label>
+                        <span className={styles['game-number']}>
+                            {game.count}
+                        </span>
                     </div>
                 ))}
             </div>
@@ -35,10 +39,18 @@ const ReserveLeftNavbar = () => {
             <div className={styles['game-wrapper']}>
                 {PARSED_GAME_LIST.GAME_NAMCO.map((game: GameNavigation, index: number) => (
                     <div key={index} className={styles['type-container']}>
-                        <input type="checkbox" id={game.id} className={styles['game-style']}/>
+                        <input
+                            type="checkbox"
+                            id={game.id.toString()}
+                            className={styles['game-style']}
+                        />
                         {/*checked={game.checked}*/}
-                        <label htmlFor={game.id}>{game.label}</label>
-                        <span className={styles['game-number']}>{game.count}</span>
+                        <label htmlFor={game.id.toString()}>
+                            {game.label}
+                        </label>
+                        <span className={styles['game-number']}>
+                            {game.count}
+                        </span>
                     </div>
                 ))}
             </div>
@@ -52,9 +64,17 @@ const ReserveLeftNavbar = () => {
             <div className={styles['game-wrapper']}>
                 {PARSED_GAME_LIST.GAME_ETC.map((game: GameNavigation, index: number) => (
                     <div key={index} className={styles['type-container']}>
-                        <input type="checkbox" id={game.id} className={styles['game-style']}/>
-                        <label htmlFor={game.id}>{game.label}</label>
-                        <span className={styles['game-number']}>{game.count}</span>
+                        <input
+                            type="checkbox"
+                            id={game.id.toString()}
+                            className={styles['game-style']}
+                        />
+                        <label htmlFor={game.id.toString()}>
+                            {game.label}
+                        </label>
+                        <span className={styles['game-number']}>
+                            {game.count}
+                        </span>
                     </div>
                 ))}
             </div>

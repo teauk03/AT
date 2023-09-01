@@ -20,7 +20,7 @@ const CheckboxList: React.FC<CheckboxProps> = ({ gameType, gameList, onChange })
                             className={styles['game-style']}
                             type="checkbox"
                             id={game.id.toString()}
-                            onChange={(e) => onChange(e, game.id)}
+                            onChange={(e) => onChange(e, game.id as number)}
                         />
                         <label htmlFor={game.id.toString()}>
                             {game.label}

@@ -5,7 +5,7 @@ const DynamicRoute = ({user}: any) => {
     return (
         <>
             <Link href={{
-                pathname: `/dataweb/dynamicRoute/${user?.name}`,
+                pathname: `/data-test/dynamicRoute/${user?.name}`,
                 query: { name: user?.name }
             }}>
                 Dynamic : {user?.name}

@@ -1,6 +1,6 @@
 /* [ReserveHome] 사이드 체크 박스 */
 export interface GameNavigation {
-    id: number;
+    id: string | number;
     label: string;
     count: number;
     checked: boolean;

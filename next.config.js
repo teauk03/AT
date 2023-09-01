@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const path = require('path');
+const webpack = require('webpack');
 
 const nextConfig = {
     experimental : {
@@ -14,6 +15,13 @@ const nextConfig = {
     images: {
         domains: ['i.namu.wiki', 'www.konami.com'],
     },
+    webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+        config.module.rules.push({
+            test: /data-test\//,
+            loader: 'ignore-loader',
+    });
+        return config;
+    }
 }
 
 module.exports = nextConfig
