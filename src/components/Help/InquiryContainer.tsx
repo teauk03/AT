@@ -23,7 +23,10 @@ const InquiryContainer: React.FC<InquiryContainer> = ({inquiryDescription, btnDe
         const birth = formData.get('birthdate') as string;
 
         try {
-            const response = await axios.post('/api/user/inquiryUserId', {name, birth});
+            const response = await axios.post('/api/user/inquiryUserId', {
+                name,
+                birth
+            });
             setMessage(response.data.success + ' Email: ' + response.data.email);
             alert(response.data.success + ' Email: ' + response.data.email);
         } catch (error) {
