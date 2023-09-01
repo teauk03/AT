@@ -2,11 +2,9 @@
 @use '@/styles/variables';
 
 .main {
-  //max-width: 1440px;
   position: relative;
 
   .contents {
-    //width: 1100px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -18,11 +16,13 @@
   text-align: center;
   padding: 20px 0;
   background-color: #f9f9f9;
+
   a {
     font-size: 20px;
     color: #007bff;
     text-decoration: none;
     cursor: pointer;
+
     &:hover {
       text-decoration: underline;
     }
